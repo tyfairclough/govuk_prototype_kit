@@ -1,0 +1,27 @@
+{% extends "layouts/layout.html" %}
+
+{% block content %}
+
+	<main id="content">
+		
+		<h1 class="heading-xlarge">{{ currentApp.title }}</h1>
+		
+		<p class="lede">Details of this prototype.</p>
+		
+		{% block description %}
+			<p>The contents of <span class="mono-inline">{% raw %}{% block descrition %}{% endblock %}{% endraw %}</span> will be outputted here</p>
+		{% endblock %}
+		
+		<h3 class="heading-medium">Technical details</h3>
+		
+		<ul class="list-bullet list-block">
+			<li>Node/Express routes file location: <span class="mono-inline">{{ currentApp.filePaths.routesFile }}</span></li>
+			<li>Layouts are located: <span class="mono-inline">{{ currentApp.filePaths.layoutsDir }}</span></li>
+			<li>'Sub application' specific data can be accessed in the templates with <span class="mono-inline">{% raw %}{{ currentApp }}{% endraw %}</span></li>
+			<li>Session data can be accessed in the templates with <span class="mono-inline">{% raw %}{{ session }}{% endraw %}</span></li>
+			<li>'Post' data can be accessed in the templates with <span class="mono-inline">{% raw %}{{ postData }}{% endraw %}</span></li>
+		</ul>
+		
+	</main>
+	
+{% endblock %}
