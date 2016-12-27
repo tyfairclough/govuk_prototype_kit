@@ -69,7 +69,8 @@ let getSubAppData = function(currentPath) {
 			subAppDir: path.dirname(computedPath),
 			layoutsDir: path.dirname(computedPath) + '/layouts/',
 			includesDir: path.dirname(computedPath) + '/includes/',
-			coreLayoutsDirPathRel: path.relative(path.dirname(currentPath + '/layouts/'), __dirname + '/views/layouts/')
+			coreLayoutsDirPathRel: path.relative(path.dirname(currentPath + '/layouts/'), __dirname + '/views/layouts/'),
+			configFile: path.dirname(computedPath) + '/config.js'
 		},
 		
 		// route strings
