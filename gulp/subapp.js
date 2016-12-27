@@ -31,7 +31,7 @@ gulp.task('subapp-sass', function () {
 })
 
 gulp.task('watch-subapp-sass', function(){
-  return gulp.watch('app/views/**/*.scss', {cwd: './'}, ['subapp-sass'])
+  return gulp.watch('app/views/apps/**/*.scss', {cwd: './'}, ['subapp-sass'])
 })
 
 /**

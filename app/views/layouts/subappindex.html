@@ -4,13 +4,20 @@
 
 	<main id="content">
 		
-		<h1 class="heading-xlarge">{{ currentApp.title }}</h1>
-		
-		<p class="lede">Details of this prototype.</p>
+		<h1 class="heading-xlarge">
+			{{ currentApp.title }}
+			<span class="heading-secondary">Details of this prototype</span>
+		</h1>
 		
 		{% block description %}
-			<p>The contents of <span class="mono-inline">{% raw %}{% block descrition %}{% endblock %}{% endraw %}</span> will be outputted here</p>
+			<p class="lede">The contents of <span class="mono-inline">{% raw %}{% block descrition %}{% endblock %}{% endraw %}</span> will be outputted here</p>
 		{% endblock %}
+		
+		<hr>
+		
+		<p><a href="{{ currentApp.startURL | d('views/') }}" class="button button-start">Launch Prototype</a></p>
+		
+		<hr>
 		
 		<h3 class="heading-medium">Technical details</h3>
 		

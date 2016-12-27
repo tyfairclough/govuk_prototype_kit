@@ -1,3 +1,9 @@
-{% macro demo(demo) %}
-	<p>macro works!</p>
+{% macro subapps_list(subapps) %}
+	{% if subapps.length %}
+		<ul class="list-bullet">
+		{% for subapp in subapps %}
+			<li><a href="{{ subapp.urlPaths.appRoot }}">{{ subapp.title }}</a></li>
+		{% endfor %}
+		</ul>
+	{% endif %}
 {% endmacro %}
