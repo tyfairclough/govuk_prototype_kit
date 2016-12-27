@@ -13,7 +13,6 @@ module.exports = function(router, config) {
   router.all([config.route.page, config.route.root + '**/*'], function(req,res,next){
     
 		/* do stuff to all subapp app pages here */
-		console.log("all pages!");
 		
     next()
   
@@ -25,7 +24,6 @@ module.exports = function(router, config) {
 	// called 'sprint1' then the output would be
 	// /apps/sprint1/views/index
 	router.all(config.route.root + 'index', function(req,res,next){
-		console.log('This is the index page!')
 		next()
 	})
 

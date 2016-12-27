@@ -12,7 +12,7 @@ const sentenceCase = require('sentence-case')
 let subApps = new Array()
 
 /**
- * massages a data object from a given path of a routes file
+ * assembles an object from a given path of a routes file
  * @method getSubAppData
  * @param  {string}       path the system path of the routes file passed in
  * @return {object}            data derrived from the routes file and it's path
