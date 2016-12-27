@@ -39,6 +39,19 @@ $path: "/public/images/";
   font-size: 0.85em;
 }
 
+.mono-block {
+	font-family: courier, mono;
+	display: block;
+	background: $grey-4;
+	padding: 1em;
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: $green;
+  font-size: 1em;
+	overflow: auto;
+}
+
 .list-block {
 	margin-bottom: 1.5em;
   li:not(:last-of-type) {

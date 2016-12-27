@@ -3,23 +3,52 @@
 {% block content %}
 
 	<main id="content">
-		
-		<p><a href="/" class="link-back">Back</a></p>
-		
-		<h1 class="heading-xlarge">
-			{{ currentApp.title }}
-			<span class="heading-secondary">Details of this prototype</span>
-		</h1>
-		
-		{% block description %}
-			<p class="lede">The contents of <span class="mono-inline">{% raw %}{% block descrition %}{% endblock %}{% endraw %}</span> will be outputted here</p>
-		{% endblock %}
-		
-		<hr>
-		
-		<p><a href="{{ currentApp.startURL | d('views/') }}" class="button button-start">Launch Prototype</a></p>
-		
-		<hr>
+			
+	  <div class="grid-row">
+	    <div class="column-two-thirds">
+				
+			<p><a href="/" class="link-back">Back</a></p>
+				
+			<h1 class="heading-xlarge">
+				{{ currentApp.title }}
+				<span class="heading-secondary">Details of this prototype</span>
+			</h1>
+
+			{% block description %}
+				<h2 class="heading-medium">Description</h2>
+				<p>To add your own description edit: <span class="mono-inline">{{ currentApp.filePaths.subAppDir }}/index.html</span>. The contents of the description 'block' will be displayed here.<p>
+				<h3 class="heading-small">For example</h3>
+				<p><div class="mono-block">
+					<div>
+					{% filter escape %}
+					{% raw %}
+					{% block description %}
+					{% endraw %}
+					{% endfilter %}
+					</div>
+					<div>
+					{% filter escape %}
+					{% raw %}
+						<p>Your content</p>
+					{% endraw %}
+					{% endfilter %}
+					</div>
+					<div>
+					{% filter escape %}
+					{% raw %}
+						{% endblock %}
+					{% endraw %}
+					{% endfilter %}
+					</div>
+				</div></p>
+			{% endblock %}
+			
+			<br>
+			
+			<p><a href="{{ currentApp.startURL | d('views/') }}" class="button button-start">Launch Prototype</a></p>
+
+	    </div>
+	  </div>
 		
 		<h3 class="heading-medium">Technical details</h3>
 		
