@@ -31,6 +31,6 @@
 	{{ super() }}
 	{# a block specifically for page scripts that adds the supapp js. #}
 	{% block page_scripts %}
-		<script src="{{ currentApp.urlPaths.scriptsPath + currentApp.config.jsFile | d('subapp.js') }}" charset="utf-8"></script>
+		<script src="{{ currentApp.urlPaths.scriptsPath + currentApp.config.jsFile | d('sub-application.js') }}" charset="utf-8"></script>
 	{% endblock %}
 {% endblock %}

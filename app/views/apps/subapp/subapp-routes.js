@@ -1,5 +1,3 @@
-const _ = require('lodash')
-
 /**
  * routes function for this particular 'subapp'
  * @method exports
