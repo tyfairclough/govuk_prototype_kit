@@ -1,5 +1,7 @@
-var express = require('express')
-var router = express.Router()
+//var express = require('express')
+//var router = express.Router()
+const express = require('express')
+const router = express.Router()
 var path = require('path')
 var config = require(path.join(__dirname + '/config.js'))
 
