@@ -1,19 +1,5 @@
-{% extends "layouts/subappindex.html" %}
-
-{% block page_title %}
-  Sprint {{sprint}} - Dashboard
-{% endblock %}
-
-{% block inside_header %}
-
-{% endblock %}
-
-{% block after_header %}
-
-{% endblock %}
-
-
-{% block content %}
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
 
 <main class="account-dashboard-7" id="content" role="main" tabindex="-1">
 
@@ -35,7 +21,7 @@ Email changed         </h2>
            <p>You've changed your email address to <span class="user-email bold-small">john@tesco.co.uk</span> </p>
         </div>
     
-   <section id="welcome" class="info-summary hidden">
+   <section id="welcome" class="info-summary">
                         <div class="text hgroup">
         <h2 class="heading-xlarge">Hi <span class="user-name">Sam</span>, welcome  to your new digital account</h2>
        <p>Follow these steps to set up your account.</p>
@@ -47,9 +33,9 @@ Email changed         </h2>
                     <section id="add-paye">
                         <div class="todo">
                             <h3 class="heading-medium">Step 1 of 4</h3>
-                            <form class="inline">
+                            <form class="">
                               <div action="#">
-                                <fieldset>
+                                <fieldset class="form-group">
 
                                   <legend class="heading-small">Add more PAYE schemes now?</legend>
                                     <p>This allows your schemes' levy funds to be paid into your account.</p>
@@ -302,91 +288,19 @@ Your agreement needs to be signed before you can spend funds. <a href="/sprint/{
 
             </div>
 
-
-            <div id="tab-2" class="tab-content" style="display:none;">
-
-
-            <div class="timeline">
-
-            <div class="body">
-              <div><span style="">Today</span><br>1 transfer request<br><span style="">At 1:25pm</span><br><a href="/sprint/{{sprint}}/account/finance/failed-payments-2">See details</a></div>
-            </div>
-                
-            <div class="body">
-              <div><span style="">Today</span><br>1 levy transfer pending<br><span style="">At 1:25pm</span><br><a href="/sprint/{{sprint}}/account/finance/failed-payments-2">See details</a></div>
-            </div>
-            <div class="body hidden">
-              <div><span style="">Today</span><br>2 payments failed<br><span style="">At 1:25pm</span><br><a href="/sprint/{{sprint}}/account/finance/failed-payments-2">See details</a></div>
-            </div>
-
-            <div class="body">
-                <div><span style="">Yesterday</span><br>2 apprentice changes approved<br><span style="">At 3:34pm by Pete Kowalczyk</span><br><a href="/sprint/{{sprint}}/account/apprentices/manage-2">See details</a></div>
-            </div>
-
-            <div class="body">
-              <div><span style="">17 June 2018</span><br>2 apprentice changes requested <br><span style="">At 3.34pm by Acme Training ltd</span><br><a href="#" onclick="demoAlert('This link is coming soon')">See details</a></div>
-            </div>
-
-            <div class="body">
-              <div><span style="">15 June 2018</span><br>Cohort approved: Acme Training ltd<br><span style="">At 5:34pm by Sarah Thomson</span><br><a href="#" onclick="demoAlert('This link is coming soon')">See details</a></div>
-            </div>
-
-            <div class="body hidden">
-              <div><span style="">14 June 2018</span><br>Cohort request made<br><span style="">At 3:34pm by Acme Training ltd</span><br><a href="">See details</a></div>
-            </div>
-
-            <div class="body hidden">
-              <div><span style="">12 June 2018</span><br>Levy payment received <br><span style="">At 3:34pm</span><br><a href="">See details</a></div>
-            </div>
-
-            <div class="body">
-            <div><a href="/sprint/{{sprint}}/account/dashboard/activity-3.html">See all activity</a></div>
-
-            </div>
-
-            </div>
-
-
-
-        </div>
         </div>
 
         </div>
     </div>
     
     <section class="text">
-                <div class="panel panel-filled">
+                <div class="panel">
                     <h3 class="bold-medium">Help us improve this site</h3>
                     <p><a href="https://www.surveymonkey.co.uk/r/2JPLQ9T" target="_blank">Take our 3 minute survey</a> so that we can improve the service.</p>
                     <p><a href="https://www.surveymonkey.co.uk/r/2JPLQ9T" target="_blank" class="button">Take the survey <span class="vh">so that we can improve the service</span></a></p>
                 </div>
             </section>
 </section>
-    <script>
-        $("document").ready(function(){
-           $("i").click(function(e){
-               e.preventDefault();
-               $("#welcome").hide();
-           })
-            
-        });
-    </script>
-
-            <script>
-
-            $(document).ready(function() {
-            $(".tabs-menu a").click(function(event) {
-            event.preventDefault();
-            $(this).parent().addClass("current");
-            $(this).parent().siblings().removeClass("current");
-            var tab = $(this).attr("href");
-            $(".tab-content").not(tab).css("display", "none");
-            $(tab).fadeIn();
-            });
-            });  
-
-            </script>
-
 
 </main><!-- / #content -->
 {% endblock %}

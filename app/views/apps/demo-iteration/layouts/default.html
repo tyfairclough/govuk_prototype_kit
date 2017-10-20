@@ -16,15 +16,11 @@
 {% endblock %}
 
 {% block content %}
-	<main id="content">
-		{# 
-			a block to ensure the pages are always wrapped in the main content
-			element. override content block if you don't want this.
-		#}
+  {% include "../includes/header-nav.html" %}
+
 		{% block main_content %}
 			<p>lorem</p>
 		{% endblock %}
-	</main>
 {% endblock %}
 
 {% block body_end %}
