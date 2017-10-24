@@ -36,21 +36,21 @@ Manage apprenticeships
         <input class="form-control" type="password"> 
         </div>
         <div class="form-group">
-        <a href="./account/index" class="button">Sign in</a>
+        <a href="/apps/{{currentApp.appDirName}}/views/account/index" class="button">Sign in</a>
         </div>
         </form>
         <h2 class="heading-small">Problems signing in?</h2>
         <ul class="list list-links">
-        <li>        <a href="#">Forgotten your password?</a>
+        <li>        <a href="/apps/{{currentApp.appDirName}}/views/user/forgot-your-password">Forgotten your password?</a>
         </li>
-        <li>        <a href="#">Reset your password?</a>
+        <li>        <a href="/apps/{{currentApp.appDirName}}/views/user/reset-your-password">Reset your password?</a>
         </li>
         </ul>
     </div>     
      <div class="column-two-thirds">
          <h3 class="heading-large">Create my organisation's new levy account</h3>
          <p>You need the Government Gateway login details for your PAYE schemes. </p>
-         <a id="register" class="" href="/sprint/{{sprint}}/onboarding/before-you-start">Create my organisation's new levy account - I'll be the account owner</a>
+         <a id="register" class="" href="/apps/{{currentApp.appDirName}}/views//onboarding/before-you-start">Create my organisation's new levy account - I'll be the account owner</a>
     <h3 class="heading-medium">Before you start</h3>
         <p><a href="https://www.gov.uk/government/publications/apprenticeship-levy-how-it-will-work/apprenticeship-levy-how-it-will-work">Find out about the apprenticeship levy</a> and <a href="#">find out how you can use apprenticeship levy service</a>.</p>
         

@@ -81,6 +81,9 @@ $dot-diameter: 8px;
 .header-inner {
 	@extend #content;
 	padding: 0;
+    h2 {
+        margin-top:10px;
+    }
 }
 
 .global-header-bar {
