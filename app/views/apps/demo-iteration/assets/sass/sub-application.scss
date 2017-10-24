@@ -19,31 +19,24 @@ $dot-diameter: 8px;
 
 /*----- alpha/beta banner -------*/
 
+
 .phase-banner {
         &.alpha {
             .phase-tag {
             background: $beta-colour
             }
-        }
-        &.beta {
-            .phase-tag {
-            background-color: $govuk-blue;
-            }
         } 
-        &.prototype {
+        &.prototype, &.discovery {
             .phase-tag {
-                background-color: $focus-colour;
+                background-color: $fuschia;
             }            
         }      
     }
-
-
-
 /*----- global header -------*/
 
 
 
-#global-header-bar, #global-cookie-message p, #footer .footer-wrapper {
+#global-header-bar, #global-cookie-message p {
     max-width: 100%;
 }
 
@@ -644,7 +637,13 @@ nav.global-nav ul {
     border-top-color: $govuk-blue;
     border-top-style: solid;
     border-top-width: 10px;
-    margin-top: 20px;
+    margin-top: 15px;
+}
+
+@include media(tablet){
+    .related {
+            margin-top: 44px;
+    }
 }
 
 
@@ -2291,7 +2290,6 @@ dl {
 /*----- select2 js -------*/
 
 
-
 .select2-container--default .select2-selection--multiple {
     border-radius: 0 !important;
     border: 2px solid #0b0c0c !important;
@@ -2328,4 +2326,20 @@ sup {
 
 .sr-only {
     display: none;
+}
+
+#footer .footer-wrapper {
+    margin: 0 auto;
+    width: auto;
+    max-width: 1020px;
+    padding-top: 20px;
+    background-color: #dee0e2;
+    margin: 0 auto;
+}
+
+
+.data-item {
+  display: block;
+  line-height: 1; 
+    margin-bottom: 0;
 }
