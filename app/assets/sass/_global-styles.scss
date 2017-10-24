@@ -7,7 +7,7 @@ $path: "/public/images/";
 @import 'govuk-elements';
 
 // Take a look at in app/assets/sass/patterns/ to see which files are imported.
-@import './patterns/check-your-answers';
+@import 'patterns/_check-your-answers';
 @import 'patterns/_sfa-notifications';
 
 // Related items

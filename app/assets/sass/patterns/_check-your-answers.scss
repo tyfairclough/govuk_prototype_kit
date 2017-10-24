@@ -55,11 +55,13 @@
     // recommended for mostly short questions
     &.cya-questions-short .cya-question {
       width: 30%;
+      float: none;
     }
 
     // recommended for mostly long questions
     &.cya-questions-long .cya-question {
       width: 50%;
+      float: none;
     }
   }
 

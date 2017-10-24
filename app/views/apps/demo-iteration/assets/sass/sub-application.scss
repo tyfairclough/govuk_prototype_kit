@@ -368,7 +368,7 @@ nav.global-nav ul {
 }
 
 .button.secondary {
-    background-color: $grey-2;
+    background-color: $grey-3;
     color: $black;
     box-shadow: 0 2px 0 mix($grey-2, black, 60%);
 }
@@ -2328,6 +2328,14 @@ sup {
     display: none;
 }
 
+.right {
+    float: right;
+}
+.left {
+    float: left;
+}
+
+
 #footer .footer-wrapper {
     margin: 0 auto;
     width: auto;
@@ -2343,3 +2351,50 @@ sup {
   line-height: 1; 
     margin-bottom: 0;
 }
+
+
+#email {
+    width: 640px;
+    margin: 0 auto;
+}
+
+
+
+/*----- pagination -----*/
+
+.page-navigation {
+    .previous, .next {
+        display: inline-block;
+        font-size: 1em;
+        margin-right: -4px;
+        overflow: hidden;
+        padding: 1.2em 0.6em;
+        text-decoration: none;
+        vertical-align: top;
+        width: 50%;
+        box-sizing: border-box;
+        color: $govuk-blue;
+        &:hover, &:focus {
+            background-color: #F8F8F8;
+            color: $link-hover-colour;
+            cursor: pointer;
+        }
+        .arrow-button {
+            float: left;
+            font-size: 3.5em;
+            margin-right: 10px;
+            margin-top: -0.2em;
+        }
+    }
+    .previous {
+        text-align: left
+    }    
+    .next {
+        text-align: right;
+        .arrow-button {
+            float: right;
+            margin-left: 10px;
+            margin-right: 0
+        }            
+    }    
+}  
