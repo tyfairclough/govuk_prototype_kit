@@ -1919,7 +1919,7 @@ li.added + li {
     height: 34px;
     position: absolute;
     top: 0;
-    left: 0;
+    left: -38px;
 }
 
 @media (min-width: 641px) {
@@ -2067,7 +2067,7 @@ table.footable>tfoot>tr.footable-paging>td>span.label {
         color: $grey-1;
     }
 }
-.account-dashboard-7, .individual-apprentice, .apprentices-index {
+
     .tabs-menu {
         float: left;
         border-bottom: 1px solid #d4d4d1;
@@ -2216,7 +2216,7 @@ table.footable>tfoot>tr.footable-paging>td>span.label {
             left: -1px;
         }
     }
-}
+
 .notification-row {
     padding: 20px 0 30px 0;
 }
@@ -2401,3 +2401,345 @@ sup {
         }            
     }    
 }  
+
+
+/*----- button group -----*/
+
+.button-group {
+    a.button {
+        margin-left: 0;
+    }
+    a.button  + a.button {
+        margin-left: 0;
+    }
+}
+
+
+/*----- zxcvbn -----*/
+
+
+.zxcvbn {
+
+
+        .passwordContainer {
+        position: relative;
+        float: left;
+        width: 100%;
+        clear: both;
+        overflow: visible;
+            #password {
+                width: 100%;
+                box-sizing: border-box;
+                float: left;
+                padding-right: 20%;
+            }
+            .show-pw {
+                    border-left: 2px solid #0B0C0C;
+                    border-right: none;
+                    box-sizing: border-box;
+                    color: #005ea5;
+                    cursor: pointer;
+                    display: inline-block;
+                    float: left;
+                    font-size: 17px;
+                    padding: 4px 10px;
+                    position: absolute;
+                    right: 2px;
+                    text-align: center;
+                    text-decoration: underline;
+                    width: 20%;
+                    z-index: 999;
+                    top: 2px;
+                    line-height: 23px;
+            }
+            .peakHelp {
+                    box-sizing: border-box;
+                    position: absolute;
+                    left: 0;
+                    border: none;
+                    padding: 4px;
+                    border-left: 2px solid #6f777b;
+                    cursor: pointer;
+                    padding: 4px 10px;
+                    color: gray;
+                    width: 80%;
+                    text-align: center;
+                    display: none;
+                    background: white;
+                    top: 2px;
+            }
+            .password-strength {
+                    display: block;
+                    border: 2px solid #6f777b;
+                    box-sizing: border-box;
+                    height: 10px;
+                    background: #ccc;
+                    margin-top: 3px;
+                    width: 100%;
+                    float: left;
+            }
+          p {
+                float: left;
+                clear: both;
+            }  
+        }
+ 
+    .show-pw.hide-pw {
+        background: #6f777b;
+        color: white;
+    }
+    .password-strength {
+        display: block;
+        border: 2px solid #6f777b;
+        box-sizing: border-box;
+        height: 10px;
+        background: #ccc;
+        border-top: 0;
+        span {
+            width: 20%;
+            box-sizing: border-box;
+            background: transparent;
+            height: 100%;
+            display: inline-block;
+            float: left;
+            -webkit-transition: width 2s, background-color 1s;
+        }
+        .veryweak {
+            background: #B10E1E;
+        }
+        .weak {
+            background: #F47738;
+        }
+        .good {
+            background: #2B8CC4;
+        }
+        .strong {
+            background: #28A197;
+        }        
+        .verystrong {
+            background: #006435;
+        }
+
+    }
+    .pw-strength {
+            font-weight: 900;
+    }
+    + p {
+        color: #6f777b;
+        .span {
+            color: #0b0c0c;
+            font-weight: 900;
+        }
+    }
+    #passwordgroup {
+        
+        .popover {
+    position: relative;
+    display: none;
+    left: 0;
+    background: #f8f8f8;
+    padding: 10px;
+    border-bottom: 4px solid #005ea5;
+    width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            p {
+                margin-bottom: 10px;
+            }
+            .arrow {
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 17px 10px 0 10px;
+                border-color: #005ea5 transparent transparent transparent;
+                position: absolute;
+                bottom: -18px;
+                display: block;
+                margin: 0 auto;
+            }
+            .fa-circle {
+                color: black;
+                color: #0b0c0c;
+                font-size: 0.35em !important;
+                top: -4px;
+                position: relative;
+                margin: 0 10px 0 5px;
+            }
+            .fa-check-circle {
+                color: #00823b;
+                font-size: 1em !important;
+                top: 0;
+                position: relative;
+                margin: 0 5px 0 0;
+            }
+        }
+    }
+    
+    @media (min-width: 960px) {    
+        #passwordgroup {
+            .popover {
+                    border-bottom: none;
+                    border-left: 4px solid #005ea5;
+                .arrow {
+                    border-width: 10px 17.3px 10px 0;
+                    border-color: transparent #005ea5 transparent transparent;
+                    position: absolute;
+                    left: -20px;
+                    top: 53px;                    
+                }
+            }
+        }
+    }
+    
+}
+
+    @media (min-width: 641px) {    
+        .zxcvbn {
+            .passwordContainer {
+                    width: 50%;
+                .show-pw {
+                    font-size: 18px;
+                    padding: 5px 10px 6px;
+                    line-height: 25px;
+}
+            }
+        }
+    }
+
+
+@media (min-width: 641px) {
+    .zxcvbn {
+        .password-strength {
+            width: 50%;
+        }
+    }
+}
+
+@media (min-width: 960px) {   
+    .zxcvbn {
+    #passwordgroup {
+        position: relative;
+            .popover {
+                position: absolute;
+                left: 55%;
+                background: #f8f8f8;
+                padding: 10px;
+                border-left: 4px solid #005ea5;
+                top: -15px;
+                width: 60%;
+        }
+    }
+}
+}
+    
+    
+/*----- hmrc login -----*/
+    
+    
+.service-info {
+  max-width: 960px;
+  margin: 0 auto;
+    .logo {
+        margin-top: 0.78947em;
+    }
+    .organisation-logo {
+      font-family: Helvetica, Arial;
+      font-weight: 400;
+      display: block;
+      position: relative;
+      font-size: 13px;
+      line-height: 16px;
+      padding: 3px 0 2px 0;
+      text-decoration: none;
+      padding: 3px 0 2px 30px;
+      //background-image: url("/public/images/hmrc_crest_18px.png");
+      background-position: 5px center;
+      background-repeat: no-repeat;
+      border-left: 2px solid #009390;
+    }
+    .organisation-logo-medium {
+      font-size: 18px;
+      line-height: 22px;
+      padding: 3px 0 2px 38px;
+      //background-image: url("/public/images/hmrc_crest_18px_x2.png");
+      background-size: auto 26px;
+      border-left: 2px solid #009390;
+      white-space: nowrap;
+    }    
+}
+
+
+/*----- accordion filters -----*/
+
+aside {
+    ul.accordion-menu {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 30px;
+        float: left;
+        &:active, &:focus {
+            outline: 3px solid #FFBF47;        
+        }
+        .container {
+            /* by default hide all sub menus */
+            display: none;
+            background: white;
+            float: left;
+            width: 100%;
+            padding: 10px;
+            .form-group label:first-child {
+                margin-top: 0;
+            }
+        }    
+        li {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            margin: 0;
+            label {
+                position: relative;
+                display: block;
+                padding: 8px 38px 8px 8px;
+                cursor: pointer;
+            }    
+            .filter {
+                margin-bottom: 15px;
+                label {
+                    padding: 0 0 8px;
+                    font-weight: 900;
+                }
+            }
+        }    
+        .has-children > label::after {
+            /* icons */
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 0;
+            background: url(../images/accordian-arrow-2x.png) no-repeat -3px -4px;
+            background-size: cover;
+        }    
+        .has-children {
+            margin-bottom: 30px;
+            overflow: auto;
+            background: $grey-3;
+            input[type=checkbox]:checked + label::after {
+                background-position: -3px -37px;
+            }   
+        }
+        input[type=checkbox]:checked + label + ul,input[type=checkbox]:checked + label:nth-of-type(n) + div {
+            display: block;
+            border: 3px solid $grey-3;
+            border-top: none;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-control {
+            width: 100%;
+        }
+    }
+}

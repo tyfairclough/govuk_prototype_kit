@@ -1,0 +1,28 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="gateway-alert" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    
+    
+<div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+            <h1 class="heading-xlarge">Allowing your tax details to be used</h1>
+                <p class="lede">When you enter your Government Gateway details you'll be asked to ‘grant authority’ to allow your tax details to be used.</p>
+                <p>This means you allow HMRC to send the Skills Funding Agency details of the levy that you've paid - no other payroll information will be shared.</p>
+            </div>
+        </div>
+</div> 
+    
+<h3 class="heading-medium">By continuing you agree to the following:</h3>
+    
+    <div class="panel panel-width-thin">
+<p>I have authority to add PAYE schemes to this account.</p>    
+        <p>I understand that all account users will be able to see levy funds from any PAYE schemes I add.</p>
+        <p>All PAYE schemes I add are owned and operated by an organisation that'll use this account, or owned and operated by a <a href="#">connected organisation</a>.</p>
+    </div>
+    <a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-login" class="button">Agree and continue</a>
+</main><!-- / #content -->
+{% endblock %}
