@@ -7,16 +7,17 @@
 {% block content %}
 
 <main id="content" role="main">
-  <div class="grid-row">
-    <div class="column-two-thirds">
 
-      <h1 class="heading-xlarge">
-        Prototypes
+    <div class="hgroup text">     
+        <h1 class="heading-xlarge">
+        Digital apprenticeship prototypes
         <span class="heading-secondary">Listed by 'version' or 'iteration' name</span>
-      </h1>
-      
+        </h1>
+    </div>
+    
+    <div class="grid-row">
+    <div class="column-two-thirds">
       {{ macros.subapps_list(apps) }}
-
     </div>
   </div>
 </main>
