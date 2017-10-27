@@ -2652,7 +2652,7 @@ sup {
       padding: 3px 0 2px 0;
       text-decoration: none;
       padding: 3px 0 2px 30px;
-      //background-image: url("/public/images/hmrc_crest_18px.png");
+      background-image: url(/public/images/hmrc_crest_18px.png);
       background-position: 5px center;
       background-repeat: no-repeat;
       border-left: 2px solid #009390;
@@ -2661,7 +2661,7 @@ sup {
       font-size: 18px;
       line-height: 22px;
       padding: 3px 0 2px 38px;
-      //background-image: url("/public/images/hmrc_crest_18px_x2.png");
+      background-image: url(/public/images/hmrc_crest_18px_x2.png);
       background-size: auto 26px;
       border-left: 2px solid #009390;
       white-space: nowrap;
@@ -2719,7 +2719,7 @@ aside {
             height: 30px;
             position: absolute;
             right: 0;
-            background: url(../images/accordian-arrow-2x.png) no-repeat -3px -4px;
+            background: url(/public/images/separator-2x.png) no-repeat -3px -4px;
             background-size: cover;
         }    
         .has-children {
