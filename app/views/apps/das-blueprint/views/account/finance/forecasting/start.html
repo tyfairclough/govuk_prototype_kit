@@ -1,0 +1,34 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="forecast-start" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup form-group">
+           <h1 class="heading-xlarge">
+        Forecasting
+      </h1>
+          <p>TELL THE USER THERE'S NO FORECASTS CURRENTLY. THEY'LL NEED TO ADD ONE.</p>          
+        </div>
+      </div>
+    </div>
+    
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h3 class="heading-medium">Before you start</h3>
+        <p>MAKE SURE THE USER KNOWS</p>
+            <ul class="list list-bullet">
+                <li>ANY CHANGE IN LEVY ANTICIPATED</li>
+                <li>ENGLISH %</li>
+                <li>COURSES AND START DATES</li>
+            </ul>
+            
+            <a class="button button-start" href="step1.html">Continue</a>
+        </div>
+    </div>
+   
+
+</main><!-- / #content -->
+{% endblock %}

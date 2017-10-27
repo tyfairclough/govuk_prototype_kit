@@ -2068,111 +2068,86 @@ table.footable>tfoot>tr.footable-paging>td>span.label {
     }
 }
 
+ 
+
+
+       
+/*------ tabs pattern -----*/
+
+#tabs-container {
+    margin-bottom: 10px;
     .tabs-menu {
         float: left;
-        border-bottom: 1px solid #d4d4d1;
+        border-bottom: 1px solid $grey-3;
         width: 100%;
         padding-left: 10px;
-    }
-
-    .tabs-menu li {
-    display: inline-block;
-    float: left;
-    text-align: center;
-    margin-right: 5px;
-    color: #000;
-    background-color: $grey-3;
-    border-top: 1px solid $grey-2;
-    border-right: 1px solid $grey-2;
-    border-left: 1px solid $grey-2;
-    bottom: -1px;
-    line-height: 44px;
-        &:hover {
-            line-height: 51px;
-            margin-top: -6px;
-            margin-bottom: -1px;
-            background: $grey-4;
-            text-decoration: underline;
-
+        box-sizing: border-box;
+        li {
+            display: inline-block;
+            float: left;
+            text-align: center;
+            margin-right: 5px;
+            color: #000;
+            background-color: $grey-3;
+            border-top: 1px solid $grey-2;
+            border-right: 1px solid $grey-2;
+            border-left: 1px solid $grey-2;
+            bottom: -1px;
+            line-height: 44px;
+            &:hover {
+                line-height: 51px;
+                margin-top: -6px;
+                margin-bottom: -1px;
+                background: $grey-4;
+                text-decoration: underline;
+            }
+            &:focus {
+                outline: 3px solid $focus-colour;
+            }
+            &.current {
+                position: relative;
+                background-color: $white;
+                border-bottom: 1px solid $white;
+                z-index: 5;
+                line-height: 50px;
+                margin-bottom: -1px;
+                margin-top: -7px;
+                a {
+                    color: #000;
+                }
+            }
+            a {
+                padding: 15px;
+                margin-top: 0px;
+                color: $link-colour;
+                text-decoration: none;
+                &:focus {
+                    background: none;
+                    border: 0;
+                    outline: 0;
+                }
+            }
+            &.button {
+                background: $green;
+                padding: 0px;
+                position: relative;
+                top: -6px;
+                border: none;
+                a {
+                    position: relative;
+                    color: $white;
+                    margin-top: -5px;
+                }
+            }
         }
     }
-
-    .tabs-menu li.current {
-    position: relative;
-    background-color: #fff;
-    border-bottom: 1px solid #fff;
-    z-index: 5;
-    line-height: 50px;
-    margin-bottom: -1px;
-    margin-top: -7px;
-    }
-
-    .tabs-menu li a {
-      padding: 15px;
-      margin-top: 0px;
-      color: #005EA5;
-      text-decoration: none;
-    }
-
-    .tabs-menu .current a {
-      color: #000;
-    }
-
-    .tabs-menu li a:focus {
-      background: none;
-      border: 0;
-      outline: 0;
-    }
-
-    /*----- Tabs content -------*/
-
-
-    .tab-container {
-        margin-bottom: 10px;
-    }
-    
     .tab-content {
-      padding: 0px;
-      display: none;
-    }
-
-    #tab-1 {
-      display: block;
-        float: left;
         overflow: auto;
         border: 1px solid $grey-2;
         border-top: 0;
         padding: 15px;
-        div {
-            border-bottom: 1px solid $grey-2;
-            padding: 10px;
-            position: relative;
-            &:last-child {
-                border-bottom: none;
-            }
-            a.dismiss {
-                float: right;
-                font-size: 16px;
-                display: none;
-            }
-            p {
-                margin: 0;
-            }
-            &.see-all {
-                border-left: white;
-                padding-left: 20px''
-            }
-        }
     }
-
-    #tab-2 {
-      display: block;
-        float: left;
-        overflow: auto;
-        border: 1px solid $grey-2;
-        border-top: 0;
-        padding: 15px;
-    }    
+}
 
     .timeline {
         padding-top: 0px;
@@ -2301,6 +2276,12 @@ dl {
 
 /*----- helper styles -------*/
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+
+   opacity: 1;
+
+}
 
 #Codepad {
     margin-top: 30px;
