@@ -221,7 +221,7 @@
     <div id="tab-4" class="tab-content" style="display: none;">    
         <div class="grid-row">
             <div class="column-full">
-                <form class="customDateRange">
+                <form class="customDateRange form-group">
 <fieldset>
     <label for="input_from">From:</label>
     <input type="text" id="input_from" class="form-control">
@@ -237,66 +237,11 @@
                 </form>
             </div>
         </div>        
-    <table>
-                <thead>
-                    <tr>
-                        <th scope="col"><span class="no-wrap">Date</span></th>
-                        <th scope="col" class="mobile-hide-cell">Description</th>
-                        <th scope="col" class="numeric">Amount</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                   <tr>
-                            <td>
-                                <span class="no-wrap"> 22 Mar 2018 </span>
-                            </td>
-                            <td class="mobile-hide-cell">
-                                <span class="description">
-                                    Levy funds
-                                </span>
-                            </td>
-                            <td class="numeric"> £5,000.00</td>
-                            <td class="numeric">
-                                    <a title="View details for the transaction on 15 Mar 2018" href="/sprint/49/account/finance/levy.html">
-                                        Details <span class="vh"> for the transaction on 20 Oct 2018</span>
-                                    </a>
-                            </td>
-                        </tr>
-                                               <tr>
-                            <td>
-                                <span class="no-wrap"> 5 Mar 2018</span>
-                            </td>
-                            <td class="mobile-hide-cell">
-                                <span class="description">
-                                    Acme Ltd
-                                </span>
-                            </td>
-                            <td class="numeric"> -£2,000.00</td>
-                            <td class="numeric">
-                                    <a title="View details for the transaction on 15 April 2018" href="/sprint/49/account/finance/payment-details-levy.html">
-                                        Details <span class="vh"> for the transaction on  4 Nov 2018</span>
-                                    </a>
-                            </td>
-                        </tr>                        <tr>
-                            <td>
-                                <span class="no-wrap"> 5 Mar 2018</span>
-                            </td>
-                            <td class="mobile-hide-cell">
-                                <span class="description">
-                                    Anvil Plc: Co-invested	
-                                </span>
-                            </td>
-                            <td class="numeric"> -£1,000.00</td>
-                            <td class="numeric">
-                                    <a title="View details for the transaction on 15 April 2018" href="/sprint/49/account/finance/payment-details.html">
-                                        Details <span class="vh"> for the transaction on  4 Nov 2018</span>
-                                    </a>
-                            </td>
-                        </tr>
-            
-                </tbody>
-            </table>   
+
+
+        <div class="panel panel-width-thin">
+            <p>No transactions found</p>
+        </div>
         
 
         
@@ -304,7 +249,13 @@
 </div>
     
     
-    
+   <details>
+                    <summary><span class="summary">Why can't I see my levy funds?</span></summary>
+                    <div class="panel panel-info">
+                        <p><b>Make sure you’re logged into the correct account and the correct PAYE schemes are added to the account.</b></p>
+                        <p><b>If you declare after 19 July, we ignore your declaration and levy funds will not credit your account this month. You can claim your July funds next month by resubmitting your levy figures for July in your August declaration.</b></p>
+                    </div>
+                </details> 
         
 
 
