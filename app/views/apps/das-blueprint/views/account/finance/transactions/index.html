@@ -18,16 +18,80 @@
     
 
             <div class="form-group">
-                    <p>Current display dates:  <strong class="bold-small">24 september 17 - 24 july 17</strong></p>
-
-                    <div class="button-group">
-                        <a class="button secondary" href="#">Last month</a>
-                        <a class="button active disabled" href="#">Last 3 months</a>
-                        <a class="button secondary" href="#">Last 12 months</a>
-                        <a class="button secondary" href="#">Custom date range</a>
-                    </div>
+                    <p>Current display dates:  <strong class="bold-small">24 September 17 — 24 July 17</strong></p>
             </div>
     
+    <div id="tabs-container">
+    <ul class="tabs-menu">
+        <li class="current"><a href="#tab-1">Last month</a></li>
+        <li><a href="#tab-2">Last 3 months</a></li>
+        <li><a href="#tab-3">Last 12 months</a></li>
+        <li><a href="#tab-4">Custom date range</a></li>
+    </ul>
+    <div id="tab-1" class="tab-content">
+
+        <table>
+                <thead>
+                    <tr>
+                        <th scope="col"><span class="no-wrap">Date</span></th>
+                        <th scope="col" class="mobile-hide-cell">Description</th>
+                        <th scope="col" class="numeric">Amount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr>
+                            <td>
+                                <span class="no-wrap"> 22 Mar 2018 </span>
+                            </td>
+                            <td class="mobile-hide-cell">
+                                <span class="description">
+                                    Levy funds
+                                </span>
+                            </td>
+                            <td class="numeric"> £5,000.00</td>
+                            <td class="numeric">
+                                    <a title="View details for the transaction on 15 Mar 2018" href="/sprint/49/account/finance/levy.html">
+                                        Details <span class="vh"> for the transaction on 20 Oct 2018</span>
+                                    </a>
+                            </td>
+                        </tr>
+                                               <tr>
+                            <td>
+                                <span class="no-wrap"> 5 Mar 2018</span>
+                            </td>
+                            <td class="mobile-hide-cell">
+                                <span class="description">
+                                    Acme Ltd
+                                </span>
+                            </td>
+                            <td class="numeric"> -£2,000.00</td>
+                            <td class="numeric">
+                                    <a title="View details for the transaction on 15 April 2018" href="/sprint/49/account/finance/payment-details-levy.html">
+                                        Details <span class="vh"> for the transaction on  4 Nov 2018</span>
+                                    </a>
+                            </td>
+                        </tr>                        <tr>
+                            <td>
+                                <span class="no-wrap"> 5 Mar 2018</span>
+                            </td>
+                            <td class="mobile-hide-cell">
+                                <span class="description">
+                                    Anvil Plc: Co-invested	
+                                </span>
+                            </td>
+                            <td class="numeric"> -£1,000.00</td>
+                            <td class="numeric">
+                                    <a title="View details for the transaction on 15 April 2018" href="/sprint/49/account/finance/payment-details.html">
+                                        Details <span class="vh"> for the transaction on  4 Nov 2018</span>
+                                    </a>
+                            </td>
+                        </tr>
+            
+                </tbody>
+            </table>   
+    </div>
+    <div id="tab-2" class="tab-content" style="display: none;">
 <table>
                 <thead>
                     <tr>
@@ -87,7 +151,161 @@
                         </tr>
             
                 </tbody>
-            </table>        
+            </table>   
+    
+    </div>
+    
+    <div id="tab-3" class="tab-content" style="display: none;">    
+<table>
+                <thead>
+                    <tr>
+                        <th scope="col"><span class="no-wrap">Date</span></th>
+                        <th scope="col" class="mobile-hide-cell">Description</th>
+                        <th scope="col" class="numeric">Amount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr>
+                            <td>
+                                <span class="no-wrap"> 22 Mar 2018 </span>
+                            </td>
+                            <td class="mobile-hide-cell">
+                                <span class="description">
+                                    Levy funds
+                                </span>
+                            </td>
+                            <td class="numeric"> £5,000.00</td>
+                            <td class="numeric">
+                                    <a title="View details for the transaction on 15 Mar 2018" href="/sprint/49/account/finance/levy.html">
+                                        Details <span class="vh"> for the transaction on 20 Oct 2018</span>
+                                    </a>
+                            </td>
+                        </tr>
+                                               <tr>
+                            <td>
+                                <span class="no-wrap"> 5 Mar 2018</span>
+                            </td>
+                            <td class="mobile-hide-cell">
+                                <span class="description">
+                                    Acme Ltd
+                                </span>
+                            </td>
+                            <td class="numeric"> -£2,000.00</td>
+                            <td class="numeric">
+                                    <a title="View details for the transaction on 15 April 2018" href="/sprint/49/account/finance/payment-details-levy.html">
+                                        Details <span class="vh"> for the transaction on  4 Nov 2018</span>
+                                    </a>
+                            </td>
+                        </tr>                        <tr>
+                            <td>
+                                <span class="no-wrap"> 5 Mar 2018</span>
+                            </td>
+                            <td class="mobile-hide-cell">
+                                <span class="description">
+                                    Anvil Plc: Co-invested	
+                                </span>
+                            </td>
+                            <td class="numeric"> -£1,000.00</td>
+                            <td class="numeric">
+                                    <a title="View details for the transaction on 15 April 2018" href="/sprint/49/account/finance/payment-details.html">
+                                        Details <span class="vh"> for the transaction on  4 Nov 2018</span>
+                                    </a>
+                            </td>
+                        </tr>
+            
+                </tbody>
+            </table>   
+        </div>
+        
+    <div id="tab-4" class="tab-content" style="display: none;">    
+        <div class="grid-row">
+            <div class="column-full">
+                <form class="customDateRange">
+<fieldset>
+    <label for="input_from">From:</label>
+    <input type="text" id="input_from" class="form-control">
+</fieldset>
+
+<fieldset>
+    <label for="input_to">To:</label>
+  <input type="text" id="input_to" class="form-control">
+</fieldset>
+                    
+                    <button class="button">Update</button>
+                
+                </form>
+            </div>
+        </div>        
+    <table>
+                <thead>
+                    <tr>
+                        <th scope="col"><span class="no-wrap">Date</span></th>
+                        <th scope="col" class="mobile-hide-cell">Description</th>
+                        <th scope="col" class="numeric">Amount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr>
+                            <td>
+                                <span class="no-wrap"> 22 Mar 2018 </span>
+                            </td>
+                            <td class="mobile-hide-cell">
+                                <span class="description">
+                                    Levy funds
+                                </span>
+                            </td>
+                            <td class="numeric"> £5,000.00</td>
+                            <td class="numeric">
+                                    <a title="View details for the transaction on 15 Mar 2018" href="/sprint/49/account/finance/levy.html">
+                                        Details <span class="vh"> for the transaction on 20 Oct 2018</span>
+                                    </a>
+                            </td>
+                        </tr>
+                                               <tr>
+                            <td>
+                                <span class="no-wrap"> 5 Mar 2018</span>
+                            </td>
+                            <td class="mobile-hide-cell">
+                                <span class="description">
+                                    Acme Ltd
+                                </span>
+                            </td>
+                            <td class="numeric"> -£2,000.00</td>
+                            <td class="numeric">
+                                    <a title="View details for the transaction on 15 April 2018" href="/sprint/49/account/finance/payment-details-levy.html">
+                                        Details <span class="vh"> for the transaction on  4 Nov 2018</span>
+                                    </a>
+                            </td>
+                        </tr>                        <tr>
+                            <td>
+                                <span class="no-wrap"> 5 Mar 2018</span>
+                            </td>
+                            <td class="mobile-hide-cell">
+                                <span class="description">
+                                    Anvil Plc: Co-invested	
+                                </span>
+                            </td>
+                            <td class="numeric"> -£1,000.00</td>
+                            <td class="numeric">
+                                    <a title="View details for the transaction on 15 April 2018" href="/sprint/49/account/finance/payment-details.html">
+                                        Details <span class="vh"> for the transaction on  4 Nov 2018</span>
+                                    </a>
+                            </td>
+                        </tr>
+            
+                </tbody>
+            </table>   
+        
+
+        
+    </div>
+</div>
+    
+    
+    
+        
 
 
 </main><!-- / #content -->
