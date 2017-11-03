@@ -77,7 +77,7 @@ var chart = c3.generate({
         ['data3', 50, 20, 10, 40, 15, 25, 30, 200, 222, 332, 533, 432],
         ['data4', 50, 20, 10, 40, 15, 25, 30, 200, 221, 342, 112, 235]
       ],
-        type: 'area-spline',
+        type: 'area',
         colors: {
             data1: '#d53880',
             data2: '#2e358b',
@@ -89,11 +89,14 @@ var chart = c3.generate({
             data2: 'Traiing costs',
             data3: 'Co-investment',
             data4: 'Transfers'
-        },
-        subchart: {
-            show: true
-        }        
+        }
     },
+    subchart: {
+            show: true
+        },
+        zoom: {
+        enabled: true
+        }
 
 });
     

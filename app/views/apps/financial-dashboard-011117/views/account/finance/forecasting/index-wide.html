@@ -32,8 +32,9 @@
 <div id="tabs-container">
     <ul class="tabs-menu">
         <li class="current"><a href="#tab-1">Graph</a></li>
-        <li><a href="#tab-2">Funding in</a></li>
-        <li><a href="#tab-3">Funding out</a></li>
+        <li><a href="#tab-2">Balance sheet</a></li>
+        <li><a href="#tab-3">Funding in</a></li>
+        <li><a href="#tab-4">Funding out</a></li>
     </ul>
     <div id="tab-1" class="tab-content">
         
@@ -72,123 +73,370 @@
 
 
     <div id="tab-2" class="tab-content">
-        <h2 class="heading-medium">Funding in</h2>
-
-        <h3 class="heading-small">Net levy funding</h3>
 <table class="responsive">
         <thead>
             <tr>
                 <th>Month</th>
-                <th>Levy credit</th>
-                <th>Training costs <span class="form-hint">(Co-investment)</span></th>
-                <th>Levy balance <span class="form-hint">(Expired levy)</span></th>
-                <th></th>
+                <th>Contribution to levy</th>
+                <th>Total training costs</th>
+                <th>Expired funds</th>
+                <th>Cofunded training costs</th>
+                <th>Employer contribution</th>
+                <th>Remaining levy</th>
             </tr>
         </thead>
         <tbody>
         <tr>
-        </tr><tr>
             <td>October 17</td>
-            <td>£9,000.00</td>
-            <td>£9,000.00</td>
-            <td>£0.00</td>
-            <td class="numeric"><a href="receive/offer-received-summary.html">Details</a></td>
+            <td>£129,800</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£908,600</td>
         </tr>
-       <tr>
+        <tr>
             <td>November 17</td>
-            <td>£9,000.00</td>
-            <td>£9,000.00</td>
-            <td>£0.00</td>
-            <td class="numeric"><a href="receive/offer-received-summary.html">Details</a></td>
+            <td>£129,800</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£1,038,400</td>
         </tr>
-       <tr>
+        <tr>
             <td>December 17</td>
-            <td>£9,000.00</td>
-            <td>£9,000.00</td>
-            <td>£0.00</td>
-            <td class="numeric"><a href="receive/offer-received-summary.html">Details</a></td>
+            <td>£129,800</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£1,168,200</td>
         </tr>
-       <tr>
-            <td>December 17</td>
-            <td>£9,000.00</td>
-            <td>£9,000.00</td>
-            <td>£0.00</td>
-            <td class="numeric"><a href="receive/offer-received-summary.html">Details</a></td>
+        <tr>
+            <td>January 18</td>
+            <td>£129,800</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£1,298,000</td>
         </tr>
-       <tr>
-            <td>December 17</td>
-            <td>£9,000.00</td>
-            <td>£9,000.00</td>
-            <td>£0.00</td>
-            <td class="numeric"><a href="receive/offer-received-summary.html">Details</a></td>
+        <tr>
+            <td>February 18</td>
+            <td>£129,800</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£1,427,800</td>
         </tr>
-       <tr>
-            <td>December 17</td>
-            <td>£9,000.00</td>
-            <td>£9,000.00</td>
-            <td>£0.00</td>
-            <td class="numeric"><a href="receive/offer-received-summary.html">Details</a></td>
+        <tr>
+            <td>March 18</td>
+            <td>£129,800</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£1,557,600</td>
         </tr>
-       <tr>
-            <td>December 17</td>
-            <td>£9,000.00</td>
-            <td>£9,000.00</td>
-            <td>£0.00</td>
-            <td class="numeric"><a href="receive/offer-received-summary.html">Details</a></td>
+        <tr>
+            <td>April 18</td>
+            <td>£129,800</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£1,687,400</td>
         </tr>
-       <tr>
-            <td>December 17</td>
-            <td>£9,000.00</td>
-            <td>£9,000.00</td>
-            <td>£0.00</td>
-            <td class="numeric"><a href="receive/offer-received-summary.html">Details</a></td>
+        <tr>
+            <td>May 18</td>
+            <td>£129,800</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£1,817,200</td>
         </tr>
-       <tr>
-            <td>December 17</td>
-            <td>£9,000.00</td>
-            <td>£9,000.00</td>
-            <td>£0.00</td>
-            <td class="numeric"><a href="receive/offer-received-summary.html">Details</a></td>
+        <tr>
+            <td>June 18</td>
+            <td>£129,800</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£1,947,000</td>
         </tr>
-       <tr>
-            <td>December 17</td>
-            <td>£9,000.00</td>
-            <td>£9,000.00</td>
-            <td>£0.00</td>
-            <td class="numeric"><a href="receive/offer-received-summary.html">Details</a></td>
+        <tr>
+            <td>July 18</td>
+            <td>£129,800</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£2,076,800</td>
         </tr>
-       <tr>
-            <td>December 17</td>
-            <td>£9,000.00</td>
-            <td>£9,000.00</td>
-            <td>£0.00</td>
-            <td class="numeric"><a href="receive/offer-received-summary.html">Details</a></td>
+        <tr>
+            <td>August 18</td>
+            <td>£129,800</td>
+            <td>£134,378</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£2,072,222</td>
         </tr>
-       <tr>
-            <td>December 17</td>
-            <td>£9,000.00</td>
-            <td>£9,000.00</td>
-            <td>£0.00</td>
-            <td class="numeric"><a href="receive/offer-received-summary.html">Details</a></td>
+        <tr>
+            <td>September 18</td>
+            <td>£129,800</td>
+            <td>£134,378</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£2,067,644
+</td>
         </tr>
-       
-
+        <tr>
+            <td>October 18</td>
+            <td>£129,800</td>
+            <td>£134,378</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£2,063,067
+</td>
+        </tr>
+        <tr>
+            <td>November 18</td>
+            <td>£129,800</td>
+            <td>£134,378</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£2,058,489
+</td>
+        </tr>
+        <tr>
+            <td>December 18</td>
+            <td>£129,800</td>
+            <td>£134,378</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£2,053,911
+</td>
+        </tr>
+        <tr>
+            <td>January 19</td>
+            <td>£129,800</td>
+            <td>£134,378</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£2,049,333
+</td>
+        </tr>
+        <tr>
+            <td>February 19</td>
+            <td>£129,800</td>
+            <td>£134,378</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£2,044,756
+</td>
+        </tr>
+        <tr>
+            <td>March 19</td>
+            <td>£129,800</td>
+            <td>£134,378</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£2,040,178
+</td>
+        </tr>
+        <tr>
+            <td>April 19</td>
+            <td>£129,800</td>
+            <td>£134,378</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£2,035,600
+</td>
+        </tr>
+        <tr>
+            <td>May 19</td>
+            <td>£129,800</td>
+            <td>£134,378</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£2,031,022
+</td>
+        </tr>
+        <tr>
+            <td>June 19</td>
+            <td>£129,800</td>
+            <td>£134,378</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£2,026,444
+</td>
+        </tr>
+        <tr>
+            <td>July 19</td>
+            <td>£129,800</td>
+            <td>£134,378</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£2,021,867
+</td>
+        </tr>
+        <tr>
+            <td>August 19</td>
+            <td>£129,800</td>
+            <td>£134,378</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£2,017,289
+</td>
+        </tr>
+        <tr>
+            <td>September 19</td>
+            <td>£129,800</td>
+            <td>£134,378</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£0</td>
+            <td>£2,012,711
+</td>
+        </tr>
             </tbody>
 
     
     
-</table>
-        
-        
-        
+</table>   
     </div>
     
     <div id="tab-3" class="tab-content">
-        <h2 class="heading-medium">Funding out</h2>
-        <p>The quick brown fox jumps over the lazy dog.</p>
-        <p>The quick brown fox jumps over the lazy dog.</p>
-        <p>The quick brown fox jumps over the lazy dog.</p>
-        <p>The quick brown fox jumps over the lazy dog.</p>
+                <h4 class="heading-small">Funds in</h4>
+        <p>Includes both levy and transfers in.</p>
+        <a class="button" href="#">Add new levy declarations</a>
+        <a class="button secondary" href="#">Add new inbound transfer</a>
+<table>
+                <thead>
+                    <tr>
+                        <th scope="col"><span class="no-wrap">Date</span></th>
+                        <th scope="col" class="mobile-hide-cell">Description</th>
+                        <th scope="col" class="numeric">Amount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr>
+                            <td>
+                                <span class="no-wrap"> 22 October 2017 </span>
+                            </td>
+                            <td class="mobile-hide-cell">
+                                <span class="description">
+                                    Levy funds
+                                </span>
+                            </td>
+                            <td class="numeric"> £5,000</td>
+                            <td class="numeric">
+                                    <a title="View details for the transaction on 15 Mar 2018" href="/sprint/49/account/finance/levy.html">
+                                        Details <span class="vh"> for the transaction on 20 Oct 2018</span>
+                                    </a>
+                            </td>
+                        </tr>
+                    <tr>
+                            <td>
+                                <span class="no-wrap"> 22 October 2017 </span>
+                            </td>
+                            <td class="mobile-hide-cell">
+                                <span class="description">
+                                    Transfer of funds
+                                </span>
+                            </td>
+                            <td class="numeric"> £300</td>
+                            <td class="numeric">
+                                    <a title="View details for the transaction on 15 Mar 2018" href="/sprint/49/account/finance/levy.html">
+                                        Details <span class="vh"> for the transaction on 20 Oct 2018</span>
+                                    </a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+    </div>
+    <div id="tab-4" class="tab-content">
+        <h4 class="heading-small">Funds out</h4>
+        <p>Includes both committed figures and future estimates.</p>
+        <a class="button" href="#">Add more new cohorts</a>
+        <a class="button secondary" href="#">Add new outbound transfer</a>
+<table>
+                <thead>
+                    <tr>
+                        <th scope="col"><span class="no-wrap">Date</span></th>
+                        <th scope="col" class="mobile-hide-cell">Description</th>
+                        <th scope="col" class="numeric">Amount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr>
+                            <td>
+                                <span class="no-wrap"> 22 October 2017 </span>
+                            </td>
+                            <td class="mobile-hide-cell">
+                                <span class="description">
+                                   Commitment: High voltage engineer level 3
+                                </span>
+                            </td>
+                            <td class="numeric">-£350</td>
+                            <td class="numeric">
+                                    <a title="View details for the transaction on 15 Mar 2018" href="/sprint/49/account/finance/levy.html">
+                                        Details <span class="vh"> for the transaction on 20 Oct 2018</span>
+                                    </a>
+                            </td>
+                        </tr>
+                    <tr>
+                            <td>
+                                <span class="no-wrap"> 22 October 2017 </span>
+                            </td>
+                            <td class="mobile-hide-cell">
+                                <span class="description">
+                                   Forecast: Site safety manager level 2
+                                </span>
+                            </td>
+                            <td class="numeric">-£350</td>
+                            <td class="numeric">
+                                    <a title="View details for the transaction on 15 Mar 2018" href="/sprint/49/account/finance/levy.html">
+                                        Details <span class="vh"> for the transaction on 20 Oct 2018</span>
+                                    </a>
+                            </td>
+                        </tr>
+                    <tr>
+                            <td>
+                                <span class="no-wrap"> 22 October 2017 </span>
+                            </td>
+                            <td class="mobile-hide-cell">
+                                <span class="description">
+                                    Transfer of funds
+                                </span>
+                            </td>
+                            <td class="numeric">-£300</td>
+                            <td class="numeric">
+                                    <a title="View details for the transaction on 15 Mar 2018" href="/sprint/49/account/finance/levy.html">
+                                        Details <span class="vh"> for the transaction on 20 Oct 2018</span>
+                                    </a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>    
     </div>
 </div>  
         </div>
@@ -202,7 +450,8 @@
          <a class="button" href="start.html">Create a new forecast</a>
         </div>
                         
-                                <h2 class="bold-medium">Saved forecasts</h2>                        
+                        <div class="related">
+                                <h2 class="heading-medium">Manage existing forecasts</h2>                        
 <div data-module="accordion-with-descriptions">
     <div class="subsection-wrapper">
         <div class="subsection js-subsection">
@@ -218,16 +467,16 @@
                     <li class="subsection__list-item">
                          <a href="#1">Export data</a>
                     </li> 
-                    <li class="subsection__list-item">
-                         <a href="#1">Delete forecast</a>
-                    </li>
+
                     <li class="subsection__list-item">
                          <a href="#1">Rename forecast</a>
                     </li>
                      <li class="subsection__list-item">
                          <a href="#1">Share forecast</a>
                     </li>
-                     
+                    <li class="subsection__list-item">
+                         <a href="#1">Delete forecast</a>
+                    </li>                     
                 </ul>
             </div>
         </div>
@@ -265,7 +514,7 @@
         </div>
     </div>
 </div>     
-                        
+                        </div>
                     </div>
                 </div>
             </div>

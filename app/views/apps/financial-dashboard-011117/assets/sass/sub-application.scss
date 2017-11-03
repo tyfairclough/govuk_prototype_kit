@@ -3487,3 +3487,10 @@ table table {
     letter-spacing: 0;
     font-weight: bold
 }
+
+
+table.row, table.responsive {
+    th {
+        font-weight: 700;
+    }
+}
