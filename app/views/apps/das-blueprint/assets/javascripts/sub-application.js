@@ -58,6 +58,10 @@ to_picker.on('set', function(event) {
   }
 })
 
+ 
+$('tr').click(function () {
+    $(this).next('tr').toggle();
+});
     
 }
 
@@ -96,11 +100,14 @@ var chart = c3.generate({
 };
 
 
+    
+    
+    
 
 
 // global js
-
-
+    
+   
 /*----- TABS -----*/
     $(".tab-content").not("#tab-1").css("display", "none");
 

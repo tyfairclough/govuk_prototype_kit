@@ -3366,3 +3366,124 @@ form.customDateRange {
 }
 
 
+table table {    
+    background: $grey-4;
+    width: 100%;
+    margin: -12px 0 -8px;
+    /* position: relative; */
+    /* overflow: auto; */
+    padding: 0 30px;
+    
+    &.responsive tr td:first-child, &.responsive tr th:first-child, &.responsive tr td:last-child, &.responsive tr th:last-child {
+        padding: 10px;
+    }
+}
+
+/*----- Transactions Table -----*/
+
+#transaction-wrapper {
+    box-sizing: border-box;
+    width: 80%;
+    float: left;
+    .row {
+        width: 100%;
+        border-bottom: 1px solid $grey-3;
+        overflow: auto;
+        box-sizing: border-box;
+        &#transaction-header {
+            font-weight: 900;
+        }
+        div {
+            float: left;
+            width: auto;
+            padding: 8px 0;
+            &.date {
+                width: 25%;
+            }
+            &.description {
+                width: 35%;
+            }
+            &.amount {
+                width: 25%;
+            }
+            &.details {
+                width: 15%;
+                text-align: right;
+            }
+        }
+    }
+}
+#transactions-aside {
+    width: 20%;
+    float: left;
+}
+
+/*----- PAGE SCROLL SPY -----*/
+
+.page-contents {
+    margin-top: 1em
+}
+
+@media (min-width: 641px) {
+    .page-contents {
+        margin-top:0;
+        padding: 2.3684em 0;
+    }
+}
+
+.page-contents__title {
+    font-family: "nta", Arial, sans-serif;
+    font-weight: 700;
+    text-transform: none;
+    font-size: 14px;
+    line-height: 1.14286;
+    margin-bottom: 5px
+}
+
+@media (min-width: 641px) {
+    .page-contents__title {
+        font-size:16px;
+        line-height: 1.25
+    }
+}
+
+.page-contents__list li {
+    font-family: "nta", Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 14px;
+    line-height: 1.14286;
+    list-style-type: none;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    padding-right: 15px
+}
+
+@media (min-width: 641px) {
+    .page-contents__list li {
+        font-size:16px;
+        line-height: 1.25
+    }
+}
+
+.page-contents__list li:before {
+    content: "–";
+    float: left;
+    display: block;
+    width: 15px;
+    margin-left: -15px
+}
+
+.page-contents__list a {
+    text-decoration: none;
+    letter-spacing: 0.022em
+}
+
+.page-contents__list a:hover,.page-contents__list a:focus,.page-contents__list a:active {
+    text-decoration: underline
+}
+
+.page-contents__list .active {
+    letter-spacing: 0;
+    font-weight: bold
+}
