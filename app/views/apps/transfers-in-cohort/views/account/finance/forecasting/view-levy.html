@@ -1,0 +1,38 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="forecast-view-levy" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup form-group">
+           <h1 class="heading-xlarge">
+               View levy
+            </h1>
+          <p>FEEDBACK ON LEVY ADDED.</p>          
+        </div>
+      </div>
+    </div>
+
+
+    <h3 class="heading-medium">Current levy estimates</h3>
+                <table class="responsive">
+                <tr>
+                    <th>Month/Year</th>
+                    <th>Paybill amount</th>
+                    <th>English percentage</th>
+                </tr>
+                <tr>
+                    <td>October 2017</td>
+                    <td>£9999</td>
+                    <td>English % 100%</td>
+                </tr>
+            </table>
+    <div class="form-group">
+                 <a class="button secondary" href="add-levy-wizard.html">Add more levy</a>
+            <a class="button" href="project-commitments.html">Continue</a>
+        </div>
+            
+</main><!-- / #content -->
+{% endblock %}

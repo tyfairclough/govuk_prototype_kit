@@ -1,0 +1,31 @@
+{% extends currentApp.filePaths.layoutsDir + "hmrc.html" %}
+{% block main_content %}
+
+<main class="gateway-login" id="content" role="main" tabindex="-1">
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+        <h1 class="heading-xlarge">Government Gateway login</h1>
+<form action="step_b3">           
+                <fieldset>
+                    <div class="form-group">
+                        <label class="form-label" for="user-id">User ID
+                        <!--span class="form-hint">Here is a hint for this form field.</span-->
+                        </label>
+                        <input class="form-control" id="user-id" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="user-password">Password
+                        <!--span class="form-hint">Here is a hint for this form field.</span-->
+                        </label>
+                        <input class="form-control" id="user-password" type="password">
+                    </div>                    
+                </fieldset>
+                
+            <a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-auth" class="button">Sign in</a>
+                
+            </form>
+    </div> 
+</div>    
+</main><!-- / #content -->
+{% endblock %}
