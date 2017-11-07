@@ -1,0 +1,63 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="cohorts-waiting-to-start" id="content" role="main" tabindex="-1">
+
+    {% include "includes/link-back.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+                <h1 class="heading-large">Cohorts waiting to start</h1>
+                <p class="lede">You have 4 cohorts about to start.</p>
+            </div>
+        </div>
+    </div>
+    
+    <table>
+      
+
+                    <thead>
+                      <tr>
+                        <th scope="col" class="mini-pad">Provider</th>
+                        <th scope="col">Cohort reference</th>
+                        <th class="" scope="col" style="">Funding</th>
+
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+
+                      <tbody><tr>
+                        <td class="mini-pad">Hackney Skills &amp; Training Ltd</td>
+                        <td>98HGS3F</td>
+                        <td style="max-width:300px">Normal</td>
+
+                        <td class=""><a href="../finance/transfers/account-id.html">Fund with a transfer</a></td>
+                      </tr>
+                      <tr>
+                        <td class="mini-pad">Hackney Skills &amp; Training Ltd</td>
+                        <td>55HGS3F</td>
+                        <td style="max-width:300px">Normal</td>
+
+                        <td class=""><a href="../finance/transfers/account-id.html">Fund with a transfer</a></td>
+                      </tr>
+                      <tr>
+                        <td class="mini-pad">Lots of skills Ltd</td>
+                        <td>999GHY4</td>
+                        <td style="max-width:300px">Normal</td>
+
+                        <td class=""><a href="../finance/transfers/account-id.html">Fund with a transfer</a></td>
+                      </tr>
+                       <tr>
+                        <td class="mini-pad">Skills, Skills, Skills Ltd</td>
+                        <td>999GHY4</td>
+                        <td style="max-width:300px">Transfer</td>
+
+                        <td class=""><a href="cohort-with-pending-transfer">Details</a></td>
+                      </tr>
+
+                    </tbody>
+                </table>
+
+</main><!-- / #content -->
+{% endblock %}

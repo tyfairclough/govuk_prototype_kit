@@ -1,0 +1,30 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="transfers-start" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup form-group">
+           <h1 class="heading-large">
+        Request a transfer for this cohort    </h1>
+            <p class="lede">Use an employer's account ID to request this cohort is funded by the levy paying employer.</p>
+            
+            <details>
+                <summary>Help</summary>
+            </details>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="grid-row">
+        <div class="column-two-thirds">
+<a href="account-id.html" class="button">Continue</a>      
+        </div>
+    </div>
+    
+
+</main><!-- / #content -->
+{% endblock %}
