@@ -8,159 +8,65 @@
         <div class="column-two-thirds">
             <div class="hgroup">
             <h1 class="heading-xlarge">
-        Transfer funds
+        Transfer requests
       </h1>
-            <p class="lede">Move funds between apprenticeship accounts.</p>
-
-                <a class="button" href="/sprint/48/account/transfers/receive/start" id="requestFunds">Request funds</a>
-                <a class="button text-link" href="send/request-help.html">Offer funds</a>
+            <p class="lede">Authorise the sending of funds to other employers.</p>
+               <p>You can send up to 10% (total) of last years apprenticeship levy to any other employer. You should understand the <a href="#">rules and means of calculating your transfer allowance</a> before authorising any transfer requests.</p>
 </div>
         </div>
-    </div> 
-    
-<div class="grid-row">
-    <hr />
-        <div class="column-one-third">
-            <h2 class="heading-small">Your apprenticeship account ID</h2>
-            <p>XGHFEDF</p>        
-        </div>
-        <div class="column-one-third">
-            <div id="transferBalance">
-            <h2 class="heading-small">Available balance to transfer</h2>
-            <p class="transfer-balance">£0</p>
-            </div>
-        </div>
-        <div class="column-one-third hidden">
-            <div id="offerFundsDate">
+    <div class="column-third">
+        <div class="related">
+                    <h2 class="heading-small">Your apprenticeship account ID</h2>
+            <p>XGHFEDF</p>
+                        <div id="offerFundsDate">
         <h2 class="heading-small">Can offer funds from</h2>
             <p>March 2019</p>         
             </div>
+                        <h2 class="heading-small">Current transfer balance</h2>
+            <p class="transfer-balance">£0</p>
         </div>
     </div>
-    <hr />
-    
-<div class="" id="finance-bingo">   
-        <div class="grid-row">
-            <div class="column-one-third">
-           <a data-filter="expiring">
-               <div class="data purple">
-                    <h2 class="bold-xxlarge">0</h2>
-                    <h2 class="bold-medium">Expiring transfers</h2>
-        </div>
-               </a> 
-            </div>
-            <div class="column-one-third">
-           <a data-filter="pending">
-            <div class="data fuscia">
-                    <h2 class="bold-xxlarge" id="pendingCount">0</h2>
-                    <h2 class="bold-medium">Pending transfers</h2>
-        </div>
-      </a>
-            </div>
-            
-        
-            <div class="column-one-third">
-           <a data-filter="accepted">
-               <div class="data pink">
-                    <h2 class="bold-xxlarge">0</h2>
-                    <h2 class="bold-medium">Completed transfers</h2>
-        </div>
-               </a> 
-            </div>
-            
-        </div>
-</div>    
-    
+    </div> 
+
 <div id="transactions" class="container" style="">
-                    <h2 class="heading-medium">Transfer in</h2>
-    <div class="panel panel-width-thin">
+                    <h2 class="heading-medium">Current transfer requests</h2>
+    <div class="panel panel-width-thin hidden">
         <p>You have no transfers to date.</p>
     </div>
         <table class="" id="transfers-in">
         <thead>
             <tr>
-                <th>State</th>
                 <th>Sending employer</th>
-                <th>Amount</th>
-                <th>Date</th>
+                <th>Total amount <span class="form-hint">This year's amount</span></th>
+                <th>Planned start date</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
 <!-- RECEIVER START -->                     
-        <tr data-type="pending" id="receiver-offer-received" class="hidden">
-            <td>Offer received<span class="label mellow-red" style="display:inherit;">Expires in 3 days</span></td>
-            <td>Acme Ltd
-                
-            </td>
-            <td>£6,000</td>
-            <td>--</td>
-            <td class="numeric"><a href="receive/offer-received-summary.html">Details</a></td>
-        </tr>
-        <tr data-type="pending" id="receiver-offer-accepted" class="hidden">
-            <td>Offer accepted
-            </td>
-            <td>Acme Ltd
-                
-            </td>
-            <td>£6,000</td>
-            <td>--</td>
-            <td class="numeric"><a href="receive/offer-accepted-summary.html">Details</a></td>
-        </tr>
-        <tr data-type="pending" id="receiver-offer-declined" class="hidden">
-            <td>Offer declined</td>
-            <td>Acme Ltd
-                
-            </td>
-            <td>£6,000</td>
-            <td>--</td>
-            <td class="numeric"><a href="receive/offer-declined-summary.html">Details</a></td>
-        </tr>
-            <tr data-type="pending" id="receiver-request-sent">
-            <td>Request sent<span class="label mellow-red" style="display:inherit;">Expires in 3 days</span></td>
-            <td>Acme Ltd
-                
-            </td>
-            <td>£6,000</td>
-            <td>--</td>
-            <td class="numeric"><a href="receive/request-sent-summary.html">Details</a></td>
-        </tr>
-            <tr data-type="pending" id="receiver-request-sent">
-            <td>Request accepted</td>
-            <td>Acme Ltd
-                
-            </td>
-            <td>£6,000</td>
-            <td>--</td>
-            <td class="numeric"><a href="receive/request-accepted-summary.html">Details</a></td>
-        </tr>
-            <tr data-type="pending" id="receiver-request-sent">
-            <td>Request declined</td>
-            <td>Acme Ltd
-                
-            </td>
-            <td>£6,000</td>
-            <td>--</td>
-            <td class="numeric"><a href="receive/request-declined-summary.html">Details</a></td>
-        </tr>
-
-            <tr data-type="pending" id="receiver-request-sent">
-            <td>Transfer cancelled</td>
-            <td>Acme Ltd
-                
-            </td>
-            <td>£6,000</td>
-            <td>--</td>
-            <td class="numeric"><a href="receive/transfer-cancelled-summary.html">Details</a></td>
-        </tr>
         <tr data-type="pending" id="receiver-request-sent">
-            <td>Payment failed</td>
-            <td>Acme Ltd
-                
+            <td>Acme Ltd</td>
+            <td>£6,000
+                <span class="form-hint">£1,500</span>
             </td>
-            <td>£6,000</td>
-            <td>--</td>
-            <td class="numeric"><a href="receive/payment-failed-summary.html">Details</a></td>
+            <td>November 17</td>
+            <td class="numeric"><a href="request-received.html">Details</a></td>
+        </tr>
+                    <tr data-type="pending" id="receiver-request-sent">
+            <td>Acme Ltd</td>
+            <td>£6,000
+                <span class="form-hint">£1,500</span>
+            </td>
+            <td>November 17</td>
+            <td class="numeric"><a href="request-received.html">Details</a></td>
+        </tr>
+                    <tr data-type="pending" id="receiver-request-sent">
+            <td>Acme Ltd</td>
+            <td>£6,000
+                <span class="form-hint">£1,500</span>
+            </td>
+            <td>November 17</td>
+            <td class="numeric"><a href="request-received.html">Details</a></td>
         </tr>
             </tbody>
 
@@ -168,96 +74,28 @@
 
 <!-- RECEIVER END -->         
             
-        <h2 class="heading-medium">Transfer out</h2>
+        <h2 class="heading-medium">Previous approved transfers</h2>
     <div class="panel panel-width-thin">
-        <p>You have no transfers to date.</p>
+        <p>You have no previous transfers to date.</p>
     </div>        
-        <table class="" id="transfers-out">
+        <table class="hidden" id="transfers-out">
                     <thead>
             <tr>
-                <th>State</th>
                 <th>Receiving employer</th>
-                <th>Amount</th>
-                <th>Date</th>
+                <th>Amount<span class="form-hint"></span></th>
+                <th>Start date</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
 <!-- SENDER -->    
         <tr data-type="pending" id="sender-offer-sent" class="hidden">
-            <td>Offer sent<span class="label mellow-red" style="display:inherit;">Expires in 3 days</span></td>
-            <td>GBC Micro Ltd
-                
-            </td>
+            <td>GBC Micro Ltd </td>
             <td>£6,000</td>
-            <td>--</td>
+            <td>June 17</td>
             <td class="numeric"><a href="send/offer-sent-summary.html" data-org-index="0">Details</a></td>
         </tr>
-        <tr data-type="pending" id="sender-offer-accepted-summary" class="hidden">
-            <td>Offer accepted</td>
-            <td>GBC Micro Ltd
-                
-            </td>
-            <td>£6,000</td>
-            <td>--</td>
-            <td class="numeric"><a href="send/offer-accepted-summary.html" data-org-index="0">Details</a></td>
-        </tr>
-        <tr data-type="pending" id="sender-offer-declined-summary" class="hidden">
-            <td>Offer declined</td>
-            <td>GBC Micro Ltd
-                
-            </td>
-            <td>£6,000</td>
-            <td>--</td>
-            <td class="numeric"><a href="send/offer-declined-summary.html" data-org-index="0">Details</a></td>
-        </tr>            
-        <tr data-type="pending" id="sender-request-received">
-            <td>Request received<span class="label mellow-red" style="display:inherit;">Expires in 3 days</span></td>
-            <td>GBC Micro Ltd
-                
-            </td>
-            <td>£6,000</td>
-            <td>--</td>
-            <td class="numeric"><a href="send/request-received-summary.html" data-org-index="0">Details</a></td>
-        </tr>
-           
-        <tr data-type="pending" id="sender-request-accepted">
-            <td>Request accepted</td>
-            <td>GBC Micro Ltd
-                
-            </td>
-            <td>£6,000</td>
-            <td>--</td>
-            <td class="numeric"><a href="send/request-accepted-summary.html" data-org-index="0">Details</a></td>
-        </tr>
-           
-        <tr data-type="pending" id="sender-request-declined-summary">
-            <td>Request declined</td>
-            <td>GBC Micro Ltd
-                
-            </td>
-            <td>£6,000</td>
-            <td>--</td>
-            <td class="numeric"><a href="send/request-declined-summary.html" data-org-index="0">Details</a></td>
-        </tr>           
-        <tr data-type="pending" id="sender-transfer-cancelled-summary">
-            <td>Transfer cancelled</td>
-            <td>GBC Micro Ltd
-                
-            </td>
-            <td>£6,000</td>
-            <td>--</td>
-            <td class="numeric"><a href="send/transfer-cancelled-summary.html" data-org-index="0">Details</a></td>
-        </tr>
-        <tr data-type="pending" id="sender-transfer-cancelled-summary">
-            <td>Payment failed</td>
-            <td>GBC Micro Ltd
-                
-            </td>
-            <td>£6,000</td>
-            <td>--</td>
-            <td class="numeric"><a href="send/payment-failed-summary.html" data-org-index="0">Details</a></td>
-        </tr>
+        
 
         
 <!-- SENDER END -->            
