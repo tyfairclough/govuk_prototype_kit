@@ -1,0 +1,52 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="transfers-declined-next-steps" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+<div class="grid-row">
+        <div class="column-two-thirds">
+    <div id="notifications">
+        <div class="warning-summary">
+            <h3 class="heading-medium">Request declined</h3>
+            <p><span class="organisation-name bold-small">Acme Ltd</span> be notified of the decision.</p>
+        </div>
+    </div>
+      
+      </div>
+    </div>
+
+    <div class="grid-row">
+
+      
+      <div class="column-two-thirds">
+
+          <h2 class="heading-medium">What next?</h2>
+             <form action="">
+            
+        <div class="form-group">
+                                    <div class="multiple-choice">
+
+        <input id="orgs" type="radio" name="radio-group" value="transfer">
+            <label class=" " data-target="orgs" for="orgs">
+View my transfers dashboard   </label>
+            </div>
+
+                                                <div class="multiple-choice">
+        <input id="homepage" type="radio" name="radio-group" value="homepage">
+
+            <label class="" data-target="homepage" for="homepage">
+Go back to the homepage
+            </label>
+            </div>
+      </div>
+
+  
+      <a class="button" href="index.html" id="submit">Continue</a>
+      
+</form>
+          
+                 
+</div></div>
+    
+</main><!-- / #content -->
+{% endblock %}

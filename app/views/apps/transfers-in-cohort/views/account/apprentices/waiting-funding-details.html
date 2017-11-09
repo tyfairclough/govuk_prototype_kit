@@ -1,7 +1,7 @@
 {% extends currentApp.filePaths.layoutsDir + "default.html" %}
 {% block main_content %}
 
-<main class="transfers-request-received" id="content" role="main" tabindex="-1">
+<main class="apprenticeship-waiting-transfer" id="content" role="main" tabindex="-1">
     {% include "includes/link-back.html" %}
 
     <div class="grid-row">
@@ -17,7 +17,7 @@
   <div class="grid-row">
         <div class="column-two-thirds">
 <h2 class="heading-medium">
-Receiving employer
+Sending employer
             </h2>    
 <dl class="govuk-check-your-answers cya-questions-short">
         <div>
@@ -25,7 +25,7 @@ Receiving employer
             Name
           </dt>
           <dd class="cya-answer">
-            GBC Micro Ltd
+            Acme Ltd
           </dd>
         </div>
 
@@ -55,19 +55,12 @@ Transfer details
         </div> 
     <div>
           <dt class="cya-question" id="yearOneCost">
-              Cost in year 1
+              Due in year 1
           </dt>
           <dd class="cya-answer">
               £1,129.40
           </dd>
-        </div>       <div>
-          <dt class="cya-question">
-              Remaining budget after this transfer
-          </dt>
-          <dd class="cya-answer" id="currentBalance">
-              £32,752
-          </dd>
-        </div>    
+        </div>   
       </dl>
             
 <h2 class="heading-medium">
@@ -142,16 +135,16 @@ Transfer details
     
     <form>
     <legend>
-        <h1 class="heading-medium">Do you wish to accept this transfer request?</h1>
+        <h1 class="heading-medium">Do you wish to cancel this transfer request?</h1>
       </legend>
         <div class="form-group">
       <div class="multiple-choice">
         <input id="radio-1" type="radio" name="radio-group" value="yes">
-        <label for="radio-1">Yes, send Acme Ltd the requested transfer amount</label>
+        <label for="radio-1">Yes, I will co-invest this apprenticeship cohort instead</label>
       </div>
       <div class="multiple-choice">
         <input id="radio-2" type="radio" name="radio-group" value="no">
-        <label for="radio-2">No, decline this request</label>
+        <label for="radio-2">No, I will wait for the sending employer to respond</label>
       </div>
   </div>
         <a class="button" href="request-accepted-next-steps.html">Continue</a>

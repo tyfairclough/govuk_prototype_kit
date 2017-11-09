@@ -1694,20 +1694,53 @@ li.added + li {
     }
 
 .timeline {
-  width:100%;
-  background:#fff;
-  padding: 10px;
-  position: relative;
-              &:before {
-    content: '';
-    position: absolute;
-    top: 0px;
-    left:0;
-    bottom: 0px;
-    width: $border-width;
-    background: #ddd;
+    padding-top: 0px;
+    padding-left: 0;
+    padding-bottom: 0px;
+    position: relative;
+    width: 100%;
+    background: #FFF;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 25px;
+        bottom: 10px;
+        width: 1px;
+        background: #BFC1C3;
+        left: -1px;
     }
+    .body {
+        width: 100%;
+        margin-left: 20px;
+        margin-bottom: 30px;
+        position: relative;
+        div {
+            span {
+                color: $grey-1
+            }
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #BFC1C3;
+            border-radius: 100%;
+            left: -25px;
+            top: 25px;
+            z-index: 99;
+        }
+        &:last-child:before {
+            content: "";
+            width: 17px;
+            height: 17px;
+            left: -29px;
+            top: 0;
+        }
+    }
+
 }
+
 
 
 
@@ -1783,6 +1816,7 @@ li.added + li {
         left: -15px;
         z-index: 99;  
       }
+
   }
 }
 
@@ -1792,8 +1826,11 @@ li.added + li {
 .timeline {
     padding: 0 15px;
   &:before {
-    left:calc(33% + 15px); //$gutter/2
+    left:14px; //$gutter/2
+    bottom: 40px;
+      top: 10px;
     }
+    
   &:after {
     content: "";
     display: table;
@@ -1862,7 +1899,15 @@ li.added + li {
             }
         }
     }
+    .timeline .body:before {
+        top: 10px;
+    }
+    .timeline .body:last-child:before {
+        top: 5px;
+    }
 }
+
+
 
 .multiple-choice {
     display: block;
@@ -2147,48 +2192,7 @@ table.footable>tfoot>tr.footable-paging>td>span.label {
     }
 }
 
-    .timeline {
-        padding-top: 0px;
-        padding-left: 0;
-        padding-bottom: 0px;
-        margin-left: 5px;
-        position: relative;
-        width: 100%;
-        background: #FFF;    
-        .body {
-              width: 100%;
-              margin-left: 20px;
-              margin-bottom: 30px;
-              position: relative;
-                div {
-                    span {
-                        color: $grey-1
-                    }
-                }
-            &:before {
-              content: "";
-              position: absolute;
-              width: 8px;
-              height: 8px;
-              background-color: #BFC1C3;
-              border-radius: 100%;
-              left: -25px;
-              top: 24%;
-              z-index: 99;            
-            }
-        }
-        &:before {
-            content: "";
-            position: absolute;
-            top: 0px;
-            bottom: 0px;
-            width: 1px;
-            background: #BFC1C3;
-            top: 30px;
-            bottom: 10px;
-            left: -1px;
-        }
-    }
+
 
 .notification-row {
     padding: 20px 0 30px 0;

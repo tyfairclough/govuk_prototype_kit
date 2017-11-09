@@ -5,10 +5,12 @@ var root = "/apps/{{currentApp.appDirName}}/views/";
 console.log(root);
 var className = $("main").attr('class');
 
-
-
-
-
+var transferBudget;
+transferBudget = JSON.parse(localStorage.getItem("transferBudget"));    
+if (transferBudget == null){
+    localStorage.setItem("transferBudget","32450")
+}
+    
    switch (className) {
        case 'forecast-index-wide':
            forecastIndexWide();
@@ -25,9 +27,147 @@ var className = $("main").attr('class');
        case 'choose-how-to-add-apprentices':
            chooseHowToAddApprenitces();
        break;
+       case 'account-dashboard':
+           accountDashboard();
+       break;
+       case 'transfers-request-received':
+           transfersRequestReceived();
+       break;
+       case 'transfers-declined-next-steps':
+           transfersDeclinedNextSteps();
+       break;
+       case 'transfers-accepted-next-steps':
+           transfersAcceptedNextSteps();
+       break;
+       case 'transfers-dashboard':
+           transfersDashboard();
+       break;
+       case 'transfers-request-sent':
+           transfersRequestSent();
+       break;
+       case 'apprenticeship-waiting-transfer':
+           apprenticeshipWaitingTransfer();
+       break;
+       case 'cohort-transfer-cancelled':
+           cohortTransferCancelled();
+       break;
+       case 'choose-funding':
+           chooseFunding();
+       break;
+       case 'finance-transactions-expanded':
+           financeTransactionsExpanded();
+       break;
        default: break;
 }
+    
+    
+    function financeTransactionsExpanded(){
+        levyPayer = JSON.parse(localStorage.getItem("levyPayer"))
+        if (levyPayer == false ) {
+            $(".levy").hide();
+        } else {
+            $(".non-levy").hide();
+        }
+    }
+    
+    function chooseFunding(){
+        localStorage.setItem("levyPayer","false");
+    }
+    
+    function cohortTransferCancelled(){
+          $(".button").click(function(e){
+            e.preventDefault(); 
+            state = $("input[name=radio-group]:checked").val()
+            if (state === "apprentice") {
+                window.location.href = "index";                
+            } else {
+                window.location.href = "../index";                
+            }
+        })         
+    }    
+    function apprenticeshipWaitingTransfer(){
+          $(".button").click(function(e){
+            e.preventDefault(); 
+            state = $("input[name=radio-group]:checked").val()
+            if (state === "yes") {
+                window.location.href = "transfer-cancelled";                
+            } else {
+                window.location.href = "cohorts-awaiting-transfer";                
+            }
+        })         
+    }
+    
+    function transfersRequestSent(){
+          $(".button").click(function(e){
+            e.preventDefault(); 
+            state = $("input[name=radio-group]:checked").val()
+            if (state === "review") {
+                window.location.href = "../../apprentices/your-cohort-requests.html";                
+            } else if (state === "apprentice") {
+                window.location.href = "../../apprentices/index.html";                
+            } else {
+                window.location.href = "../../index";                                
+            }
+        }) 
+    }
+    function transfersDashboard(){
+        state = localStorage.getItem("requestState");
+        if ( state == "accepted") {
+            console.log("accepted the agreement, move to previous approved");
+            $("#transfer-request-2, #no-previous-transfers").hide();
+            $("#transfer-approved-1, #no-previous-transfers + table").show();
+            $(".transfer-balance").text("£31,320.60");
+        } else {
+            console.log("no transfer accepted so keep it there")
+        }
+    }
+    
+    function transfersAcceptedNextSteps(){
+          $(".button").click(function(e){
+            e.preventDefault(); 
+            state = $("input[name=radio-group]:checked").val()
+            if (state === "transfer") {
+                window.location.href = "index";                
+            } else {
+                window.location.href = "../../index";                
+            }
+        })          
+    }
 
+    function transfersDeclinedNextSteps(){
+          $(".button").click(function(e){
+            e.preventDefault(); 
+            state = $("input[name=radio-group]:checked").val()
+            if (state === "transfer") {
+                window.location.href = "index";                
+            } else {
+                window.location.href = "../../index";                
+            }
+        })          
+    }
+    function transfersRequestReceived(){
+         $(".button").click(function(e){
+            e.preventDefault(); 
+            state = $("input[name=radio-group]:checked").val()
+            if (state === "yes") {
+                        localStorage.setItem("levyPayer","true");
+
+                localStorage.setItem("requestState","accepted");
+                window.location.href = "request-accepted-next-steps";                
+            } else {
+                localStorage.setItem("requestState","declined");                
+                window.location.href = "request-declined-next-steps";                
+            }
+        })       
+    }
+    function accountDashboard(){
+        
+                state = localStorage.getItem("requestState");
+        if ( state == "accepted") { } else {
+            
+        }
+        
+    }
     
     function startAddingApprenitces(){
         $(".button").click(function(e){
@@ -138,6 +278,15 @@ var chart = c3.generate({
 
 
 // global js
+    
+    
+    // setting up the transfer detaults
+    
+    
+    $(".link-back").click(function(e){
+        e.preventDefault();
+        window.history.back();
+    })
     
    
 /*----- TABS -----*/

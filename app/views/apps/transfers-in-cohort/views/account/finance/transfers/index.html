@@ -11,19 +11,21 @@
         Transfer requests
       </h1>
             <p class="lede">Authorise the sending of funds to other employers.</p>
-               <p>You can send up to 10% (total) of last years apprenticeship levy to any other employer. You should understand the <a href="#">rules and means of calculating your transfer allowance</a> before authorising any transfer requests.</p>
+               <p>You can send up to 10% (total) of last years apprenticeship levy to any other employer. You should understand the <a href="sender-inform.html">rules and means of calculating your transfer allowance</a> before authorising any transfer requests.</p>
 </div>
         </div>
     <div class="column-third">
         <div class="related">
                     <h2 class="heading-small">Your apprenticeship account ID</h2>
             <p>XGHFEDF</p>
-                        <div id="offerFundsDate">
-        <h2 class="heading-small">Can offer funds from</h2>
-            <p>March 2019</p>         
-            </div>
+   
                         <h2 class="heading-small">Current transfer balance</h2>
-            <p class="transfer-balance">£0</p>
+            <p class="transfer-balance">£32,450</p>
+            <details>
+                <summary>How is this calculated</summary>
+                
+                Last years levy contribution <br>-<br> this years transfers to date
+            </details>
         </div>
     </div>
     </div> 
@@ -36,7 +38,7 @@
         <table class="" id="transfers-in">
         <thead>
             <tr>
-                <th>Sending employer</th>
+                <th>Receiving employer</th>
                 <th>Total amount <span class="form-hint">This year's amount</span></th>
                 <th>Planned start date</th>
                 <th></th>
@@ -44,28 +46,21 @@
         </thead>
         <tbody>
 <!-- RECEIVER START -->                     
-        <tr data-type="pending" id="receiver-request-sent">
-            <td>Acme Ltd</td>
+        <tr data-type="pending" id="transfer-request-1">
+            <td>Anvil Pty</td>
             <td>£6,000
-                <span class="form-hint">£1,500</span>
+                <span class="form-hint">£1,129.40</span>
             </td>
-            <td>November 17</td>
+            <td>September 17</td>
             <td class="numeric"><a href="request-received.html">Details</a></td>
         </tr>
-                    <tr data-type="pending" id="receiver-request-sent">
-            <td>Acme Ltd</td>
+                   
+                    <tr data-type="pending" id="transfer-request-2">
+            <td>GBC Micro Ltd</td>
             <td>£6,000
-                <span class="form-hint">£1,500</span>
+                <span class="form-hint">£1,129.40</span>
             </td>
-            <td>November 17</td>
-            <td class="numeric"><a href="request-received.html">Details</a></td>
-        </tr>
-                    <tr data-type="pending" id="receiver-request-sent">
-            <td>Acme Ltd</td>
-            <td>£6,000
-                <span class="form-hint">£1,500</span>
-            </td>
-            <td>November 17</td>
+            <td>September 17</td>
             <td class="numeric"><a href="request-received.html">Details</a></td>
         </tr>
             </tbody>
@@ -75,10 +70,10 @@
 <!-- RECEIVER END -->         
             
         <h2 class="heading-medium">Previous approved transfers</h2>
-    <div class="panel panel-width-thin">
+    <div class="panel panel-width-thin" id="no-previous-transfers">
         <p>You have no previous transfers to date.</p>
     </div>        
-        <table class="hidden" id="transfers-out">
+        <table style="display:none" id="transfers-out">
                     <thead>
             <tr>
                 <th>Receiving employer</th>
@@ -89,11 +84,11 @@
         </thead>
         <tbody>
 <!-- SENDER -->    
-        <tr data-type="pending" id="sender-offer-sent" class="hidden">
+        <tr data-type="pending" id="sender-offer-sent" class="">
             <td>GBC Micro Ltd </td>
             <td>£6,000</td>
             <td>June 17</td>
-            <td class="numeric"><a href="send/offer-sent-summary.html" data-org-index="0">Details</a></td>
+            <td class="numeric"><a href="request-accepted.html" data-org-index="0">Details</a></td>
         </tr>
         
 

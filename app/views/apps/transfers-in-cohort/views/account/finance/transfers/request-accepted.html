@@ -1,13 +1,13 @@
 {% extends currentApp.filePaths.layoutsDir + "default.html" %}
 {% block main_content %}
 
-<main class="transfers-request-received" id="content" role="main" tabindex="-1">
+<main class="transfers-confirm-sending-employer" id="content" role="main" tabindex="-1">
     {% include "includes/link-back.html" %}
 
     <div class="grid-row">
     <div class="column-two-thirds">
         <div class="hgroup form-group">
-           <h1 class="heading-large">Request received</h1>
+           <h1 class="heading-large">Request accepted</h1>
             <p class="lede">Your transfer summary.</p>
         </div>
       </div>
@@ -54,20 +54,13 @@ Transfer details
           </dd>
         </div> 
     <div>
-          <dt class="cya-question" id="yearOneCost">
+          <dt class="cya-question">
               Cost in year 1
           </dt>
           <dd class="cya-answer">
               £1,129.40
           </dd>
-        </div>       <div>
-          <dt class="cya-question">
-              Remaining budget after this transfer
-          </dt>
-          <dd class="cya-answer" id="currentBalance">
-              £32,752
-          </dd>
-        </div>    
+        </div>      
       </dl>
             
 <h2 class="heading-medium">
@@ -136,26 +129,6 @@ Transfer details
             <br>
             <a href="payment-plan.html">View payment plan</a>
             
-
-
-  
-    
-    <form>
-    <legend>
-        <h1 class="heading-medium">Do you wish to accept this transfer request?</h1>
-      </legend>
-        <div class="form-group">
-      <div class="multiple-choice">
-        <input id="radio-1" type="radio" name="radio-group" value="yes">
-        <label for="radio-1">Yes, send Acme Ltd the requested transfer amount</label>
-      </div>
-      <div class="multiple-choice">
-        <input id="radio-2" type="radio" name="radio-group" value="no">
-        <label for="radio-2">No, decline this request</label>
-      </div>
-  </div>
-        <a class="button" href="request-accepted-next-steps.html">Continue</a>
-    </form>
     
 </div></div>
 
