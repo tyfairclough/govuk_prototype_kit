@@ -1,11 +1,11 @@
 {% extends currentApp.filePaths.layoutsDir + "default.html" %}
 {% block main_content %}
 
-<main class="choose-an-option" id="content" role="main" tabindex="-1">
+<main class="choose-funding" id="content" role="main" tabindex="-1">
 <div class="grid-row">
            <div class="column-two-thirds">
                <div class="hgroup">
-                   <div class="text"><h1 class="heading-large">Choose an option</h1>
+                   <div class="text"><h1 class="heading-large">Choose funding option</h1>
                    </div>
 </div>          
                </div>
@@ -19,28 +19,20 @@
 
         <input id="approve" type="radio" name="next" value="approve" class="">
       <label data-target="approve" for="approve">
-Approve and sender to provider
-        </label>
+Fund through co-investment
+                </label>
             </div>
             <div class="multiple-choice">
 
         <input id="send" type="radio" name="next" value="send">
             <label data-target="send" for="send">
-Send to provider to review or add details
-                </label>
-                 </div>
-
-            <div class="multiple-choice">
-
-        <input id="later" type="radio" name="next" value="later">
-            <label data-target="later" for="later">
-Save but don't send to provider
+Fund through a transfer of levy from a levy paying employer
                 </label>
                  </div>
       </div>
 
   
-      <a class="button" href="choose-funding.html" id="submit">Continue</a>
+      <a class="button" href="../finance/transfers/account-id.html" id="submit">Continue</a>
       
 </form>
 
