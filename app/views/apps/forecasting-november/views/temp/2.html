@@ -1,0 +1,50 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="change-me" id="content" role="main" tabindex="-1">
+
+    
+<div class="grid-row">
+    <div class="column-two-thirds">
+    <div class="success-summary">
+    <p>Your notification settings have been updated</p>
+    </div>    
+    </div>
+</div>
+    
+    <div class="hgroup text">
+        <h1 class="heading-large">Notification settings</h1>
+        <p class="lede">Choose whether you want to receive notification emails about cohorts and apprentices.</p>
+        <p>Notification emails alert you to issues such as ILR data mismatches that need to be resolved or changes from an employer that you need to review.</p>
+    </div>
+    
+    
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <form>
+                <legend class="heading-small">Do you want to receive notification emails?</legend>
+
+                <div class="form-group">
+                    <div class="multiple-choice">
+                        <input type="radio" name="next" value="value">
+                        <label>Yes, send me notification emails</label>
+                    </div>
+                    <div class="multiple-choice">
+                        <input type="radio" name="next" value="value">
+                        <label>No, don’t send me notification emails</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <a class="button">Update</a>
+                </div>
+            </form>  
+            <div class="panel panel-width-thin">
+                <p>You’ll still receive emails that help you manage your account, such as password reset emails.</p>
+            </div>
+        </div>
+    </div>
+    
+    
+
+</main><!-- / #content -->
+{% endblock %}
