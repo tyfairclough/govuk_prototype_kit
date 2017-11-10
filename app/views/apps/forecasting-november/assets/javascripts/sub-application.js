@@ -78,7 +78,17 @@ var className = $("main").attr('class');
     }
     
     function forecastAlreadyHaveAccount(){
-        
+          $(".button").click(function(e){
+            e.preventDefault();
+            state = $("input[name=radio-group]:checked").val()
+
+            if (state === "login") {
+                window.location.href = "../../../index";
+            } else {
+                // non levy payer
+                window.location.href = "project-levy";
+            }
+        })      
     }
 
     function forecastYourPaybill(){
