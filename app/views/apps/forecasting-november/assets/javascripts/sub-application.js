@@ -34,8 +34,23 @@ var className = $("main").attr('class');
        case 'forecastViewLevy':
            forecastViewLevy();
        break;
+       case 'forecastViewCommitments':
+           forecastViewCommitments();
+       break;
+       case 'forecastAlreadyHaveAccount':
+           forecastAlreadyHaveAccount();
+       break;
        default: break;
 }
+    function forecastViewCommitments(){
+        userAuth = localStorage.getItem("userAuth");
+                    if (userAuth != "false") {
+               //$("#forecasted").hide()
+                        
+            } else {
+               $("#forecasted").hide()
+            }
+    }
     
     function forecastViewLevy(){
           $(".button").click(function(e){
@@ -61,6 +76,10 @@ var className = $("main").attr('class');
             }
         })         
     }
+    
+    function forecastAlreadyHaveAccount(){
+        
+    }
 
     function forecastYourPaybill(){
         
@@ -75,7 +94,7 @@ var className = $("main").attr('class');
             if ( paybill > 3000000 ) {
                console.log("levy payer") // levy payer
                 localStorage.setItem("levyPayer","true");
-                window.location.href = "project-levy";
+                window.location.href = "have-account";
             } else {
                 // non levy payer
                  console.log("non levy payer") ;
@@ -156,13 +175,25 @@ $('tr').click(function () {
 function forecastIndexWide(){
   $("body").addClass("wide");
     
+    
+    
+    userAuth = localStorage.getItem("userAuth");
+    
+    if ( userAuth != "true" ) {
+    } else {
+        $("#noForecasts").hide();
+        $("#existingForecasts").removeClass("hidden");        
+    }
     $("#saveForecast").click(function(e){
         e.preventDefault();
-        
-        if ( localStorage.getItem("userAuth") == "true") {
+        if ( userAuth  != "true") {
             // a quick save to the existing forecasts
+            window.location.href = "../../../index";
+            $(".success-summary a").hide();
         } else {
             //sender user to register
+            $(".success-summary h3").text("FORECAST SAVED");
+            $(".success-summary p").text("YOU CAN ACCESS IT FROM THE MANAGE LIST");
         }
     });
 
