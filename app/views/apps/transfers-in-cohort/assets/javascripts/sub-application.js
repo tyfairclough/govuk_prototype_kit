@@ -69,7 +69,7 @@ if (transferBudget == null){
             new Clipboard('.excel');
         
         $(".excel").click(function(e){
-          $(this).text("Table copied") 
+          $(this).text("Transactions copied to your clipboard") 
         })
 
         
