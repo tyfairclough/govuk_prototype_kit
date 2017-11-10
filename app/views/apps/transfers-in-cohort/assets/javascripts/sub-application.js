@@ -67,6 +67,10 @@ if (transferBudget == null){
     function financeTransactionsExpanded(){
         
             new Clipboard('.excel');
+        
+        $(".excel").click(function(e){
+          $(this).text("Table copied") 
+        })
 
         
         levyPayer = JSON.parse(localStorage.getItem("levyPayer"))
