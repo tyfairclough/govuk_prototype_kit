@@ -61,7 +61,14 @@ if (transferBudget == null){
 }
     
     
+
+    
+    
     function financeTransactionsExpanded(){
+        
+            new Clipboard('.excel');
+
+        
         levyPayer = JSON.parse(localStorage.getItem("levyPayer"))
         if (levyPayer == false ) {
             $(".levy").hide();

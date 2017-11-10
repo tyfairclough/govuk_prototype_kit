@@ -69,7 +69,7 @@ var className = $("main").attr('class');
             state = $("input[name=radio-group]:checked").val()
             if (state === "project") {
                 localStorage.setItem("forecastLevy","true")
-                window.location.href = "view-levy";                
+                window.location.href = "english-percentage";                
             } else {
                 localStorage.setItem("forecastLevy","false")
                 window.location.href = "add-levy-wizard";                
