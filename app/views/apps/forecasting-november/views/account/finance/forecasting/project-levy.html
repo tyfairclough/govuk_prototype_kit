@@ -1,7 +1,7 @@
 {% extends currentApp.filePaths.layoutsDir + "default.html" %}
 {% block main_content %}
 
-<main class="forecast-project-levy" id="content" role="main" tabindex="-1">
+<main class="forecastProjectLevy" id="content" role="main" tabindex="-1">
     {% include "includes/link-back.html" %}
 
     <div class="grid-row">
@@ -22,14 +22,14 @@
                                   <legend class="heading-small">PROJECT LEVY FORWARD?</legend>
                                     <p>MENTION YOU CAN CHANGE THEM AFTER</p>
                                     <div class="multiple-choice">
-                                    <input id="add-paye-1" type="radio" name="add-paye-group" value="2">
-                                  <label class="" for="add-paye-1">
+                                    <input id="project" type="radio" name="radio-group" value="project">
+                                  <label class="" for="project">
                                       Yes, PROJECT LEVY INTO THE FUTURE
                                   </label>
                                     </div>
                                     <div class="multiple-choice">                                    
-                                    <input id="add-paye-2" type="radio" name="add-paye-group" value="1" checked>
-                                  <label class=" " for="add-paye-2">
+                                    <input id="manual" type="radio" name="radio-group" value="manual">
+                                  <label class=" " for="manual">
                                       No, MANUALLY ADD LEVY DATA
                                   </label>
                                     </div>

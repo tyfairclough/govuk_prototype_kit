@@ -2,7 +2,28 @@
 {% block main_content %}
 
 <main class="index" id="content" role="main" tabindex="-1">
+    <section id="config" class="outofservice">
+    <h1 class="heading-large">Before you start</h1>
+        <form>
+            <legend class="bold-medium">What type of employer are you</legend>
+            <p class="form-hint">If you need help ask the researcher to answer this for you.</p>
+            <div class="form-group">
+                  <div class="multiple-choice">
+        <input id="nonlevy" type="radio" name="radio-group" value="nonlevy">
+        <label for="nonlevy">Not logged in</label>
+      </div>
 
+      <div class="multiple-choice">
+        <input id="levy" type="radio" name="radio-group" value="levy">
+        <label for="levy">I am logged in</label>
+      </div>
+                </div>
+            <a class="button button-start">Start</a>
+        </form>
+        
+    </section>
+    
+    <section id="unauthenticated" class="hidden">
   <div class="grid-row">
     <div class="column-two-thirds">
         <div class="hgroup">
@@ -59,7 +80,7 @@ Manage apprenticeships
          </div>
        </section>          
      </div>    
-    
+    </section>
 
 
 </main><!-- / #content -->

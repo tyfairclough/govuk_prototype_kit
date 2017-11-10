@@ -10,19 +10,107 @@ var className = $("main").attr('class');
 
 
    switch (className) {
-       case 'forecast-index-wide':
+       case 'forecastIndexWide':
            forecastIndexWide();
            break;
        case 'another-page':
            anotherPage();
        break;
+       case 'index':
+           index();
+       break;
        case 'finance-transactions':
            financeTransactions();
        break;
+       case 'forecast-start':
+           forecastStart();
+       break;
+       case 'forecastYourPaybill':
+           forecastYourPaybill();
+       break;
+       case 'forecastProjectLevy':
+           forecastProjectLevy();
+       break;
+       case 'forecastViewLevy':
+           forecastViewLevy();
+       break;
        default: break;
 }
+    
+    function forecastViewLevy(){
+          $(".button").click(function(e){
+            e.preventDefault(); 
+            if (localStorage.getItem("userAuth") == "false") {
+                window.location.href = "view-commitments";                                
+            } else {
+                window.location.href = "add-cohort-wizard";                
+            }
+        })         
+    }
 
+    function forecastProjectLevy(){
+          $(".button").click(function(e){
+            e.preventDefault(); 
+            state = $("input[name=radio-group]:checked").val()
+            if (state === "project") {
+                localStorage.setItem("forecastLevy","true")
+                window.location.href = "view-levy";                
+            } else {
+                localStorage.setItem("forecastLevy","false")
+                window.location.href = "add-levy-wizard";                
+            }
+        })         
+    }
 
+    function forecastYourPaybill(){
+        
+        
+         $("#paybill").mask("999,999,999",{reverse: true});
+        
+        $(".button").click(function(e){
+            e.preventDefault();
+            paybill = $("#paybill").val();
+            paybill = Number(paybill.replace(/\D/g,''));
+
+            if ( paybill > 3000000 ) {
+               console.log("levy payer") // levy payer
+                localStorage.setItem("levyPayer","true");
+                window.location.href = "project-levy";
+            } else {
+                // non levy payer
+                 console.log("non levy payer") ;
+                localStorage.setItem("levyPayer","false");
+                window.location.href = "add-cohort-wizard";
+            }
+        })
+        
+    }
+    function forecastStart(){
+        $(".button").click(function(e){
+            e.preventDefault();
+            userType = localStorage.getItem("userAuth");
+            if ( userType != "true") {
+                window.location.href = "yourpaybill";
+            } else {
+                window.location.href = "loading";                
+            }
+        })
+    }
+    
+function index(){
+          $("#config .button").click(function(e){
+            e.preventDefault(); 
+            state = $("input[name=radio-group]:checked").val()
+            if (state === "levy") {
+                localStorage.setItem("userAuth","true");
+                window.location.href = "account/finance/forecasting/start.html";                
+                //close box and set localstorage
+            } else {
+                localStorage.setItem("userAuth","false");
+                window.location.href = "account/finance/forecasting/start.html";                
+            }
+        })             
+}
 function financeTransactions(){
     
 var from_$input = $('#input_from').pickadate(),
@@ -67,6 +155,16 @@ $('tr').click(function () {
 
 function forecastIndexWide(){
   $("body").addClass("wide");
+    
+    $("#saveForecast").click(function(e){
+        e.preventDefault();
+        
+        if ( localStorage.getItem("userAuth") == "true") {
+            // a quick save to the existing forecasts
+        } else {
+            //sender user to register
+        }
+    });
 
 var chart = c3.generate({
     bindto: '#chart',
@@ -111,6 +209,11 @@ var chart = c3.generate({
 // global js
     
     
+    
+    $(".link-back").click(function(e){
+       e.preventDefault();
+            window.history.back();
+    });
    
 /*----- TABS -----*/
     $(".tab-content").not("#tab-1").css("display", "none");
