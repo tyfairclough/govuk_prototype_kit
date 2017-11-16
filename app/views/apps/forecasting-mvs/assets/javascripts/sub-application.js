@@ -13,6 +13,9 @@ var className = $("main").attr('class');
        case 'forecastIndexWide':
            forecastIndexWide();
            break;
+       case 'forecast-index':
+           forecastIndex();
+           break;
        case 'another-page':
            anotherPage();
        break;
@@ -167,6 +170,40 @@ $('tr').click(function () {
     $(this).next('tr').toggle();
 });
     
+}
+    
+function forecastIndex(){
+     var chart = c3.generate({
+    bindto: '#chart',
+    data: {
+      columns: [
+        ['data1', 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250],
+        ['data2', 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 321, 22],
+        ['data3', 50, 20, 10, 40, 15, 25, 30, 200, 222, 332, 533, 432],
+        ['data4', 50, 20, 10, 40, 15, 25, 30, 200, 221, 342, 112, 235]
+      ],
+        type: 'bar',
+        colors: {
+            data1: '#d53880',
+            data2: '#2e358b',
+            data3: '#912b88',
+            data3: '#cccccc'
+        },
+        names: {
+            data1: 'Levy in',
+            data2: 'Traiing costs',
+            data3: 'Co-investment',
+            data4: 'Transfers'
+        }
+    },
+    subchart: {
+            show: true
+        },
+        zoom: {
+        enabled: true
+        }
+
+});   
 }
 
 function forecastIndexWide(){

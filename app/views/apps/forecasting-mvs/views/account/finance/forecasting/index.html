@@ -12,18 +12,13 @@
     
     {% include "includes/link-back.html" %}
 
-    
-    <div class="success-summary">
-    <h3 class="heading-medium">FORECAST CREATED</h3>
-    <p>YOU CAN VIEW AND AMEND YOUR FORECAST AT ANY TIME</p>
-    </div>
     <div class="grid-row">
     <div class="column-two-thirds">
         <div class="hgroup form-group">
            <h1 class="heading-xlarge">
-               FORECASTS
+               FORECAST
             </h1>
-          <p>TELL USERS THIS IS TO VIEW AND CREATE FORECASTS </p>          
+          <p>TELL USERS THIS IS THEIR FORECAST FOR THE NEXT X YEARS WITH CURRENT COMMITMENTS </p>          
         </div>
       </div>
     </div>
@@ -33,9 +28,9 @@
     <ul class="tabs-menu">
         <li class="current"><a href="#tab-1">BALANCE SHEET</a></li>
         <li><a href="#tab-2">EXISTING APPRENTICESHIPS</a></li>
+        <li><a href="#tab-3">GRAPH</a></li>
     </ul>
-    <div id="tab-1" class="tab-content" style="">
-<div id="chart"></div>
+    <div id="tab-1" class="tab-content">
         
         <table class="responsive">
         <thead>
@@ -287,7 +282,7 @@
     </div>
 
 
-    <div id="tab-2" class="tab-content" style="display: none;">
+    <div id="tab-2" class="tab-content">
         <table>
                 <thead>
                     <tr>
@@ -375,6 +370,9 @@
             </table>
         
     </div>
+    <div id="tab-3" class="tab-content">
+        <div id="chart"></div>
+    </div>    
 </div>    
 
 
