@@ -54,6 +54,9 @@ if (transferBudget == null){
        case 'choose-funding':
            chooseFunding();
        break;
+       case 'transfers-confirm-sending-employer':
+           transfersConfirmSendingEmployer();
+       break;
        case 'finance-transactions-expanded':
            financeTransactionsExpanded();
        break;
@@ -62,7 +65,17 @@ if (transferBudget == null){
     
     
 
-    
+    function transfersConfirmSendingEmployer(){
+                  $(".button").click(function(e){
+            e.preventDefault(); 
+            state = $("input[name=radio-group]:checked").val()
+            if (state === "yes") {
+                window.location.href = "complete-state-aid-declaration.html";                
+            } else {
+                window.location.href = "check-your-answers.html";                
+            }
+        });  
+    }
     
     function financeTransactionsExpanded(){
         
