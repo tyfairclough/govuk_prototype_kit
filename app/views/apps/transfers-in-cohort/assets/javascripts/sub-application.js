@@ -47,6 +47,8 @@ if (transferBudget == null){
        break;
        case 'apprenticeship-waiting-transfer':
            apprenticeshipWaitingTransfer();
+       break;       case 'waiting-funding-details':
+           waitingFundingDetails();
        break;
        case 'cohort-transfer-cancelled':
            cohortTransferCancelled();
@@ -63,7 +65,17 @@ if (transferBudget == null){
        default: break;
 }
     
-    
+    function waitingFundingDetails(){
+                          $(".button").click(function(e){
+            e.preventDefault(); 
+            state = $("input[name=radio-group]:checked").val()
+            if (state === "no") {
+                window.location.href = "transfer-cancelled.html";                
+            } else {
+                location.reload();
+            }
+        });  
+    }
 
     function transfersConfirmSendingEmployer(){
                   $(".button").click(function(e){
