@@ -2144,6 +2144,18 @@ table.footable>tfoot>tr.footable-paging>td>span.label {
         border: 1px solid $grey-2;
         border-top: 0;
         padding: 15px;
+        &#tab-1 {
+            div {
+                p {
+                    margin-bottom: 0;
+                }
+                a {
+                    margin-bottom: 20px;
+                    display: block;
+                    &.dismiss { display: none;}
+                }
+            }
+        }
     }
 }
 
