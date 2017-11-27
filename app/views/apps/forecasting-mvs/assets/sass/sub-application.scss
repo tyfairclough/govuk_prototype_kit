@@ -3505,3 +3505,163 @@ table.row, table.responsive {
     background: $white;
     padding: 30px;
 }
+
+
+.sunset-funds {
+    color: red;
+    display: block;
+}
+
+
+
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Force table to not be like tables anymore */
+  table.results-table td.training-column-full {
+    width:inherit
+}
+
+table.results-table td.training-column {
+    width:inherit
+}
+
+  table.results-table td.financial, table.results-table th.financial {
+    text-align: left;
+}
+  table.results-table th.co-funding, table.results-table td.co-funding {
+    border-top: 1px solid #f8f8f8;
+    background-color: #dee0e2;
+    width:inherit;
+
+}
+  .results-table table, .results-table thead, .results-table tbody, .results-table th, .results-table td, .results-table tr {
+    display: block;
+  }
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .results-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  .results-table tr {
+    border-left: 1px solid #bfc1c3;
+    margin-top: 10px;
+    border-right: 1px solid #bfc1c3;
+    border-top: 1px solid #bfc1c3;
+  }
+  .results-table td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #bfc1c3;
+    position: relative;
+    padding-left: 60%;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .results-table .numeric {
+    text-align: left !important;
+  }
+  .results-table td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 11px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  table.results-table th.co-funding-emp, table.results-table td.co-funding-emp {
+    border-left: 0;
+}
+table.results-table th.co-funding-govt, table.results-table td.co-funding-govt {
+    border-right: 0;
+}
+
+  /*
+  Label the data
+  */
+  .reduced-view {
+      display: block;
+      font-weight: 400;
+  }
+  .results-table td.main-grid:nth-of-type(1):before {
+    content: "Date";
+    font-weight: 400;
+  }
+  .results-table td.main-grid:nth-of-type(2):before {
+    content: "Levy Credit";
+    font-weight: 400;
+  }
+  .results-table td.main-grid:nth-of-type(3):before {
+    content: "Cost of Training";
+    font-weight: 400;
+  }
+  .results-table td.co-funding:nth-of-type(4):before {
+    content: "Your share (10%)";
+    font-weight: 400;
+  }
+  .results-table td.co-funding:nth-of-type(5):before {
+    content: "Government share (90%)";
+    font-weight: 400;
+  }
+  .results-table td.main-grid:nth-of-type(6):before {
+    content: "Balance";
+    font-weight: 400;
+  }
+  .results-table td.main-grid:nth-of-type(4):before {
+    content: "Balance";
+    font-weight: 400;
+  }
+  
+}
+
+
+.training-course .grand-total {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+table.results-table td.financial, table.results-table th.financial {
+    text-align: right;
+}
+table.results-table th.co-funding-banner {
+    padding:20px 20px; 
+    font-size: 19px;
+    border-left: 1px solid #f8f8f8;
+    border-right: 1px solid #f8f8f8;
+    text-align: center;
+}
+table.results-table th.co-funding, table.results-table td.co-funding {
+    border-top: 1px solid #f8f8f8;
+    background-color: #dee0e2;
+    
+    text-align: center;
+}
+table.results-table th.co-funding-emp, table.results-table td.co-funding-emp {
+    border-left: 1px solid #f8f8f8;
+    width:119px;
+    
+}
+
+table.results-table th.co-funding-emp {
+    padding: 12px 25px 9px 25px;
+}
+
+table.results-table th.co-funding-govt, table.results-table td.co-funding-govt {
+    border-right: 1px solid #f8f8f8;
+    width:145px;
+}
+
+table.results-table td.training-column-full {
+    width:25%
+}
+
+table.results-table td.training-column {
+    width:30%
+}
+
+.reduced-view {
+    display: none;
+}
+
