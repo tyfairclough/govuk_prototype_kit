@@ -8,63 +8,12 @@ var root = "/apps/{{currentApp.appDirName}}/views/";
 console.log(root);
 var className = $("main").attr('class');
 
-var transferBudget;
-transferBudget = JSON.parse(localStorage.getItem("transferBudget"));    
-if (transferBudget == null){
-    localStorage.setItem("transferBudget","32450")
-}
+
     
    switch (className) {
-       case 'forecast-index-wide':
-           forecastIndexWide();
+       case 'index':
+           index();
            break;
-       case 'another-page':
-           anotherPage();
-       break;
-       case 'finance-transactions':
-           financeTransactions();
-       break;
-       case 'start-adding-apprentices':
-           startAddingApprenitces();
-       break;
-       case 'choose-how-to-add-apprentices':
-           chooseHowToAddApprenitces();
-       break;
-       case 'account-dashboard':
-           accountDashboard();
-       break;
-       case 'transfers-request-received':
-           transfersRequestReceived();
-       break;
-       case 'transfers-declined-next-steps':
-           transfersDeclinedNextSteps();
-       break;
-       case 'transfers-accepted-next-steps':
-           transfersAcceptedNextSteps();
-       break;
-       case 'transfers-dashboard':
-           transfersDashboard();
-       break;
-       case 'transfers-request-sent':
-           transfersRequestSent();
-       break;
-       case 'apprenticeship-waiting-transfer':
-           apprenticeshipWaitingTransfer();
-       break;       case 'waiting-funding-details':
-           waitingFundingDetails();
-       break;
-       case 'cohort-transfer-cancelled':
-           cohortTransferCancelled();
-       break;
-       case 'choose-funding':
-           chooseFunding();
-       break;
-       case 'transfers-confirm-sending-employer':
-           transfersConfirmSendingEmployer();
-       break;
-       case 'finance-transactions-expanded':
-           financeTransactionsExpanded();
-       break;
        default: break;
 }
     
@@ -80,242 +29,127 @@ if (transferBudget == null){
         });  
     }
 
-    function transfersConfirmSendingEmployer(){
-                  $(".button").click(function(e){
-            e.preventDefault(); 
-            state = $("input[name=radio-group]:checked").val()
-            if (state === "yes") {
-                window.location.href = "complete-state-aid-declaration.html";                
-            } else {
-                window.location.href = "check-your-answers.html";                
-            }
-        });  
-    }
-    
-    function financeTransactionsExpanded(){
-        
-            new Clipboard('.excel');
-        
-        $(".excel").click(function(e){
-          $(this).text("Transactions copied to your clipboard") 
-        })
 
-        
-        levyPayer = JSON.parse(localStorage.getItem("levyPayer"))
-        if (levyPayer == false ) {
-            $(".levy").hide();
-        } else {
-            $(".non-levy").hide();
-        }
-    }
-    
-    function chooseFunding(){
-        localStorage.setItem("levyPayer","false");
-    }
-    
-    function cohortTransferCancelled(){
-          $(".button").click(function(e){
-            e.preventDefault(); 
-            state = $("input[name=radio-group]:checked").val()
-            if (state === "apprentice") {
-                window.location.href = "index";                
-            } else {
-                window.location.href = "../index";                
-            }
-        })         
-    }    
-    function apprenticeshipWaitingTransfer(){
-          $(".button").click(function(e){
-            e.preventDefault(); 
-            state = $("input[name=radio-group]:checked").val()
-            if (state === "yes") {
-                window.location.href = "transfer-cancelled";                
-            } else {
-                window.location.href = "cohorts-awaiting-transfer";                
-            }
-        })         
-    }
-    
-    function transfersRequestSent(){
-          $(".button").click(function(e){
-            e.preventDefault(); 
-            state = $("input[name=radio-group]:checked").val()
-            if (state === "review") {
-                window.location.href = "../../apprentices/your-cohort-requests.html";                
-            } else if (state === "apprentice") {
-                window.location.href = "../../apprentices/index.html";                
-            } else {
-                window.location.href = "../../index";                                
-            }
-        }) 
-    }
-    function transfersDashboard(){
-        state = localStorage.getItem("requestState");
-        if ( state == "accepted") {
-            console.log("accepted the agreement, move to previous approved");
-            $("#transfer-request-2, #no-previous-transfers").hide();
-            $("#transfer-approved-1, #no-previous-transfers + table").show();
-            $(".transfer-balance").text("£31,320.60");
-        } else {
-            console.log("no transfer accepted so keep it there")
-        }
-    }
-    
-    function transfersAcceptedNextSteps(){
-          $(".button").click(function(e){
-            e.preventDefault(); 
-            state = $("input[name=radio-group]:checked").val()
-            if (state === "transfer") {
-                window.location.href = "index";                
-            } else {
-                window.location.href = "../../index";                
-            }
-        })          
-    }
 
-    function transfersDeclinedNextSteps(){
-          $(".button").click(function(e){
-            e.preventDefault(); 
-            state = $("input[name=radio-group]:checked").val()
-            if (state === "transfer") {
-                window.location.href = "index";                
-            } else {
-                window.location.href = "../../index";                
-            }
-        })          
-    }
-    function transfersRequestReceived(){
-         $(".button").click(function(e){
-            e.preventDefault(); 
-            state = $("input[name=radio-group]:checked").val()
-            if (state === "yes") {
-                        localStorage.setItem("levyPayer","true");
-
-                localStorage.setItem("requestState","accepted");
-                window.location.href = "request-accepted-next-steps";                
-            } else {
-                localStorage.setItem("requestState","declined");                
-                window.location.href = "request-declined-next-steps";                
-            }
-        })       
-    }
-    function accountDashboard(){
-        
-                state = localStorage.getItem("requestState");
-        if ( state == "accepted") { } else {
-            
-        }
+    function index(){
         
     }
     
-    function startAddingApprenitces(){
-        $(".button").click(function(e){
-            e.preventDefault(); 
-            state = $("input[name=radio-group]:checked").val()
-            if (state === "employerwilladd") {
-                window.location.href = "choose-how-to-add-apprenitces";                
-            } else {
-                window.location.href = "choose-how-to-add-apprenitces";                
-            }
-        })
-    } 
-    function chooseHowToAddApprenitces(){
-        $(".button").click(function(e){
-            e.preventDefault(); 
-            state = $("input[name=radio-group]:checked").val()
-            if (state === "single") {
-                window.location.href = "add-apprentice-details";                
-            } else {
-                window.location.href = "bulk-upload-apprentices";                
-            }
-        })
-    }
+    // duolingo clone scripts
 
-function financeTransactions(){
+function duoLingo(){
+                     var accountData = {
+                         users: [{
+                            id: 0,
+                            email: "ty.fairclough@gmail.com",
+                            topScore: 72,
+                            levels: [{
+                                level1: [1],
+                                level2: [1,2,3]
+                            }]
+                         },
+                            {
+                            id: 1,
+                            email: "tom.fairclough@gmail.com",
+                            topScore: 72,
+                            levels: [{
+                                level1: [1,2,3],
+                                level2: [1,2,3]
+                            }]
+                         }]
+                     } 
+  
     
-var from_$input = $('#input_from').pickadate(),
-    from_picker = from_$input.pickadate('picker')
-
-var to_$input = $('#input_to').pickadate(),
-    to_picker = to_$input.pickadate('picker')
-
-
-// Check if there’s a “from” or “to” date to start with.
-if ( from_picker.get('value') ) {
-  to_picker.set('min', from_picker.get('select'))
+    localStorage.setItem("accountData", JSON.stringify(accountData));
+    //console.log(JSON.parse(localStorage.getItem("accountData")));
+    var showData = JSON.parse(localStorage.getItem("accountData"));
+    console.log("array length is " + showData.users.length);
+    console.log(showData.users[1].email);
+    
+    
+    for(var i = 0; i < showData.users.length; i++)
+    {
+      if(showData.users[i].email == 'tom.fairclough@gmail.com')
+      {
+        console.log(showData.users[i].topScore);
+      } else {
+          console.log("no-user-found");
+      }
+    }
+                         
 }
-if ( to_picker.get('value') ) {
-  from_picker.set('max', to_picker.get('select'))
-}
-
-// When something is selected, update the “from” and “to” limits.
-from_picker.on('set', function(event) {
-  if ( event.select ) {
-    to_picker.set('min', from_picker.get('select'))    
-  }
-  else if ( 'clear' in event ) {
-    to_picker.set('min', false)
-  }
-})
-to_picker.on('set', function(event) {
-  if ( event.select ) {
-    from_picker.set('max', to_picker.get('select'))
-  }
-  else if ( 'clear' in event ) {
-    from_picker.set('max', false)
-  }
-})
-
- 
-$('tr').click(function () {
-    $(this).next('tr').toggle();
-});
     
-}
-
-function forecastIndexWide(){
-  $("body").addClass("wide");
-
-var chart = c3.generate({
-    bindto: '#chart',
-    data: {
-      columns: [
-        ['data1', 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250],
-        ['data2', 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 321, 22],
-        ['data3', 50, 20, 10, 40, 15, 25, 30, 200, 222, 332, 533, 432],
-        ['data4', 50, 20, 10, 40, 15, 25, 30, 200, 221, 342, 112, 235]
-      ],
-        type: 'area',
-        colors: {
-            data1: '#d53880',
-            data2: '#2e358b',
-            data3: '#912b88',
-            data3: '#cccccc'
-        },
-        names: {
-            data1: 'Levy in',
-            data2: 'Traiing costs',
-            data3: 'Co-investment',
-            data4: 'Transfers'
-        }
-    },
-    subchart: {
-            show: true
-        },
-        zoom: {
-        enabled: true
-        }
-
-});
-    
-};
-
-
-
-
-
-
+    duoLingo();
                     
+    
+    // login redirect
+    function getStarted(){
+        $(".button").click(function (e) {
+            e.preventDefault();
+
+            if (localStorage.getItem("accountData") === null) {
+                // initialise accounts
+                newUser()
+            } else {
+                for (var i = 0; i < showData.users.length; i++) {
+                    if (showData.users[i].email == 'tom.fairclough@gmail.com') {
+                        console.log(showData.users[i].topScore);
+                    } else {
+                        console.log("no-user-found");
+                        newUser()
+                    }
+                }
+            }
+
+        });
+    }
+    
+    
+    function newUser(){
+        var email = $("#email").val();
+        
+        var accountData = {
+             users: [{
+                id: 0,
+                email: email,
+                topScore: 0,
+                levels: [{
+                    level1: [],
+                    level2: []
+                }]
+             }]
+        }
+        
+        localStorage.setItem("accountData", JSON.stringify(accountData));
+        window.location.href("on-boarding");
+    }
+
+    
+
+    function progressBar(){
+          moveProgressBar();
+    // on browser resize...
+    $(window).resize(function() {
+        moveProgressBar();
+    });
+
+    // SIGNATURE PROGRESS
+    function moveProgressBar() {
+      console.log("moveProgressBar");
+        var getPercent = ($('.progress-wrap').data('progress-percent') / 100);
+        var getProgressWrapWidth = $('.progress-wrap').width();
+        var progressTotal = getPercent * getProgressWrapWidth;
+        var animationLength = 2500;
+        
+        // on page load, animate percentage bar to data percentage length
+        // .stop() used to prevent animation queueing
+        $('.progress-bar').stop().animate({
+            left: progressTotal
+        }, animationLength);
+    }
+    }
+
+    progressBar();
 
     
 // global js
