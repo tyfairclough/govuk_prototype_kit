@@ -3507,8 +3507,20 @@ table.row, table.responsive {
     }
 }
 
-
-.button {
-    background: red !important;
+.progress {
+  width: 100%;
+  height: 5px;
+}
+.progress-wrap {
+  background: $govuk-blue;
+  margin: 20px 0;
+  overflow: hidden;
+  position: relative;
+  .progress-bar {
+    background: $grey-3;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
 }
 
