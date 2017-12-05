@@ -17,10 +17,22 @@ var className = $("main").attr('class');
        case 'assessmentQuestions':
            assessmentQuestions();
            break;
+       case 'dashboard':
+           dashboard();
+           break;
        default: break;
 }
-
     
+    function dashboard(){
+        i = localStorage.getItem("currentUserID");
+        
+        console.log( i );
+        //console.log( localStorage.getItem("currentUserID"))
+        var showData = JSON.parse(localStorage.getItem("accountData"));
+        console.log(showData.users[i].email);
+        $(".email").text(showData.users[i].email);
+        $(".topScore").text(showData.users[i].topScore);
+    }
     
     function assessmentQuestions(){
         
@@ -90,57 +102,9 @@ var className = $("main").attr('class');
         $(".current").text(number);
     }
     
-
-  
     
-    // duolingo clone scripts
-
-function duoLingo(){
-                     var accountData = {
-                         users: [{
-                            id: 0,
-                            email: "ty.fairclough@gmail.com",
-                            topScore: 72,
-                            levels: [{
-                                level1: [1],
-                                level2: [1,2,3]
-                            }]
-                         },
-                            {
-                            id: 1,
-                            email: "tom.fairclough@gmail.com",
-                            topScore: 72,
-                            levels: [{
-                                level1: [1,2,3],
-                                level2: [1,2,3]
-                            }]
-                         }]
-                     } 
-  
-    
-    localStorage.setItem("accountData", JSON.stringify(accountData));
-    //console.log(JSON.parse(localStorage.getItem("accountData")));
-    var showData = JSON.parse(localStorage.getItem("accountData"));
-    console.log("array length is " + showData.users.length);
-    console.log(showData.users[1].email);
-    
-    
-    for(var i = 0; i < showData.users.length; i++)
-    {
-      if(showData.users[i].email == 'tom.fairclough@gmail.com')
-      {
-        console.log(showData.users[i].topScore);
-      } else {
-          console.log("no-user-found");
-      }
-    }
-    newUser();
-                         
-}
-    
-    //duoLingo();
                     
-    
+
     // login redirect
     function login(){
         $(".button").click(function(e) {
@@ -149,39 +113,75 @@ function duoLingo(){
 
             if (localStorage.getItem("accountData") === null) {
                 // initialise accounts
-                newUser()
+                initialiseService()
+                newUser();
             } else {
+                var showData = JSON.parse(localStorage.getItem("accountData"));
+                
                 for (var i = 0; i < showData.users.length; i++) {
                     if (showData.users[i].email == email) {
                         console.log(showData.users[i].topScore);
+                        localStorage.setItem("currentUserID",showData.users[i].id);
+                        localStorage.setItem("currentUserID",i);
+                        window.location.href = "../dashboard";
                     } else {
                         console.log("no-user-found");
-                        //newUser()
+                        newUser()
                     }
                 }
             }
 
         });
     }
+ 
+   
+    function initialiseService()    
+    {
+        var accountData = {
+        users: [{
+        id: 0,
+        email: "ty.fairclough@gmail.com",
+        topScore: 0,
+        levels: [{
+        level1: [1],
+        level2: [1,2,3]
+        }]
+        },
+        {
+        id: 1,
+        email: "tom.fairclough@gmail.com",
+        topScore: 72,
+        levels: [{
+        level1: [1,2,3],
+        level2: [1,2,3]
+        }]
+        }]
+        } 
+        localStorage.setItem("accountData", JSON.stringify(accountData));
+    }
     
     
     function newUser(){
-            var email = $("input").val();
-        
-        var accountData = {
-             users: [{
-                id: 0,
-                email: email,
-                topScore: 0,
-                levels: [{
-                    level1: [],
-                    level2: []
-                }]
-             }]
-        }
-        
-        localStorage.setItem("accountData", JSON.stringify(accountData));
-        window.location.href = "../onboarding/chooseGoal";
+        email = $("input").val();
+        currentUsers = JSON.parse(localStorage.getItem("accountData"));
+        i = currentUsers.users.length;
+        i++;
+        console.log(i);
+        newUserDetails = {
+                            id: i,
+                            email: email,
+                            topScore: 0,
+                            levels: [{
+                                level1: [1],
+                                level2: [1,2,3]
+                            }]
+                         };
+  
+        currentUsers.users.push(newUserDetails);
+        //console.log(currentUsers);
+        localStorage.setItem("accountData", JSON.stringify(currentUsers));
+        localStorage.setItem("currentUserID", newUserDetails.id);
+        window.location.href = "../dashboard";
     }
 
     
