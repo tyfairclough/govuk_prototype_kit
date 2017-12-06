@@ -4,8 +4,7 @@ $(document).ready(function() {
 var root = "/apps/{{currentApp.appDirName}}/views/";
 console.log(root);
 var className = $("main").attr('class');
-    i = 1;
-
+    //i = 1;
     
    switch (className) {
        case 'index':
@@ -20,11 +19,121 @@ var className = $("main").attr('class');
        case 'dashboard':
            dashboard();
            break;
+       case 'getStarted':
+           getStarted();
+           break;
+       case 'whatYouKnow':
+           whatYouKnow();
+           break;
+       case 'assessmentQuestions':
+           assessmentQuestions();
+           break;
        default: break;
 }
     
+    
+    function getStarted(){
+        arrayStart = localStorage.getItem("currentUserID") - 1;
+        console.log("current user id: " + arrayStart)
+        showData = JSON.parse(localStorage.getItem("accountData"));
+
+ 
+          $(".button").click(function(e){
+            e.preventDefault(); 
+            state = $("input[name=radio-group]:checked").val()
+            if (state === "casual") {
+                
+                showData.users[arrayStart].onboarding[0] = "casual";
+                localStorage.setItem("accountData", JSON.stringify(showData));
+                
+                //set pace to casual
+            } else if ( state === "regular" ) {
+                //set pace to regular
+                showData.users[arrayStart].onboarding[0] = "regular";
+                localStorage.setItem("accountData", JSON.stringify(showData));            } else {
+                //set pace to intense
+                showData.users[arrayStart].onboarding[0] = "intense";
+                localStorage.setItem("accountData", JSON.stringify(showData));
+            }
+                window.location.href = "whatYouKnow";
+        })         
+        
+    }
+    
+    
+    function whatYouKnow(){
+        arrayStart = localStorage.getItem("currentUserID") - 1;
+        console.log("current user id: " + arrayStart)
+        showData = JSON.parse(localStorage.getItem("accountData"));
+
+ 
+          $(".button").click(function(e){
+            e.preventDefault(); 
+            state = $("input[name=radio-group]:checked").val()
+            if (state === "new") {
+                
+                showData.users[arrayStart].onboarding[1] = "new";
+                localStorage.setItem("accountData", JSON.stringify(showData));
+                
+                //set pace to casual
+            } else {
+                //set pace to regular
+                showData.users[arrayStart].onboarding[1] = "assessment";
+                localStorage.setItem("accountData", JSON.stringify(showData));            } 
+                window.location.href = "startAssessment";
+        })         
+        
+    }
+    
+    function assessmentQuestions(){
+        arrayStart = localStorage.getItem("currentUserID") - 1;
+        console.log("current user id: " + arrayStart)
+        showData = JSON.parse(localStorage.getItem("accountData"));
+    }
+    
+   /* 
+    function testSplice(){
+        
+        // get the data
+        
+        arrayStart = 0;
+        var accountData = {
+        users: [{
+        id: 0,
+        email: "ty.fairclough@gmail.com",
+        topScore: 0,
+        onboarding: ["weee",0],
+        levels: [{
+        level1: [1],
+        level2: [1,2,3]
+        }]
+        },
+        {
+        id: 1,
+        email: "tom.fairclough@gmail.com",
+        topScore: 72,
+        onboarding: [1,1],
+        levels: [{
+        level1: [1,0,0],
+        level2: [1,2,3]
+        }]
+        }]
+        }    
+        
+        //update the onboarding values
+        accountData.users[0].onboarding[0] = "regular";
+        // push the data back to local storage
+        localStorage.setItem("accountData", JSON.stringify(accountData));
+
+    }
+    
+    testSplice();
+    */
+        //console.log(JSON.parse(localStorage.getItem("accountData")));
+
+    
     function dashboard(){
-        i = localStorage.getItem("currentUserID");
+        i = localStorage.getItem("currentUserID") - 1;
         
         console.log( i );
         //console.log( localStorage.getItem("currentUserID"))
@@ -103,35 +212,42 @@ var className = $("main").attr('class');
     }
     
     
-                    
 
+    
+                                
+    
+    
     // login redirect
     function login(){
         $(".button").click(function(e) {
             e.preventDefault();
             var email = $("input").val();
-
-            if (localStorage.getItem("accountData") === null) {
+            showData = JSON.parse(localStorage.getItem("accountData"));
+            var redirector = false;
+            if (showData === null) {
                 // initialise accounts
                 initialiseService()
-                newUser();
+                //newUser();
+                console.log("first time")
             } else {
-                var showData = JSON.parse(localStorage.getItem("accountData"));
-                
-                for (var i = 0; i < showData.users.length; i++) {
-                    if (showData.users[i].email == email) {
-                        console.log(showData.users[i].topScore);
+                for (i = 0; i < showData.users.length; i++) {    
+                var newData = showData.users[i].email;
+                    if (newData === email) {
                         localStorage.setItem("currentUserID",showData.users[i].id);
-                        localStorage.setItem("currentUserID",i);
-                        window.location.href = "../dashboard";
-                    } else {
-                        console.log("no-user-found");
-                        newUser()
+                        console.log("redirect");
+                        redirector = true;
                     }
-                }
+                }   
             }
-
+            if ( redirector == true ) {
+                window.location.href = "../dashboard";
+              console.log("new user")
+                } else {
+                newUser();
+                    }
         });
+                  
+        
     }
  
    
@@ -142,6 +258,7 @@ var className = $("main").attr('class');
         id: 0,
         email: "ty.fairclough@gmail.com",
         topScore: 0,
+        onboarding: [0,0],
         levels: [{
         level1: [1],
         level2: [1,2,3]
@@ -151,6 +268,7 @@ var className = $("main").attr('class');
         id: 1,
         email: "tom.fairclough@gmail.com",
         topScore: 72,
+        onboarding: [1,1],
         levels: [{
         level1: [1,2,3],
         level2: [1,2,3]
@@ -171,6 +289,7 @@ var className = $("main").attr('class');
                             id: i,
                             email: email,
                             topScore: 0,
+                            onboarding: [1,0],
                             levels: [{
                                 level1: [1],
                                 level2: [1,2,3]
@@ -181,7 +300,7 @@ var className = $("main").attr('class');
         //console.log(currentUsers);
         localStorage.setItem("accountData", JSON.stringify(currentUsers));
         localStorage.setItem("currentUserID", newUserDetails.id);
-        window.location.href = "../dashboard";
+        window.location.href = "../onboarding/chooseGoal";
     }
 
     
