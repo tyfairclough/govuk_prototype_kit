@@ -91,47 +91,6 @@ var className = $("main").attr('class');
         showData = JSON.parse(localStorage.getItem("accountData"));
     }
     
-   /* 
-    function testSplice(){
-        
-        // get the data
-        
-        arrayStart = 0;
-        var accountData = {
-        users: [{
-        id: 0,
-        email: "ty.fairclough@gmail.com",
-        topScore: 0,
-        onboarding: ["weee",0],
-        levels: [{
-        level1: [1],
-        level2: [1,2,3]
-        }]
-        },
-        {
-        id: 1,
-        email: "tom.fairclough@gmail.com",
-        topScore: 72,
-        onboarding: [1,1],
-        levels: [{
-        level1: [1,0,0],
-        level2: [1,2,3]
-        }]
-        }]
-        }    
-        
-        //update the onboarding values
-        accountData.users[0].onboarding[0] = "regular";
-        // push the data back to local storage
-        localStorage.setItem("accountData", JSON.stringify(accountData));
-
-    }
-    
-    testSplice();
-    */
-        //console.log(JSON.parse(localStorage.getItem("accountData")));
-
-    
     function dashboard(){
         i = localStorage.getItem("currentUserID") - 1;
         
