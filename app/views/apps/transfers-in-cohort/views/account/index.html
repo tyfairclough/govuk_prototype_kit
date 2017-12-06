@@ -1,0 +1,96 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="account-dashboard" id="content" role="main" tabindex="-1">
+
+        <div id="notifications" class="hidden">
+        <div class="success-summary">
+            <h3 class="heading-medium">Confirmation e-mail sent</h3>
+            <p>We've sent an e-mail to <span class="bold-small">pete.kowalczyk@digi2al.co.uk</span>. You e-mail address won't update until it has been verified</p>
+        </div>
+    </div>
+       <div class="govuk-box-highlight hidden">
+          <h2 class="bold-large">
+Levy account created          </h2>
+        <p>You need to <a href="/apps/{{currentApp.appDirName}}/views/account/organisation/view?agreementState=not-signed">sign the agreement</a> before you can start spending your levy.</p>
+        </div>
+    
+           <div class="govuk-box-highlight hidden" id="emailUpdated">
+          <h2 class="bold-large">
+Email changed         </h2>
+           <p>You've changed your email address to <span class="user-email bold-small">john@tesco.co.uk</span> </p>
+        </div>
+    
+    <section id="directory" class="">
+    <h1 class="heading-xlarge organisation-namee">Manage your apprenticeship</h1>
+    <div class="grid-row" style="margin-top:30px;">
+        <div class="column-two-thirds">
+                <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/finance/index">Finance</a></h3>
+                <p>View transactions and forecast your funds.</p>
+                <hr/>
+                <h3 class="heading-medium" style="margin-top: 0;"><a href="/apps/{{currentApp.appDirName}}/views/account/settings/organisations/index">Enable spending</a></h3>
+                <p>Add the necessary content to the system in order to retrieve funds and authorise the spending of those funds.</p>
+                <hr/>           
+                <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/apprentices/index">Apprentices</a></h3>
+                <p>Update the status of your apprentices, or recruit new ones.</p>            
+                <hr/>
+                <h3 class="heading-medium" style="margin-top: 0"><a href="/apps/{{currentApp.appDirName}}/views/account/paye/index" target="_blank">Find apprenticeship training</a></h3>
+                <p>Search for training providers, training frameworks and end-point assessors.</p>                       <hr/>              
+
+                     <h3 class="heading-medium">
+                <a href="/apps/{{currentApp.appDirName}}/views/account/dashboard/settings">Settings</a></h3>
+                <p>Manage your account settings, invite new team members to your account.</p>
+            <hr>
+        </div>
+        <div class="column-third">
+    
+            <div id="tabs-container">
+              <ul class="tabs-menu">
+                <li class="current"><a href="#tab-1">Alerts</a></li>
+                <li><a href="#tab-2">Activity</a></li>
+              </ul>
+            <div id="tab-1" class="tab-content">
+
+
+            <div class="" id="transfer-request">
+            <p class="">Transfer request (1)</p>
+                <p class="font-xsmall">You have a new transfer request from a receiving employer.</p>
+                <a href="/apps/{{currentApp.appDirName}}/views/account/finance/transfers/request-received.html">Check details</a> <a href="#" class="dismiss">Dismiss <i class="fa fa-times"> </i></a></div>
+
+
+            <div >
+            <p class="">1 agreement needs to be signed</p><a href="/apps/{{currentApp.appDirName}}/views/account/organisations/index">View agreements</a>
+                <a href="#" class="dismiss">Dismiss <i class="fa fa-times"> </i></a>
+
+            </div>
+                
+
+            <div >
+                <p class="">2 apprentice changes ready for approval</p><a href="/apps/{{currentApp.appDirName}}/views/account/apprentices/manage-2">View changes</a>
+<a href="#" class="dismiss">Dismiss <i class="fa fa-times"> </i></a>                
+                </div>
+
+
+            <div >
+            <p class="">1 cohort request ready for approval</p><a href="/apps/{{currentApp.appDirName}}/views/account/apprentices/cohorts-for-approval">View cohort</a>
+<a href="#" class="dismiss">Dismiss <i class="fa fa-times"> </i></a>                
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
+    </div>
+    
+    <section class="text">
+                <div class="panel panel-width-thick">
+                    <h3 class="bold-medium">Help us improve this site</h3>
+                    <p><a href="https://www.surveymonkey.co.uk/r/2JPLQ9T" target="_blank">Take our 3 minute survey</a> so that we can improve the service.</p>
+                    <p><a href="https://www.surveymonkey.co.uk/r/2JPLQ9T" target="_blank" class="button">Take the survey <span class="vh">so that we can improve the service</span></a></p>
+                </div>
+            </section>
+</section>
+
+</main><!-- / #content -->
+{% endblock %}

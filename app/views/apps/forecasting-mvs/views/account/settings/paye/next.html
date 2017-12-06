@@ -1,0 +1,53 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="paye-next" id="content" role="main" tabindex="-1">
+
+
+    
+ <div class="grid-row">
+        <div class="column-two-thirds">
+    <div id="notifications">
+        <div class="success-summary">
+            <h3 class="heading-medium"><span class="paye-scheme">100/UX00013</span> has been added</h3>
+            <p>Any levy funds from this PAYE scheme will now credit your account.</p>
+        </div>
+    </div>            
+
+          <h1 class="heading-medium">What next?</h1>
+       <form action="">
+            
+        <div class="form-group">
+
+                                         <div class="multiple-choice">
+
+        <input id="addpaye" type="radio" name="next" value="addpaye">
+      <label class="" data-target="addpaye" for="addpaye">
+Add another PAYE scheme
+      </label>
+            </div>
+                                         <div class="multiple-choice">
+        <input id="checkfinance" type="radio" name="next" value="checkfinance">
+      <label class="" data-target="checkfinance" for="checkfinance">
+Check finances          
+        </label>
+            </div>            
+                                         <div class="multiple-choice">
+        <input id="homepage" type="radio" name="next" value="homepage">
+            <label class="" data-target="homepage" for="homepage">
+Return to homepage
+            </label>
+            </div>
+      </div>
+
+  
+      <a class="button" href="#" id="submit">Continue</a>
+      
+</form>
+                            
+        </div>
+    </div>
+    
+
+</main><!-- / #content -->
+{% endblock %}

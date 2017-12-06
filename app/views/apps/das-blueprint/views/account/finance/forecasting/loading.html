@@ -1,0 +1,28 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="forecast-loading" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup form-group">
+           <h1 class="heading-xlarge">
+PLEASE WAIT Pull through existing data
+            </h1>
+          <p>THIS PAGE IS A FAKE HOLDING PAGE TO MAKE IT LOOK LIKE WE'RE DOING SOMETHING MAGICAL, BUT REALLY WE'RE JUST PULLING THROUGH THE EXISTING LEVY AND COMMITMENTS. </p>          
+        </div>
+      </div>
+    </div>
+    
+    <div class="grid-row">
+        <div class="column-two-thirds">
+
+            SPINNER GOES HERE
+            <a class="button" href="project-commitments.html">Continue</a>
+        </div>
+    </div>
+   
+
+</main><!-- / #content -->
+{% endblock %}

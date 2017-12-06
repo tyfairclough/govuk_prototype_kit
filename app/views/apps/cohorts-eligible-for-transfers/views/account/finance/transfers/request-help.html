@@ -1,0 +1,35 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="transfers-request-help" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup form-group">
+           <h1 class="heading-large">
+        How to offer funds</h1>
+            <p class="lede">You can transfer funds to employers using your apprenticeship service account.</p>
+
+            <p>The receiving employer needs to:</p>
+            
+            <ul class="list list-bullet">
+                <li>register on the apprenticeship service</li>
+                <li>have the details of their account ID</li>
+                <li>requested funding from you for their apprenticeships within their account</li>
+            </ul>
+            <p>More information about <a href="#">creating an apprenticeship service account for non levy payers</a>.</p>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="grid-row">
+        <div class="column-two-thirds">
+<a href="account-id.html" class="button">Continue</a>      
+        </div>
+    </div>
+    
+
+</main><!-- / #content -->
+{% endblock %}

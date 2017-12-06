@@ -1,0 +1,32 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="search-for-your-organisation" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    
+<div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+            <h1 class="heading-xlarge">Search for your organisation</h1>
+                <p class="lede">Add organisations so they can spend funds.</p>
+            </div>
+        </div>
+</div>     
+
+<form>
+  <fieldset>
+    <legend class="visuallyhidden">Enter name</legend>
+      <div class="form-group" id="name">
+          <label class="form-label-bold" for="code">
+          <span class="form-label-bold">Enter name</span>
+        </label>
+          <input aria-invalid="true" class="form-control" id="code" type="text" aria-required="true">
+      </div>
+    </fieldset>
+    <div class="form-group">
+        <a href="#" class="button">Search</a>
+    </div>
+</form>
+</main><!-- / #content -->
+{% endblock %}

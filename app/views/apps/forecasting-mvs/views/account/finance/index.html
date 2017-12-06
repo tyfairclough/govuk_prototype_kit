@@ -1,0 +1,178 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="finance-dashboard" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup form-group">
+           <h1 class="heading-xlarge">
+        Finance
+               <span class="heading-secondary">November 2017</span>
+      </h1>
+        </div>
+      </div>
+    </div>
+    
+    <section class="">
+    
+<div class="" id="finance-bingo">   
+    <div class="grid-row">
+        <div class="column-third">
+           <div class="data fuscia">
+                <h2 class="data-item bold-large expiring-funds">£99,999,999</h2>
+                <h2 class="data-item bold-small">Current funds</h2>
+            </div>
+        </div>
+        <div class="column-third">
+            <div class="data grey">
+                    <h2 class="data-item bold-large committed-funds">£0</h2>
+                    <h2 class="data-item bold-small">Future outgoings</h2>
+            </div>
+        </div>
+        <div class="column-third">
+            <div class="data grey">
+                    <h2 class="data-item bold-large committed-funds">£132,853</h2>
+                    <h2 class="data-item bold-small">Funds expiring in Sep 19</h2>
+            </div>
+        </div>
+    </div>    
+    <br>
+    <div class="grid-row">
+        <div class="column-third">
+           <div class="data grey">
+                <h2 class="data-item bold-large expiring-funds">£0</h2>
+                <h2 class="data-item bold-small">Committed spend next month</h2>
+            </div>
+        </div>
+        <div class="column-third">
+            <div class="data grey">
+                    <h2 class="data-item bold-large committed-funds">£0</h2>
+                    <h2 class="data-item bold-small">Government co-funding next month</h2>
+            </div>
+        </div>
+        <div class="column-third">
+            <div class="data grey">
+                    <h2 class="data-item bold-large committed-funds">£0</h2>
+                    <h2 class="data-item bold-small">Employer contribution cost next month</h2>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<div class="grid-row">
+        <div class="column-two-thirds">
+            <ul class="list list-links">
+                <li>
+                    <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/finance/transactions/index.html" id="your-transactions">View transactions</a></h3>
+                    <p>View payments made into and out of your SFA digital apprenticeship account</p>
+                    <hr>
+                </li>
+                <li>
+                    <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/paye/index">View levy details</a></h3>
+                    <p>Check your payroll contribution, English percentage and top-up amounts applied to your levy.</p>
+                    <hr>
+                </li>
+                <li>
+                    <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/finance" onclick="return alert('This page is available yet')">Download financial data</a></h3>
+                    <p>Download your financial data as a spreadsheet</p>
+                    <hr>
+                </li>
+            </ul>
+ 
+                <ul class="list list-links">
+                <li>
+                    <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/finance/forecasting/index">Forecast your funds</a></h3>
+                    <p>Create forecasts to plan your future spending.</p>
+                    <hr>
+                </li>
+                <li>
+                    <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/finance/transfers/index">Transfer funds</a></h3>
+                    <p>Send and receive funds from other apprenticeship accounts</p>
+                    <hr>
+                </li>
+
+
+
+ 
+            </ul>
+        </div>
+    </div>    
+    </section>
+    
+    
+<section class="hidden">
+    <div class="grid-row">
+            <div class="column-two-thirds">
+                <ul class="list list-links">
+                    <li>
+                        <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/finance/transactions/index.html" id="your-transactions">View transactions</a></h3>
+                        <p>View payments made into and out of your SFA digital apprenticeship account</p>
+                        <hr>
+                    </li>
+                    <li>
+                        <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/paye/index">View levy details</a></h3>
+                        <p>Check your payroll contribution, English percentage and top-up amounts applied to your levy.</p>
+                        <hr>
+                    </li>
+                    <li>
+                        <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/finance" onclick="return alert('This page is available yet')">Download financial data</a></h3>
+                        <p>Download your financial data as a spreadsheet</p>
+                        <hr>
+                    </li>
+                </ul>
+
+                    <ul class="list list-links">
+                    <li>
+                        <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/finance/forecasting/index">Forecast your funds</a></h3>
+                        <p>Create forecasts to plan your future spending.</p>
+                        <hr>
+                    </li>
+                    <li>
+                        <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/finance/transfers/index">Transfer funds</a></h3>
+                        <p>Send and receive funds from other apprenticeship accounts</p>
+                        <hr>
+                    </li>
+
+
+
+
+                </ul>
+            </div>
+        <div class="column-third">
+        <div class="data fuscia">
+                    <h2 class="data-item bold-large expiring-funds">£99,999,999</h2>
+                    <h2 class="data-item bold-small">Current funds</h2>
+                </div>
+            <br>
+            <div class="data grey">
+                        <h2 class="data-item bold-large committed-funds">£0</h2>
+                        <h2 class="data-item bold-small">Future outgoings</h2>
+                </div>
+            <br>
+             <div class="data grey">
+                        <h2 class="data-item bold-large committed-funds">£132,853</h2>
+                        <h2 class="data-item bold-small">Funds expiring in Sep 19</h2>
+                </div>
+            <br>
+             <div class="data grey">
+                    <h2 class="data-item bold-large expiring-funds">£0</h2>
+                    <h2 class="data-item bold-small">Committed spend next month</h2>
+                </div>
+            <br>
+             <div class="data grey">
+                        <h2 class="data-item bold-large committed-funds">£0</h2>
+                        <h2 class="data-item bold-small">Government co-funding next month</h2>
+                </div>
+            <br>
+             <div class="data grey">
+                        <h2 class="data-item bold-large committed-funds">£0</h2>
+                        <h2 class="data-item bold-small">Employer contribution cost next month</h2>
+                </div>
+        </div>
+    </div>        
+</section>
+
+</main><!-- / #content -->
+{% endblock %}

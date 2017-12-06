@@ -1,0 +1,64 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="complete-state-aid-declaration" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup form-group">
+           <h1 class="heading-large">
+        Complete state aid declaration    </h1>
+            <p class="lede">Enter the fiscal year figures (April-March not your own organisation's financial year figures).</p>
+            
+    <p>If the transfer employer does not complete this, the declaration will be ignored.</p>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="grid-row">
+        <div class="column-two-thirds">
+<form>
+    <fieldset>
+<div class="form-group">
+            <label class="form-label" for="2017">State aid declaration for 17/18
+                <span class="form-hint">Not including this transfer</span>
+            </label>
+            <label for="2017" class="text-box-unit">£</label>
+            <input class="form-control text-box-with-unit-before money-mask" id="2017" name="state-aid" type="text" maxlength="22">
+    </div>
+
+
+<div class="form-group">
+            <label class="form-label" for="2016">State aid declaration for 16/17
+            </label>
+            <label for="2016" class="text-box-unit">£</label>
+            <input class="form-control text-box-with-unit-before money-mask" id="2016" name="state-aid" type="text" maxlength="22">
+</div>
+        
+<div class="form-group">
+            <label class="form-label" for="2015">State aid declaration for 15/16
+            </label>
+            <label for="2015" class="text-box-unit">£</label>
+            <input class="form-control text-box-with-unit-before money-mask" id="2015" name="state-aid" type="text" maxlength="22">
+</div>
+        
+
+<div class="form-group">
+<div class="multiple-choice">
+  <input id="checkbox-telephone-number" name="contact-by-text-phone" type="checkbox" value="true">
+  <label for="checkbox-telephone-number">To the best of my knowledge and in good faith, I declare that this information is correct.</label>
+</div>      
+</div>        
+                <a class="button" href="check-your-answers.html">Continue</a>
+
+    </fieldset>
+                
+</form>       
+        </div>
+    </div>
+    
+
+</main><!-- / #content -->
+{% endblock %}

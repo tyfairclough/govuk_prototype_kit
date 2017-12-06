@@ -1,11 +1,18 @@
-var express = require('express')
-var router = express.Router()
+//var express = require('express')
+//var router = express.Router()
+const express = require('express')
+const router = express.Router()
+var path = require('path')
+var config = require(path.join(__dirname + '/config.js'))
+
+// include sub-application routing if enabled in the configuration file
+if (config.useSubapplications) router.use('/', require(path.join(__dirname + '/subapps.js')))
 
 // Route index page
 router.get('/', function (req, res) {
   res.render('index')
 })
 
-// add your routes here
 
+// add your routes here
 module.exports = router

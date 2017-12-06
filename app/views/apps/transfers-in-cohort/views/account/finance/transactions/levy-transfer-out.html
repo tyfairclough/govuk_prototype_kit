@@ -1,0 +1,28 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="finance-transactions-expanded" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup">
+      <h1 class="heading-large">
+          Levy funds transferred
+            </h1>
+            
+            <ul>
+                <li>Date  <span class="bold-small">22 November 2017</span></li>
+                <li>Receiving employer  <span class="bold-small">GBC Mirco Ltd</span></li>
+                <li>Transferred levy  <span class="bold-small">£282.35</span></li>
+            </ul>
+        </div>
+        
+
+        
+     </div>   
+
+   
+    </div>
+</main><!-- / #content -->
+{% endblock %}

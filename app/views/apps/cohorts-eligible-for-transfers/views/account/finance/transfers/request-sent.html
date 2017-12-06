@@ -1,0 +1,98 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="transfers-request-sent" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+<div class="govuk-box-highlight">
+            <h2 class="heading-large">Transfer request sent</h2>
+            
+            <p>The offer will be sent to the receiving employer for approval.</p>
+<p class="bold-small">Reference number: XF4F34</p>            
+            
+
+            
+        </div>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+
+                  <table class="top-border">
+                <tbody>
+                <tr>
+                    <th scope="row">
+                        Reference
+                    </th>
+                    <td>
+                       XF4F34
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        Sent to
+                    </th>
+                    <td>
+                        Acme Ltd<span class="form-hint">AS4XF</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        Date
+                    </th>
+                    <td>
+                        Thursday 18 May 2017
+
+                    </td>
+                </tr>
+                    <tr>
+                    <th scope="row">
+                        Amount
+                    </th>
+                    <td>
+                        £6,000
+                    </td>
+                </tr>
+            </tbody>
+    </table>
+      </div>
+    </div>
+    
+    
+<div class="grid-row">
+
+        
+      
+      <div class="column-two-thirds">
+<h1 class="heading-medium">What next?</h1>
+             <form action="">
+            
+        <div class="form-group">
+
+
+                                         <div class="multiple-choice">
+        <input id="request" type="radio" name="next" value="offer">
+ <label class="" data-target="new" for="new">
+Create new transfer request
+            </label>
+            </div>
+                                    <div class="multiple-choice">
+        <input id="dashboard" type="radio" name="next" value="dashboard">
+      <label class="" data-target="dashboard" for="dashboard">
+Go back to the transfers dashboard
+      </label>
+            </div>                      
+                                    <div class="multiple-choice">
+        <input id="homepage" type="radio" name="next" value="homepage">
+      <label class="" data-target="homepage" for="homepage">
+Go back to the homepage
+            </label>
+            </div>
+      </div>
+
+  
+      <a class="button" href="../index.html" id="submit">Continue</a>
+      
+</form>
+           
+      </div></div>
+
+</main><!-- / #content -->
+{% endblock %}

@@ -1,0 +1,182 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="transfers-check-your-answers" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    <div class="grid-row">
+    <div class="column-two-thirds">
+<div class="hgroup">
+        <h1 class="heading-xlarge">
+            Check your answers
+        </h1>
+        <p class="text">Please check all the details are correct before submitting your request to the employer.</p>
+</div>
+      </div>
+    </div>
+    
+    
+<div class="grid-row">
+        <div class="column-two-thirds">
+
+            <h2 class="heading-medium">
+Sending Employer
+            </h2>
+            <a href="#" style="float: right;top: -3em;position: relative;">
+              Change<span class="visually-hidden"> sending employer details</span>
+            </a>
+<dl class="govuk-check-your-answers cya-questions-short">
+        <div>
+          <dt class="cya-question">
+            Name
+          </dt>
+          <dd class="cya-answer">
+            Acme Ltd
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            Account ID
+          </dt>
+          <dd class="cya-answer">
+            AS4XF
+          </dd>
+
+        </div>
+    
+      </dl>
+
+            
+            
+            <h2 class="heading-medium">
+Apprenticeships
+            </h2>
+            <a href="#" style="float: right;top: -3em;position: relative;">
+              Change<span class="visually-hidden"> apprenticeships details</span>
+            </a>            
+            <dl class="govuk-check-your-answers cya-questions-short">
+        <div>
+          <dt class="cya-question">
+              Cohort ID
+          </dt>
+          <dd class="cya-answer">
+            FDG/X54
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            Apprentices
+          </dt>
+          <dd class="cya-answer">
+            13
+          </dd>
+
+        </div>
+    
+        
+        <div>
+          <dt class="cya-question">
+            Estimated total transfer value
+          </dt>
+          <dd class="cya-answer">
+            £51,282.35
+          </dd>
+
+        </div>                
+    
+      </dl>
+            
+            
+            
+            
+           
+            <h2 class="heading-medium">
+State aid
+            </h2>
+            <a href="#" style="float: right;top: -3em;position: relative;">
+              Change<span class="visually-hidden"> state aid details</span>
+            </a>            
+            <dl class="govuk-check-your-answers cya-questions-short">
+        <div>
+          <dt class="cya-question">
+            2015 declaration
+          </dt>
+          <dd class="cya-answer">
+            £0
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            2016 declaration
+          </dt>
+          <dd class="cya-answer">
+              £34,500
+          </dd>
+
+        </div>
+                
+        <div>
+          <dt class="cya-question">
+            2017 declaration
+          </dt>
+          <dd class="cya-answer">
+              £5,900
+          </dd>
+
+        </div>
+
+                           
+        <div>
+          <dt class="cya-question">
+            2018 contribution
+          </dt>
+          <dd class="cya-answer">
+              add £3,500
+          </dd>
+
+        </div>             
+        <div>
+          <dt class="cya-question">
+            2019 contribution
+          </dt>
+          <dd class="cya-answer">
+              add £3,500
+          </dd>
+
+        </div>     
+                
+    
+      </dl>   
+
+            
+            
+            
+        </div>
+    </div>
+    
+    <div class="grid-row">
+        <div class="column-two-width">
+            <form>
+<legend class="heading-medium">Are you ready to submit this request?</legend><div class="form-group org-search-filter">
+                                    <legend class="form-label sr-only">Are you ready to submit this request?</legend>
+
+                                    <div class="multiple-choice">
+                                        <input id="yes" type="radio" name="next" value="yes">
+                                        <label for="yes">Yes, send this to the employer</label>
+                                    </div>
+                                    <div class="multiple-choice">
+                                        <input id="no" type="radio" name="next" value="no">
+                                        <label for="no">No, cancel this request</label>
+                                    </div>
+                                  
+                                    </div>
+<a class="button" href="request-sent.html">Finish</a>                
+            </form>
+        </div>
+    </div>
+
+</main><!-- / #content -->
+{% endblock %}
