@@ -1,0 +1,305 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="account-dashboard" id="content" role="main" tabindex="-1">
+
+        <div id="notifications" class="hidden">
+        <div class="success-summary">
+            <h3 class="heading-medium">Confirmation e-mail sent</h3>
+            <p>We've sent an e-mail to <span class="bold-small">pete.kowalczyk@digi2al.co.uk</span>. You e-mail address won't update until it has been verified</p>
+        </div>
+    </div>
+       <div class="govuk-box-highlight hidden">
+          <h2 class="bold-large">
+Levy account created          </h2>
+        <p>You need to <a href="/apps/{{currentApp.appDirName}}/views/account/organisation/view?agreementState=not-signed">sign the agreement</a> before you can start spending your levy.</p>
+        </div>
+    
+           <div class="govuk-box-highlight hidden" id="emailUpdated">
+          <h2 class="bold-large">
+Email changed         </h2>
+           <p>You've changed your email address to <span class="user-email bold-small">john@tesco.co.uk</span> </p>
+        </div>
+    
+   <section id="welcome" class="info-summary">
+                        <div class="text hgroup">
+        <h2 class="heading-xlarge">Hi <span class="user-name">Ty</span>, welcome  to your new digital account</h2>
+       <p>Follow these steps to set up your account.</p>
+       </div>    
+                <section>
+                
+                  
+                    
+                    <section id="add-paye">
+                        <div class="todo">
+                            <h3 class="heading-medium">Step 1 of 4</h3>
+                            <form class="">
+                              <div action="#">
+                                <fieldset class="form-group">
+
+                                  <legend class="heading-small">Add more PAYE schemes now?</legend>
+                                    <p>This allows your schemes' levy funds to be paid into your account.</p>
+                                    <div class="multiple-choice">
+                                    <input id="add-paye-1" type="radio" name="add-paye-group" value="2">
+                                  <label class="" for="add-paye-1">
+                                      Yes
+                                  </label>
+                                    </div>
+                                    <div class="multiple-choice">                                    
+                                    <input id="add-paye-2" type="radio" name="add-paye-group" value="1">
+                                  <label class=" " for="add-paye-2">
+                                      No
+                                  </label>
+                                    </div>
+                                </fieldset>
+  <div class="panel panel-border-narrow">
+    <a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">Add PAYE schemes now</a> - you'll need your Government Gateway login details. 
+      
+  </div>
+</div>
+                                                                    <div class="form-group sr-only">
+                                    <a href="#" id="action" class="button">Continue</a>
+                                    </div> 
+                            </form>
+   
+                        </div>
+
+                        <div class="done success-summary">
+                            <h3 class="heading-medium">Step 1 of 4 <span class="bold-small"><a href="#">(review this step)</a></span></h3>
+                            <p><span class="addedPAYE">1</span> PAYE schemes added</p>
+                            <span>Done <i class="fa fa-check"></i></span>
+                        </div>
+                    </section>
+                    
+                    
+                    <section id="add-org">
+                        <div class="todo">
+                                    <h3 class="heading-medium">Step 2 of 4</h3>
+                            <form class="inline" action="#">
+                                <fieldset>
+                                  <legend class="heading-small">Add more organisations now? </legend>
+<p>This allows organisations to spend funds on apprentices.</p>
+                                    <div class="multiple-choice">                                    
+                                    <input id="add-org-1" type="radio" name="add-org-group" value="2">                                    
+                                  <label class="" for="add-org-1">
+                                      Yes
+                                  </label>
+
+                                    </div>
+                                    <div class="multiple-choice">                                                                        
+                                    <input id="add-org-2" type="radio" name="add-org-group" value="1">
+                                    <label class=" " for="add-org-2">
+                                      No
+                                  </label>
+                                    </div>
+
+                                    <div class="sr-only">
+                                    <!--<a href="/sprint/19/onboarding/before-you-start.html"> id="action" class="button">Continue</a>-->
+                                    <a href="#" id="action" class="button">Continue</a>
+                                    </div>            
+                                </fieldset>
+                                  <div class="panel panel-border-narrow">
+                                  <p><a href="/apps/{{currentApp.appDirName}}/views/account/organisations/add">Add organisations now</a>.</p> 
+                                  </div>
+                            </form>
+                        </div>
+                        <div class="done success-summary">
+                            <h3 class="heading-medium">Step 2 of 4 <span class="bold-small"><a href="#">(review this step)</a></span></h3>
+                            <p><span class="org-count">1</span> organisations added</p>
+                            <span>Done <i class="fa fa-check"></i></span>
+                        </div>
+                    </section>
+                                 
+                    <section id="invite-users">
+                        <div class="todo">
+                            <h3 class="heading-medium">Step 3 of 4</h3>
+                            <form class="inline">
+                              <div class="form-group" action="#">
+                                <fieldset>
+                                  <legend class="heading-small">Add team members now?</legend>
+                                    <p>This allows your colleagues to manage apprenticeships or finances.</p>
+                                    <div class="multiple-choice">
+                                    <input id="invite-users-2" type="radio" name="invite-users-group" value="2">
+                                 <label class=" " for="invite-users-2">
+                                      Yes, add team members
+                                  </label>
+                                        </div>
+                                    <div class="multiple-choice">
+                                  <input id="invite-users-1" type="radio" name="invite-users-group" value="1">
+                                    <label class=" " for="invite-users-1">
+                                     No, not now
+                                  </label>
+                                    </div>
+                                    <div class="sr-only">
+                                    <!--<a href="/sprint/19/onboarding/before-you-start.html"> id="action" class="button">Continue</a>-->
+                                    <a href="#" id="action" class="button">Continue</a>
+                                    </div>     
+                                </fieldset>
+                                  
+                                  <div class="panel panel-border-narrow">
+                                    <p><a href="/apps/{{currentApp.appDirName}}/views/account/team/new">Invite colleagues from my organisation now</a>.</p> 
+                                  </div>
+                              </div>
+                            </form>
+                        </div>
+                                    <div class="done success-summary">
+                            <h3 class="heading-medium">Step 3 of 4 <span class="bold-small"><a href="#">(review this step)</a></span></h3>
+                            <p>1 team member added</p>
+                            <span>Done <i class="fa fa-check"></i></span>
+                        </div>
+                    </section>       
+
+                                        
+                      <section id="sign-agreement">
+                        <div class="todo">
+                            <h3 class="heading-medium">Step 4 of 4</h3>
+                        <form class="inline">
+                              <div class="form-group" action="#">
+                                <fieldset>
+                                  <legend class="heading-small">Are you going to sign the agreements?</legend>
+                                    <p>This allows you to spend funds.</p>
+                                    <div class="multiple-choice">
+                                  <input id="sign-org-group-1" type="radio" name="sign-org-group" value="1">
+                                  <label class=" " for="sign-org-group-1">
+                                      Yes
+                                  </label>
+                                    </div>
+                                    <div class="multiple-choice">
+                                    <input id="sign-org-group-2" type="radio" name="sign-org-group" value="2">
+                                    <label class=" " for="sign-org-group-2">
+                                    No, someone else will sign the agreements
+                                    </label>
+                                    </div>
+                                        <div class="sr-only">
+                                    <!--<a href="/sprint/19/onboarding/before-you-start.html"> id="action" class="button">Continue</a>-->
+                                    <a href="#" id="action" class="button">Continue</a>
+                                    </div>     
+                                </fieldset>
+                                  
+                                  <div class="panel panel-border-narrow agreement-panel">
+                                    <p>1 unsigned agreement<span class="agreementPlural"></span>. <a href="/apps/{{currentApp.appDirName}}/views/account/organisations/index">View  agreements now.</a></p> 
+                                  </div>            
+                       
+            
+                              </div>
+                            </form>
+                        </div>
+                        <div class="done success-summary">
+                            <h3 class="heading-medium">Step 4 of 4 <span class="bold-small"><a href="#">(review this step)</a></span></h3>
+                            <p><span class="signedOrgs">0</span> agreements signed</p>
+                            <span>Done <i class="fa fa-check"></i></span>
+                        </div>
+                    </section>
+                    
+                    <section style="margin-top: 10px;" id="wizardPending">
+                        <div class="complete" style="padding: 20px; background:#28A197; color: white;">
+                            <h4 class="heading-medium">
+                                Tasks completed <i class="fa fa-check"></i>
+                            </h4>
+                            <p class="bold-small"><a style="color: white;" href="#" class="hideWelcomeWizard">I'm done - take me to my homepage</a></p>
+                        </div>
+                        
+                                                <div class="agreement-notice" style="margin-top: 10px; display: block; padding: 20px; float: left; width: 100%; box-sizing: border-box;">
+<div class="notice">
+  <i class="icon icon-important">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+Your agreement needs to be signed before you can spend funds. <a href="/apps/{{currentApp.appDirName}}/views/account/organisations/index">View agreement now</a>.</strong>
+</div>                        </div>
+                        
+                    </section>
+                    
+                    <section style="display:none;margin-top: 10px; background: #28A197; color: white; padding: 20px;" id="wizardComplete">
+                        <div class="complete">
+                            <h4 class="heading-medium">
+                                Setup complete <i class="fa fa-check"></i>
+                            </h4>
+                            <p>You can now <a href="/apps/{{currentApp.appDirName}}/views/account/apprentices/" style="font-weight: 900; color: white;">add apprentices</a>.</p>
+                        </div>
+                    </section>
+       
+                    
+                    <a class="hideWelcomeWizard" style="position: absolute; top :20px; right: 20px; text-decoration: none;" class="" href="#"><span class="">Close</span> <i class="fa fa-times"></i></a>
+  
+                </section> 
+    </section>
+    <section id="directory" class="">
+    <h1 class="heading-xlarge organisation-namee">Manage your apprenticeship</h1>
+    <div class="grid-row" style="margin-top:30px;">
+        <div class="column-two-thirds">
+                <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/finance/index">Finance</a></h3>
+                <p>View transactions and forecast your funds.</p>
+                <hr/>
+                <h3 class="heading-medium" style="margin-top: 0;"><a href="/apps/{{currentApp.appDirName}}/views/account/settings/organisations/index">Enable spending</a></h3>
+                <p>Add the necessary content to the system in order to retrieve funds and authorise the spending of those funds.</p>
+                <hr/>           
+                <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/apprentices/index">Apprentices</a></h3>
+                <p>Update the status of your apprentices, or recruit new ones.</p>            
+                <hr/>
+                <h3 class="heading-medium" style="margin-top: 0"><a href="/apps/{{currentApp.appDirName}}/views/account/paye/index" target="_blank">Find apprenticeship training</a></h3>
+                <p>Search for training providers, training frameworks and end-point assessors.</p>                       <hr/>              
+
+                     <h3 class="heading-medium">
+                <a href="/apps/{{currentApp.appDirName}}/views/account/dashboard/settings">Settings</a></h3>
+                <p>Manage your account settings, invite new team members to your account.</p>
+            <hr>
+        </div>
+        <div class="column-third">
+    
+            <div id="tabs-container">
+              <ul class="tabs-menu">
+                <li class="current"><a href="#tab-1">Alerts</a></li>
+                <li><a href="#tab-2">Activity</a></li>
+              </ul>
+            <div id="tab-1" class="tab-content">
+
+
+            <div class="">
+            <p class="">Transfer offer (1)</p>
+                <p class="font-xsmall">You have a new transfer offer from a sending employer.</p>
+                <a href="/apps/{{currentApp.appDirName}}/views/account/transfers/receive/offer-received-summary.html">Check details</a> <a href="#" class="dismiss">Dismiss <i class="fa fa-times"> </i></a></div>
+
+
+            <div class="">
+            <p class="">Transfer request (1)</p>
+                <p class="font-xsmall">You have a new transfer request from a receiving employer.</p>
+                <a href="/apps/{{currentApp.appDirName}}/views/account/transfers/send/request-received-summary.html">Check details</a> <a href="#" class="dismiss">Dismiss <i class="fa fa-times"> </i></a></div>
+
+
+            <div >
+            <p class="">1 agreement needs to be signed</p><a href="/apps/{{currentApp.appDirName}}/views/account/organisations/index">View agreements</a>
+                <a href="#" class="dismiss">Dismiss <i class="fa fa-times"> </i></a>
+
+            </div>
+                
+
+            <div >
+                <p class="">2 apprentice changes ready for approval</p><a href="/apps/{{currentApp.appDirName}}/views/account/apprentices/manage-2">View changes</a>
+<a href="#" class="dismiss">Dismiss <i class="fa fa-times"> </i></a>                
+                </div>
+
+
+            <div >
+            <p class="">1 cohort request ready for approval</p><a href="/apps/{{currentApp.appDirName}}/views/account/apprentices/cohort-review">View cohort</a>
+<a href="#" class="dismiss">Dismiss <i class="fa fa-times"> </i></a>                
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
+    </div>
+    
+    <section class="text">
+                <div class="panel panel-width-thick">
+                    <h3 class="bold-medium">Help us improve this site</h3>
+                    <p><a href="https://www.surveymonkey.co.uk/r/2JPLQ9T" target="_blank">Take our 3 minute survey</a> so that we can improve the service.</p>
+                    <p><a href="https://www.surveymonkey.co.uk/r/2JPLQ9T" target="_blank" class="button">Take the survey <span class="vh">so that we can improve the service</span></a></p>
+                </div>
+            </section>
+</section>
+
+</main><!-- / #content -->
+{% endblock %}

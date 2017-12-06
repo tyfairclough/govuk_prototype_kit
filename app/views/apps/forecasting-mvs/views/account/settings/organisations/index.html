@@ -1,0 +1,46 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="organisations-dashboard" id="content" role="main" tabindex="-1">
+
+    {% include "includes/link-back.html" %}
+    
+<div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+            <h1 class="heading-xlarge">Enable spending</h1>
+            <p class="lede">Add each organisation that will hire apprentices by making agreements with training providers. There is no restriction on the number of <a href="#">connected organisations</a> you can add.</p>
+            <p>To spend levy funds on apprentices for an organisation, you need to sign the SFA agreement for that organisation.</p>
+            </div>
+        </div>
+</div> 
+
+ <div id="orgTable">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Organisation</th>
+                <th>Spending status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tr>
+            <td>Tesco food ltd</td>
+            <td>Spending enabled
+                <div style="color:#6F777B" class="font-xsmall">SFA agreement signed by <span class="user-name">Sam</span>, <span class="today">23/10/2017</span></div>
+            </td>
+            <td class="numeric"><a class="button text-link" href="/apps/{{currentApp.appDirName}}/views/account/organisations/agreement-cover-signed.html">Details</a></td>
+        </tr>
+    </table>
+</div>    
+    
+<a class="button" href="/sprint/48/account/organisations/add.html" id="">Add new organisation</a>
+   
+    <hr>
+    
+    <p class="font-xsmall">
+        <a href="/sprint/48/account/organisations/remove-org.html">Remove an organisation from your account</a>.
+    </p>
+
+</main><!-- / #content -->
+{% endblock %}

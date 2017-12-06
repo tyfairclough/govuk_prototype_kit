@@ -1,0 +1,201 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="team-dashboard" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    
+    
+<div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+            <h1 class="heading-xlarge">Sam Harris</h1>
+                <p class="lede">Choose what this user has permission to see and do.</p>
+            </div>
+        </div>
+</div> 
+
+<div class="preset-roles">
+    <h3 class="heading-small">Choose a predefined role (optional)</h3>
+                   
+                   <fieldset>
+                    <legend class="heading-small hidden">Select a role</legend>
+                       
+                       <label class="selected"><span class="sr-only">Choose a role</span>
+  <select class="form-control" id="select-box">
+    <option disabled="" selected="selected">Select a role</option>
+    <option value="1">Apprenticeships or training manager</option>
+    <option value="2">Human resources (HR)</option>
+    <option value="3">Finance, accountancy</option>
+    <option value="4">Payroll</option>
+    <option value="5">Legal</option>
+    <option value="6">Corporate executive</option>
+    <option value="7">Custom</option>
+   </select>
+                       </label>
+                   </fieldset>
+
+                   <br>
+    </div>    
+
+<div class="acl">
+    <!--<hr />-->
+    <h4 class="heading-small">Customise their access levels</h4>
+    <table class="form">
+        
+        
+        <tbody>
+            <tr>
+            <th>Site feature</th>
+            <th>View only</th>
+            <th>View and edit</th>
+            <th>No access</th>
+        </tr>
+        <tr>
+            <td>Your team
+            <span class="form-hint">Control what your team can do.</span>
+            </td>
+            <td>
+                <div class="multiple-choice">
+                <input id="radio-inline-1" type="radio" name="radio-inline-group-1" value="1">
+                <label class="rj-roles-choice" for="radio-inline-1">
+                            <span class="sr-only">Read/Write</span>
+                </label>
+                </div>
+            </td>
+            <td>
+                <div class="multiple-choice">                
+                <input id="radio-inline-2" type="radio" name="radio-inline-group-1" value="2">
+                <label class="rj-roles-choice" for="radio-inline-2">
+                            <span class="sr-only">Read only</span>
+                </label>
+                </div>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Your organisations and agreements
+                <span class="form-hint">Add organisations and sign legal agreements with SFA.<span>
+            </span></span></td>
+            <td>
+                <div class="multiple-choice">                
+                    <input id="radio-inline-4" type="radio" name="orgs-group" value="4">
+                    <label class="rj-roles-choice" for="radio-inline-4">
+                    <span class="sr-only">No access</span>
+                    </label>
+                </div>
+            </td>
+            <td>
+                <div class="multiple-choice">                
+                <input id="radio-inline-5" type="radio" name="orgs-group" value="5">
+                <label class="rj-roles-choice" for="radio-inline-5">
+                    <span class="sr-only">Read only</span>
+                    </label>
+                </div>
+            </td>
+            <td>
+                <div class="multiple-choice">                
+                                <input id="radio-inline-6" type="radio" name="orgs-group" value="6">                
+                <label class="rj-roles-choice" for="radio-inline-6">
+                            <span class="sr-only">Read/Write</span>
+                            </label>
+                </div>        
+            </td>
+        </tr>
+        <tr>
+            <td>Apprentices
+            <span class="form-hint">Add apprentice details and authorise payments to training providers.<span>
+            </span></span></td>
+            <td>
+                <div class="multiple-choice">                
+                                <input id="radio-inline-7" type="radio" name="apprentice-group" value="7">                
+                <label class="rj-roles-choice" for="radio-inline-7">
+                            <span class="sr-only">No access</span>
+                            </label>
+                </div>        
+            </td>
+            <td>
+                <div class="multiple-choice">                
+                                <input id="radio-inline-8" type="radio" name="apprentice-group" value="8">
+                <label class="rj-roles-choice" for="radio-inline-8">
+                            <span class="sr-only">Read only</span>
+                            </label>
+                </div>
+            </td>
+            <td>
+                <div class="multiple-choice">                
+                                <input id="radio-inline-9" type="radio" name="apprentice-group" value="9">
+                <label class="rj-roles-choice" for="radio-inline-9">
+                            <span class="sr-only">Read/Write</span>
+                            </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Finance
+            <span class="form-hint">View transactions and forecast your funds.<span>
+            </span></span></td>
+            <td>
+                                <div class="multiple-choice">                
+                                <input id="radio-inline-10" type="radio" name="finance-group" value="10">
+                                        <label class="rj-roles-choice" for="radio-inline-10">
+                            <span class="sr-only">No access</span>
+                            </label>
+                </div>
+                </td>
+            <td>
+                                <div class="multiple-choice">                
+                                <input id="radio-inline-11" type="radio" name="finance-group" value="11">
+<label class="rj-roles-choice" for="radio-inline-11">
+                            <span class="sr-only">Read only</span>
+                            </label>
+                </div>
+                </td>
+            <td>
+                                <div class="multiple-choice">                
+                                <input id="radio-inline-12" type="radio" name="finance-group" value="12">
+                                    <label class="rj-roles-choice" for="radio-inline-12">
+                            <span class="sr-only">Read/Write</span>
+                            </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>PAYE schemes
+            <span class="form-hint">Add or remove your PAYE schemes.<span>
+            </span></span></td>
+            <td>
+                                                <div class="multiple-choice">                
+                                <input id="radio-inline-13" type="radio" name="paye-group" value="13">
+                <label class="rj-roles-choice" for="radio-inline-13">
+                            <span class="sr-only">No access</span>
+                            </label>
+                </div>
+            </td>
+            <td>
+                                                <div class="multiple-choice">                
+                                <input id="radio-inline-14" type="radio" name="paye-group" value="14">
+
+                                                    <label class="rj-roles-choice" for="radio-inline-14">
+                            <span class="sr-only">Read only</span>
+                            </label>
+                </div>
+                </td>
+            <td>
+                                                <div class="multiple-choice">                
+                                <input id="radio-inline-15" type="radio" name="paye-group" value="15">
+                                                    <label class="rj-roles-choice" for="radio-inline-15">
+                            <span class="sr-only">Read/Write</span>
+                            </label>
+                </div>
+                </td>
+        </tr>
+    </tbody></table>
+
+</div>
+    
+<a class="button" id="" href="/apps/{{currentApp.appDirName}}/views/account/team/invite-a-team-member.html">Update permissions</a>    
+<a class="button text-link" id="" href="/apps/{{currentApp.appDirName}}/views/account/team/invite-a-team-member.html">Cancel</a>    
+    
+</main><!-- / #content -->
+{% endblock %}

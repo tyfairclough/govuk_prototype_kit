@@ -1,0 +1,62 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="finance-transactions-expanded" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup">
+      <h1 class="heading-large">
+          Payment details 
+            </h1>
+            
+            <ul>
+                <li>Date  <span class="bold-small">5 July 2018</span></li>
+                <li>Payment to <span class="bold-small">Acme Training Ltd</span></li>
+            </ul>
+        </div>
+        
+
+        
+     </div>   
+        
+      
+   
+    </div>
+    
+    
+    <table class="responsive">
+            <thead>
+                <tr>
+                    <th colspan="2"></th>
+                    <th colspan="2"></th>
+                </tr>
+                <tr>
+                    <th scope="col">Course</th>
+                    <th scope="col" class="numeric">Paid from transfer</th>
+                    <th scope="col" class="numeric">Amount</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Course">Assistant Accountant level 2</td>
+                    <td data-label="Paid from levy" class="numeric">-£282.35</td>
+                    <td data-label="Amount" class="numeric">-£282.35</td>
+                    <td><a href="/sprint/48/account/finance/payment-details-apprentice-levy.html">Details</a></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="total">
+                    <td data-label="Totals"> </td>
+                    <td data-label="Paid from levy" class="total numeric nowrap">-£282.35</td>
+                    <td data-label="Amount" class="total numeric nowrap">-£282.35</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    
+
+</main><!-- / #content -->
+{% endblock %}

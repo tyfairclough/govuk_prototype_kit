@@ -1,0 +1,40 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="choose-funding" id="content" role="main" tabindex="-1">
+<div class="grid-row">
+           <div class="column-two-thirds">
+               <div class="hgroup">
+                   <div class="text"><h1 class="heading-large">How will you pay your training provider?
+</h1>
+                   </div>
+</div>          
+               </div>
+    </div>
+    <form action="">
+    <div class="form-group">
+    </div>
+        <div class="form-group">
+            <div class="multiple-choice">
+
+        <input id="approve" type="radio" name="next" value="approve" class="">
+      <label data-target="approve" for="approve">
+I will use my available funds
+                </label>
+            </div>
+            <div class="multiple-choice">
+
+        <input id="send" type="radio" name="next" value="send">
+            <label data-target="send" for="send">
+I will use funds transferred from another employer
+                </label>
+                 </div>
+      </div>
+
+  
+      <a class="button" href="../finance/transfers/account-id.html" id="submit">Continue</a>
+      
+</form>
+
+</main><!-- / #content -->
+{% endblock %}

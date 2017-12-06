@@ -1,0 +1,91 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="paye-details" id="content" role="main" tabindex="-1">
+
+    {% include "includes/link-back.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+            <h1 class="heading-xlarge">PAYE details</h1>
+                <p class="lede">English % scheme history</p>
+            </div>
+        </div>
+</div> 
+
+ <div class="grid-row">
+        <div class="column-two-thirds">
+            <table>
+            <tbody>
+            <tr>
+            <th scope="row">
+            PAYE scheme
+            </th>
+            <td>
+            777/AA00001
+            </td>
+            </tr>
+            <tr>
+            <th scope="row">
+                Organisation name
+            </th>
+            <td>
+                Tescos Plc
+            </td>
+            </tr>
+            </tbody>
+            </table>        
+        </div>
+    </div>
+        
+<div class="grid-row">
+        <div class="column-two-thirds">
+            
+
+            
+            
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col" style="padding-top:0">Date</th>
+                                <th scope="col" style="padding-top:0">English %</th>
+                            </tr>
+                        </thead>
+<tbody>
+    <tr>
+        <td class="">10 January 2018</td>
+        <td>80.034%</td>
+    </tr>
+    <tr>
+        <td class="">10 December 2017</td>
+        <td>80.338%</td>
+    </tr>
+    <tr>
+        <td class="">10 October 2017</td>
+        <td>75.332%</td>
+    </tr>
+</tbody>
+</table>      
+ 
+            
+            <a class="button" href="/apps/{{currentApp.appDirName}}/views/account/settings/paye/remove.html">Remove PAYE scheme</a>
+        
+    <br clear="all">
+    <br clear="all">
+
+    <details class="" role="group">
+            <summary role="button" aria-controls="details-content-0" aria-expanded="false">What is English percentage?</summary>
+        <div class="panel panel-width-thin" id="details-content-0" aria-hidden="true">
+                <p>Your English percentage is provided by HMRC based on the data in your payroll submissions. It represents the proportion of your payroll that’s paid to your employees that live in England.</p>
+                <p>If you think there are any issues with your English percentage, check your payroll data to make sure your employee's address information is correct.</p>
+            </div>
+        </details>
+<div class="info-highlighted">
+    <p><a href="#">Give us your feedback</a> if your English percentage isn't what you expected. connected organisations.</p>
+</div>            
+        </div>
+    </div>    
+
+</main><!-- / #content -->
+{% endblock %}

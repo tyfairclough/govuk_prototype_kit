@@ -4,13 +4,13 @@
 
 module.exports = {
   // Service name used in header. Eg: 'Renew your passport'
-  serviceName: 'Service name goes here',
+  serviceName: 'ESFA digital apprenticeship service',
 
   // Default port that prototype runs on
   port: '3000',
 
   // Enable or disable password protection on production
-  useAuth: 'true',
+  useAuth: 'false',
 
   // Automatically stores form data, and send to all views
   useAutoStoreData: 'true',
@@ -22,6 +22,8 @@ module.exports = {
   useHttps: 'true',
 
   // Cookie warning - update link to service's cookie page.
+
+  useSubapplications: true,
   cookieText: 'GOV.UK uses cookies to make the site simpler. <a href="#">Find out more about cookies</a>',
 
   // Enable or disable Browser Sync

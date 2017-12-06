@@ -1,3 +1,4 @@
+/*
 // Path to assets for use with the file-url function
 // in the govuk frontend toolkit's url-helpers partial
 $path: "/public/images/";
@@ -27,5 +28,6 @@ $path: "/public/images/";
     list-style-type: none;
   }
 }
-
+*/
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+@import 'global-styles';

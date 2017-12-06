@@ -1,0 +1,46 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="choose-how-to-add-apprentices" id="content" role="main" tabindex="-1">
+<div class="grid-row">
+           <div class="column-two-thirds">
+               <div class="hgroup">
+                   <div class="text"><h1 class="heading-large">Choose how to add apprentices</h1>
+                   </div>
+</div>
+                
+               
+<form action="">
+    <div class="form-group">
+        <legend class="bold-small hidden">Who will add apprentices?</legend>
+    </div>
+        <div class="form-group">
+            <div class="multiple-choice">
+
+        <input id="single" type="radio" name="radio-group" value="single" class="">
+      <label data-target="single" for="single">
+Add one at a time
+                </label>
+            </div>
+            <div class="multiple-choice">
+
+        <input id="bulk" type="radio" name="radio-group" value="bulk">
+            <label data-target="bulk" for="bulk">
+Add several at a time
+                </label>
+                 </div>
+      </div>
+
+  
+      <a class="button" href="start-adding-apprentices.html" id="submit">Continue</a>
+      
+</form>
+
+  
+            </div>
+
+</div>
+
+
+</main><!-- / #content -->
+{% endblock %}

@@ -1,0 +1,135 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="transfers-confirm-sending-employer" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup form-group">
+            <h2 class="heading-large">Your transfer summary</h2>
+        </div>
+      </div>
+    </div>
+    
+    
+  <div class="grid-row">
+        <div class="column-two-thirds">
+<h2 class="heading-medium">
+Receiving employer
+            </h2>    
+<dl class="govuk-check-your-answers cya-questions-short">
+        <div>
+          <dt class="cya-question">
+            Name
+          </dt>
+          <dd class="cya-answer">
+            GBC Micro Ltd
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            Account ID
+          </dt>
+          <dd class="cya-answer">
+            AS4XF
+          </dd>
+
+        </div>
+    
+      </dl>
+            
+<h2 class="heading-medium">
+Transfer details
+</h2>    
+<dl class="govuk-check-your-answers cya-questions-short">   
+    <div>
+          <dt class="cya-question">
+              Total amount
+          </dt>
+          <dd class="cya-answer">
+              £6,000
+          </dd>
+        </div> 
+    <div>
+          <dt class="cya-question">
+              Cost in year 1
+          </dt>
+          <dd class="cya-answer">
+              £1,129.40
+          </dd>
+        </div>      
+      </dl>
+            
+<h2 class="heading-medium">
+    Apprenticeship details
+</h2>    
+<dl class="govuk-check-your-answers cya-questions-short">
+        <div>
+          <dt class="cya-question">
+            Apprenticeship
+          </dt>
+          <dd class="cya-answer">
+            Assistant Accountant
+              <span class="form-hint">level 2</span>
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            Apprentices
+          </dt>
+          <dd class="cya-answer">
+            1
+          </dd>
+
+        </div>
+    
+        <div>
+          <dt class="cya-question">
+            Start date
+          </dt>
+          <dd class="cya-answer">
+            November 2017
+          </dd>
+
+        </div>    
+        <div>
+          <dt class="cya-question">
+            Duration
+          </dt>
+          <dd class="cya-answer">
+            18 months
+          </dd>
+
+        </div>
+                
+        <div>
+          <dt class="cya-question">
+            Monthly cost
+          </dt>
+          <dd class="cya-answer">
+            £282.35
+          </dd>
+
+        </div>                
+        <div>
+          <dt class="cya-question">
+            Completion payment
+          </dt>
+          <dd class="cya-answer">
+            £1,200
+          </dd>
+
+        </div>
+    
+      </dl>  
+            <br>
+            <a href="payment-plan.html">View payment plan</a>
+            
+    
+</div></div>
+
+</main><!-- / #content -->
+{% endblock %}

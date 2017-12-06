@@ -1,0 +1,58 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="your-cohort-requests" id="content" role="main" tabindex="-1">
+
+    {% include "includes/link-back.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+                <h1 class="heading-large">Your cohort requests</h1>
+                <p class="lede">You have 4 cohorts about to start.</p>
+            </div>
+        </div>
+    </div>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+
+    <a style="display:block" href="#">  <div class="column-one-half" style="padding-left:0">
+                <div style="background-color:#2E358B; min-height:180px">
+                  <h2 class="bold-xxlarge" style=" color:#fff; margin: 0px 0 0px 15px; padding-top:25px">1</h2>
+                  <h2 class="heading-small" style="color: #fff; margin: 25px 0 0px 15px;">Waiting to be sent</h2>
+                </div>
+      </div> </a>
+
+     <a style="display:block" href="/programmeNine&#10;&#10;&#10;&#10;/contracts/listing/approval">  <div class="column-one-half" style="padding-right:0">
+               <div style="background-color:#2E358B; min-height:180px">
+                  <h2 class="bold-xxlarge" style=" color:#fff; margin: 0px 0 0px 15px; padding-top:25px">9</h2>
+                  <h2 class="heading-small" style="color: #fff; margin: 25px 0 0px 15px;">Need your approval</h2>
+                </div>
+      </div></a>
+      <div class="column-one-half" style="padding-left:0; margin-top:35px">
+               <div style="background-color:#2E358B; min-height:180px">
+                  <h2 class="bold-xxlarge" style=" color:#fff; margin: 0px 0 0px 15px; padding-top:25px">3</h2>
+                  <h2 class="heading-small" style="color: #fff; margin: 25px 0 0px 15px;">Ready for review</h2>
+                </div>
+      </div>
+
+      <div class="column-one-half" style="padding-right:0; margin-top:35px">
+                 <div style="background-color:#2E358B; min-height:180px">
+                  <h2 class="bold-xxlarge" style=" color:#fff; margin: 0px 0 0px 15px; padding-top:25px">8</h2>
+                  <h2 class="heading-small" style="color: #fff; margin: 25px 0 0px 15px;">With training providers</h2>
+                </div>
+      </div>
+      
+          <a style="display:block" href="cohorts-waiting-to-start.html">  <div class="column-one-half" style="padding-left:0; margin-top:35px">
+                <div style="background-color:#2E358B; min-height:180px">
+                  <h2 class="bold-xxlarge" style=" color:#fff; margin: 0px 0 0px 15px; padding-top:25px">4</h2>
+                  <h2 class="heading-small" style="color: #fff; margin: 25px 0 0px 15px;">Waiting to start</h2>
+                </div>
+      </div> </a>
+
+  </div>    
+  </div>
+  
+</main><!-- / #content -->
+{% endblock %}

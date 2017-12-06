@@ -1,0 +1,49 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="choose-an-option" id="content" role="main" tabindex="-1">
+<div class="grid-row">
+           <div class="column-two-thirds">
+               <div class="hgroup">
+                   <div class="text"><h1 class="heading-large">Choose an option</h1>
+                   </div>
+</div>          
+               </div>
+    </div>
+    <form action="">
+    <div class="form-group">
+        <legend class="bold-small hidden">Choose an option?</legend>
+    </div>
+        <div class="form-group">
+            <div class="multiple-choice">
+
+        <input id="approve" type="radio" name="next" value="approve" class="">
+      <label data-target="approve" for="approve">
+Approve and send to provider
+        </label>
+            </div>
+            <div class="multiple-choice">
+
+        <input id="send" type="radio" name="next" value="send">
+            <label data-target="send" for="send">
+Send to provider to review or add details
+                </label>
+                 </div>
+
+            <div class="multiple-choice">
+
+        <input id="later" type="radio" name="next" value="later">
+            <label data-target="later" for="later">
+Save but don't send to provider
+                </label>
+                 </div>
+      </div>
+
+  
+      <a class="button" href="choose-funding.html" id="submit">Continue</a>
+      
+</form>
+    
+
+</main><!-- / #content -->
+{% endblock %}

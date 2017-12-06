@@ -1,0 +1,45 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="change-me" id="content" role="main" tabindex="-1">
+<div class="grid-row">
+           <div class="column-two-thirds">
+               <div class="hgroup">
+                   <div class="text">
+  <h1 class="heading-large">Add an apprentice</h1>
+   <p class="lede">Add details of one or more apprentices to your account, and authorise payments to their training provider.</p>
+                       </div>
+</div>
+
+  <h2 class="heading-medium">Before you start</h2>
+     <p>You must:</p>
+      <ul class="list list-bullet">
+        <li>know the names of your apprentices</li>
+        <li>know your training provider's UK Provider Reference Number (UKPRN) - your training provider can tell you this</li>
+        <li>make sure the organisation that's named on the contract you have with your training provider is in your account - 
+          <a href="/programmeTen&#10;&#10;&#10;&#10;/contracts/new-contract">view organisations in this account</a></li>
+        <li>make sure the PAYE scheme that each apprentice is paid through is in your account - <a href="/programmeTen&#10;&#10;&#10;&#10;/contracts/new-contract">view PAYE schemes in this account</a></li>
+             </ul>
+
+        <a href="choose-organisation.html" class="button button-start">Start now</a>
+            </div>
+
+             <div class="column-one-third">
+                      <aside class="related">
+                        <h2 class="heading-medium" style="margin-top:20px">Adding multiple apprentices?</h2>
+                          <p>Download a template and add apprentice details to it, then use it to add them all at the same time.</p>
+                          <div class="attachment-thumb form-group">
+                                           <img src="https://www.gov.uk/government/assets/pub-cover-spreadsheet-471052e0d03e940bbc62528a05ac204a884b553e4943e63c8bffa6b8baef8967.png">
+                         </div>
+                      <ul class="robSideNav">
+                          <li>
+                            <a href="#">Download as MS Excel (78KB)</a>
+                          </li>
+                         </ul>
+                    </aside>
+            </div>
+</div>
+
+
+</main><!-- / #content -->
+{% endblock %}

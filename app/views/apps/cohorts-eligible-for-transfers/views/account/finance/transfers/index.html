@@ -1,0 +1,81 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="transfers-dashboard" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+<div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+            <h1 class="heading-xlarge">
+                Transfer funds
+      </h1>
+            <p class="lede">Receive apprenticeship funding from levy employers</p>
+            
+</div>
+        </div>
+    </div>    
+    
+<div id="transactions" class="container" style=""> 
+        <h2 class="heading-medium">Cohorts eligible for transfers</h2>       
+        <table>
+                    <thead>
+            <tr>
+                <th>Provider</th>
+                <th>Cohort reference</th>
+                <th>Amount</th>
+                <th>Expires</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+<!-- SENDER -->    
+        <tr data-type="pending" id="sender-request-received">
+            <td>Acme Ltd</td>
+            <td>XHF/JLKW</td>
+            <td>£11,200</td>
+            <td>today</td>
+            <td class="numeric"><a href="start.html" data-org-index="0">Details</a></td>
+        </tr>
+           
+        <tr data-type="pending" id="sender-request-accepted">
+            <td>Acme Ltd</td>
+            <td>MLW/LMLW</td>
+            <td>£14,680</td>
+            <td>5 days</td>
+            <td class="numeric"><a href="start.html" data-org-index="0">Details</a></td>
+        </tr>
+           
+        <tr data-type="pending" id="sender-request-declined-summary">
+            <td>Acme Ltd</td>
+            <td>NBY/YZPP</td>
+            <td>£16,000</td>
+            <td>15 December 17</td>
+            <td class="numeric"><a href="start.html" data-org-index="0">Details</a></td>
+        </tr>           
+        <tr data-type="pending" id="sender-transfer-cancelled-summary">
+            <td>Acme Ltd</td>
+            <td>DDI/LFLJ</td>
+            <td>£21,990</td>
+            <td>21 December 17</td>
+            <td class="numeric"><a href="start.html" data-org-index="0">Details</a></td>
+        </tr>
+        <tr data-type="pending" id="sender-transfer-cancelled-summary">
+            <td>Acme Ltd</td>
+            <td>LLKO/OIP</td>
+            <td>£1,0101</td>
+            <td>14 March 18</td>
+            <td class="numeric"><a href="start.html" data-org-index="0">Details</a></td>
+        </tr>
+
+        
+<!-- SENDER END -->            
+            
+    </tbody>
+            </table>
+        
+        </div>    
+                <h4 class="heading-small">Want to send funds to a receiving employer?</h4>
+                <a class="button" href="request-help.html">Offer funds</a>
+</main><!-- / #content -->
+{% endblock %}
