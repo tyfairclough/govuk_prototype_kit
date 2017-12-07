@@ -1,0 +1,28 @@
+{% extends currentApp.filePaths.layoutsDir + "hmrc.html" %}
+{% block main_content %}
+
+<main class="gateway-auth" id="content" role="main" tabindex="-1">
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+
+            <h1 class="heading-large">Authority to interact with HMRC on your behalf</h1>
+            
+            <p>The <strong class="bold-small">Skills Funding Agency</strong> software application is requesting to do the following:</p>
+            <ul class="list list-bullet">
+                <li>access levy data</li>
+            </ul>
+            <p>It will be able to do the above for 10 hours from when you grant authority.</p>
+            
+            <div class="form-group">
+                
+            <a href="/apps/{{currentApp.appDirName}}/views/onboarding/paye-check" class="button">Grant authority</a>
+<a href="#" class="button text-link">Do not grant authority</a>
+            </div>
+            
+            <p>You can <a rel="external" href="#">remove this authority</a> at any time.</p>
+        
+        </div>
+  </div>
+</main><!-- / #content -->
+{% endblock %}
