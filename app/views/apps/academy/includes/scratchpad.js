@@ -3,49 +3,28 @@
         "id": 0,
         "email": "ty.fairclough@gmail.com",
         "topScore": 0,
+        "onboarding": [0, 0],
         "levels": [{
-            "level1": [1],
-            "level2": [1, 2, 3]
+            "level1": [0, 0, 0],
+            "level2": [0, 0, 0]
         }]
     }, {
         "id": 1,
         "email": "tom.fairclough@gmail.com",
         "topScore": 72,
+        "onboarding": [1, 1],
         "levels": [{
-            "level1": [1, 2, 3],
-            "level2": [1, 2, 3]
+            "level1": [1, 1, 1],
+            "level2": [1, 1, 1]
         }]
     }, {
         "id": 3,
-        "email": "lucy",
+        "email": "tom",
         "topScore": 0,
+        "onboarding": ["regular", "assessment"],
         "levels": [{
-            "level1": [1],
-            "level2": [1, 2, 3]
-        }]
-    }, {
-        "id": 4,
-        "email": "lucy",
-        "topScore": 0,
-        "levels": [{
-            "level1": [1],
-            "level2": [1, 2, 3]
-        }]
-    }, {
-        "id": 5,
-        "email": "12345",
-        "topScore": 0,
-        "levels": [{
-            "level1": [1],
-            "level2": [1, 2, 3]
-        }]
-    }, {
-        "id": 6,
-        "email": "12345",
-        "topScore": 0,
-        "levels": [{
-            "level1": [1],
-            "level2": [1, 2, 3]
+            "level1": [0, 1, 0, 1],
+            "level2": [0, 0, 0]
         }]
     }]
 }
