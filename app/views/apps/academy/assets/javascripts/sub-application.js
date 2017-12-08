@@ -80,7 +80,7 @@ var className = $("main").attr('class');
                 window.location.href = "startAssessment";
         })         
         
-    }
+    } 
 
     
     function dashboard(){
@@ -92,6 +92,23 @@ var className = $("main").attr('class');
         console.log(showData.users[i].email);
         $(".email").text(showData.users[i].email);
         $(".topScore").text(showData.users[i].topScore);
+        
+        
+        //get level 1 and drop it like it's hot.
+        var numberOfQuestions11 = showData.users[i].levels[0].level0.length;
+        var answered11 = 0;
+        
+        for (i = 0; i < numberOfQuestions11; i++) {
+            if ( showData.users[i].levels[0].level0[i] == 1 ) {
+                answered11++
+                console.log("numeber of correct answers count: " + answered11);
+            }
+        }
+        
+        
+        
+        $("#level0 .scoreWrapper .answered").text(answered11+1);
+        $("#level0 .scoreWrapper .numberOfQuestions").text(numberOfQuestions11);
     }
 
     
