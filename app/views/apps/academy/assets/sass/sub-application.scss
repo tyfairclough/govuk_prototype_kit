@@ -19,6 +19,7 @@ $dot-diameter: 8px;
 
 
 .phase-banner {
+    border-bottom: none;
         &.alpha {
             .phase-tag {
             background: $beta-colour
@@ -36,10 +37,10 @@ $dot-diameter: 8px;
 
 #global-header-bar, #global-cookie-message p {
     max-width: 100%;
+    margin: 0;
 }
-
-.header-user, .header-organisation {
-    border-bottom: 1px solid #bfc1c3;
+.header-user {
+    margin: 0 -15px;
 }
 
 .header-global {
@@ -87,6 +88,7 @@ $dot-diameter: 8px;
 .global-header-bar {
 	height: 10px;
 	background: $govuk-blue;
+    margin: 0 0px;
 }
 
 .header-organisation h2 {
@@ -2661,78 +2663,228 @@ sup {
 
 
 /*----- accordion filters -----*/
+.subsection {
+    width: 100%;
+    margin-bottom: 30px
+}
 
-aside {
-    ul.accordion-menu {
-        width: 100%;
-        padding: 5px;
-        margin-bottom: 30px;
-        float: left;
-        &:active, &:focus {
-            outline: 3px solid #FFBF47;        
-        }
-        .container {
-            /* by default hide all sub menus */
-            display: none;
-            background: white;
-            float: left;
-            width: 100%;
-            padding: 10px;
-            .form-group label:first-child {
-                margin-top: 0;
-            }
-        }    
-        li {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            margin: 0;
-            label {
-                position: relative;
-                display: block;
-                padding: 8px 38px 8px 8px;
-                cursor: pointer;
-            }    
-            .filter {
-                margin-bottom: 15px;
-                label {
-                    padding: 0 0 8px;
-                    font-weight: 900;
-                }
-            }
-        }    
-        .has-children > label::after {
-            /* icons */
-            content: '';
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            position: absolute;
-            right: 0;
-            background: url(/public/images/separator-2x.png) no-repeat -3px -4px;
-            background-size: cover;
-        }    
-        .has-children {
-            margin-bottom: 30px;
-            overflow: auto;
-            background: $grey-3;
-            input[type=checkbox]:checked + label::after {
-                background-position: -3px -37px;
-            }   
-        }
-        input[type=checkbox]:checked + label + ul,input[type=checkbox]:checked + label:nth-of-type(n) + div {
-            display: block;
-            border: 3px solid $grey-3;
-            border-top: none;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-control {
-            width: 100%;
-        }
+@media (min-width: 641px) {
+    .subsection {
+        margin-bottom:45px
     }
+}
+
+.subsection__title {
+    font-family: "nta", Arial, sans-serif;
+    font-weight: 700;
+    text-transform: none;
+    font-size: 18px;
+    line-height: 1.2;
+    margin-bottom: 5px
+}
+
+@media (min-width: 641px) {
+    .subsection__title {
+        font-size:24px;
+        line-height: 1.25
+    }
+}
+
+.subsection__description {
+    font-family: "nta", Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 16px;
+    line-height: 1.25;
+    margin-bottom: 7.5px
+}
+
+@media (min-width: 641px) {
+    .subsection__description {
+        font-size:19px;
+        line-height: 1.31579
+    }
+}
+
+@media (min-width: 641px) {
+    .subsection__description {
+        margin-bottom:15px
+    }
+}
+
+.subsection__list {
+    font-family: "nta", Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 16px;
+    line-height: 1.25;
+    padding-left: 0;
+    list-style-type: none
+}
+
+@media (min-width: 641px) {
+    .subsection__list {
+        font-size:19px;
+        line-height: 1.31579
+    }
+}
+
+.subsection__list-item {
+    margin-bottom: 0.5em
+}
+
+.subsection__list-item a {
+    text-decoration: none
+}
+
+.js-accordion-with-descriptions .subsection-controls button {
+    float: right;
+    font-family: "nta", Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 14px;
+    line-height: 1.14286;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #005ea5;
+    padding: 0.5em 0
+}
+
+@media (min-width: 641px) {
+    .js-accordion-with-descriptions .subsection-controls button {
+        font-size:16px;
+        line-height: 1.25
+    }
+}
+
+.js-accordion-with-descriptions .subsection-wrapper {
+    border-bottom: 1px solid #bfc1c3
+}
+
+.js-accordion-with-descriptions .subsection {
+    margin-bottom: 0
+}
+
+@media (min-width: 641px) {
+    .js-accordion-with-descriptions .subsection {
+        margin-bottom:0
+    }
+}
+
+.js-accordion-with-descriptions .subsection__header {
+    position: relative;
+    padding-top: 14px;
+    padding-bottom: 12px;
+    border-top: 1px solid #bfc1c3
+}
+
+.js-accordion-with-descriptions .subsection__header:hover {
+    cursor: pointer;
+    background: #f8f8f8
+}
+
+.js-accordion-with-descriptions .subsection__title {
+    margin-bottom: 0;
+    margin-right: 15px
+}
+
+.js-accordion-with-descriptions .subsection__title button {
+    color: #005ea5;
+    cursor: pointer;
+    font-family: "nta", Arial, sans-serif;
+    font-weight: 700;
+    text-transform: none;
+    font-size: 18px;
+    line-height: 1.2;
+    background: none;
+    border: 0;
+    padding-left: 0;
+    text-align: left
+}
+
+@media (min-width: 641px) {
+    .js-accordion-with-descriptions .subsection__title button {
+        font-size:24px;
+        line-height: 1.25
+    }
+}
+
+@media (min-width: 641px) {
+    .js-accordion-with-descriptions .subsection__title {
+        margin-right:30px
+    }
+}
+
+.js-accordion-with-descriptions .subsection__description {
+    margin-bottom: 0;
+    margin-right: 15px
+}
+
+@media (min-width: 641px) {
+    .js-accordion-with-descriptions .subsection__description {
+        margin-bottom:0;
+        margin-right: 30px
+    }
+}
+
+.js-accordion-with-descriptions .subsection__icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 16px;
+    width: 16px;
+    margin-top: -8px;
+    background-image: url(https://assets.publishing.service.gov.uk/service-manual-frontend/icons-plus-minus-1bd32ac92894793f16898334c6a8af216b283adcb4d0a9b8cbe1621509f6b0d5.png);
+    background: url(https://assets.publishing.service.gov.uk/service-manual-frontend/icons-plus-minus-d4de828db60520db2057af7ed3526d770973e70a94c4d8a1ba6cf4a6dcf6490e.svg),linear-gradient(transparent, transparent);
+    background-repeat: no-repeat;
+    background-position: 0 -16px
+}
+
+@media (min-width: 641px) {
+    .js-accordion-with-descriptions .subsection__icon {
+        right:15px
+    }
+}
+
+.js-accordion-with-descriptions .subsection--is-open .subsection__icon {
+    background-position: 0 0
+}
+
+.js-accordion-with-descriptions .subsection__content {
+    padding-top: 5px;
+    padding-bottom: 15px
+}
+
+@media (min-width: 641px) {
+    .js-accordion-with-descriptions .subsection--is-open .subsection__content {
+        padding-top:10px;
+        padding-bottom: 30px
+    }
+}
+
+p {
+    margin-top: 0.3125em;
+    margin-bottom: 1.25em
+}
+
+@media (min-width: 641px) {
+    p {
+        margin-top:0.26316em;
+        margin-bottom: 1.05263em
+    }
+}
+
+.js-accordion-with-descriptions .subsection-controls:after,.js-accordion-with-descriptions .subsection-wrapper:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+.js-accordion-with-descriptions .subsection-controls:after,.js-accordion-with-descriptions .subsection-wrapper:after {
+    content: "";
+    display: block;
+    clear: both
 }
 
 
@@ -3523,4 +3675,60 @@ table.row, table.responsive {
     top: 0;
   }
 }
+ 
+#totalScoreInfographic {
+    position: relative;
+    i {
+        text-align: center;
+        color: $govuk-blue;
+        float: left;
+        width: 100%;
+        padding: 30px 30px 0;
+        position: relative;
+        font-size: 10em;
+    }
+    span {
+        float: left;
+        text-align: center;
+        width: 100%;
+        top: -130px;
+        color: white;
+        position: relative;
+        font-size: 2.5em;
+        font-weight: 900;
+    }
+}
 
+#welcome {
+        background: rgb(0, 94, 165);
+        padding: $gutter 0;
+        color: $white;
+        text-align: center;
+    h1 {
+        margin-top: 0;
+    }
+}
+
+.lesson {
+    clear: both;
+    border-bottom: 1px solid $grey-3;
+    padding-bottom: $gutter/2;
+    i {
+        color: $grey-2;
+        position: relative;
+    }
+    .scoreWrapper {
+        float: left;
+        margin: 0 15px 0 0;
+        position: relative;
+        div {
+            text-align: center;
+            top: -47px;
+            font-weight: 900;
+            position: relative;
+        }
+    }
+    p {
+        margin-bottom: 10px;   
+    }
+}
