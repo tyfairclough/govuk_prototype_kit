@@ -3732,3 +3732,10 @@ table.row, table.responsive {
         margin-bottom: 10px;   
     }
 }
+
+@import "animate.scss";
+
+
+[class$='-summary'] {
+    opacity: 0;
+}

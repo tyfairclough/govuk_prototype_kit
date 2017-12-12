@@ -1,6 +1,5 @@
 {% extends currentApp.filePaths.layoutsDir + "default.html" %}
 {% block main_content %}
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <main class="dashboard" id="content" role="main" tabindex="-1">
 
     <div class="header-user">
@@ -21,7 +20,7 @@
         <div class="column-full">
             <h1 class="heading-large">Welcome to your<br>learning center</h1>
             <p class="lede">From here you'll launch all your learning activites, let's take a quick tour.</p>
-            <a href="#" class="button">Take the tour</a>
+            <a href="#" class="button" id="chardinStart" data-intro="First off, this is just a prototype. It is likely to include bugs, please report any feedback you have to ty@digital.co.uk" data-position="left">Take the tour</a>
         </div>
     </div>
     
@@ -32,7 +31,7 @@
               Welcome back 
             </h1>        
         </div>
-            <div>Your account: <span class="email"></span> <a href="index.html">(Not you?)</a></div>
+            <div>Your account: <span class="email"></span> <a href="index.html" data-intro="Your scores are saved only to the device you are currently using" data-position="right">(Not you?)</a></div>
 
     </div>  
 </div>    
@@ -43,7 +42,7 @@
                 <i class="fa fa-trophy"></i>
                 <span>1%</span>
             </div>
-            <h2 class="heading-large">Just starting out</h2>
+            <h2 class="heading-large" data-intro="This is your score and how much further you need to level up - it doesn't work yet but imagine how cool it would be" data-position="bottom">Just starting out</h2>
             <h3 class="heading-medium">10 more questions to level up</h3>
             <hr />
         </div>
@@ -74,7 +73,7 @@
             </div>
         </div>        
         <div class="subsection js-subsection">
-            <div class="subsection__header">
+            <div class="subsection__header" data-intro="The lessons are split by levels which cover different areas of the apprenticeship service" data-position="bottom">
                 <h2 class="subsection__title">Level 1</h2>
                 <p class="subsection__description">The basics</p>
             </div>
@@ -88,23 +87,23 @@
                     <p>Everything everryone should know</p>
                     <a href="../lessons/level1lesson1.html" class="text-link">Take lesson</a>
                 </div>
-                <div class="lesson">
+                <div class="lesson" id="level1-lesson2">
                     <div class="scoreWrapper">
                         <i class="fa fa-circle-thin fa-5x"></i>
                         <div><span class="answered">0</span>/<span class="numberOfQuestions">12</span></div>
                     </div>
                     <h3 class="heading-small">Badge of purpose</h3>
                     <p>Everything everryone should know</p>
-                    <a href="#" class="text-link">Take lesson</a>
+                    <a href="../lessons/level1lesson2.html" class="text-link">Take lesson</a>
                 </div>
-                <div class="lesson">
-                    <div class="scoreWrapper">
+                <div class="lesson" id="level1-lesson3">
+                    <div class="scoreWrapper" data-intro="The numbers in the circle show your score out of the number of questions in that lesson. Answer them all correctly to reveal your merit badge" data-position="right">
                         <i class="fa fa-circle-thin fa-5x"></i>
                         <div><span class="answered">0</span>/<span class="numberOfQuestions">12</span></div>
                     </div>
                     <h3 class="heading-small">Friend of funding</h3>
                     <p>What funding is available to me</p>
-                    <a href="#" class="text-link">Take lesson</a>
+                    <a href="../lessons/level1lesson3.html" class="text-link">Take lesson</a>
                 </div>
                 <div class="lesson">
                     <div class="scoreWrapper">
@@ -113,7 +112,7 @@
                     </div>
                     <h3 class="heading-small">On course to succeed</h3>
                     <p>Find apprenticeship training</p>
-                    <a href="#" class="text-link">Take lesson</a>
+                    <a href="#" class="text-link" data-intro="When you are ready to get started click the Take lesson link to begin that lesson, all lessons take around 3-10 minutes" data-position="bottom">Take lesson</a>
                 </div>                
             </div>
         </div>
