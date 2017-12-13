@@ -1,0 +1,38 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="whatYouKnow" id="content" role="main" tabindex="-1">
+
+  <div class="grid-row">
+    <div class="column-full blue">
+        <div class="hgroup">
+      <h1 class="heading-xlarge">
+What do you know about apprenticeships?
+            </h1>
+            <p>Start from scratch or take the competency assessment</p>
+            
+            <form>
+                <div class="form-group">
+                    <div class="multiple-choice">
+                            <input id="new" type="radio" name="radio-group" value="new">
+                            <label for="new">I'm new, start from the top
+                                <span class="form-hint">Begin at lesson 1</span>
+                            </label>
+                    </div>
+                    <div class="multiple-choice">
+                            <input id="assessment" type="radio" name="radio-group" value="assessment">
+                            <label for="assessment">I know about apprenticeships already
+                                <span class="form-hint">Take the competency assessment</span>
+                            </label>
+                    </div>
+                </div>
+            </form>
+                <a class="button" href="startAssessment.html">Next</a>
+    </div>
+  </div>
+        
+ </div>
+
+
+</main><!-- / #content -->
+{% endblock %}

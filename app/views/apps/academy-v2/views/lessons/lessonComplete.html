@@ -1,0 +1,24 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="level1lesson1" id="content" role="main" tabindex="-1">
+<div class="grid-row">
+    <div class="column-two-thirds">
+        <h1 class="heading-large">Lesson complete</h1>
+        <p class="lede">Well done, let's go back to the dashboard and beat another lesson.</p>
+        <div class="panel panel-width-thin"><p>This page will automatically redirect in five seconds</p></div>
+        <hr />
+        <div class="data">
+            Your score confirmation (coming soon)
+        </div>
+    </div>
+</div>
+    
+    <script>
+        setTimeout(function(){
+            window.location.href = "../dashboard/";
+        }, 5000);
+    </script>
+    
+</main><!-- / #content -->
+{% endblock %}

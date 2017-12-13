@@ -25,12 +25,87 @@ var className = $("main").attr('class');
        case 'whatYouKnow':
            whatYouKnow();
            break;
-       case 'assessmentQuestions':
-           assessmentQuestions();
+       case 'level1lesson1':
+           level1lesson1();
            break;
        default: break;
 }
     
+    function level1lesson1() {
+        showData = JSON.parse(localStorage.getItem("accountData"));
+        console.log(showData);
+        arrayStart = localStorage.getItem("currentUserID") - 1;
+        var numberOfQuestions = $(".question").length;
+        var questionNumber = null;
+        var answerResult = "";
+        var nextQuestion = "";
+        //var questionCounter = i;
+        //initialise
+        $("section,[class$='-summary']").hide();
+        $("section#1").show();
+        $(".total").text(numberOfQuestions);
+
+        $("form .button.submit").click(function (e) {
+
+            // override the normal button behaviour
+            e.preventDefault();
+            
+
+            //$(this).parents("form").addClass('animated fadeOutUp');
+            
+            //get the question number
+            console.log($(this).closest("section").attr("id"));
+            questionNumber = $(this).closest("section").attr("id");
+
+            //get the answer to that question
+            questionAnswer = $("#" + questionNumber).data("answer");
+
+            //get the users answer
+            answerGiven = $("#" + questionNumber + " input[name=radio-group]:checked").val();
+
+
+                        $(this).parent("form").slideUp("fast");
+            // compare answers
+            if (answerGiven == questionAnswer) {
+                // show the right answer
+                //console.log(showData);
+                $("#" + questionNumber + " .success-summary").show().addClass("fadeInUpBig animate");
+                showData.users[arrayStart].levels[0].level1[questionNumber - 1] = 1;
+                localStorage.setItem("accountData", JSON.stringify(showData));
+
+                answerResult = "right"
+            } else {
+                // show the wrong answer
+                showData.users[arrayStart].levels[0].level0[questionNumber - 1] = 0;
+                localStorage.setItem("accountData", JSON.stringify(showData));
+                $("#" + questionNumber + " .error-summary").show().addClass("fadeInUpBig infinite");
+                answerResult = "wrong";
+            }                
+            
+
+
+            // print the results
+            console.log("This is question number " + questionNumber + " of " + numberOfQuestions + "\nThe answer to this question is " + questionAnswer + "\nThe user gave the answer of " + answerGiven + "\nThe user got the answer " + answerResult);
+        });
+        // loop through questions
+        $(".button.next").click(function (e) {
+            e.preventDefault();
+            console.log("This is question number " + questionNumber + " of " + numberOfQuestions + "\nThe answer to this question is " + questionAnswer + "\nThe user gave the answer of " + answerGiven + "\nThe user got the answer " + answerResult);
+
+            if (numberOfQuestions == questionNumber) {
+                console.log("true;")
+                // go to success page
+                window.location.href = "lessonComplete.html";
+            } else {
+                // go to next question
+                $("section#" + questionNumber).hide();
+                console.log("false q no" + questionNumber);
+                questionNumber++;
+                $("section#" + questionNumber).show();
+                questionCounter(questionNumber, numberOfQuestions);
+            }
+        })
+    }
     
     function getStarted(){
         arrayStart = localStorage.getItem("currentUserID") - 1;
@@ -83,53 +158,7 @@ var className = $("main").attr('class');
                 window.location.href = "startAssessment";
         })         
         
-    }
-    
-    function assessmentQuestions(){
-        arrayStart = localStorage.getItem("currentUserID") - 1;
-        console.log("current user id: " + arrayStart)
-        showData = JSON.parse(localStorage.getItem("accountData"));
-    }
-    
-   /* 
-    function testSplice(){
-        
-        // get the data
-        
-        arrayStart = 0;
-        var accountData = {
-        users: [{
-        id: 0,
-        email: "ty.fairclough@gmail.com",
-        topScore: 0,
-        onboarding: ["weee",0],
-        levels: [{
-        level1: [1],
-        level2: [1,2,3]
-        }]
-        },
-        {
-        id: 1,
-        email: "tom.fairclough@gmail.com",
-        topScore: 72,
-        onboarding: [1,1],
-        levels: [{
-        level1: [1,0,0],
-        level2: [1,2,3]
-        }]
-        }]
-        }    
-        
-        //update the onboarding values
-        accountData.users[0].onboarding[0] = "regular";
-        // push the data back to local storage
-        localStorage.setItem("accountData", JSON.stringify(accountData));
-
-    }
-    
-    testSplice();
-    */
-        //console.log(JSON.parse(localStorage.getItem("accountData")));
+    } 
 
     
     function dashboard(){
@@ -139,76 +168,143 @@ var className = $("main").attr('class');
         //console.log( localStorage.getItem("currentUserID"))
         var showData = JSON.parse(localStorage.getItem("accountData"));
         console.log(showData.users[i].email);
+        console.log(showData);
         $(".email").text(showData.users[i].email);
         $(".topScore").text(showData.users[i].topScore);
+        
+        
+        //get the asessement and drop it like it's hot.
+        var numberOfQuestions00 = showData.users[i].levels[0].level0.length;
+        var answered00 = 0;        
+        //get level 1 lesson 1 and drop it like it's hot.
+        var numberOfQuestions11 = showData.users[i].levels[0].level1.length;
+        var answered11 = 0;
+        //get level 1 lesson 2 and drop it like it's hot.
+        var numberOfQuestions12 = showData.users[i].levels[0].level2.length;
+        var answered12 = 0;
+        //get level 1 lesson 3 and drop it like it's hot.
+        var numberOfQuestions13 = showData.users[i].levels[0].level3.length;
+        var answered13 = 0;
+        
+        for (i = 0; i < numberOfQuestions00; i++) {
+            if ( showData.users[i].levels[0].level0[i] == 1 ) {
+                answered00++
+                console.log("numeber of correct answers count: " + answered00);
+            }
+        }
+        for (i = 0; i < numberOfQuestions11; i++) {
+            if ( showData.users[i].levels[0].level1[i] == 1 ) {
+                answered11++
+                console.log("numeber of correct answers count: " + answered11);
+            }
+        }
+        for (i = 0; i < numberOfQuestions12; i++) {
+            if ( showData.users[i].levels[0].level1[i] == 1 ) {
+                answered12++
+                console.log("numeber of correct answers count: " + answered12);
+            }
+        }
+        for (i = 0; i < numberOfQuestions13; i++) {
+            if ( showData.users[i].levels[0].level1[i] == 1 ) {
+                answered13++
+                console.log("numeber of correct answers count: " + answered13);
+            }
+        }
+        $("#level0 .scoreWrapper .answered").text(answered00);
+        $("#level0 .scoreWrapper .numberOfQuestions").text(numberOfQuestions00);        
+        $("#level1-lesson1 .scoreWrapper .answered").text(answered11);
+        $("#level1-lesson1 .scoreWrapper .numberOfQuestions").text(numberOfQuestions11);
+        $("#level1-lesson2 .scoreWrapper .answered").text(answered12);
+        $("#level1-lesson2 .scoreWrapper .numberOfQuestions").text(numberOfQuestions12); 
+        $("#level1-lesson3 .scoreWrapper .answered").text(answered13);
+        $("#level1-lesson3 .scoreWrapper .numberOfQuestions").text(numberOfQuestions13);
+        
+        
+    $("#chardinStart").click(function(e){
+        e.preventDefault(); 
+        $('body').chardinJs('start');
+    });
+            
     }
+
     
     function assessmentQuestions(){
-        
+        showData = JSON.parse(localStorage.getItem("accountData"));        
+        arrayStart = localStorage.getItem("currentUserID") - 1;
+        var numberOfQuestions = $(".question").length;
+        var questionNumber = null;
+        var answerResult = "";
+        var nextQuestion = "";
+        //var questionCounter = i;
         //initialise
         $("section, [class$='-summary']").hide();
         $("section#1").show();
+        $(".total").text(numberOfQuestions);
         
-        // reveal answer
-        
-        $("form + .button").click(function(e){
+        $("form + .button.submit").click(function(e){
             
             // override the normal button behaviour
             e.preventDefault(); 
             
-            // get the answer given                        
+            //get the question number
+            console.log($(this).closest("section").attr("id"));
             questionNumber = $(this).closest("section").attr("id");
-            localStorage.setItem("questionNumber",questionNumber)
-            //console.log("This is question number " + questionNumber);
             
-            answerGiven = $("input[name=radio-group]:checked").val();
-            //console.log("The answer given by the user is " + answerGiven);
-            
+            //get the answer to that question
             questionAnswer = $("#"+questionNumber).data("answer");
-            //console.log("The answer to the question is " + questionAnswer)
-        
             
-            // hide the submit button
-            $("#"+questionNumber+" .button").first().hide();
-            // compare to the actual answer
+            //get the users answer
+            answerGiven = $("#"+questionNumber+" input[name=radio-group]:checked").val();
+            
+            
+            // compare answers
             if (answerGiven == questionAnswer ) {
                 // show the right answer
+                //console.log(showData);
                 $("#"+questionNumber+" .success-summary").show();
+                showData.users[arrayStart].levels[0].level0[questionNumber-1] = 1;                                
+                localStorage.setItem("accountData", JSON.stringify(showData));
+                
+                answerResult = "right"
             } else {
                 // show the wrong answer
+                showData.users[arrayStart].levels[0].level0[questionNumber-1] = 0;                
+                localStorage.setItem("accountData", JSON.stringify(showData));
                 $("#"+questionNumber+" .error-summary").show();
+                answerResult = "wrong";
             }
-            // store the answer
-            // move onto the next question    
             
-        });
-        
-        questionNumber = localStorage.getItem("questionNumber");
-        
-    $("#" + questionNumber + " [class$='-summary'] .button").click(function(e){
-        e.preventDefault();
-        console.log("clicked next");
-        nextQuestion = questionNumber++;
-        $("progress-wrap").attr("progress-percent",nextQuestion);     
-        progressBar();
-        questionCounter(questionNumber);
-        $("section#"+questionNumber).hide();     
-        $(this).closest("section").hide();
-        //console.log("next question is " + nextQuestion)
-        
-        showNextQuestion(nextQuestion);
-});  
-             
+            // print the results
+            console.log("This is question number " + questionNumber + " of " + numberOfQuestions + "\nThe answer to this question is " + questionAnswer + "\nThe user gave the answer of " + answerGiven + "\nThe user got the answer " + answerResult);
+    });
+                    // loop through questions
+            $(".button.next").click(function (e) {
+                e.preventDefault();
+            console.log("This is question number " + questionNumber + " of " + numberOfQuestions + "\nThe answer to this question is " + questionAnswer + "\nThe user gave the answer of " + answerGiven + "\nThe user got the answer " + answerResult);
+                
+                if ( numberOfQuestions == questionNumber ) {
+                    console.log("true;")
+                    // go to success page
+                    window.location.href = "assessmentComplete";
+                } else {
+                    // go to next question
+                    $("section#"+questionNumber).hide();                        
+                    console.log("false q no" + questionNumber);
+                    questionNumber++;
+                    $("section#"+questionNumber).show();      
+                    questionCounter(questionNumber, numberOfQuestions);
+                }
+            })
+    }
+    
 
-    }
     
-    
-    function showNextQuestion(number){
-        $("#"+number).show();
-    }
-    
-    function questionCounter(number){
+    function questionCounter(number,total){
         $(".current").text(number);
+        var calcOfNumbers = Math.floor(100/total*number);
+        console.log(calcOfNumbers);
+        $(".progress-wrap").attr("data-progress-percent",calcOfNumbers);
+        progressBar();
     }
     
     
@@ -260,8 +356,9 @@ var className = $("main").attr('class');
         topScore: 0,
         onboarding: [0,0],
         levels: [{
-        level1: [1],
-        level2: [1,2,3]
+        level0: [0,0,0],
+        level1: [0,0,0],
+        level2: [0,0,0]
         }]
         },
         {
@@ -270,8 +367,9 @@ var className = $("main").attr('class');
         topScore: 72,
         onboarding: [1,1],
         levels: [{
-        level1: [1,2,3],
-        level2: [1,2,3]
+        level0: [1,1,1],
+        level1: [1,1,1],
+        level2: [1,1,1]
         }]
         }]
         } 
@@ -291,10 +389,33 @@ var className = $("main").attr('class');
                             topScore: 0,
                             onboarding: [1,0],
                             levels: [{
-                                level1: [1],
-                                level2: [1,2,3]
+                                level0: [0,0,0],
+                                level1: [0,0,0],
+                                level2: [0,0,0],
+                                level3: [0,0,0],
+                                level4: [0,0,0],
+                                level5: [0,0,0],
+                                level6: [0,0,0]
                             }]
                          };
+        
+        newNewUserDetails = {
+            id: i,
+            email: email,
+            topScore: 0,
+            onboarding: [1,0],
+            levels: [
+                {
+                    lesson1: [0,0,0],
+                    lesson2: [0,0,0],
+                    lesson3: [0,0,0],
+                },                {
+                    lesson1: [0,0,0],
+                    lesson2: [0,0,0],
+                    lesson3: [0,0,0],
+                }
+            ]
+        }
   
         currentUsers.users.push(newUserDetails);
         //console.log(currentUsers);

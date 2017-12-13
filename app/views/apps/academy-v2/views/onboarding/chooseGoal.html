@@ -1,0 +1,44 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="getStarted" id="content" role="main" tabindex="-1">
+
+  <div class="grid-row">
+    <div class="column-full blue">
+        <div class="hgroup">
+      <h1 class="heading-xlarge">
+Choose your daily goal
+            </h1>
+            <p>Choose a commitment right for you</p>
+            
+            <form>
+                <div class="form-group">
+                    <div class="multiple-choice">
+                            <input id="casual" type="radio" name="radio-group" value="casual">
+                            <label for="casual">Casual
+                                <span class="form-hint">30 minutes a week</span>
+                            </label>
+                    </div>
+                    <div class="multiple-choice">
+                            <input id="regular" type="radio" name="radio-group" value="regular">
+                            <label for="regular">Regular
+                                <span class="form-hint">60 minutes a week</span>
+                            </label>
+                    </div>
+                    <div class="multiple-choice">
+                            <input id="intense" type="radio" name="radio-group" value="intense">
+                            <label for="intense">Intense
+                                <span class="form-hint">1 hour a day</span>
+                            </label>
+                    </div>
+                </div>
+            </form>
+                <a class="button" href="whatYouKnow.html">Next</a>
+    </div>
+  </div>
+        
+ </div>
+
+
+</main><!-- / #content -->
+{% endblock %}
