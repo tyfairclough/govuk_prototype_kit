@@ -2067,8 +2067,19 @@ table.footable>tfoot>tr.footable-paging>td>span.label {
 }
 
  
+    .c3 svg, .c3 svg .c3-legend-item-event {
+        font-size: 1em !important;
+    }
 
+.c3-axis-y text 
+{
+  font-size: 15px; //change the size of the fonts
+}
 
+.c3-axis-x text 
+{
+  font-size: 15px; //change the size of the fonts
+}
        
 /*------ tabs pattern -----*/
 
@@ -3665,3 +3676,12 @@ table.results-table td.training-column {
     display: none;
 }
 
+
+.forecast-index {
+    table {
+    table-layout: fixed;        
+        th.nowrap, td.nowrap {
+            white-space: nowrap;
+        }
+    }
+}

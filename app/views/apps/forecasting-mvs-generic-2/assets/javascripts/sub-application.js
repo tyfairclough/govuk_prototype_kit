@@ -173,15 +173,15 @@ $('tr').click(function () {
 }
 
     
-    
-  
+
        
     
 function forecastIndex(){
     var chart = c3.generate({
         bindto: '#chart',
         size: {
-            height: 580
+            height: 580,
+            width: 1800
         },
         data: {
             x: 'x',
@@ -243,6 +243,19 @@ function forecastIndex(){
             data1: 'Account balance'
         }
         },
+        regions: [{
+            start: 0,
+            end: 505,
+            class: 'foo'
+        }],
+        interaction: {
+            enabled: false
+        },
+        bar: {
+  width: {
+        ratio: 0.8
+  }
+},
         axis: {
             x : {
             type : 'timeseries',
