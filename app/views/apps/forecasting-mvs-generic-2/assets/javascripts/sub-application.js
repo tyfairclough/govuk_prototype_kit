@@ -335,9 +335,49 @@ var chart = c3.generate({
 
 
     
-    
+    new Clipboard('.button');
+
     
 
+
+    console.log("wow")
+
+  var publicSpreadsheetUrl = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/17RuG5qIxg8K1wLlOdiM2OnUMkFvJTuxYdtg296Wr178/pubhtml';
+
+  function init() {
+    Tabletop.init( { key: publicSpreadsheetUrl,
+                     callback: showInfo,
+                     simpleSheet: true } )
+  }
+
+  function showInfo(data, tabletop) {
+    //alert('Successfully processed!')
+    console.log(data);
+      loadArray(data);
+  }
+
+  window.addEventListener('DOMContentLoaded', init)
+    
+    
+    
+    function loadArray(data){
+        var content = "";
+        var pos = "";
+        //+data[i].Points+
+       for (i = 0; i < data.length; i++) {
+             console.log(i)
+           pos = i + 1;
+content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+data[i].Levy+'</td><td class="financial">'+data[i].Monthly+'</td><td class="financial">'+data[i].Completion+'</td><td class="financial">'+data[i].Expired+'</td><td class="financial">'+data[i].Balance+'</td></tr>';
+           renderTable(content);
+            }
+        } 
+        
+        function renderTable(content){
+            $(document).ready(function () {
+                $("#balancesheet tbody").html(content);
+            });
+        }
+    
 
 // global js
     

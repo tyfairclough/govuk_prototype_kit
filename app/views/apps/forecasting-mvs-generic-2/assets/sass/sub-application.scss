@@ -3684,4 +3684,22 @@ table.results-table td.training-column {
             white-space: nowrap;
         }
     }
+    
+    #transaction-wrapper .row div.date {
+        width: 20%;
+    }
+    #transaction-wrapper .row div.amount, #transaction-wrapper .row div.description {
+        width: 15%;
+    }
+}
+
+#balancesheet {
+    td {
+        &.financial {
+            &:before {
+                content: "£";
+                
+            }
+        }
+    }
 }
