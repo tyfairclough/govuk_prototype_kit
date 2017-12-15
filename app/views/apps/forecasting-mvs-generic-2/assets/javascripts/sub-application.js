@@ -342,23 +342,42 @@ var chart = c3.generate({
 
     console.log("wow")
 
-  var publicSpreadsheetUrl = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/17RuG5qIxg8K1wLlOdiM2OnUMkFvJTuxYdtg296Wr178/pubhtml';
+  var publicSpreadsheetUrl1 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/17RuG5qIxg8K1wLlOdiM2OnUMkFvJTuxYdtg296Wr178/pubhtml';
+  var publicSpreadsheetUrl2 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/11SNfKERHoGtqeql9IChpabPG3cqOPi__dIztHuNPi7Q/pubhtml';
 
   function init() {
-    Tabletop.init( { key: publicSpreadsheetUrl,
+    Tabletop.init( { key: publicSpreadsheetUrl1,
                      callback: showInfo,
                      simpleSheet: true } )
   }
+    
+  function appz() {
+    Tabletop.init( { key: publicSpreadsheetUrl2,
+                     callback: showInfo2,
+                     simpleSheet: true } )
+  }
 
-  function showInfo(data, tabletop) {
+
+    function showInfo(data, tabletop) {
     //alert('Successfully processed!')
     console.log(data);
       loadArray(data);
   }
 
-  window.addEventListener('DOMContentLoaded', init)
+  function showInfo2(data2, tabletop2) {
+    //alert('Successfully processed!')
+    console.log(data2);
+      loadArray2(data2);
+  }    
+    
+//  window.addEventListener('DOMContentLoaded', init)
+//  window.addEventListener('DOMContentLoaded', app)
     
     
+                $(document).ready(function () {
+                    init();
+                    appz();
+                });
     
     function loadArray(data){
         var content = "";
@@ -370,11 +389,36 @@ var chart = c3.generate({
 content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+data[i].Levy+'</td><td class="financial">'+data[i].Monthly+'</td><td class="financial">'+data[i].Completion+'</td><td class="financial">'+data[i].Expired+'</td><td class="financial">'+data[i].Balance+'</td></tr>';
            renderTable(content);
             }
-        } 
+        }     
+
         
         function renderTable(content){
             $(document).ready(function () {
                 $("#balancesheet tbody").html(content);
+            });
+        }        
+    
+    
+    function loadArray2(data2){
+        var content2 = "";
+        var pos = "";
+        //+data[i].Points+
+       for (i = 0; i < data2.length; i++) {
+             console.log(i)
+           pos = i + 1;
+//content2 += '<tr><td class="nowrap">'+data2[i].Date+'</td><td class="financial">'+data2[i].Levy+'</td><td class="financial">'+data2[i].Monthly+'</td><td class="financial">'+data2[i].Completion+'</td><td class="financial">'+data2[i].Expired+'</td><td class="financial">'+data2[i].Balance+'</td></tr>';
+  
+           
+           content2 += '<div class="row"><div class="date">'+data2[i].Apprenitce+'</div><div class="description">'+data2[i].Start+'</div><div class="amount">'+data2[i].Monthly+'</div><div class="amount">'+data2[i].Total+'</div><div class="details">'+data2[i].Completion+'</div></div>';
+           
+           renderTable2(content2);
+            }
+        }     
+    
+    
+        function renderTable2(content2){
+            $(document).ready(function () {
+                $("#transaction-rows").html(content2);
             });
         }
     
