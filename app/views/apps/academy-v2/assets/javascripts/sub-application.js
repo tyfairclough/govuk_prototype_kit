@@ -7,9 +7,6 @@ var className = $("main").attr('class');
     //i = 1;
     
    switch (className) {
-       case 'index':
-           index();
-           break;
        case 'login':
            login();
            break;
@@ -25,14 +22,16 @@ var className = $("main").attr('class');
        case 'whatYouKnow':
            whatYouKnow();
            break;
-       case 'level1lesson1':
-           level1lesson1();
+       case 'lesson':
+           lesson();
            break;
        default: break;
 }
     
-    function level1lesson1() {
-        showData = JSON.parse(localStorage.getItem("accountData"));
+    function lesson() {
+        level = $("main").attr("data-level");
+        lesson = $("main").attr("data-lesson");
+        showData = JSON.parse(localStorage.getItem("accountData"));            
         console.log(showData);
         arrayStart = localStorage.getItem("currentUserID") - 1;
         var numberOfQuestions = $(".question").length;
@@ -45,6 +44,9 @@ var className = $("main").attr('class');
         $("section#1").show();
         $(".total").text(numberOfQuestions);
 
+        
+        
+        
         $("form .button.submit").click(function (e) {
 
             // override the normal button behaviour
@@ -70,17 +72,21 @@ var className = $("main").attr('class');
                 // show the right answer
                 //console.log(showData);
                 $("#" + questionNumber + " .success-summary").show().addClass("fadeInUpBig animate");
-                showData.users[arrayStart].levels[0].level1[questionNumber - 1] = 1;
+                showData.users[arrayStart].levels[level][lesson][questionNumber - 1] = 1;
                 localStorage.setItem("accountData", JSON.stringify(showData));
 
                 answerResult = "right"
             } else {
                 // show the wrong answer
-                showData.users[arrayStart].levels[0].level0[questionNumber - 1] = 0;
+                showData.users[arrayStart].levels[level][lesson][questionNumber - 1] = 0;
                 localStorage.setItem("accountData", JSON.stringify(showData));
                 $("#" + questionNumber + " .error-summary").show().addClass("fadeInUpBig infinite");
                 answerResult = "wrong";
             }                
+            
+            
+            
+
             
 
 
@@ -160,65 +166,42 @@ var className = $("main").attr('class');
         
     } 
 
-    
-    function dashboard(){
-        i = localStorage.getItem("currentUserID") - 1;
+
         
-        console.log( i );
+    function dashboard(){
+        var userID = localStorage.getItem("currentUserID") - 1;
+        
         //console.log( localStorage.getItem("currentUserID"))
         var showData = JSON.parse(localStorage.getItem("accountData"));
-        console.log(showData.users[i].email);
         console.log(showData);
-        $(".email").text(showData.users[i].email);
-        $(".topScore").text(showData.users[i].topScore);
+        $(".email").text(showData.users[userID].email);
+        $(".topScore").text(showData.users[userID].topScore);
+        
+        var questionCount = 0;        
         
         
-        //get the asessement and drop it like it's hot.
-        var numberOfQuestions00 = showData.users[i].levels[0].level0.length;
-        var answered00 = 0;        
-        //get level 1 lesson 1 and drop it like it's hot.
-        var numberOfQuestions11 = showData.users[i].levels[0].level1.length;
-        var answered11 = 0;
-        //get level 1 lesson 2 and drop it like it's hot.
-        var numberOfQuestions12 = showData.users[i].levels[0].level2.length;
-        var answered12 = 0;
-        //get level 1 lesson 3 and drop it like it's hot.
-        var numberOfQuestions13 = showData.users[i].levels[0].level3.length;
-        var answered13 = 0;
+        // for each element that matches lesson get the data-level data-lesson and loop the question number exercise.        
+        $("div.lesson").each(function(index) {
+            var level = $(this).attr("data-level");
+            var lesson = $(this).attr("data-lesson");
+            var questionCount = showData.users[userID].levels[level][lesson].length;
+            var answered = 0;        
+            
+            
         
-        for (i = 0; i < numberOfQuestions00; i++) {
-            if ( showData.users[i].levels[0].level0[i] == 1 ) {
-                answered00++
-                console.log("numeber of correct answers count: " + answered00);
+        for (i = 0; i < questionCount; i++) {
+            if ( showData.users[userID].levels[level][lesson][i] == 1 ) {
+                answered++
             }
-        }
-        for (i = 0; i < numberOfQuestions11; i++) {
-            if ( showData.users[i].levels[0].level1[i] == 1 ) {
-                answered11++
-                console.log("numeber of correct answers count: " + answered11);
-            }
-        }
-        for (i = 0; i < numberOfQuestions12; i++) {
-            if ( showData.users[i].levels[0].level1[i] == 1 ) {
-                answered12++
-                console.log("numeber of correct answers count: " + answered12);
-            }
-        }
-        for (i = 0; i < numberOfQuestions13; i++) {
-            if ( showData.users[i].levels[0].level1[i] == 1 ) {
-                answered13++
-                console.log("numeber of correct answers count: " + answered13);
-            }
-        }
-        $("#level0 .scoreWrapper .answered").text(answered00);
-        $("#level0 .scoreWrapper .numberOfQuestions").text(numberOfQuestions00);        
-        $("#level1-lesson1 .scoreWrapper .answered").text(answered11);
-        $("#level1-lesson1 .scoreWrapper .numberOfQuestions").text(numberOfQuestions11);
-        $("#level1-lesson2 .scoreWrapper .answered").text(answered12);
-        $("#level1-lesson2 .scoreWrapper .numberOfQuestions").text(numberOfQuestions12); 
-        $("#level1-lesson3 .scoreWrapper .answered").text(answered13);
-        $("#level1-lesson3 .scoreWrapper .numberOfQuestions").text(numberOfQuestions13);
+            
+            $(".scoreWrapper .numberOfQuestions",this).text(questionCount);
+            $(".scoreWrapper .answered",this).text(answered);
+        }        
         
+        });
+      
+
+
         
     $("#chardinStart").click(function(e){
         e.preventDefault(); 
@@ -261,16 +244,18 @@ var className = $("main").attr('class');
             if (answerGiven == questionAnswer ) {
                 // show the right answer
                 //console.log(showData);
-                $("#"+questionNumber+" .success-summary").show();
-                showData.users[arrayStart].levels[0].level0[questionNumber-1] = 1;                                
+//                $("#"+questionNumber+" .success-summary").show();
+                $("#" + questionNumber + " .success-summary").show().addClass("fadeInUpBig animate");
+                showData.users[arrayStart].levels[0][0][questionNumber-1] = 1;                                
                 localStorage.setItem("accountData", JSON.stringify(showData));
                 
                 answerResult = "right"
             } else {
                 // show the wrong answer
-                showData.users[arrayStart].levels[0].level0[questionNumber-1] = 0;                
+                showData.users[arrayStart].levels[0][0][questionNumber-1] = 0;                
                 localStorage.setItem("accountData", JSON.stringify(showData));
-                $("#"+questionNumber+" .error-summary").show();
+                $("#" + questionNumber + " .error-summary").show().addClass("fadeInUpBig animate");
+                //$("#"+questionNumber+" .error-summary").show();
                 answerResult = "wrong";
             }
             
@@ -355,16 +340,16 @@ var className = $("main").attr('class');
         email: "ty.fairclough@gmail.com",
         topScore: 0,
         onboarding: [0,0],
-            levels: [
-                {
-                    lesson1: [0,0,0],
-                    lesson2: [0,0,0],
-                    lesson3: [0,0,0],
-                },                {
-                    lesson1: [0,0,0],
-                    lesson2: [0,0,0],
-                    lesson3: [0,0,0],
-                }
+            levels: 
+            [
+                 [[0, 0, 0]] 
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0]]
             ]
         },
         {
@@ -372,21 +357,23 @@ var className = $("main").attr('class');
         email: "tom.fairclough@gmail.com",
         topScore: 72,
         onboarding: [1,1],
-            levels: [
-                {
-                    lesson1: [0,0,0],
-                    lesson2: [0,0,0],
-                    lesson3: [0,0,0],
-                },                {
-                    lesson1: [0,0,0],
-                    lesson2: [0,0,0],
-                    lesson3: [0,0,0],
-                }
+            levels: 
+            [
+                 [[0, 0, 0]] 
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0]]
             ]
         }]
-        } 
-        localStorage.setItem("accountData", JSON.stringify(accountData));
+                
     }
+        localStorage.setItem("accountData", JSON.stringify(accountData));
+        
+        }
     
     
     function newUser(){
@@ -402,16 +389,16 @@ var className = $("main").attr('class');
             email: email,
             topScore: 0,
             onboarding: [1,0],
-            levels: [
-                {
-                    lesson1: [0,0,0],
-                    lesson2: [0,0,0],
-                    lesson3: [0,0,0],
-                },                {
-                    lesson1: [0,0,0],
-                    lesson2: [0,0,0],
-                    lesson3: [0,0,0],
-                }
+            levels: 
+            [
+                 [[0, 0, 0]] 
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+                ,[[0, 0, 0], [0, 0, 0], [0, 0, 0]]
             ]
         }
   
