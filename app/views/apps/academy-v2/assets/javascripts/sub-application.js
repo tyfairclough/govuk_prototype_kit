@@ -293,16 +293,18 @@ var className = $("main").attr('class');
     }
     
     
+// login redirect
+function login() {
+    $(".button").click(function (e) {
+        e.preventDefault();
+        var email = $("input").val();
 
-    
-                                
-    
-    
-    // login redirect
-    function login(){
-        $(".button").click(function(e) {
-            e.preventDefault();
-            var email = $("input").val();
+        if (ValidateEmail(email) != true) {
+            // validation error
+            alert("You have entered an invalid email address!")
+
+        } else {
+            // continue
             showData = JSON.parse(localStorage.getItem("accountData"));
             var redirector = false;
             if (showData === null) {
@@ -311,26 +313,36 @@ var className = $("main").attr('class');
                 //newUser();
                 console.log("first time")
             } else {
-                for (i = 0; i < showData.users.length; i++) {    
-                var newData = showData.users[i].email;
+                for (i = 0; i < showData.users.length; i++) {
+                    var newData = showData.users[i].email;
                     if (newData === email) {
-                        localStorage.setItem("currentUserID",showData.users[i].id);
+                        localStorage.setItem("currentUserID", showData.users[i].id);
                         console.log("redirect");
                         redirector = true;
                     }
-                }   
+                }
             }
-            if ( redirector == true ) {
+            if (redirector == true) {
                 window.location.href = "../dashboard";
-              console.log("new user")
-                } else {
+                console.log("new user")
+            } else {
                 newUser();
-                    }
-        });
-                  
-        
+            }
+        }
+
+
+    });
+
+
+}
+
+
+function ValidateEmail(mail) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+        return (true)
     }
- 
+    return (false)
+}
    
     function initialiseService()    
     {
