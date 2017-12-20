@@ -1,7 +1,7 @@
 {% extends currentApp.filePaths.layoutsDir + "default.html" %}
 {% block main_content %}
 
-<main class="level2lesson4" id="content" role="main" tabindex="-1">
+<main class="lesson" data-level="2" data-lesson="4" id="content" role="main" tabindex="-1">
     <header>
 <div class="grid-row">
     <div class="column-two-thirds">
@@ -18,24 +18,23 @@
             <div class="column-two-thirds">
  <div class="hgroup">
       <h1 class="heading-xlarge">
-Which is the best description of an apprentice?
-            </h1>
+Can you train your own apprentices and recieving government funding for it           </h1>
             
             <form>
                 <div class="form-group">
                     <div class="multiple-choice">
-                            <input id="a1" type="radio" name="radio-group" value="1">
-                            <label for="a1">An 18 to 21 year old in work with on the job training
+                            <input id="q1" type="radio" name="radio-group" value="1">
+                            <label for="q1">Yes anyone can
                             </label>
                     </div>
                     <div class="multiple-choice">
-                            <input id="a2" type="radio" name="radio-group" value="2">
-                            <label for="a2">Any employee provided with on-the-job training and accompanying study
+                            <input id="q2" type="radio" name="radio-group" value="2">
+                            <label for="q2">Yes, if you are an approved training provider
                             </label>
                     </div>
                     <div class="multiple-choice">
-                            <input id="a3" type="radio" name="radio-group" value="3">
-                            <label for="a3">A school leaver continuing to study while also working
+                            <input id="q3" type="radio" name="radio-group" value="3">
+                            <label for="q3">No, apprentices must be trained by a third party organisation to receive government funding
                             </label>
                     </div>
                 </div>
@@ -45,37 +44,36 @@ Which is the best description of an apprentice?
 
             <div class="success-summary">
     <h3 class="heading-medium">Correct</h3>
-    <p>Smaller organisations are supported</p>
+    <p>Some organisations have the capacity to train apprentices in-house, this can also include other organisation's employees. The organisation must be an approved training provider to recieve funding for either in-house or external apprentices.</p>
     <a class="button next">Next question</a>
 </div>
         
 <div class="error-summary">
     <h3 class="heading-medium">Incorrect</h3>
-    <p>Government believes it is important to support small organisations, including small charities, to take on apprentices.</p>
+    <p>Some organisations have the capacity to train apprentices in-house, this can also include other organisation's employees. The organisation must be an approved training provider to recieve funding for either in-house or external apprentices.</p>
     <a class="button next">Next question</a>
 </div>            
             </div>
         </div>
 </section>
     
-    <section  id="2" data-answer="2" class="question">
+    <section  id="2" data-answer="1" class="question">
         <div class="grid-row">
             <div class="column-two-thirds">
  <div class="hgroup">
       <h1 class="heading-xlarge">
-Can an apprentice be studying for two, or more, apprenticeships at the same time?
-            </h1>
+You are required to write a signed commitment statement, what is it?            </h1>
             
             <form>
                 <div class="form-group">
                     <div class="multiple-choice">
-                            <input id="a1" type="radio" name="radio-group" value="1">
-                            <label for="a1">Yes
+                            <input id="q4" type="radio" name="radio-group" value="1">
+                            <label for="q4">This sets out how you, your training provider and your apprentice will support the successful achievement of the apprenticeship
                             </label>
                     </div>
                     <div class="multiple-choice">
-                            <input id="a2" type="radio" name="radio-group" value="2">
-                            <label for="a2">No
+                            <input id="q5" type="radio" name="radio-group" value="2">
+                            <label for="q5">This outlines the agreement you have with the training provider to allow the apprentice to spend the alloted 20% time for off-the-job training
                             </label>
                     </div>
                 </div>
@@ -85,42 +83,41 @@ Can an apprentice be studying for two, or more, apprenticeships at the same time
 
             <div class="success-summary">
     <h3 class="heading-medium">Correct</h3>
-    <p>An apprentice can only be on one apprenticeship at any given time. They can however change apprenticeship by stopping the current one.</p>
+    <p>The signed commitment statement shows the ESFA that you have made the necessary commitments and provisions to support your apprentice through their apprenticeship.</p>
     <a class="button next">Next question</a>
 </div>
         
 <div class="error-summary">
     <h3 class="heading-medium">Incorrect</h3>
-    <p>Apprentices must only be on a single course at any given time.</p>
+    <p>The signed commitment statement shows the ESFA that you have made the necessary commitments and provisions to support your apprentice through their apprenticeship.</p>
     <a class="button next">Next question</a>
 </div>            
             </div>
         </div>
 </section>
     
-    <section  id="3" data-answer="3" class="question">
+    <section  id="3" data-answer="2" class="question">
         <div class="grid-row">
             <div class="column-two-thirds">
  <div class="hgroup">
       <h1 class="heading-xlarge">
-        Apprentices to recieve funding must legally do what    
-      </h1>
+How much does the end point assessment normally cost?      </h1>
             
             <form>
                 <div class="form-group">
                     <div class="multiple-choice">
-                            <input id="a1" type="radio" name="radio-group" value="1">
-                            <label for="a1">Complete a series of recorded milestones
+                            <input id="q6" type="radio" name="radio-group" value="1">
+                            <label for="q6">£500 + vat
                             </label>
                     </div>
                     <div class="multiple-choice">
-                            <input id="a2" type="radio" name="radio-group" value="2">
-                            <label for="a2">Be assessed by an independent training assessor
+                            <input id="q7" type="radio" name="radio-group" value="2">
+                            <label for="q7">No more than 20% of the cost of training
                             </label>
                     </div>
                     <div class="multiple-choice">
-                            <input id="a3" type="radio" name="radio-group" value="3">
-                            <label for="a3">Spend at least 20% of their time in off the job training
+                            <input id="q8" type="radio" name="radio-group" value="3">
+                            <label for="q8">£175 for the first 10 apprentices lowering to £155 there after
                             </label>
                     </div>
                 </div>
@@ -130,13 +127,56 @@ Can an apprentice be studying for two, or more, apprenticeships at the same time
 
             <div class="success-summary">
     <h3 class="heading-medium">Correct</h3>
-    <p>HMRC can only check people's location by their home address and thus why the percentage is calculated against this address.</p>
+    <p>Most end point assessments cost around 20% of the total funding.</p>
     <a class="button next">Next question</a>
 </div>
         
 <div class="error-summary">
     <h3 class="heading-medium">Incorrect</h3>
-    <p>HMRC have access to employees home address through your PAYE, they use this to determine who is in the English %</p>
+    <p>Most end point assessments cost around 20% of the total funding.</p>
+    <a class="button next">Next question</a>
+</div>            
+            </div>
+        </div>
+</section>
+    <section  id="4" data-answer="1" class="question">
+        <div class="grid-row">
+            <div class="column-two-thirds">
+ <div class="hgroup">
+      <h1 class="heading-xlarge">
+What does the abbreviation ATA stand for?     </h1>
+            
+            <form>
+                <div class="form-group">
+                    <div class="multiple-choice">
+                            <input id="q9" type="radio" name="radio-group" value="1">
+                            <label for="q9">An apprenticeship Training Agency
+                            </label>
+                    </div>
+                    <div class="multiple-choice">
+                            <input id="q9" type="radio" name="radio-group" value="2">
+                            <label for="q9">An Apprenticeship Target Application
+                            </label>
+                    </div>
+                    <div class="multiple-choice">
+                            <input id="q10" type="radio" name="radio-group" value="3">
+                            <label for="q10">An Annual target for apprenitces
+                            </label>
+                    </div>
+                </div>
+                <button class="button submit">Submit answer</button>
+            </form>
+    </div>
+
+            <div class="success-summary">
+    <h3 class="heading-medium">Correct</h3>
+    <p></p>
+    <a class="button next">Next question</a>
+</div>
+        
+<div class="error-summary">
+    <h3 class="heading-medium">Incorrect</h3>
+    <p></p>
     <a class="button next">Next question</a>
 </div>            
             </div>
