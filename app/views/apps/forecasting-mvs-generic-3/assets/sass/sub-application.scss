@@ -636,6 +636,29 @@ nav.global-nav ul {
     stroke-width: 5px;
 }
  
+.c3-axis-y .tick {
+   display: none;
+}
+
+#chart {
+    width: 75%;
+    float: left;
+}
+#legend {
+    width: 25%;
+    float: right;
+    .chart-date {
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid $grey-2;
+        font-size: 16px;
+        font-weight: 900;
+    }
+    .chart-value {
+        color: $govuk-blue;
+    }
+}
+
 /* side bar */
 
 .related {
