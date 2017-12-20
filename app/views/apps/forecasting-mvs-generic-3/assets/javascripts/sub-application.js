@@ -177,12 +177,32 @@ $('tr').click(function () {
        
     
 function forecastIndex(){
-
+var d3locale = d3.locale({
+    "decimal": ",",
+    "thousands": "\u00A0",
+    "grouping": [3],
+    "currency": ["", " руб."],
+    "dateTime": "%A, %e %B %Y г. %X",
+    "date": "%d.%m.%Y",
+    "time": "%H:%M:%S",
+    "periods": ["AM", "PM"],
+    "days": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+    "shortDays": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+    "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "shortMonths": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+});
+    
     var chart = c3.generate({
         bindto: '#chart',
         size: {
-            height: 580,
+            height: 200,
             width: 1800
+        },
+        point: {
+            show: false
+        },
+        legend: {
+            show: false
         },
         data: {
             x: 'x',
@@ -239,7 +259,7 @@ function forecastIndex(){
  ,287603.27    ],
         ['x', '2017-12-01', '2018-01-01', '2018-02-01', '2018-03-01', '2018-04-01', '2018-05-01', '2018-06-01', '2018-07-01', '2018-08-01', '2018-09-01', '2018-10-01', '2018-11-01', '2018-12-01', '2019-01-01', '2019-02-01', '2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2019-12-01', '2020-01-01', '2020-02-01', '2020-03-01', '2020-04-01', '2020-05-01', '2020-06-01', '2020-06-01', '2020-07-01', '2020-08-01', '2020-09-01', '2020-10-01', '2020-11-01', '2020-12-01', '2021-01-01', '2021-02-01', '2021-03-01', '2021-03-01', '2021-04-01', '2021-05-01', '2021-06-01', '2021-07-01', '2021-08-01', '2021-09-01', '2021-10-01', '2021-11-01', '2021-12-01']
       ],
-        type: 'bar',
+        type: 'line',
         names: {
             data1: 'Account balance'
         }
@@ -269,7 +289,11 @@ function forecastIndex(){
             y: {
                 label: {
                 text: 'Amount in £s',
-                position: 'outer-middle'                    
+                position: 'outer-middle',
+                },
+                tick: {
+                    //format: d3.format("$,")
+                    format: function (d) { return "£" + d; }
                 }
             }
         }
