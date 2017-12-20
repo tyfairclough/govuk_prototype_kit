@@ -194,9 +194,13 @@ var d3locale = d3.locale({
     
     var chart = c3.generate({
         bindto: '#chart',
+/*           
+        onmouseover: function(d) {
+            alert('selected x: ' + d )
+        },
+            */
         size: {
-            height: 200,
-            width: 1800
+            height: 135
         },
         point: {
             show: false
@@ -277,12 +281,15 @@ var d3locale = d3.locale({
         ratio: 0.8
   }
 },
+        padding: {
+            left: 15
+        },
         axis: {
             x : {
             type : 'timeseries',
             tick: {
                 //format: function (x) { return x.getFullYear(); }
-                format: "%m-%Y"
+                format: "%mmm-%y"
               //format: '%Y' // format string is also available for timeseries data
                 }
             },
