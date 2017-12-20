@@ -1,0 +1,321 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="forecast-index" id="content" role="main" tabindex="-1">
+    
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.18/c3.min.css" media="screen" rel="stylesheet" type="text/css" />    
+
+
+<!--
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.core.standalone.css" media="screen" rel="stylesheet" type="text/css" />    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.js" type="text/javascript"></script>
+-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" type="text/javascript"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.18/c3.min.js" type="text/javascript"></script>
+    
+    {% include "includes/link-back.html" %}
+<script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
+
+    <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup form-group">
+           <h1 class="heading-xlarge">
+               Account projection
+            </h1>
+          <p>The figures below show the funds available to you for the duration of your apprenticeships.  These figures are a representation of the data you have filled in.</p> 
+            
+            <div class="form-group">
+       <a href="#" class="" data-clipboard-action="copy" data-clipboard-target="#balancesheet">
+    Copy monthly balance to a spreadsheet
+</a>            
+            </div>
+            
+            <details>
+                <summary>How the cost of  is calculated</summary>
+                
+           <p>The balance sheet is based on last month’s payment for both levy credit and cost of training, it doesn’t  include any future apprenticeship starts or apprentices who’ve already started and payment has not yet been made to their training provider.</p> 
+            </details>
+
+            
+ 
+        </div>
+        
+      </div>
+    </div>
+
+        
+<div id="tabs-container">
+    <ul class="tabs-menu">
+        <li class="current"><a href="#tab-1">Monthly balance</a></li>
+        <li><a href="#tab-2">Costs by apprentice</a></li>
+        <li><a href="#tab-4">Costs by apprenticeship</a></li>
+        <li><a href="#tab-3">Chart balance</a></li>
+    </ul>
+    <div id="tab-1" class="tab-content">
+        
+        <table class="results-table sticky-header" id="balancesheet">
+                <thead>
+                    <tr>
+                        <th class="nowrap">Date</th>
+                        <th class="financial">Levy credit</th>
+                        <th class="financial">Cost of training</th>
+                        <th class="financial">Completion payments</th>
+                        <th class="financial">Expired funds</th>
+                        <th class="financial">Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+</div>
+
+
+    <div id="tab-2" class="tab-content">
+        <table class="hidden">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        
+		<div id="transactions-aside" >
+			<!--  Page contents -->
+			<nav aria-label="skip to job profile" class="">
+				<h2 class="page-contents__title">Skip to:</h2>
+				<ul class="page-contents__list">
+					<li><a href="#a" class="active">A</a></li>
+	                <li><a href="#b">B</a></li>
+	                <li><a href="#c">C</a></li>
+					<li><a href="#d">D</a></li>							   
+	                <li><a href="#e">E</a></li>
+	                <li><a href="#f">F</a></li>
+	                <li><a href="#g">G</a></li>
+		            <li><a href="#h">H</a></li>
+		            <li><a href="#i">I</a></li>
+		            <li><a href="#j">J</a></li>
+		            <li><a href="#k">K</a></li>
+		            <li><a href="#l">L</a></li>
+		            <li><a href="#m">M</a></li>
+		            <li><a href="#n">N</a></li>
+		            <li><a href="#o">O</a></li>
+		            <li><a href="#p">P</a></li>
+		            <li><a href="#q">Q</a></li>
+		            <li><a href="#r">R</a></li>
+		            <li><a href="#s">S</a></li>
+		            <li><a href="#t">T</a></li>
+		            <li><a href="#u">U</a></li>
+		            <li><a href="#v">V</a></li>
+		            <li><a href="#w">W</a></li>
+		            <li><a href="#x">X</a></li>
+		            <li><a href="#y">Y</a></li>
+		            <li><a href="#z">Z</a></li>
+				</ul>
+			</nav>
+		</div>        
+               <div id="transaction-wrapper">
+     
+        <table class="">
+                <thead>
+                    <tr>
+                        <th>Apprentice <span class="form-hint">ULN</span></th>
+                        <th>Start date</th>
+                        <th>Monthly payment</th>
+                        <th>Total monthly payments</th>
+                        <th>Payment on completion</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr>
+    <td class="nowrap">Peter Parker</td>
+    <td>April 2018</td>
+    <td> £313.40 </td>
+    <td> 18</td>
+    <td> £313.40 </td>
+</tr>
+<tr>
+    <td class="nowrap">Cletus Kasady</td>
+    <td>April 2018</td>
+    <td> £313.40 </td>
+    <td> 18</td>
+    <td> £313.40 </td>
+</tr>
+<tr>
+    <td class="nowrap">Edward Brock</td>
+    <td>April 2018</td>
+    <td> £313.40 </td>
+    <td> 18</td>
+    <td> £313.40 </td>
+</tr>
+<tr>
+    <td class="nowrap">Miles Morales</td>
+    <td>April 2018</td>
+    <td> £313.40 </td>
+    <td> 18</td>
+    <td> £313.40 </td>
+</tr>
+                </tbody>
+            </table>
+    </div>
+        
+        <div class="grid-row hidden" data-module="">
+		<div id="transactions-aside" >
+			<!--  Page contents -->
+			<nav aria-label="skip to job profile" class="">
+				<h2 class="page-contents__title">Skip to:</h2>
+				<ul class="page-contents__list">
+					<li><a href="#a" class="active">A</a></li>
+	                <li><a href="#b">B</a></li>
+	                <li><a href="#c">C</a></li>
+					<li><a href="#d">D</a></li>							   
+	                <li><a href="#e">E</a></li>
+	                <li><a href="#f">F</a></li>
+	                <li><a href="#g">G</a></li>
+		            <li><a href="#h">H</a></li>
+		            <li><a href="#i">I</a></li>
+		            <li><a href="#j">J</a></li>
+		            <li><a href="#k">K</a></li>
+		            <li><a href="#l">L</a></li>
+		            <li><a href="#m">M</a></li>
+		            <li><a href="#n">N</a></li>
+		            <li><a href="#o">O</a></li>
+		            <li><a href="#p">P</a></li>
+		            <li><a href="#q">Q</a></li>
+		            <li><a href="#r">R</a></li>
+		            <li><a href="#s">S</a></li>
+		            <li><a href="#t">T</a></li>
+		            <li><a href="#u">U</a></li>
+		            <li><a href="#v">V</a></li>
+		            <li><a href="#w">W</a></li>
+		            <li><a href="#x">X</a></li>
+		            <li><a href="#y">Y</a></li>
+		            <li><a href="#z">Z</a></li>
+				</ul>
+			</nav>
+		</div>
+            
+            <script>
+
+            </script>
+            
+            <div id="transaction-wrapper">
+                <div id="transaction-header" class="row">
+                    <div class="date">Apprentice<span class="form-hint">ULN</span></div>
+                    <div class="description">Start date</div>
+                    <div class="amount">Monthly payment</div>
+                    <div class="amount">Total monthly payments</div>
+                    <div class="details">Payment on completion</div>
+                </div>
+                <div id="transaction-rows">
+                    <div id="a">
+                        <div  class="row">
+                            <div class="date">Andy Parker</div>
+                            <div class="description">April 2018</div>
+                            <div class="amount">£303.13</div>
+                            <div class="amount">18</div>
+                            <div class="details">£1,091.27</div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">Andy Parker</div>
+                            <div class="description">April 2018</div>
+                            <div class="amount">£303.13</div>                            <div class="amount">18</div>
+                            <div class="details">£1,091.27</div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">Andy Parker</div>
+                            <div class="description">April 2018</div>
+                            <div class="amount">£303.13</div>                            <div class="amount">18</div>
+                            <div class="details">£1,091.27</div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">Andy Parker</div>
+                            <div class="description">April 2018</div>
+                            <div class="amount">£303.13</div>                            <div class="amount">18</div>
+                            <div class="details">£1,091.27</div>                        
+                        </div>                        
+                    </div> 
+                </div> 
+            </div>
+
+
+    </div>
+        
+    </div>
+    <div id="tab-3" class="tab-content">
+        <h4 class="heading-small">Apprenticeship account balance over time</h4>
+        <div id="chart"></div>
+    </div>   
+    <div id="tab-4" class="tab-content">
+<table class="small">
+                <thead>
+                    <tr>
+                        <th>Apprenticeship <span class="form-hint">Level</span></th>
+                        <th class="numeric">Number of  apprentices</th>
+                        <th class="">Start date</th>
+                        <th class="numeric">Cost per apprenticeship</th>
+                        <th class="numeric">Number of monthly payments</th>
+                        <th class="numeric">Monthly payment</th>
+                         <th class="numeric">Payment on completion</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr>
+    <td>Furniture Manufacturer <span class="form-hint">level 4</span></td>
+    <td class="numeric">4  </td>
+    <td class="">September 2017</td>
+   <td class="numeric"> £9,000.00 </td>
+    <td class="numeric">23</td>
+    <td class="numeric"> £313.40 </td>
+    <td class="numeric"> £1,800.00 </td>
+</tr>
+<tr>
+    <td>Furniture Manufacturer <span class="form-hint">level 5</span></td>
+    <td class="numeric">1 </td>
+    <td class="">September 2017</td>
+    <td class="numeric"> £9,000.00 </td>
+   <td class="numeric">24</td>
+   <td class="numeric"> £300.00 </td>
+   <td class="numeric"> £1,800.00 </td>
+</tr>
+<tr>
+    <td>Business Administration <span class="form-hint">level 3</span></td>
+    <td class="numeric">1</td>
+    <td class="numeric">September 2017</td>
+   <td class="numeric"> £2,500.00 </td>
+    <td class="numeric">15</td>
+   <td class="numeric"> £133.33 </td>
+    <td class="numeric"> £500.00 </td>
+</tr>
+<tr>
+    <td>Business and Professional Admin <span class="form-hint">level 3</span></td>
+    <td class="numeric">1 </td>
+    <td class="numeric">September 2017</td>
+    <td class="numeric">£4,000.00 </td>
+    <td class="numeric">24</td>
+    <td class="numeric">£133,33</td>
+    <td class="numeric">£800.00</td>
+</tr>
+                </tbody>
+            </table>    </div>    
+</div>    
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+
+    <style>
+        .content-fixed {
+            position: relative !important;
+            padding-left: 10px;
+        }
+    </style>
+
+    
+
+</main><!-- / #content -->
+{% endblock %}
