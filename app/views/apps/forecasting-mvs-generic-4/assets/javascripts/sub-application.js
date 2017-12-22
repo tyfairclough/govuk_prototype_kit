@@ -367,15 +367,9 @@ var chart = c3.generate({
 
 
     
-    new Clipboard('.button');
-
-    
-
-
-    console.log("wow")
-
   var publicSpreadsheetUrl1 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/17RuG5qIxg8K1wLlOdiM2OnUMkFvJTuxYdtg296Wr178/pubhtml';
   var publicSpreadsheetUrl2 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/11SNfKERHoGtqeql9IChpabPG3cqOPi__dIztHuNPi7Q/pubhtml';
+var publicSpreadsheetUrl3 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/1i11yg9he8rPSuUnJLpNuE2Z6O-UdokwhPSuGpFYzqLE/pubhtml';
 
   function init() {
     Tabletop.init( { key: publicSpreadsheetUrl1,
@@ -388,27 +382,30 @@ var chart = c3.generate({
                      callback: showInfo2,
                      simpleSheet: true } )
   }
+    
+    function byApprenticeship() {
+    Tabletop.init( { key: publicSpreadsheetUrl3,
+                     callback: showInfo3,
+                     simpleSheet: true } )
+  }
 
 
     function showInfo(data, tabletop) {
-    //alert('Successfully processed!')
-    console.log(data);
       loadArray(data);
   }
 
   function showInfo2(data2, tabletop2) {
-    //alert('Successfully processed!')
-    console.log(data2);
       loadArray2(data2);
+  }  
+  function showInfo3(data3, tabletop3) {
+      loadArray3(data3);
   }    
-    
-//  window.addEventListener('DOMContentLoaded', init)
-//  window.addEventListener('DOMContentLoaded', app)
-    
+ 
     
                 $(document).ready(function () {
                     init();
                     appz();
+                    byApprenticeship();
                 });
     
     function loadArray(data){
@@ -416,19 +413,14 @@ var chart = c3.generate({
         var pos = "";
         //+data[i].Points+
        for (i = 0; i < data.length; i++) {
-             console.log(i)
+             //console.log(i)
            pos = i + 1;
 content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+data[i].Levy+'</td><td class="financial">'+data[i].Monthly+'</td><td class="financial">'+data[i].Completion+'</td><td class="financial">'+data[i].Expired+'</td><td class="financial">'+data[i].Balance+'</td><td class="financial no-wrap">'+data[i].CoInvestmentGov+'<span class="form-hint financial">£'+data[i].CoInvestmentYou+'</span></td></tr>';
            renderTable(content);
             }
         }     
 
-        
-        function renderTable(content){
-            $(document).ready(function () {
-                $("#balancesheet tbody").html(content);
-            });
-        }        
+     
     
     
     function loadArray2(data2){
@@ -436,21 +428,42 @@ content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+
         var pos = "";
         //+data[i].Points+
        for (i = 0; i < data2.length; i++) {
-             console.log(i)
-           pos = i + 1;
-//content2 += '<tr><td class="nowrap">'+data2[i].Date+'</td><td class="financial">'+data2[i].Levy+'</td><td class="financial">'+data2[i].Monthly+'</td><td class="financial">'+data2[i].Completion+'</td><td class="financial">'+data2[i].Expired+'</td><td class="financial">'+data2[i].Balance+'</td></tr>';
-  
-           
-           content2 += '<div class="row"><div class="date">'+data2[i].Apprenitce+'</div><div class="description">'+data2[i].Start+'</div><div class="amount">'+data2[i].Monthly+'</div><div class="amount">'+data2[i].Total+'</div><div class="details">'+data2[i].Completion+'</div></div>';
-           
+             //console.log(i)
+           pos = i + 1;      
+           content2 += '<tr><td>'+data2[i].Apprenitce+'</td><td>'+data2[i].Apprenticeship+'<span class="form-hint">level '+data2[i].ApprenticeshipLevel+'</span></td></td><td>'+data2[i].TrainingProvider+'</td></td><td>'+data2[i].Start+'</td><td>£'+data2[i].Monthly+'</td><td>'+data2[i].Total+'</td><td>£'+data2[i].Completion+'</td></tr>'      
            renderTable2(content2);
+            }
+        }
+    
+    
+    function loadArray3(data3){
+        var content3 = "";
+        var pos = "";
+        //+data[i].Points+
+       for (i = 0; i < data3.length; i++) {
+             //console.log(i)
+           pos = i + 1;      
+           content3 += '<tr><td>'+data3[i].apprenticeship+'<span class="form-hint">'+data3[i].level+'</span></td><td>'+data3[i].trainingProvider+'</td></td><td>'+data3[i].numberOfApprentices+'</td></td><td>'+data3[i].startDate+'</td><td>£'+data3[i].costPerApprenticeship+'</td><td>'+data3[i].numberOfMonthlyPayments+'</td><td>£'+data3[i].monthlyPayment+'</td><td>£'+data3[i].completionPayment+'</td></tr>'      
+           renderTable3(content3);
             }
         }     
     
     
+        
+        function renderTable(content){
+            $(document).ready(function () {
+                $("#balancesheet tbody").html(content);
+            });
+        }       
+    
         function renderTable2(content2){
             $(document).ready(function () {
-                $("#transaction-rows").html(content2);
+                $("#byApprentice table tbody").html(content2);
+            });
+        }
+          function renderTable3(content3){
+            $(document).ready(function () {
+                $("#byApprenticeship table tbody").html(content3);
             });
         }
     
