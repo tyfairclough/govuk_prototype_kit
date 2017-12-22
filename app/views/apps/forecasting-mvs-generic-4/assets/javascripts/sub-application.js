@@ -443,7 +443,7 @@ content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+
        for (i = 0; i < data3.length; i++) {
              //console.log(i)
            pos = i + 1;      
-           content3 += '<tr><td>'+data3[i].apprenticeship+'<span class="form-hint">'+data3[i].level+'</span></td><td>'+data3[i].trainingProvider+'</td></td><td>'+data3[i].numberOfApprentices+'</td></td><td>'+data3[i].startDate+'</td><td>£'+data3[i].costPerApprenticeship+'</td><td>'+data3[i].numberOfMonthlyPayments+'</td><td>£'+data3[i].monthlyPayment+'</td><td>£'+data3[i].completionPayment+'</td></tr>'      
+           content3 += '<tr><td class="no-wrap">'+data3[i].apprenticeship+'<span class="form-hint">'+data3[i].level+'</span></td><td>'+data3[i].trainingProvider+'</td></td><td>'+data3[i].numberOfApprentices+'</td></td><td>'+data3[i].startDate+'</td><td>£'+data3[i].costPerApprenticeship+'</td><td>'+data3[i].numberOfMonthlyPayments+'</td><td>£'+data3[i].monthlyPayment+'</td><td>£'+data3[i].completionPayment+'</td></tr>'      
            renderTable3(content3);
             }
         }     
