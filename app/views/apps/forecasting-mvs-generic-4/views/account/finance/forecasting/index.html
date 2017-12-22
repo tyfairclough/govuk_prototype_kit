@@ -23,14 +23,18 @@
     <div class="column-two-thirds">
         <div class="hgroup form-group">
            <h1 class="heading-xlarge">
-               Account projection
+               Funding projection
             </h1>
-          <p>The figures below show the funds available to you for the duration of your apprenticeships.  These figures are a representation of the data you have filled in.</p> 
+          <p>The figures below show the funds available to you for the duration of your apprenticeships.  These figures are a representation of the data you have filled in. The projection shows 48 months from the current month.</p> 
         
             <details>
                 <summary>How the cost of  is calculated</summary>
+                <div class="panel panel-width-thin">
                 
-           <p>The balance sheet is based on last month’s payment for both levy credit and cost of training, it doesn’t  include any future apprenticeship starts or apprentices who’ve already started and payment has not yet been made to their training provider.</p> 
+           <p>The balance sheet is based on last month’s payment for both levy credit and cost of training. </p>
+                <p>It doesn’t  include any future apprenticeship starts or apprentices who’ve already started and payment has not yet been made to their training provider.</p> 
+                
+                </div>
             </details>
 
 
@@ -40,6 +44,7 @@
       </div>
         <div class="column-one-third">
             <div class="related">
+                <div class="hidden">
             <h4 class="heading-small">Skip to</h4>
         <ul class="list list-bullets">
         <li><a href="#viz">Chart balance</a></li>
@@ -47,6 +52,7 @@
         <li><a href="#apprentice">Costs by apprentice</a></li>
         <li><a href="#apprenticeship">Costs by apprenticeship</a></li>
         </ul>
+            </div>
            
             <h3 class="heading-small">Download this data</h3>
           <div class="form-group">
@@ -55,7 +61,7 @@
                     <li><a href="#" class="" data-clipboard-action="copy" data-clipboard-target="#balancesheet">
     Download as a CSV file
 </a>  </li>
-                    <li>    <a href="#" class="" data-clipboard-action="copy" data-clipboard-target="#balancesheet">
+                    <li class="hidden">    <a href="#" class="" data-clipboard-action="copy" data-clipboard-target="#balancesheet">
     Copy to a spreadsheet
 </a></li>
                 </ul>
@@ -65,11 +71,15 @@
                     <summary>What does the download include?</summary>
  <p>The download includes the following data:</p>
             <ul class="list list-bullet">
-                <li>Names</li>
-                <li>Cost</li>
-                <li>Start dates</li>
-                <li>Monthly payments</li>
-                <li>etc</li>
+                <li>Apprentice name</li>
+                <li>Cost of training</li>
+                <li>Start date</li>
+                <li>Monthly payment</li>
+                <li>Number of monthly payments</li>
+                <li>Completion payment</li>
+                <li>Current funds</li>
+                <li>Expired funds</li>
+                <li>Co-investment</li>
             </ul>                    
                 </details>
   
@@ -79,9 +89,9 @@
 
         <div id="viz" name="viz" class="grid-row">
                     <div class="column-full">
-                            <h4 class="heading-large">Chart balance</h4>
+                            <h4 class="heading-large">Funding projection chart</h4>
 
-            <p class="lede">Apprenticeship account balance over time</p>
+            <p class="lede">Account funds over time</p>
         <div id="chart"></div>
         <div id="legend">
             <div class="chart-date">
@@ -101,15 +111,16 @@
       <div class="column-full">
     <h4 class="heading-large">Your account</h4>
           
-          <table class="" id="balancesheet">
+          <table class="small" id="balancesheet">
                 <thead>
                     <tr>
                         <th class="nowrap">Date</th>
-                        <th class="financial">Levy credit</th>
+                        <th class="financial">Levy funds</th>
                         <th class="financial">Cost of training</th>
                         <th class="financial">Completion payments</th>
                         <th class="financial">Expired funds</th>
-                        <th class="financial">Balance</th>
+                        <th class="financial">Current funds</th>
+                        <th class="financial">Employer co&#8209;investment <span class="form-hint">Government co&#8209;investment</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -119,7 +130,7 @@
 </div>
 
 
-    <div id="apprentice" name="apprentice" class="grid-row">        
+    <div id="byApprentice" name="apprentice" class="grid-row">        
 <div class="column-full">
     <h4 class="heading-large">Cost by apprentice</h4>
             <table class="hidden">
@@ -135,7 +146,7 @@
                 </tbody>
             </table>
         
-		<div id="transactions-aside" >
+		<div id="transactions-aside" class="hidden" >
 			<!--  Page contents -->
 			<nav aria-label="skip to job profile" class="">
 				<h2 class="page-contents__title">Skip to:</h2>
@@ -169,46 +180,29 @@
 				</ul>
 			</nav>
 		</div>        
-               <div id="transaction-wrapper">
+               <div id="">
      
-        <table class="">
+        <table class="small">
                 <thead>
                     <tr>
-                        <th>Apprentice <span class="form-hint">ULN</span></th>
+                        <th>Apprentice name</th>
+                        <th>Apprenticeship<span class="form-hint">Level</span></th>
+                        <th>Training provider</th>
                         <th>Start date</th>
                         <th>Monthly payment</th>
-                        <th>Total monthly payments</th>
-                        <th>Payment on completion</th>
+                        <th>Number of monthly payments</th>
+                        <th>Completion payment</th>
                     </tr>
                 </thead>
                 <tbody>
 <tr>
-    <td class="nowrap">Peter Parker</td>
-    <td>April 2018</td>
-    <td> £313.40 </td>
-    <td> 18</td>
-    <td> £313.40 </td>
-</tr>
-<tr>
-    <td class="nowrap">Cletus Kasady</td>
-    <td>April 2018</td>
-    <td> £313.40 </td>
-    <td> 18</td>
-    <td> £313.40 </td>
-</tr>
-<tr>
-    <td class="nowrap">Edward Brock</td>
-    <td>April 2018</td>
-    <td> £313.40 </td>
-    <td> 18</td>
-    <td> £313.40 </td>
-</tr>
-<tr>
     <td class="nowrap">Miles Morales</td>
+    <td>Furniture Manufacturer<span class="form-hint">level 4</span></td>
+    <td>Acme Training Ltd</td>
     <td>April 2018</td>
-    <td> £313.40 </td>
-    <td> 18</td>
-    <td> £313.40 </td>
+    <td class="financial"> £313.40 </td>
+    <td class="financial"> 18</td>
+    <td class="financial"> £313.40 </td>
 </tr>
                 </tbody>
             </table>
@@ -218,7 +212,7 @@
         
     </div>
     
-    <div id="apprenticeship" name="apprenticeship" class="grid-row">
+    <div id="byApprenticeship" name="apprenticeship" class="grid-row">
        <div class="column-full">
                 <h4 class="heading-large">Cost by apprenticeship</h4>
 
@@ -226,51 +220,16 @@
                 <thead>
                     <tr>
                         <th>Apprenticeship <span class="form-hint">Level</span></th>
-                        <th class="numeric">Number of  apprentices</th>
+                        <th>Training provider</th>
+                        <th class="">Number of  apprentices</th>
                         <th class="">Start date</th>
-                        <th class="numeric">Cost per apprenticeship</th>
-                        <th class="numeric">Number of monthly payments</th>
-                        <th class="numeric">Monthly payment</th>
-                         <th class="numeric">Payment on completion</th>
+                        <th class="">Cost per apprenticeship</th>
+                        <th class="">Number of monthly payments</th>
+                        <th class="">Monthly payment</th>
+                        <th>Completion payment</th>
                     </tr>
                 </thead>
                 <tbody>
-<tr>
-    <td>Furniture Manufacturer <span class="form-hint">level 4</span></td>
-    <td class="numeric">4  </td>
-    <td class="">September 2017</td>
-   <td class="numeric"> £9,000.00 </td>
-    <td class="numeric">23</td>
-    <td class="numeric"> £313.40 </td>
-    <td class="numeric"> £1,800.00 </td>
-</tr>
-<tr>
-    <td>Furniture Manufacturer <span class="form-hint">level 5</span></td>
-    <td class="numeric">1 </td>
-    <td class="">September 2017</td>
-    <td class="numeric"> £9,000.00 </td>
-   <td class="numeric">24</td>
-   <td class="numeric"> £300.00 </td>
-   <td class="numeric"> £1,800.00 </td>
-</tr>
-<tr>
-    <td>Business Administration <span class="form-hint">level 3</span></td>
-    <td class="numeric">1</td>
-    <td class="numeric">September 2017</td>
-   <td class="numeric"> £2,500.00 </td>
-    <td class="numeric">15</td>
-   <td class="numeric"> £133.33 </td>
-    <td class="numeric"> £500.00 </td>
-</tr>
-<tr>
-    <td>Business and Professional Admin <span class="form-hint">level 3</span></td>
-    <td class="numeric">1 </td>
-    <td class="numeric">September 2017</td>
-    <td class="numeric">£4,000.00 </td>
-    <td class="numeric">24</td>
-    <td class="numeric">£133,33</td>
-    <td class="numeric">£800.00</td>
-</tr>
                 </tbody>
             </table>   
         </div>

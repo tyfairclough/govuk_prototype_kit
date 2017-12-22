@@ -1,0 +1,94 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="team-dashboard" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    
+    
+<div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+            <h1 class="heading-xlarge">Manage your team</h1>
+                <p class="lede">Invite members, control what they can do, remove members and cancel or resend invitations.</p>
+            </div>
+        </div>
+</div> 
+
+<section id="invitations">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col" style="padding-top:0">User name</th>
+                                <th scope="col" style="padding-top:0">What they can do</th>
+                                <th scope="col" style="padding-top:0">Status</th>
+                                <th scope="col" style="padding-top:0"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <!--quick hack, will fix -->
+                                <td class="">Charlie George (owner)
+                                    <br><span class="text-secondary">charlie.george@gmail.com</span>
+                                </td>
+                                <td>Accept agreements, view information and manage PAYE schemes, organisations, apprentices and team members</td>
+                                <td>Invitation awaiting response</td>
+                                <td><a href="/apps/{{currentApp.appDirName}}/views/account/team/view-invite">Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="">Chuba Akpom (viewer)
+                                    <br><span class="text-secondary">chuba.akpom@googlemail.es</span>
+                                </td>
+                                <td>View information but can't make changes</td>
+                                <td>Active</td>
+                                <td><a href="/apps/{{currentApp.appDirName}}/views/account/team/view-user">Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="">Shkodran Mustafi (viewer)
+                                    <br><span class="text-secondary">s.mustafi@gmail.co.uk</span>
+                                </td>
+                                <td>View information but can't make changes</td>
+                                <td>Removed</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="">Alex Iwobi (editor)
+                                    <br><span class="text-secondary">georgia.c@outlook.com</span>
+                                </td>
+                                <td>Add apprentices and view financial information</td>
+                                <td>Invitation cancelled</td>
+                                <td></td>
+                            </tr>
+                                                        <tr>
+                                <td class="">Sammi Nasri (editor)
+                                    <br><span class="text-secondary">sammi.n@tesco.com</span>
+                                </td>
+                                <td>Add apprentices and view financial information</td>
+                                <td>Invitation expired</td>
+                                <td><a href="/apps/{{currentApp.appDirName}}/views/account/team/view-expired-user">Details</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+    </section>
+    
+<div class="page-navigation">
+                    <a class="page-navigation__btn previous hidden">
+                        <i class="arrow-button fa fa-angle-left"></i>
+                        <span class="description">Previous <span class="hide-mob">page</span></span>
+                        <span class="counter">Page <span class="prevPage"></span> of <span class="totalPage"></span></span>
+                    </a>
+
+
+
+                    <a style="" class="page-navigation__btn next">
+                        <i class="arrow-button fa fa-angle-right"></i>
+                        <span class="description">Next <span class="hide-mob">page</span></span>
+                        <span class="counter">Page <span class="nextPage">1</span> of <span class="totalPage">3</span></span>
+                    </a>
+
+                </div>
+    
+<a class="button" id="" href="/apps/{{currentApp.appDirName}}/views/account/team/invite-a-team-member.html">Invite a new member</a>    
+    
+</main><!-- / #content -->
+{% endblock %}
