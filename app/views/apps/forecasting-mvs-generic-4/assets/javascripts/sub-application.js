@@ -174,7 +174,7 @@ $('tr').click(function () {
 
     
 
-       
+
     
 function forecastIndex(){
 var d3locale = d3.locale({
@@ -191,6 +191,11 @@ var d3locale = d3.locale({
     "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
     "shortMonths": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 });
+    
+    
+        var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+       
     
     var chart = c3.generate({
         bindto: '#chart',
@@ -263,16 +268,11 @@ var d3locale = d3.locale({
  ,287603.27    ],
         ['x', '2017-12-01', '2018-01-01', '2018-02-01', '2018-03-01', '2018-04-01', '2018-05-01', '2018-06-01', '2018-07-01', '2018-08-01', '2018-09-01', '2018-10-01', '2018-11-01', '2018-12-01', '2019-01-01', '2019-02-01', '2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2019-12-01', '2020-01-01', '2020-02-01', '2020-03-01', '2020-04-01', '2020-05-01', '2020-06-01', '2020-06-01', '2020-07-01', '2020-08-01', '2020-09-01', '2020-10-01', '2020-11-01', '2020-12-01', '2021-01-01', '2021-02-01', '2021-03-01', '2021-03-01', '2021-04-01', '2021-05-01', '2021-06-01', '2021-07-01', '2021-08-01', '2021-09-01', '2021-10-01', '2021-11-01', '2021-12-01']
       ],
-        type: 'line',
+        type: 'spline',
         names: {
             data1: 'Account balance'
         }
         },
-        regions: [{
-            start: 0,
-            end: 505,
-            class: 'foo'
-        }],
         interaction: {
             enabled: false
         },
@@ -282,20 +282,27 @@ var d3locale = d3.locale({
   }
 },
         padding: {
-            left: 15
+            left: 10
         },
         axis: {
             x : {
             type : 'timeseries',
             tick: {
-                //format: function (x) { return x.getFullYear(); }
-                format: "%m-%y"
+//                format: function (x) { return x.getMonth(); }
+                //format: "%m-%y"
               //format: '%Y' // format string is also available for timeseries data
-                }
+            format: function (x) { return (monthNames[x.getMonth()]); },
+                    format: function (x) { return (monthNames[x.getMonth()]) + ' ' + x.getFullYear(); },
+            fit: true,
+                count: 16,
+            culling: {
+            max: 8 // the number of tick texts will be adjusted to less than this value
+            }
+            }
             },
             y: {
                 label: {
-                text: 'Amount in £s',
+                text: 'Levy balance (£s)',
                 position: 'outer-middle',
                 },
                 tick: {
@@ -306,6 +313,8 @@ var d3locale = d3.locale({
         }
     })
 }    
+    
+    
 function forecastIndexWide(){
   $("body").addClass("wide");
     
@@ -431,8 +440,8 @@ content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+
              //console.log(i)
            pos = i + 1;      
            content2 += '<tr><td>'+data2[i].Apprenitce+'</td><td>'+data2[i].Apprenticeship+'<span class="form-hint">level '+data2[i].ApprenticeshipLevel+'</span></td></td><td>'+data2[i].TrainingProvider+'</td></td><td>'+data2[i].Start+'</td><td>£'+data2[i].Monthly+'</td><td>'+data2[i].Total+'</td><td>£'+data2[i].Completion+'</td></tr>'      
-           renderTable2(content2);
             }
+           renderTable2(content2);        
         }
     
     
@@ -443,7 +452,7 @@ content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+
        for (i = 0; i < data3.length; i++) {
              //console.log(i)
            pos = i + 1;      
-           content3 += '<tr><td class="no-wrap">'+data3[i].apprenticeship+'<span class="form-hint">'+data3[i].level+'</span></td><td>'+data3[i].trainingProvider+'</td></td><td>'+data3[i].numberOfApprentices+'</td></td><td>'+data3[i].startDate+'</td><td>£'+data3[i].costPerApprenticeship+'</td><td>'+data3[i].numberOfMonthlyPayments+'</td><td>£'+data3[i].monthlyPayment+'</td><td>£'+data3[i].completionPayment+'</td></tr>'      
+           content3 += '<tr><td class="no-wrap">'+data3[i].apprenticeship+' <span class="form-hint">level '+data3[i].level+'</span></td><td>'+data3[i].trainingProvider+'</td></td><td>'+data3[i].numberOfApprentices+'</td></td><td>'+data3[i].startDate+'</td><td>£'+data3[i].costPerApprenticeship+'</td><td>'+data3[i].numberOfMonthlyPayments+'</td><td>£'+data3[i].monthlyPayment+'</td><td>£'+data3[i].completionPayment+'</td></tr>'      
            renderTable3(content3);
             }
         }     
@@ -453,20 +462,55 @@ content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+
         function renderTable(content){
             $(document).ready(function () {
                 $("#balancesheet tbody").html(content);
+                paginateBalancesheet();
             });
         }       
     
         function renderTable2(content2){
             $(document).ready(function () {
                 $("#byApprentice table tbody").html(content2);
+                paginateByApprentice();
+                
             });
         }
           function renderTable3(content3){
             $(document).ready(function () {
                 $("#byApprenticeship table tbody").html(content3);
+                paginateByApprenticeship();
             });
         }
     
+    function paginateByApprentice(){
+                        $('#byApprentice table').paginate({
+                          limit: 10, 
+                          previousText: 'Previous',
+                            nextText: 'Next',
+                            first: false,
+                            last: false,
+                            optional: true,
+                        });
+    }    
+    
+    function paginateByApprenticeship(){
+                        $('#byApprenticeship table').paginate({
+                          limit: 10, 
+                          previousText: 'Previous',
+                            nextText: 'Next',
+                            first: false,
+                            last: false,
+                            optional: true,
+                        });
+    }
+    function paginateBalancesheet(){
+                        $('#balancesheet').paginate({
+                          limit: 10, 
+                          previousText: 'Previous',
+                            nextText: 'Next',
+                            first: false,
+                            last: false,
+                            optional: true,
+                        });
+    }
 
 // global js
     
