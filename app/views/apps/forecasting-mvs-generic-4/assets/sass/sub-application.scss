@@ -641,8 +641,19 @@ nav.global-nav ul {
 }
 
 #chart {
-    width: 75%;
+    width: 70%;
     float: left;
+}
+#chartYLabel {
+    width: 5%;
+    float: left;
+    white-space: nowrap;
+    span {
+        transform: rotate(90deg);
+        display: block;
+        font-size: 16px;
+        padding-left: 15px;
+    }
 }
 #legend {
     width: 25%;
@@ -1154,6 +1165,9 @@ dl.confirm-details {
 
 
 .page-navigation {
+    + .page-navigation {
+        display: none;
+    }
     padding-top: 10px;
     .description {
         display: block
@@ -1162,8 +1176,8 @@ dl.confirm-details {
         display: block;
         font-size: 14px
     }
-    .page-navigation__btn {
-        display: inline-block;
+    a, .page-navigation__btn {
+        display: none;
         font-size: 1em;
         margin-right: -4px;
         overflow: hidden;
@@ -1186,19 +1200,41 @@ dl.confirm-details {
             margin-right: 10px;
             margin-top: -0.2em
         }        
-        &.previous {
-            text-align: left            
+        &.previous, &:first-child {
+            text-align: left;     
+                &:before {
+                font-family: FontAwesome;
+                content: "\f104";
+                padding-right: 10px;
+                font-size: 64px;
+                top: 15px;
+                position: relative;                    
+                    }
             }
-        &.next {
+        &.next, &:last-child {
             text-align: right;
+            &:after {
+                font-family: FontAwesome;
+                content: "\f105";
+                padding-left: 10px;
+                font-size: 64px;
+                top: 15px;
+                position: relative;
+            }
                 .arrow-button {
                     float: right;
                     margin-left: 10px;
                     margin-right: 0
                 }            
             }
+        &:first-child, &:last-child {
+                    display: inline-block;
+        }
+        
     }        
 }
+
+
 @media (max-width: 640px) {
     .page-navigation {
         .hide-mob {
@@ -3712,7 +3748,6 @@ table.results-table td.training-column {
 
 .forecast-index {
     table {
-    table-layout: fixed;        
         th.nowrap, td.nowrap {
             white-space: nowrap;
         }
