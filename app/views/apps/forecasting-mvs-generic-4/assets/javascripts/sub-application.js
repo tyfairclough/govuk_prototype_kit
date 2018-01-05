@@ -439,7 +439,7 @@ content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+
        for (i = 0; i < data2.length; i++) {
              //console.log(i)
            pos = i + 1;      
-           content2 += '<tr><td>'+data2[i].Apprenitce+'</td><td>'+data2[i].Apprenticeship+'<span class="form-hint">level '+data2[i].ApprenticeshipLevel+'</span></td></td><td>'+data2[i].TrainingProvider+'</td></td><td>'+data2[i].Start+'</td><td>£'+data2[i].Monthly+'</td><td>'+data2[i].Total+'</td><td>£'+data2[i].Completion+'</td></tr>'      
+           content2 += '<tr><td>'+data2[i].Apprenitce+'<span class="form-hint"> '+data2[i].dob+'</span></td><td>'+data2[i].Apprenticeship+'<span class="form-hint">level '+data2[i].ApprenticeshipLevel+'</span></td></td><td>'+data2[i].TrainingProvider+'</td></td><td>'+data2[i].Start+'</td><td>£'+data2[i].Monthly+'</td><td>'+data2[i].Total+'</td><td>£'+data2[i].Completion+'</td></tr>'      
             }
            renderTable2(content2);        
         }
