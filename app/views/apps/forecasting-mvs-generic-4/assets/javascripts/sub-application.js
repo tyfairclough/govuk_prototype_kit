@@ -309,7 +309,11 @@ var d3locale = d3.locale({
                     //format: d3.format("$,")
                     format: function (d) { return "£" + d; }
                 }
+            },
+            y2: {
+                show: true
             }
+            
         }
     })
 }    
@@ -503,7 +507,7 @@ content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+
     }
     function paginateBalancesheet(){
                         $('#balancesheet').paginate({
-                          limit: 10, 
+                          limit: 12, 
                           previousText: 'Previous',
                             nextText: 'Next',
                             first: false,
