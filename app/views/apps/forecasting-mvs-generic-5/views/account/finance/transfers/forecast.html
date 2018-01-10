@@ -1,0 +1,40 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="transfers-dashboard" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+<div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+            <h1 class="heading-xlarge">
+        Transfer funds forecast
+      </h1>
+            <p class="lede">A projection of your levy to demonstrate how much you might be able to transfer on a month by month basis.</p>
+
+</div>
+        </div>
+    </div> 
+    
+<div class="grid-row">
+        <div class="column-one-third">
+            <h2 class="heading-small">Your 4 year levy projection</h2>
+            <p>£999,999</p>        
+        </div>
+        <div class="column-one-third">
+            <div id="transferBalance">
+            <h2 class="heading-small">Levy transferred to date</h2>
+            <p class="transfer-balance">£0</p>
+            </div>
+        </div>
+        <div class="column-one-third">
+            <div id="offerFundsDate">
+        <h2 class="heading-small">Remaining transfer limit (monthly)</h2>
+            <p>£99,999 (£2,083)</p>         
+            </div>
+        </div>
+    </div>
+   
+
+</main><!-- / #content -->
+{% endblock %}
