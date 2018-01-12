@@ -428,7 +428,7 @@ var publicSpreadsheetUrl3 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheet
        for (i = 0; i < data.length; i++) {
              //console.log(i)
            pos = i + 1;
-content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+data[i].Levy+'</td><td class="financial">'+data[i].Monthly+'</td><td class="financial">'+data[i].Completion+'</td><td class="financial">'+data[i].Expired+'</td><td class="financial">'+data[i].Balance+'</td><td class="financial no-wrap">'+data[i].CoInvestmentGov+'<span class="form-hint financial">£'+data[i].CoInvestmentYou+'</span></td></tr>';
+content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+data[i].Levy+'</td><td class="financial">'+data[i].Monthly+'</td><td class="financial">'+data[i].Completion+'</td><td class="financial">'+data[i].Balance+'</td></tr>';
            renderTable(content);
             }
         }     
@@ -466,7 +466,7 @@ content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+
         function renderTable(content){
             $(document).ready(function () {
                 $("#balancesheet tbody").html(content);
-                paginateBalancesheet();
+                //paginateBalancesheet();
             });
         }       
     
