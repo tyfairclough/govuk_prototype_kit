@@ -166,6 +166,7 @@ content += '<tr><td class="nowrap">'+data[i].Apprenticeship+'<span class="form-h
             $(document).ready(function () {
                 $("#apprenticeshipsTransferProjection tbody").html(content);
                 $("#apprenticeshipsTransferProjection tbody tr:last-child span").replaceWith("<span>Total</span>")
+                $("#apprenticeshipsTransferProjection tbody tr:last-child td:nth-child(2)").html("<td>&nbsp;</td>")
                 //paginateBalancesheet();
             });
         }  
