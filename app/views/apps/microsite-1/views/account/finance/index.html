@@ -1,0 +1,97 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="finance-dashboard" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup form-group">
+           <h1 class="heading-xlarge">
+        Finance
+      </h1>
+        <div class="notice">
+            <i class="icon icon-important">
+            <span class="visually-hidden">Warning</span>
+            </i>
+            <strong class="bold-small">
+            Failed payment to Acme training ltd on 17 July 2018 - some apprentices details might be wrong. <a href="/apps/{{currentApp.appDirName}}/views/account/finance/failed-payments-2">Check details now.</a>
+            </strong>
+        </div>            
+        </div>
+      </div>
+    </div>
+    
+<div class="" id="finance-bingo">   
+        <div class="data">
+            <h2 class="data-item bold-xlarge current-funds">£3,010</h2>
+            <p class="data-item bold-small">Current funds</p>
+        </div>
+    <div class="grid-row">
+        <div class="column-one-half">
+           <div class="data red">
+                <h2 class="data-item bold-large expiring-funds">£2,150</h2>
+                <h2 class="data-item bold-small">Funds you could lose</h2>
+            </div>
+        </div>
+        <div class="column-one-half">
+            <div class="data purple">
+                    <h2 class="data-item bold-large committed-funds">£132,853</h2>
+                    <h2 class="data-item bold-small">Future outgoings</h2>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<div class="grid-row">
+        <div class="column-one-half">
+            <ul class="list list-links">
+                <li>
+                    <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/finance/transactions/index.html" id="your-transactions">Your transactions</a></h3>
+                    <p>View payments made into and out of your SFA digital apprenticeship account</p>
+                    <hr>
+                </li>
+                <li>
+                    <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/finance/future-outgoings" onclick="return alert('This page is available yet')">Future outgoings</a></h3>
+                    <p>Review the amount you've committed to spend on apprenticeships</p>
+                    <hr>
+                </li>
+                <li>
+                    <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/paye/index">View your English percentage</a></h3>
+                    <p>Check the English percentage that's been applied to your levy</p>
+                    <hr>
+                </li>
+                <li>
+                    <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/finance" onclick="return alert('This page is available yet')">Download financial data</a></h3>
+                    <p>Download your financial data as a spreadsheet</p>
+                    <hr>
+                </li>
+            </ul>
+        </div>
+        <div class="column-one-half">
+                <ul class="list list-links">
+                <li>
+                    <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/finance/forecasting/index-wide">Forecast your funds</a></h3>
+                    <p>Create forecasts to plan your future spending.</p>
+                    <hr>
+                </li>
+                <li>
+                    <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/finance" onclick="return alert('This page is available yet')">View expiring funds</a></h3>
+                    <p>Check if and when your funds will expire</p>
+                    <hr>
+                </li>
+                <li>
+                    <h3 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/account/finance/transfers/index">Transfer funds</a></h3>
+                    <p>Send and receive funds from other apprenticeship accounts</p>
+                    <hr>
+                </li>
+
+
+
+ 
+            </ul>
+        </div>
+    </div>    
+
+</main><!-- / #content -->
+{% endblock %}
