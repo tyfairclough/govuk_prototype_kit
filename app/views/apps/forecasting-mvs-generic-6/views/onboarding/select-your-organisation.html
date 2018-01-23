@@ -1,0 +1,277 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="search-for-your-organisation" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    
+<div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+            <h1 class="heading-xlarge">Select your organisation</h1>
+                <p class="lede">Choose the organisation you want to contract apprenticeships through.</p>
+            </div>
+        </div>
+</div>     
+<section id="search" xmldata="/sprint/48/proData.xml">
+
+    <form id="public-sector-search" style="display: none;">
+        <h1 class="heading-large">Search for your organisation</h1>
+        <p>Add organisations so they can spend funds.</p>
+        <div class="form-group">
+            <label name="input-keywords" for="input-keywords" class="form-label-bold">Enter name</label>
+            <input class="form-control" id="input-keywords" type="text">
+        </div>
+        <button type="submit" class="button" id="submit-keywords">Search</button>
+    </form>
+
+
+    <section id="results-wrapper" class="">
+        <div class="search-header">
+            <fieldset class="search-input">
+                <label for="search-main">
+                    <h1 class="heading-medium">Search results <span class="visuallyhidden">for “”</span></h1>
+                </label>
+                <input type="search" name="q" id="search-main">
+            </fieldset>
+            <fieldset class="search-submit">
+                <button type="submit" class="button">Search</button>
+            </fieldset>
+        </div>
+        <p><span class="count">120</span> results found</p>
+        <div class="grid-row">
+
+            <div class="column-one-third">
+                <aside>
+                    <h3 class="bold-small">Filter results</h3>
+                    <fieldset class="filters filters-accordion">
+                        <h2 class="toggler heading-small">Organisation type</h2>
+                        <div class="toggled-content">
+                            <div class="form-group org-search-filter">
+                                <legend class="form-label sr-only">Select an organisation type</legend>
+
+                                <div class="multiple-choice">
+                                    <input id="ltd" type="radio" name="org-type-filter" value="Private limited company">
+                                    <label for="ltd">Private limited company</label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="plc" type="radio" name="org-type-filter" value="Public limited company">
+                                    <label for="plc">Public limited company</label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="pb" type="radio" name="org-type-filter" value="Public body">
+                                    <label for="pb">Public body</label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="all" type="radio" name="org-type-filter" value="all" checked="checked">
+                                    <label for="all">All</label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </fieldset>
+                </aside>
+            </div>
+            <div class="column-two-thirds">
+                <div id="results">
+                    <ul class="list list-links" style="min-height: 0px;">
+                        <li class="item animated none" data-id="1&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">Harper Adams University</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">Newport
+Shropshire, TF10 8NB</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Public" sector=""><span class="type">Public sector</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated none" data-id="2&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">GlaxoSmithKline GSK</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">170 Kenilworth Rd, Balsall Common, Coventry CV7 7EW</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Public" limited="" company=""><span class="type">Public limited company</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated none" data-id="3&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">Bentley Motors Limited</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">Pyms Lane, Crewe, Cheshire, CW1 3PL, England</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Private" limited="" company=""><span class="type">Private limited company</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated none" data-id="4&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">Servest Group Ltd</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">Servest/Arthur McKay
+Warehouse W
+Western Gateway
+Royal Victoria Docks
+London
+E16 IBD</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Private" limited="" company=""><span class="type">Private limited company</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated none" data-id="5&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">Sunderland City Council</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Private" limited="" company=""><span class="type">Private limited company</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated none" data-id="6&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">4 Ventures Ltd</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Private" limited="" company=""><span class="type">Private limited company</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated none" data-id="7&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">700 Club</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Private" limited="" company=""><span class="type">Private limited company</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated none" data-id="8&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">ARRIVA PLC</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">1 Admiral Way, Doxford International Business, Park Sunderland, Tyne And Wear, SR3 3XP</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Public" limited="" company=""><span class="type">Public limited company</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated none" data-id="9&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">A2Dominion Homes Limited</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Private" limited="" company=""><span class="type">Private limited company</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated none" data-id="10&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">A2Dominion Homes Limited</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Private" limited="" company=""><span class="type">Private limited company</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated jp-hidden" data-id="11&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">Tescos Plc</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Public" limited="" company=""><span class="type">Public limited company</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated jp-hidden" data-id="12&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">NSPCC</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Charity"><span class="type">Charity</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated jp-hidden" data-id="13&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">NSPCC</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Private" limited="" company=""><span class="type">Private limited company</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated jp-hidden" data-id="14&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">National Trust</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Trust"><span class="type">Trust</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated jp-hidden" data-id="15&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">NHS Public Health England</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Public" body=""><span class="type">Public body</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated jp-hidden" data-id="16&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">Mid Essex Mental Heatlh Trust</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Public" body=""><span class="type">Public body</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated jp-hidden" data-id="17&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">Great Baddow High School</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Psuedo" public="" body=""><span class="type">Psuedo Public body</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated jp-hidden" data-id="18&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">Essex Fire Service</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Public" body=""><span class="type">Public body</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated jp-hidden" data-id="19&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">Exxon</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Industrial" and="" provident="" organisation=""><span class="type">Industrial and Provident organisation</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated jp-hidden" data-id="20&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">123 Facilities Ltd - (s C4)</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Private" limited="" company=""><span class="type">Private limited company</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated jp-hidden" data-id="21&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">180 Housing Ltd</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Private" limited="" company=""><span class="type">Private limited company</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated jp-hidden" data-id="22&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">2010 Rotherham Ltd</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Private" limited="" company=""><span class="type">Private limited company</span></dd>
+                            </dl>
+                        </li>
+                        <li class="item animated jp-hidden" data-id="23&quot;">
+                            <h2 class="heading-medium"><a href="/apps/{{currentApp.appDirName}}/views/onboarding/gateway-alert">20-20 Housing Co-operative Limited</a></h2>
+                            <dl class="result-data-list"><dt><b>Address</b></dt>
+                                <dd><address class="form-hint">154 Principal Places</address></dd><dt><b>Type</b></dt>
+                                <dd data-filter="Private" limited="" company=""><span class="type">Private limited company</span></dd>
+                            </dl>
+                        </li>
+                    </ul>
+                    <aside id="manualentrylink" style="display:none;">
+                        <h5 class="heading-small">Can't find your organisation?</h5>
+                        <p> You can <a href="manual-input.html">add it manually here</a>.</p>
+                    </aside>
+                </div>
+                <div id="pagedat" style="display: none;"><a class="jp-current">1</a><span class="jp-hidden">...</span><a href="#" class="jp-hidden">2</a><a href="#" class="jp-hidden">3</a><a href="#" class="jp-hidden">4</a><a href="#" class="jp-hidden">5</a><a href="#" class="jp-hidden">6</a><a href="#" class="jp-hidden">7</a><a href="#" class="jp-hidden">8</a><a href="#" class="jp-hidden">9</a><a href="#" class="jp-hidden">10</a><a href="#" class="jp-hidden">11</a><span>...</span><a>12</a></div>
+
+
+                <div class="page-navigation">
+                    <a class="page-navigation__btn previous jp-disabled hidden">
+                        <i class="arrow-button fa fa-angle-left"></i>
+                        <span class="description">Previous <span class="hide-mob">page</span></span>
+                        <span class="counter">Page <span class="prevPage">0</span> of <span class="totalPage">12</span></span>
+                    </a>
+
+
+
+                    <a style="" class="page-navigation__btn next">
+                        <i class="arrow-button fa fa-angle-right"></i>
+                        <span class="description">Next <span class="hide-mob">page</span></span>
+                        <span class="counter">Page <span class="nextPage">2</span> of <span class="totalPage">12</span></span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+				    </section>
+
+</section>
+    
+</main><!-- / #content -->
+{% endblock %}
