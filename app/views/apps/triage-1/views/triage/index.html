@@ -1,0 +1,192 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds column-minimum">
+      <h1 class="heading-large">
+        Employing an apprentice
+      </h1>
+      <p class="">Use this step by step list to help you take on an apprentice:</p>
+
+      <ol class="task-list">
+        <li>
+          <h2 class="task-list-section">
+           <span class="task-list-section-number">1. </span> Check funding available to you
+          </h2>
+           <p style="padding-left:35px">You can get help from the government to pay for apprenticeship training. There are a number of different ways, depending on your organisation.</p>
+          <ul class="task-list-items">
+            <li class="task-list-item">
+              <a class="" href="/support&#10;&#10;&#10;&#10;/NLD-start/" aria-describedby="eligibility-completed">
+                Check which funding is available
+              </a>
+               <strong class="task-completed rj-dont-display" id="eligibilityLevy">Levy funded</strong>
+                 <strong class="task-completed" id="eligibilityCoinvestment">Co-investment funded</strong>
+                  <strong class="task-completed rj-dont-display" id="eligibilityTransfer">Transfer funded</strong>
+            </li>
+
+            <li class="task-list-item rj-dont-display" id="forecastMyLevy">
+              <a class="task-name" href="/support&#10;&#10;&#10;&#10;/NLD-start/levy/forecastStart" aria-describedby="eligibility-completed">
+                Forecast my levy funding
+              </a>
+              <strong class="task-completed rj-dont-display" id="forcastMyLevyComplete">Completed</strong>
+            </li>
+        <li class="task-list-item rj-dont-display" id="claimMyFunding">
+              <a class="task-name" href="/support&#10;&#10;&#10;&#10;/NEED TO BE THE REGISTER " aria-describedby="eligibility-completed">
+               Get funding
+              </a>
+              <strong class="task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
+            </li>
+          </ul>
+
+
+        </li><li>
+          <h2 class="task-list-section">
+            <span class="task-list-section-number">2. </span>  Choose your apprenticeships
+          </h2>
+          <p style="padding-left:35px">Find the right apprenticeship for your business and then find a training provider to deliver the training, who's either national or local to you. You can save your searches to refer back to later.</p>
+          <ul class="task-list-items">
+            <li class="task-list-item">
+              <a class="task-name" href="/support&#10;&#10;&#10;&#10;/NLD-SNS" aria-describedby="company-information-completed">
+                Find apprenticeship training and get costs
+              </a> 
+              <!--strong class="task-completed" id="company-information-completed">Completed</strong-->
+            </li>
+            <li class="task-list-item">
+              <a class="task-name" href="/support&#10;&#10;&#10;&#10;/NLD-SNS/dashboard">
+                View your saved apprenticeships
+              </a>
+             <strong class="task-completed" id="savedApps" style="min-width:60px; text-align: center; "><span>0</span></strong>
+            </li>
+          </ul>
+        </li>
+
+
+<!--
+        <li>
+          <h2 class="task-list-section">
+            <span class="task-list-section-number">3. </span> Reserve funding
+          </h2>
+         <p style="padding-left:35px">You can reserve funding for apprenticeships if you follow certain steps.</p>
+          <ul class="task-list-items">
+            <li class="task-list-item">
+              <a class="task-name" href="/support
+
+
+
+/NLD-claim/new/start">
+                Reserve funding
+              </a>
+          </li>
+
+            <li class="task-list-item">
+              <a class="task-name" href="/support
+
+
+
+/NLD-claim/current">
+                View reserved funding
+              </a>
+             <!--strong class="task-completed" style="min-width:60px; text-align: center; " id="contact-details-completed">1</strong-->
+<!--
+            </li>
+          </ul>
+       </li>
+
+-->
+
+        <li>
+          <h2 class="task-list-section">
+            <span class="task-list-section-number">3. </span> Find training providers
+          </h2>
+         <p style="padding-left:35px">You can find training providers to provide training and save your chosen ones to a list.</p>
+          <ul class="task-list-items">
+            <li class="task-list-item">
+
+                           <a class="task-name" href="/support&#10;&#10;&#10;&#10;/NLD-find/training/training-list" aria-describedby="contact-details-completed">
+                Find training providers
+              </a>
+              <!--a class="task-name" href="/support
+
+
+
+/NLD-find/training" aria-describedby="contact-details-completed">
+                Find training providers
+              </a-->
+              <!--strong class="task-completed" id="contact-details-completed">Completed</strong-->
+            </li>
+            <li class="task-list-item">
+              <a class="task-name" href="/support&#10;&#10;&#10;&#10;/NLD-SNS/dashboard">
+                View your saved training providers
+              </a>
+             <strong class="task-completed" id="savedPro" style="min-width:60px; text-align: center; "><span>0</span></strong>
+             <!--strong class="task-completed" style="min-width:60px; text-align: center; " id="contact-details-completed">3</strong-->
+            </li>
+          </ul>
+       </li>
+
+         <li>
+          <h2 class="task-list-section">
+            <span class="task-list-section-number">4. </span> Your apprenticeship service account
+          </h2>
+         <p style="padding-left:35px">You need an apprenticeship service account to recruit and manage payments for your apprentices.</p>
+          <ul class="task-list-items">
+            <li class="task-list-item">
+              <a class="task-name" href="/support&#10;&#10;&#10;&#10;/onboarding/before-you-start">
+                Register for an apprenticeship service account
+              </a>
+              <!--strong class="task-completed" id="contact-details-completed">Completed</strong-->
+            </li>
+            <li class="task-list-item">
+                          <a class="task-name" href="login" aria-describedby="contact-details-completed">
+                Sign in to your apprenticeship service account
+              </a>
+
+             <!--strong class="task-completed" style="min-width:60px; text-align: center; " id="contact-details-completed">3</strong-->
+            </li>
+          </ul>
+       </li>
+
+       <li>
+          <h2 class="task-list-section">
+            <span class="task-list-section-number">5. </span> Recruit apprentices
+          </h2>
+          <p style="padding-left:35px">You can advertise your apprenticeships and view current applications you have been sent.</p>
+          <ul class="task-list-items">
+            <li class="task-list-item">
+              <a class="task-name" href="/support&#10;&#10;&#10;&#10;/NLD-recruit/advertise">
+                Advertise an apprenticeship
+              </a>
+            </li>
+            <li class="task-list-item">
+              <a class="task-name" href="/support&#10;&#10;&#10;&#10;/NLD-recruit">
+                View current applications
+              </a>
+             <!--strong class="task-completed" style="min-width:60px; text-align: center; " id="contact-details-completed">0</strong-->
+            </li>
+          </ul>
+       </li>
+
+       <li>
+          <h2 class="task-list-section">
+            <span class="task-list-section-number">6. </span> Review and approve apprentices
+          </h2>
+          <p style="padding-left:35px">Register or sign in to your apprenticeship service account to manage your apprentices.</p>
+          <ul class="task-list-items">
+            <li class="task-list-item">
+              <a class="task-name" href="#">
+                Review and approve new apprentices
+              </a>
+            </li>
+            <li class="task-list-item">
+              <a class="task-name" href="/support&#10;&#10;&#10;&#10;/NLD-apprentices/apprentice-list">
+                View your current apprentices
+              </a>
+            </li>
+          </ul>
+       </li>
+      </ol>
+    </div>
+  </div>
+</main>
+{% endblock %}
