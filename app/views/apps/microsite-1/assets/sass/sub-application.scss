@@ -3491,3 +3491,151 @@ table table {
     letter-spacing: 0;
     font-weight: bold
 }
+
+
+
+.task-list-item:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.task-list {
+  margin-top: 30px;
+}
+
+@media (min-width: 641px) {
+  .task-list {
+    margin-top: 60px;
+  }
+}
+
+.find-list {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.results-header a {
+  text-decoration: none;
+}
+
+.chottoPadding {
+  padding: 0 10px 15px 20px;
+}
+
+.floatingBox {
+  display: inline-block;
+  width: 150px;
+  height: 75px;
+  margin: 10px;
+}
+
+.category-list p {
+  margin-bottom: 0.75em;
+}
+
+.task-list-section {
+  display: table;
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 700;
+  text-transform: none;
+  font-size: 18px;
+  line-height: 1.2;
+  padding-bottom: 5px;
+}
+
+@media (min-width: 641px) {
+  .task-list-section {
+    font-size: 24px;
+    line-height: 1.25;
+  }
+}
+
+.task-list-section-number {
+  display: table-cell;
+  padding-right: 5px;
+}
+
+@media (min-width: 641px) {
+  .task-list-section-number {
+    min-width: 35px;
+    padding-right: 0;
+  }
+}
+
+.task-list-items {
+  margin-bottom: 30px;
+}
+
+@media (min-width: 641px) {
+  .task-list-items {
+    margin-bottom: 60px;
+  }
+}
+
+@media (min-width: 641px) {
+  .task-list-items {
+    padding-left: 35px;
+  }
+}
+
+.task-list-item {
+  border-bottom: 1px solid #bfc1c3;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.task-list-item:first-child {
+  border-top: 1px solid #bfc1c3;
+}
+
+.task-name {
+  width: 66.66667%;
+  float: left;
+}
+
+.task-list {
+    li {
+        position: relative;
+        p {
+            padding-left: 35px;
+        }
+        &.disabled {
+            &:before {
+    content: "";
+    background: rgba(255,255,255,0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+                z-index: 99999;
+            }
+        }
+    }
+}
+
+.task-completed {
+  display: -moz-inline-stack;
+  display: inline-block;
+  margin: 0 8px 0 0;
+  padding: 2px 5px 0;
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 700;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.14286;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #005ea5;
+  float: right;
+  margin-right: 0;
+  padding-top: 3px;
+}
+
+@media (min-width: 641px) {
+  .task-completed {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
