@@ -72,23 +72,17 @@ var chart = c3.generate({
     bindto: '#chart',
     data: {
       columns: [
-        ['data1', 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250],
-        ['data2', 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 321, 22],
-        ['data3', 50, 20, 10, 40, 15, 25, 30, 200, 222, 332, 533, 432],
-        ['data4', 50, 20, 10, 40, 15, 25, 30, 200, 221, 342, 112, 235]
+        ['data1', 30, 65, 100, 150, 310, 360, 450, 590, 600, 600, 550, 550],
+        ['data2', 3, 25, 40, 50, 65, 65, 75, 120, 190, 275, 400, 610]
       ],
         type: 'area-spline',
         colors: {
-            data1: '#d53880',
-            data2: '#2e358b',
-            data3: '#912b88',
-            data3: '#cccccc'
+            data1: '#16ABD6 ',
+            data2: '#51C1A6'
         },
         names: {
-            data1: 'Levy in',
-            data2: 'Traiing costs',
-            data3: 'Co-investment',
-            data4: 'Transfers'
+            data1: 'Salary',
+            data2: 'Pension'
         },
         subchart: {
             show: true
