@@ -1,0 +1,168 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="you-pay-the-levy" id="content" role="main" tabindex="-1">
+
+
+
+
+     <div class="breadcrumbs back-breadcrumb">
+    <ol role="breadcrumbs">
+       <a href="" class="link-back" onclick="goBack()">Back</a>
+    </ol>
+  </div>
+
+
+<div class="grid-row">
+           <div class="column-two-thirds">
+  <h1 class="heading-xlarge">You pay the levy</h1>
+
+ 
+
+     <p>If you’re an employer who pays the apprenticeship levy you will need to set up an account on the apprenticeship service so that you can:</p>
+           <ul class="list list-bullet">
+      <li>receive levy funds for you to spend on apprenticeships</li>
+      <li>manage your apprentices</li>
+      <li>pay your training provider</li>
+      <li>stop or pause payments to your training provider</li>
+    </ul>
+    <p>The government will also add a 10% top-up to the monthly funds you receive in your apprenticeship account.  This will be credited to you monthly.</p>
+
+
+
+    <!--div class="js-accordion-with-descriptions" data-module="accordion-with-descriptions"><div class="subsection-controls js-subsection-controls"><button aria-expanded="false" aria-controls="subsection_content_0 subsection_content_1  ">..Open all Hello</button></div>
+        <div class="subsection-wrapper">
+            <div class="subsection js-subsection">
+              <div class="subsection__header">
+                <h2 class="subsection__title" id="designing-government-services"><button class="subsection__button js-subsection-button" aria-expanded="false" aria-controls="subsection_content_0">If you don't pay the levy</button></h2>
+
+              <span class="subsection__icon"></span></div>
+              <div class="subsection__content js-subsection-content js-hidden" id="subsection_content_0">
+   <p>You pay 10% towards the cost of training and assessing your apprentice. You need to:</p>
+    <ul class="list list-bullet">
+      <li>agree a payment schedule with the training organisation</li>
+      <li>pay them directly for the training</li>
+    </ul>
+    <p>The government will pay the rest (90%) up to the <a href="">funding band maximum</a>. They’ll pay it directly to the training organisation.</p>
+        <p>To get extra funding you may want to explore the following:</p>
+      <ul class="list list-bullet">
+      <li>recieve full funding for your apprentices if you have less than 50 employees</li>
+      <li>incentive payment for taking on 16-18 apprentices</li>
+      <li>incentive payment for employing apprentices who are care leavers or have an educational and health-care plan</li>
+    </ul>
+              </div>
+            </div>
+            <div class="subsection js-subsection">
+              <div class="subsection__header">
+                <h2 class="subsection__title" id="working-with-frontend"><button class="subsection__button js-subsection-button" aria-expanded="false" aria-controls="subsection_content_1">If you pay the levy</button></h2>
+
+              <span class="subsection__icon"></span></div>
+              <div class="subsection__content js-subsection-content js-hidden" id="subsection_content_1">
+      <p>You’ll receive funding for your apprentices through the apprenticeship service, which is <a href="https://www.gov.uk/guidance/pay-apprenticeship-levy">worked out from your annual pay bill</a>.</p>
+      <p>The government will add 10% to the funds in your apprenticeship service account. We will apply this 10% top-up monthly.</p>
+
+              </div>
+            </div>
+
+        </div>
+      </div-->
+<div style="margin-top:35px"></div>
+  <form action="">
+       <label class="form-label-bold" for="">Find out how much funding you'll get?</label>
+    <input id="source" name="source" type="hidden" value="employer">
+    <fieldset>
+      <legend class="visuallyhidden">Find out how much funding you'll get?</legend>
+                        <div class="multiple-choice">
+                          <input id="radio-1" type="radio" name="radio-group" value="yes">
+                          <label for="radio-1">Yes, I'd like to know how much funding i'll have</label>
+                        </div>
+
+                       <div class="multiple-choice">
+                                  <input id="radio-4" type="radio" name="radio-group" value="no">
+                          <label for="radio-4">No, take me back to my task list</label>
+                        </div>
+ </fieldset>
+    <input class="button" id="saveAndContinue" type="button" onclick="whereNow()" style="margin-top:30px" value="Continue">
+  </form>
+</div>
+
+            <div class="column-one-third">
+
+
+                <aside class="related">
+                <h2 class="heading-medium" style="margin-top:10px">Further guidance</h2>
+                <nav role="navigation">
+                      <ul class="robSideNav">
+                            <li><a href="https://www.gov.uk/government/publications/apprenticeship-levy-how-it-will-work/apprenticeship-levy-how-it-will-work">Apprenticehip funding: how it will work</a></li>
+                              <li><a href="https://www.gov.uk/guidance/pay-apprenticeship-levy">Pay Apprenticeship Levy</a></li>
+                                <li><a href="https://www.gov.uk/guidance/manage-apprenticeship-funds">How to register and use the apprenticeship service as an employer</a></li>
+                        </ul>
+                    </nav>
+                           <!--h2 class="heading-medium ">Apprentices</h2>
+                      <nav role="navigation">
+                        <ul class="robSideNav">
+                          <li>
+                            <a href="/change-me-url
+
+
+
+/apprentice-view">View apprenticeships</a>
+                          </li>
+                          <li>
+                            <a href="/change-me-url
+
+
+
+/payment/quote">Review provider offers (2)</a>
+                          </li>
+                          <li>
+                            <a href="#">View contracts</a>
+                          </li>
+                       </ul>
+                    </nav-->
+                 </aside>
+
+        <!--div>
+            <div class="home-figures space-at-bottom">
+                <h2 class="heading-small" >Your current balance is:</h2>
+                <h2 class="bold-xlarge" data-bind="text: displayBalance"></h2> 
+                <p style="font-size:16px; margin-bottom:35px" >on <span data-bind="text: displaySystemDate"></span></p>
+                <a href="/change-me-url
+
+
+
+/history/" >View your statement history</a>
+            </div>
+              <div class="home-figures space-at-bottom">
+                <h2 class="heading-small" >Your committed spending is:</h2>
+                <h2 class="bold-xlarge" >£132,853</h2> 
+                <p style="font-size:16px; margin-bottom:35px" >Until 21 Dec 2021</p>
+                <a href="/change-me-url
+
+
+
+/committed/" >View your committed spending</a>
+            </div>
+            <div class="home-figures space-at-bottom">
+                <h2 class="heading-small" >Your English fraction is</h2>
+                <h2 class="bold-xlarge" >0.81</h2> 
+                <p style="font-size:16px; margin-bottom:35px" >Since 1 April 2017</p>
+
+              <details>
+                <summary><span class="summary">English fraction explained</span></summary>
+                   <div class="panel panel-border-narrow">
+                    <p>The proportion of payroll for an employer that is directly attributable to their English operations (separate from Scottish, Welsh or Northern Irish operations). This will be automatically calculated by HMRC using data on postcode of employee's home address.</p>
+                   </div>
+              </details>
+         </div-->
+
+                
+
+
+
+
+          </div>
+</div>
+
+</main><!-- / #content -->
+{% endblock %}

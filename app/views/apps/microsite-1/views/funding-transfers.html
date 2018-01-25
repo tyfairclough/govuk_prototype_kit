@@ -1,0 +1,99 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+<main class="funding-transfers" id="content" role="main">
+
+
+
+     <div class="breadcrumbs back-breadcrumb">
+    <ol role="breadcrumbs">
+       <a href="" class="link-back" onclick="goBack()">Back</a>
+    </ol>
+  </div>
+
+
+<div class="grid-row">
+           <div class="column-two-thirds">
+  <h1 class="heading-xlarge">Funding transfers</h1>
+
+ 
+
+ <p>Placeholder for funding transfers content:</p>
+    <ul class="list list-bullet">
+      <li>bullet about transfers</li>
+      <li>bullet about transfers</li>
+    </ul>
+    <p>Placeholder for funding transfers content:</p>
+        <p>To get extra funding you may want to explore the following:</p>
+      <ul class="list list-bullet">
+      <li>bullet about transfers</li>
+      <li>bullet about transfers</li>
+    </ul>
+
+
+
+
+    <!--div class="js-accordion-with-descriptions" data-module="accordion-with-descriptions"><div class="subsection-controls js-subsection-controls"><button aria-expanded="false" aria-controls="subsection_content_0 subsection_content_1  ">..Open all Hello</button></div>
+        <div class="subsection-wrapper">
+            <div class="subsection js-subsection">
+              <div class="subsection__header">
+                <h2 class="subsection__title" id="designing-government-services"><button class="subsection__button js-subsection-button" aria-expanded="false" aria-controls="subsection_content_0">If you don't pay the levy</button></h2>
+
+              <span class="subsection__icon"></span></div>
+              <div class="subsection__content js-subsection-content js-hidden" id="subsection_content_0">
+   <p>You pay 10% towards the cost of training and assessing your apprentice. You need to:</p>
+    <ul class="list list-bullet">
+      <li>agree a payment schedule with the training organisation</li>
+      <li>pay them directly for the training</li>
+    </ul>
+    <p>The government will pay the rest (90%) up to the <a href="">funding band maximum</a>. They’ll pay it directly to the training organisation.</p>
+        <p>To get extra funding you may want to explore the following:</p>
+      <ul class="list list-bullet">
+      <li>recieve full funding for your apprentices if you have less than 50 employees</li>
+      <li>incentive payment for taking on 16-18 apprentices</li>
+      <li>incentive payment for employing apprentices who are care leavers or have an educational and health-care plan</li>
+    </ul>
+              </div>
+            </div>
+            <div class="subsection js-subsection">
+              <div class="subsection__header">
+                <h2 class="subsection__title" id="working-with-frontend"><button class="subsection__button js-subsection-button" aria-expanded="false" aria-controls="subsection_content_1">If you pay the levy</button></h2>
+
+              <span class="subsection__icon"></span></div>
+              <div class="subsection__content js-subsection-content js-hidden" id="subsection_content_1">
+      <p>You’ll receive funding for your apprentices through the apprenticeship service, which is <a href="https://www.gov.uk/guidance/pay-apprenticeship-levy">worked out from your annual pay bill</a>.</p>
+      <p>The government will add 10% to the funds in your apprenticeship service account. We will apply this 10% top-up monthly.</p>
+
+              </div>
+            </div>
+
+        </div>
+      </div-->
+
+
+
+<div style="margin-top:35px"></div>
+
+   <form action="">
+       <label class="form-label-bold" for="">Do you want to find apprenticeships to spend your funds on?</label>
+    <input id="source" name="source" type="hidden" value="employer">
+                <fieldset>
+                  <legend class="visuallyhidden">Do you want to find apprenticeships to spend this on?</legend>
+                                    <div class="multiple-choice">
+                                      <input id="radio-1" type="radio" name="radio-group" value="yes">
+                                      <label for="radio-1">Yes, I want to find some apprenticeships</label>
+                                    </div>
+
+                                   <div class="multiple-choice">
+                                              <input id="radio-4" type="radio" name="radio-group" value="no">
+                                      <label for="radio-4">No, take me back to my task list</label>
+                                    </div>
+             </fieldset>
+    <input class="button" id="saveAndContinue" type="button" onclick="whereNow()" style="margin-top:30px" value="Continue">
+  </form>
+
+
+<div class="column-one-third">
+          </div>
+</div>
+</div></main>
+{% endblock %}

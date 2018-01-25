@@ -1,0 +1,104 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="are-you-receiving-funds-from-another-employer" id="content" role="main" tabindex="-1">
+
+
+     <div class="breadcrumbs back-breadcrumb">
+    <ol role="breadcrumbs">
+       <a href="" class="link-back" onclick="goBack()">Cancel and return</a>
+    </ol>
+  </div>
+
+
+<div class="grid-row">
+                    <div class="column-two-thirds">
+
+  <h1 class="heading-xlarge">Are you receiving funds from another employer</h1>
+  <p class="">Employers can transfer funds to other organisations in the apprenticeship service.</p>
+
+  <div style="margin-top:35px"></div>
+
+  <form action="">
+       <label class="form-label-bold" for="">Are you going to receive apprenticeship funds?</label>
+
+
+    <input id="source" name="source" type="hidden" value="employer">
+    <fieldset>
+      <legend class="visuallyhidden">No, I want to find new training and providers</legend>
+
+
+
+                        <div class="multiple-choice">
+                          <input id="radio-1" type="radio" name="radio-group" value="yes">
+                          <label for="radio-1">Yes, I am going to receive a funds transfer</label>
+                        </div>
+
+                       <div class="multiple-choice">
+                                  <input id="radio-4" type="radio" name="radio-group" value="no">
+                          <label for="radio-4">No, I'm not going to receive a funds transfer</label>
+                        </div>
+
+
+ </fieldset>
+
+
+    <input class="button" id="saveAndContinue" type="button" onclick="whereNow()" style="margin-top:30px" value="Continue">
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div style="margin-top:50px"></div>
+    <!-- template to pull in the start tabs so this doesn't get too messy - it is pulling in the tabs -->
+<!-- <div class="js-tabs nav-tabs">
+  <ul class="tabs-nav" id="tabs-nav" role="tablist">
+    <li class="active">
+      <a href="#before-you-start" role="tab" id="tab-before-you-start">Before you start</a>
+    </li>
+    <li class="">
+      <a href="#apprenticeships" role="tab" id="tab-apprenticeships">Another tab</a>
+    </li>
+  </ul>
+</div>
+
+<div class="js-tab-content tab-content">
+        <div class="js-tab-pane tab-pane" id="before-you-start">
+            tings and stuff
+
+        </div>
+</div>
+
+
+ -->
+
+            </div>
+
+             <div class="column-one-third">
+                      <!--aside class="related">
+                        <h2 class="heading-medium" style="margin-top:10px">Existing account</h2>
+                        <nav role="navigation">
+                      <ul class="robSideNav">
+                          <li>
+                            <a href="../login">Sign in</a>
+                          </li>
+
+                        </ul>
+                           </nav>
+                    </aside-->
+            </div>
+</div>
+
+
+</main><!-- / #content -->
+{% endblock %}
