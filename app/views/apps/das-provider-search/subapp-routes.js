@@ -12,6 +12,8 @@ module.exports = function(router, config) {
     
 		/* do stuff to all subapp app pages here */
 		
+
+      
     next()
   
   });

@@ -26,7 +26,7 @@
 {% block body_end %}
 	{{ super() }}
 	{# a block specifically for page scripts that adds the supapp js. #}
-	{% block page_scripts %}
 		<script src="{{ currentApp.urlPaths.scriptsPath + currentApp.config.jsFile | d('sub-application.js') }}" charset="utf-8"></script>
+	{% block page_scripts %}
 	{% endblock %}
 {% endblock %}

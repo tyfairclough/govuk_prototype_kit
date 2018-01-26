@@ -1015,8 +1015,12 @@ span.notification {
         float: left;
         width: 100%;
         box-sizing: border-box;
+        text-transform: capitalize;
         h2 {
             margin: 0 0 5px;
+        }
+        a {
+            text-transform: capitalize;
         }
     }
     li.added {
