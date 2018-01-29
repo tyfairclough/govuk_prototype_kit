@@ -1,0 +1,62 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="forecast-view-commitments" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup form-group">
+           <h1 class="heading-xlarge">
+               Current commitments
+            </h1>
+          <p>SHOW THE USERS THEIR CURRENT COMMITMENTS ADDED TO THE FORECAST</p>          
+        </div>
+      </div>
+    </div>
+    
+    <a class="button" href="forecast-transfer.html?msg=added">Continue</a>
+    <a class="button secondary" href="add-cohort-wizard.html">Add a new cohort</a>
+
+    <h3 class="heading-medium">Commmitments added</h3>
+<table class="responsive">
+        <thead>
+            <tr>
+                <th>Apprenticeship</th>
+                <th>Apprentices <div>16-18 &nbsp;&nbsp;&nbsp; <span class="form-hint" style="display:inline;"> 19+</span></div></th>
+                <th>Cost per apprentice <div>16-18 &nbsp;&nbsp;&nbsp; <span class="form-hint" style="display:inline;"> 19+</span></div></th>
+                <th>Monthly cost</th>
+                <th>Installments</th>
+                <th>Completition payment</th>
+                <th>Total cost</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <tr>
+            <td>Broadcasting<span class="form-hint">Level 3</span></td>
+            <td>1 <span class="form-hint">1</span></td>
+            <td>£3,300.00 <span class="form-hint">£2,700.00</span></td>
+            <td>£400.00</td>
+            <td>12</td>
+            <td>£1,200.00</td>
+            <td>£6,000.00</td>
+        </tr>
+        <tr>
+            <td>Software Testing<span class="form-hint">Level 3</span></td>
+            <td>6 <span class="form-hint">0</span></td>
+            <td>£11,000.00 <span class="form-hint">£0.00</span></td>
+            <td>£3,200.00</td>
+            <td>12</td>
+            <td>£9,600.00</td>
+            <td>£48,000.00</td>
+        </tr>
+
+            </tbody>
+    </table>
+
+    
+    
+</main><!-- / #content -->
+{% endblock %}

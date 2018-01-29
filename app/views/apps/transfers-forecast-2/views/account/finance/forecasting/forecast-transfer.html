@@ -1,0 +1,120 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="transfers-dashboard" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    
+    <div class="success-summary">
+    <h3 class="heading-medium">Estimate saved</h3>
+    <p>The estimated values will remain in your transfer projection until their start date is past date.</p>
+</div>
+         
+    
+<div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+            <h1 class="heading-xlarge">
+        Forecast apprenticeships using transferred funds
+      </h1>
+                
+                <p class="lede">See how much your available transfer funds is impacted by adding more apprenticeship transfers to it</p>
+            
+    
+                
+                <a class="button" href="../forecasting/add-cohort-wizard.html">Add an apprenticeship</a>                
+
+</div>
+        </div>
+    </div> 
+
+  
+    <div id="empty-state" class="hidden">
+                        <h2 class="heading-medium">Transfer projection balance</h2>
+        <table class="" id="">
+                    <thead>
+            <tr>
+                <th>Year</th>
+                <th>Transfer allowance</th>
+                <th>Cost of training <span class="form-hint">Estimated cost of training</span></th>
+                <th>Transfer allowance remaining</th>
+            </tr>
+        </thead>
+        <tbody>
+
+    </tbody>
+            </table>        <span class="form-hint">You currently have no transfers to forecast</span>
+
+        
+                   <h2 class="heading-medium">Apprenticeships transfer projection</h2>
+        <table class="small" id="">
+                    <thead>
+            <tr>
+                <th>Apprenticeship</th>
+                <th>Total cost</th>
+                <th>Cost out 2018/2019</th>
+                <th>Cost out 2019/2020</th>
+                <th>Cost out 2020/2021</th>
+                <th>Cost out 2021/2022</th>
+            </tr>
+        </thead>
+        <tbody>
+
+    </tbody>
+            </table>
+        <span class="form-hint">You currently have no transfers to forecast</span>
+    </div>
+    
+    
+<div id="transactions" class="container" style="">
+                    <h2 class="heading-medium">Transfer projection balance</h2>
+        <table class="small" id="transferProjectionBalance">
+                    <thead>
+            <tr>
+                <th>Year</th>
+                <th>Transfer allowance</th>
+                <th>Cost of training</th>
+                <th>Estimated cost of training</th>
+                <th>Transfer allowance remaining</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2020/2021</td>
+                <td>£999.999</td>
+                <td>£999,999</td>
+                <td>£999,999</td>
+                <td><a href="monthly-transfer-forecast">Details</a></td>
+            </tr>
+    </tbody>
+            </table>
+        <a href="monthly-transfer-forecast.html" class="">View monthly figures</a>
+    </div>    
+
+    <div id="apprenticeships" class="container" style="">
+                    <h2 class="heading-medium">Apprenticeships transfer projection</h2>
+        <table class="small" id="apprenticeshipsTransferProjection">
+                    <thead>
+            <tr>
+                <th>Apprenticeship</th>
+                <th>Start date</th>
+                <th>Duration</th>
+                <th>Total cost of training</th>
+                <th>Cost of training 18/19</th>
+                <th>Cost of training 19/20</th>
+                <th>Cost of training 20/21</th>
+                <th>Cost of training 21/22</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+    </tbody>
+            </table>
+        </div>    
+    <br>
+    <a class="button save">Save estimate</a>
+</main><!-- / #content -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+
+{% endblock %}
