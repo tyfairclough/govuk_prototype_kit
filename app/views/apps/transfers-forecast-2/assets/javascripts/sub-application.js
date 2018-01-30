@@ -67,6 +67,7 @@ var transferForecastEmpty = localStorage.getItem("transferForecastEmpty");
            e.preventDefault(); 
         $(".success-summary").show();          
             $('html, body').animate({ scrollTop: 0 }, 'fast');
+         $(".button.save").addClass("disabled");
 
         });
     
