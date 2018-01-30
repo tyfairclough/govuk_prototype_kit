@@ -1,0 +1,243 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+
+{% block page_title %}
+    FAT - Standards detail page
+{% endblock %}
+
+{% block global_header_text %}
+  ESFA
+{% endblock %}
+
+{{ global_header_text|default('ESFA') }}
+
+{% block inside_header %}
+  {% include "../includes/alpha-banner.html" %}
+{% endblock %}
+
+{% block main_content %}
+
+<main class="provider-detail-single" id="content" role="main" tabindex="-1">
+
+    
+<div class="breadcrumbs">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/sprint/{{sprint}}/provider/detail-multiple.html">ACL Essex</a></li>
+    <li aria-current="page">ACL Basildon</li>
+    
+  </ol>
+</div>    
+    
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-xlarge" id="provider-name">
+                ACL Basildon
+            </h1>
+        </div>
+    </div>
+    <div class="grid-row">
+        <section class="column-two-thirds">
+            <dl class="data-list">
+                <dt>UKPRN:</dt>
+                <dd>10000055</dd>
+            </dl>
+            <br clear="all" />
+                            <h2 class="heading-small">About this Provider</h2>
+                <div class="provider-marketing-info">
+                    <article class="markdown"><p>Abingdon & Witney College offer the best performing apprenticeship programmes in Oxfordshire (Oxfordshire LMI, Winter 2016, p33), with 15/16 timely success rates at 79%, much higher than the national average. We have also recently invested over £30 million in our campuses, creating realistic working environments.
+
+</p>
+<p>Our apprenticeships are great employment preparation, combining work-based and classroom training, apprentices learn the ropes at college and build on this at work, receiving high levels of support throughout their programme.
+
+</p>
+<p>We are currently working with a range of local employers to prepare for the Apprenticeship Levy, if you're not sure where to start then let us help!
+
+</p>
+<p>Call our team now on 01235 216 216 to book a free consultation
+
+</p>
+
+</article>
+                </div>
+            
+            
+
+
+                  
+         <section class="courses">
+
+
+            <h2 class="heading-medium">15 Apprenticeships offered</h2>
+             <table class="responsive">
+                <thead>
+                    <tr>
+                        <th scope="col">Course</th>
+                        <th scope="col">Type</th>
+                        <th scope="col" class="numeric">Level</th>
+                        <th scope="col" class="numeric"></th>
+                    </tr> 
+                </thead>
+                 <tbody>
+                    <tr>
+                        <td data-label="Course">Accounting</td> 
+                        <td><span class="tag tag-new">Standard</span></td>
+                        <td data-label="Level" class="numeric">3</td>
+                        <td data-label="Details" class="numeric"><a href="/sprint/{{sprint}}/course/standard-detail-provider.html">Details</a></td>
+                    </tr>
+                     <tr>
+                        <td data-label="Course">Accounting</td> 
+                        <td><span class="tag tag-new">Standard</span></td>
+                        <td data-label="Level" class="numeric">2</td>
+                        <td data-label="Details" class="numeric"><a href="/sprint/{{sprint}}/course/standard-detail-provider.html">Details</a></td>
+                    </tr>
+                     <tr>
+                        <td data-label="Course">Business and Professional Administration</td> 
+                        <td><span class="tag tag-new">Framework</span></td>
+                        <td data-label="Level" class="numeric">4</td>
+                        <td data-label="Details" class="numeric"><a href="/sprint/{{sprint}}/course/standard-detail-provider.html">Details</a></td>
+                    </tr>
+                     <tr>
+                        <td data-label="Course">CNC Technician</td> 
+                        <td><span class="tag tag-new">Framework</span></td>
+                        <td data-label="Level" class="numeric">3</td>
+                        <td data-label="Details" class="numeric"><a href="/sprint/{{sprint}}/course/standard-detail-provider.html">Details</a></td>
+                    </tr>
+                     <tr>
+                        <td data-label="Course">Fixed assest mangagement</td> 
+                        <td><span class="tag tag-new">Framework</span></td>
+                        <td data-label="Level" class="numeric">3</td>
+                        <td data-label="Details" class="numeric"><a href="/sprint/{{sprint}}/course/standard-detail-provider.html">Details</a></td>
+                    </tr>
+                     <tr>
+                        <td data-label="Course">Groundsman</td> 
+                        <td><span class="tag tag-new">Standard</span></td>
+                        <td data-label="Level" class="numeric">2</td>
+                        <td data-label="Details" class="numeric"><a href="/sprint/{{sprint}}/course/standard-detail-provider.html">Details</a></td>
+                    </tr>
+                     <tr>
+                        <td data-label="Course">Homestay Nurse</td> 
+                        <td><span class="tag tag-new">Framework</span></td>
+                        <td data-label="Level" class="numeric">3</td>
+                        <td data-label="Details" class="numeric"><a href="/sprint/{{sprint}}/course/standard-detail-provider.html">Details</a></td>
+                    </tr>
+                     <tr>
+                        <td data-label="Course">Interior Designer</td> 
+                        <td><span class="tag tag-new">Framework</span></td>
+                        <td data-label="Level" class="numeric">3</td>
+                        <td data-label="Details" class="numeric"><a href="/sprint/{{sprint}}/course/standard-detail-provider.html">Details</a></td>
+                    </tr>
+                     <tr>
+                        <td data-label="Course">Manufacturing engineer</td> 
+                        <td><span class="tag tag-new">Framework</span></td>
+                        <td data-label="Level" class="numeric">4</td>
+                        <td data-label="Details" class="numeric"><a href="/sprint/{{sprint}}/course/standard-detail-provider.html">Details</a></td>
+                    </tr>
+                     <tr>
+                        <td data-label="Course">Network engineer</td> 
+                        <td><span class="tag tag-new">Standard</span></td>
+                        <td data-label="Level" class="numeric">4</td>
+                        <td data-label="Details" class="numeric"><a href="/sprint/{{sprint}}/course/standard-detail-provider.html">Details</a></td>
+                    </tr>
+                 </tbody>
+             </table>
+
+  <div class="pager">
+    
+    <div class="pager-controls">
+      
+      <ul class="pager-items">
+        <li>1</li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+      </ul>
+      
+      <a class="pager-next" href="#">Next</a>
+      
+    </div>
+    
+    <div class="pager-summary">Showing 1 &ndash; 50 of 146 apprenticeships</div>
+    
+  </div>
+        </section>
+            
+            
+
+            
+        </section>
+        
+        <aside class="column-one-third">
+                    
+        <div class="panel--contact form-group">
+                <h2 class="heading-medium">Contact details</h2>
+                <dl>
+
+                    <dt class="apprenticeshipContactTitle">Website:</dt>
+                    <dd>
+                        <a href="http://www.abingdon-witney.ac.uk" rel="external" target="_blank" class="course-link apprenticeshipContact">
+                            ABINGDON AND WITNEY COLLEGE website
+                        </a>
+                    </dd>
+
+                        <dt class="phone-title">Phone number:</dt>
+                        <dd id="phone" class="phone">01235 555585</dd>
+
+                            <dt class="email-title">Email:</dt>
+                            <dd id="email" class="email"><a href="mailto:di.batchelor@abingdon-witney.ac.uk">di.batchelor@abingdon-witney.ac.uk</a></dd>
+
+
+                </dl>
+            </div>    
+            
+       <div class="panel--contact panel--satisfaction">
+                <dl>
+                    <dt>Employer satisfaction:</dt>
+                    <dd>
+                        <div class="rating rating--inline">
+                            <span id="employer-satisfaction" class="rating-93">
+                                93%
+                            </span>
+                                    <div class="progress-container">
+            <div class="progressbar" style="width: 93%"></div>
+        </div>
+
+                        </div>
+                    </dd>
+                    <dt>Learner satisfaction:</dt>
+                    <dd>
+                        <div class="rating rating--inline">
+                            <span id="learner-satisfaction" class="rating-85">
+                                85%
+                            </span>
+                                    <div class="progress-container">
+            <div class="progressbar" style="width: 85%"></div>
+        </div>
+
+                        </div>
+                            <span class="satisfaction-source font-small">
+                                Source: <a href="https://www.gov.uk/government/statistical-data-sets/fe-choices-performance-indicators" target="_blank">Skills Funding Agency FE Choices</a>
+                            </span>
+                    </dd>
+                </dl>
+            </div>     
+                   <div class="provider-disclaimer">
+                <h3 class="heading-small">Content disclaimer</h3>
+                <p class="font-xsmall">
+                    Skills Funding Agency cannot guarantee the accuracy of course information on this site and makes no representations about the quality of any courses which appear on the site. Skills Funding Agency is not liable for any losses suffered as a result of any party relying on the course information provided.
+                </p>
+            </div>
+            
+            <details>
+                    <summary>Explain levels</summary>
+                    <div class="panel panel-border-narrow">
+                        <p>Apprenticeships are set at different levels of difficulty from the equivalent of GCSE (level 2) up to postgraduate (level 7)</p>
+                        <p><a href="https://www.gov.uk/what-different-qualification-levels-mean/overview" target="_blank" rel="external">More about levels</a></p>
+                    </div>
+                </details>
+            
+        </aside>
+
+    </div>
+</main><!-- / #content -->
+{% endblock %}
