@@ -54,6 +54,7 @@
   {% block scripts %}
     {% include "includes/scripts.html" %}
     {% block page_scripts %}{% endblock %}
+		<script src="{{ currentApp.urlPaths.scriptsPath + currentApp.config.jsFile | d('sub-application.js') }}" charset="utf-8"></script>
   {% endblock %}
   <!-- GOV.UK Prototype kit {{releaseVersion}} -->
 {% endblock %}
