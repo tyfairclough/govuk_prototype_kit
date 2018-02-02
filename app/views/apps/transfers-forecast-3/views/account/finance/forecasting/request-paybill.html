@@ -1,0 +1,47 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="transfers-allowance-calc" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    
+<div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+            <h1 class="heading-xlarge">
+CALCULATING YOUR TRANSFER REQUEST      </h1>
+                
+                <p class="lede">TELL THE USER THEY WILL NEED TO ENTER TWO FIELDS TO CALCULATE THEIR TRANSFER ALLOWANCE BEFORE BEING ABLE TO ACCESS THE ESTIMATOR TOOL.</p>
+                <P>USE THIS SERVICE TO:</P>
+                <ul class="list list-bullet">
+                    <li>SEE TRANSFER ALLOWANCE</li>
+                    <li>ESTIMATE TRANSFERS</li>
+                </ul>
+
+    
+                
+
+</div>
+        </div>
+    </div> 
+
+  <div class="grid-row">
+    <div class="column-full">
+<div class="form-group">
+            <label class="form-label" for="levy-value-2">Estimated levy</label>
+            <label for="levy-value-2" class="text-box-unit">£</label>
+            <input class="form-control text-box-with-unit-before money-mask" id="levy-value-2" name="levy-value-2" type="text">
+        </div>
+<div class="form-group">
+            <label class="form-label" for="english-value">English percentage</label>
+            <input class="form-control text-box-with-unit-after" id="english-value" name="english-value" type="text" style="width: 80px">
+            <label for="english-value" class="text-box-unit">%</label>
+        </div>
+      </div>
+    </div>
+    
+                    <a class="button" href="forecast-transfer.html">Continue</a>                
+</main>
+
+
+{% endblock %}
