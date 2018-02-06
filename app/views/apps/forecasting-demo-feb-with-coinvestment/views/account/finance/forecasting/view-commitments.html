@@ -1,0 +1,109 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="forecastViewCommitments" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup form-group">
+           <h1 class="heading-xlarge">
+               Commitments in forecast
+            </h1>
+          <p>SHOW THE USERS THEIR CURRENT COMMITMENTS ADDED TO THE SYSTEM</p>          
+        </div>
+      </div>
+    </div>
+    
+    <a class="button" href="50-employees.html">Continue</a>
+    <a class="button secondary" href="add-cohort-wizard.html">Add a new cohort</a>
+
+  
+
+    <div id="estimated">
+    <h3 class="heading-medium">Prospective commmitments</h3>
+    <p>Commitments you have added so far. You can change these later.</p>    
+<table class="responsive">
+        <thead>
+            <tr>
+                <th>Apprenticeship</th>
+                <th>Apprentices <div>16-18 &nbsp;&nbsp;&nbsp; <span class="form-hint" style="display:inline;"> 19+</span></div></th>
+                <th>Cost per apprentice <div>16-18 &nbsp;&nbsp;&nbsp; <span class="form-hint" style="display:inline;"> 19+</span></div></th>
+                <th>Monthly cost</th>
+                <th>Installments</th>
+                <th>Completition payment</th>
+                <th>Total cost</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <tr>
+            <td>Healthcare Science Assistant<span class="form-hint">Level 2</span></td>
+            <td>11 <span class="form-hint">14</span></td>
+            <td>£4,300 <span class="form-hint">£6,000</span></td>
+            <td>£10,300</td>
+            <td>12</td>
+            <td>£2,600</td>
+            <td>£12,900</td>
+            <td class="numeric"><a href="receive/offer-received-summary.html">Remove</a></td>
+        </tr>
+        <tr>
+            <td>Healthcare Science Assistant<span class="form-hint">Level 2</span></td>
+            <td>11 <span class="form-hint">14</span></td>
+            <td>£4,300 <span class="form-hint">£6,000</span></td>
+            <td>£10,300</td>
+            <td>12</td>
+            <td>£2,600</td>
+            <td>£12,900</td>
+            <td class="numeric"><a href="receive/offer-received-summary.html">Remove</a></td>
+        </tr>
+
+            </tbody>
+
+    </table>
+        </div>
+    <div id="forecasted">
+      <h3 class="heading-medium">Existing commmitments</h3>
+    <p>You can't change these commitments</p>
+<table class="responsive">
+        <thead>
+            <tr>
+                <th>Apprenticeship</th>
+                <th>Apprentices <div>16-18 &nbsp;&nbsp;&nbsp; <span class="form-hint" style="display:inline;"> 19+</span></div></th>
+                <th>Cost per apprentice <div>16-18 &nbsp;&nbsp;&nbsp; <span class="form-hint" style="display:inline;"> 19+</span></div></th>
+                <th>Monthly cost</th>
+                <th>Installments</th>
+                <th>Completition payment</th>
+                <th>Total cost</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <tr>
+            <td>Healthcare Science Assistant<span class="form-hint">Level 2</span></td>
+            <td>11 <span class="form-hint">14</span></td>
+            <td>£4,300 <span class="form-hint">£6,000</span></td>
+            <td>£10,300</td>
+            <td>12</td>
+            <td>£2,600</td>
+            <td>£12,900</td>
+            <td class="numeric"><a href="receive/offer-received-summary.html">Details</a></td>
+        </tr>
+        <tr>
+            <td>Healthcare Science Assistant<span class="form-hint">Level 2</span></td>
+            <td>11 <span class="form-hint">14</span></td>
+            <td>£4,300 <span class="form-hint">£6,000</span></td>
+            <td>£10,300</td>
+            <td>12</td>
+            <td>£2,600</td>
+            <td>£12,900</td>
+            <td class="numeric"><a href="#">Details</a></td>
+        </tr>
+
+            </tbody>
+    </table>
+</div>
+</main><!-- / #content -->
+{% endblock %}

@@ -7,13 +7,27 @@
  <section id="search" xmldata="../assets/providers.html">
 
 		
+     <div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+      <p>
+          Errors to fix
+      </p>
+
+      <ul class="error-summary-list">
+        <li><a href="#example-personal-details">Type at least 3 characters</a></li>
+      </ul>
+
+    </div>
+     
  
 				<section id="results-wrapper" class="">
 					<h1 class="heading-xlarge">Find a training provider by name</h1>
-						<div class="search-header">
+						<div class="search-header form-group form-group-error">  
 							<fieldset class="search-input">
+          <span class="error-message">
+              Error message about personal details goes here
+            </span>                                
 				    		<label for="search-main">
-                                Enter a company name
+                                Enter a training provider name
                                 </label>
 							    <input type="search" name="q" id="search-main">
 				  		</fieldset>
@@ -21,7 +35,7 @@
 								<button type="submit" class="button">Search</button>
 				  		</fieldset>
 						</div>
-				    <p><span class="count"></span><span class="text">Results will appear below</span></p>
+				    <p><span class="count"></span><span class="text">Results will be listed below</span></p>
 				        <div class="grid-row">
 				            <div class="column-two-thirds">
                                 <div id="results">
