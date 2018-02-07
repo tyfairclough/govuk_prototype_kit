@@ -155,7 +155,7 @@ var transferForecastEmpty = localStorage.getItem("transferForecastEmpty");
        for (i = 0; i < data.length; i++) {
              //console.log(i)
            pos = i + 1;
-content += '<tr><td class="nowrap">'+data[i].year+'</td><td class="financial">£'+data[i].transfer_allowance+'</td><td class="financial hidden">£'+data[i].actual_cost_of_training+'</td><td class="financial">£'+data[i].estimated_cost_of_training+'</td><td class="financial">£'+data[i].transfer_allowance_remaining+'</td></tr>';
+content += '<tr><td class="nowrap">'+data[i].year+'</td><td class="financial">£'+data[i].transfer_allowance+'</td><td class="financial">£'+data[i].actual_cost_of_training+'</td><td class="financial">£'+data[i].estimated_cost_of_training+'</td><td class="financial">£'+data[i].transfer_allowance_remaining+'</td></tr>';
            renderTable(content);
             }
         }   
