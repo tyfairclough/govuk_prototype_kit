@@ -311,6 +311,13 @@ content += '<tr><td class="nowrap">'+data[i].month+'</td><td class="financial">Â
 
 
     
+/*----- UN-POPULATED BALANCES -----*/
+
+    
+/*----- POPULATED BALANCES -----*/
+
+    
+    
 
 
 // global js
