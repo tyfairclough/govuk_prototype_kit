@@ -67,9 +67,10 @@ var transferForecastEmpty = localStorage.getItem("transferForecastEmpty");
         
         $( "#cohortsNew" ).change(function() {
         var appCount = $(this).val();
-            $("#levy-value").val(appCount*estimatePrice);
+            $("#levy-value").text(appCount*estimatePrice);
             $(".grand-total span").text(appCount*estimatePrice);
-            $("#levy-length").val(levyLength)
+            $("#levy-length").text(levyLength)
+            $(".change-me,.change-me2").removeClass("hidden");
             
 });
         
@@ -317,8 +318,53 @@ content += '<tr><td class="nowrap">'+data[i].month+'</td><td class="financial">Â
 /*----- POPULATED BALANCES -----*/
 
     
+    $(document).ready(function() {
+        
+        $.fn.editable.defaults.mode = 'inline';
+        
+        
+$.fn.editableform.buttons = 
+  '<input class="button editable-submit" type="submit" value="Save">'
++
+ '<button type="button" class="button editable-cancel text-link">Cancel</button>';  
+  
     
+        
+$('.change-me').click(function(e){
+    e.stopPropagation();
+ $('#levy-value').editable('toggle');
+    $(this).toggle();
+});
+        
+        
+$('.change-me2').click(function(e){
+    e.stopPropagation();
+ $('#levy-length').editable('toggle');
+    $(this).toggle();
+});
+        
+});
+    
+    
+    $('#levy-value').on('save', function(e, params) {
+    $('.change-me').toggle();
+});
+  
+    $('#levy-length').on('save', function(e, params) {
+    $('.change-me2').toggle();
+});
 
+    /*
+    
+                $('#levy-value').editable({
+    type: 'text',
+    title: 'Enter cost',
+    success: function(response, newValue) {
+        alert("posted");    
+    }
+});
+
+*/
 
 // global js
     

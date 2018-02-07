@@ -3798,3 +3798,13 @@ table.results-table td.training-column {
     margin: 0 5px;
     }
 }
+
+#apprenticeshipsTransferProjection {
+    tbody {
+        tr {
+            &:first-child {
+                background: red;
+            }
+        }
+    }
+}
