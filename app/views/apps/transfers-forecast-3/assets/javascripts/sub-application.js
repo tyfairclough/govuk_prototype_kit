@@ -155,7 +155,7 @@ var transferForecastEmpty = localStorage.getItem("transferForecastEmpty");
        for (i = 0; i < data.length; i++) {
              //console.log(i)
            pos = i + 1;
-content += '<tr><td class="nowrap">'+data[i].year+'</td><td class="financial">£'+data[i].transfer_allowance+'</td><td class="financial hidden">£'+data[i].actual_cost_of_training+'</td><td class="financial">£'+data[i].estimated_cost_of_training+'</td><td class="financial">£'+data[i].transfer_allowance_remaining+'</td></tr>';
+content += '<tr><td class="nowrap">'+data[i].year+'</td><td class="financial">£'+data[i].transfer_allowance+'</td><td class="financial hidden">£'+data[i].actual_cost_of_training+'</td><td class="financial">£'+data[i].actual_cost_of_training+'</td><td class="financial">£'+data[i].estimated_cost_of_training+'</td><td class="financial">£'+data[i].transfer_allowance_remaining+'</td></tr>';
            renderTable(content);
             }
         }   
@@ -188,7 +188,7 @@ content += '<tr><td class="nowrap">'+data[i].year+'</td><td class="financial">£
        for (i = 0; i < data.length; i++) {
              //console.log(i)
            pos = i + 1;
-content += '<tr><td class="financial">'+data[i].start_date+'</td><td class="nowrap">'+data[i].Apprenticeship+'<span class="form-hint">level '+ data[i].apprenticeship_level +'</span></td><td class="financial">'+data[i].duration+'</td><td class="financial">£'+data[i].total_cost+'</td><td class="financial">£'+data[i].cost_in_1819+'</td><td class="financial">£'+data[i].cost_in_1920+'</td><td class="financial">£'+data[i].cost_in_2021+'</td><td class="financial">£'+data[i].cost_in_2122+'</td><td><a href="edit-apprenticeship" class="edit-apprenticeship">Edit</a> <a href="remove-cohort-confirm" class="remove-apprenticeship">Remove</a></td></tr>';
+content += '<tr><td class="financial">'+data[i].start_date+'</td><td class="nowrap">'+data[i].Apprenticeship+'<span class="form-hint">level '+ data[i].apprenticeship_level +'</span></td><td class="financial">'+data[i].duration+'</td><td class="financial">£'+data[i].total_cost+'</td><td class="financial">£'+data[i].cost_in_1819+'</td><td class="financial">£'+data[i].cost_in_1920+'</td><td class="financial">£'+data[i].cost_in_2021+'</td><td class="financial">£'+data[i].cost_in_2122+'</td><td><a href="edit-apprenticeship" class="edit-apprenticeship">edit</a> <a href="remove-cohort-confirm" class="remove-apprenticeship">remove</a></td></tr>';
            renderTable2(content);
             }
         }   

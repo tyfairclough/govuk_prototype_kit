@@ -43,15 +43,27 @@ var transferForecastEmpty = localStorage.getItem("transferForecastEmpty");
        case 'forecast-add-cohort-wizard':
            forecastAddCohortWizard();
        break;
+       case 'forecast-name-forecast':
+           forecastNameForecast();
+       break;
        case 'transfers-allowance-calc':
             transfersAllowanceCalc();
        default: break;
 }
 
+    
+    function forecastNameForecast() {
+        $(".button").click(function(e){
+            e.preventDefault();
+            localStorage.setItem("transferForecastState","saved");
+            localStorage.setItem("transferForecastSavedNames",$("input").val());
+            window.location.href = 'forecast-transfer?msg=saved'
+        })
+    }
 
     function forecastAddCohortWizard(){
         
-        
+
         $(".button.save").click(function(e){
             e.preventDefault();
             localStorage.setItem("transferForecastState","populated");
@@ -65,10 +77,19 @@ var transferForecastEmpty = localStorage.getItem("transferForecastEmpty");
         });
         
         
+        $(".button.cancel").click(function(e){
+            e.preventDefault();
+            localStorage.setItem("transferForecastState","empty");
+            
+            window.location.href = 'forecast-transfer'            
+        })
+        
         $( "#cohortsNew" ).change(function() {
         var appCount = $(this).val();
-            $("#levy-value").text(appCount*estimatePrice);
-            $(".grand-total span").text(appCount*estimatePrice);
+            var appValue = appCount*estimatePrice;
+            
+            $("#levy-value").text("£" + appValue);
+//            $(".grand-total span").text("£" +appCount*estimatePrice);
             $("#levy-length").text(levyLength)
             $(".change-me,.change-me2").removeClass("hidden");
             
@@ -79,7 +100,7 @@ var transferForecastEmpty = localStorage.getItem("transferForecastEmpty");
     function forecastViewCommitments() {
         $(".button").click(function(e){
             e.preventDefault();
-            localStorage.setItem("transferForecastEmpty",false);
+            localStorage.setItem("transferForecastState","populated");
             window.location.href = 'forecast-transfer';
             
         })
@@ -87,8 +108,16 @@ var transferForecastEmpty = localStorage.getItem("transferForecastEmpty");
     
             function transfersAllowanceCalc(){
             
+                
+                 $(".money-mask").mask("999,999,999",{reverse: true});
+                
             $(".button").click(function(e){
                 e.preventDefault();
+
+                var a = $(".money-mask").val();
+                a=a.replace(/\,/g,''); // 1125, but a string, so convert it to number
+                var transferAllowance=parseInt(a,10);                    
+                localStorage.setItem("transferAllowance",transferAllowance);                    
                 localStorage.setItem("transferForecastState","empty")
                 var levy = $("#levy-value-2").val();
                 var english = $("#english-value").val();
@@ -131,10 +160,36 @@ var transferForecastEmpty = localStorage.getItem("transferForecastEmpty");
         }
 
 
+        
+        $(".button.save").click(function(e){
+            e.preventDefault();
+            localStorage.setItem("transferForecastState","populated");
+            
+            window.location.href = 'name-forecast'
+        });        
+        
     
+                    var pageState = localStorage.getItem("transferForecastState");
+        
+        
+        if ( pageState == "saved") {
+            populateTransferEstimate();
+            $("#savedEstimates span").hide()
+            $("#savedEstimates ul").show()
+        } else if ( pageState == "populated") {
+            populateTransferEstimate();
+            $("#savedEstimates span").show()
+            $("#savedEstimates ul").hide()            
+        } else {
+            emptyTransferEstimate();            
+            $("#savedEstimates span").show()
+            $("#savedEstimates ul").hide() 
+        }
+
     
         
-    if ( transferForecastEmpty != null ) {
+        function populateTransferEstimate(){
+
         
  var publicSpreadsheetUrl1 = 'https://docs.google.com/spreadsheets/d/1QxyoHTHzaVwbxXbGHQyAWxVGXgTq44lVxQeaB7Bldns/pubhtml';
   
@@ -189,7 +244,7 @@ content += '<tr><td class="nowrap">'+data[i].year+'</td><td class="financial">£
        for (i = 0; i < data.length; i++) {
              //console.log(i)
            pos = i + 1;
-content += '<tr><td class="financial">'+data[i].start_date+'</td><td class="nowrap">'+data[i].Apprenticeship+'<span class="form-hint">level '+ data[i].apprenticeship_level +'</span></td><td class="financial">'+data[i].duration+'</td><td class="financial">£'+data[i].total_cost+'</td><td class="financial">£'+data[i].cost_in_1819+'</td><td class="financial">£'+data[i].cost_in_1920+'</td><td class="financial">£'+data[i].cost_in_2021+'</td><td class="financial">£'+data[i].cost_in_2122+'</td><td><a href="edit-apprenticeship" class="edit-apprenticeship">Edit</a> <a href="remove-cohort-confirm" class="remove-apprenticeship">Remove</a></td></tr>';
+content += '<tr><td class="financial">'+data[i].start_date+'</td><td class="nowrap">'+data[i].Apprenticeship+'<span class="form-hint">level '+ data[i].apprenticeship_level +'</span></td><td class="financial">'+data[i].duration+'</td><td class="financial">£'+data[i].total_cost+'</td><td class="financial">£'+data[i].cost_in_1819+'</td><td class="financial">£'+data[i].cost_in_1920+'</td><td class="financial">£'+data[i].cost_in_2021+'</td><td class="financial">£'+data[i].cost_in_2122+'</td><td><a href="edit-apprenticeship" class="edit-apprenticeship">edit</a> <a href="remove-cohort-confirm" class="remove-apprenticeship">remove</a></td></tr>';
            renderTable2(content);
             }
         }   
@@ -246,16 +301,17 @@ content += '<tr><td class="nowrap">'+data[i].month+'</td><td class="financial">�
                     transferMonthlyForecast();
                 });
     
-                 $(".button.save").removeClass("disabled");
-           
-    } else {
+                 $(".button.save").removeClass("disabled");            
+        }
+        
+        function emptyTransferEstimate(){
         $("#empty-state").removeClass("hidden");
         $("#transactions, #apprenticeships").hide();
         console.log("new state")
         
-        transferEmpty();
-        
-    }
+        transferEmpty();            
+        }
+
     
     
     
