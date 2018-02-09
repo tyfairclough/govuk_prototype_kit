@@ -1,0 +1,181 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="transfers-dashboard" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    
+    <div class="success-summary hidden" id="apprenticeshipAdded">
+    <h3 class="heading-medium">Apprenticeship added</h3>
+    <p>The apprenticeship {apprenticeship} has been added.</p>
+</div> 
+    
+    <div class="success-summary hidden" id="apprenticeshipUpdated">
+    <h3 class="heading-medium">Apprenticeship updated</h3>
+    <p>The apprenticeship {apprenticeship} has been updated.</p>
+</div>    
+    
+    <div class="success-summary hidden" id="confirmRemoved">
+    <h3 class="heading-medium">Apprenticeship deleted</h3>
+    <p>The apprenticeship {apprenticeship} has been deleted.</p>
+</div>
+    
+    <div class="success-summary hidden" id="estimateSaved">
+    <h3 class="heading-medium">Estimate saved</h3>
+    <p>Your estimate has been saved as [file name].</p>
+</div>
+         
+    
+<div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+            <h1 class="heading-xlarge">
+        Estimate the cost of apprenticeships 
+
+      </h1>
+                
+                <p class="lede">Calculate how many apprenticeships you can pay for from your available transfer funds.</p>
+                      
+                <a class="button" href="../forecasting/add-cohort-wizard.html">Add an apprenticeship</a>                
+    <a class="button save secondary" href="name-forecast.html">Save estimate</a>
+
+</div>
+            
+
+        </div>
+    <div class="column-third">
+        <div class="related"  id="savedEstimates">
+            <h3 class="heading-medium">Saved transfer estimates:</h3>
+            <span class="form-hint">You don’t have any saved.</span>
+            <ul class="list bullet-list">
+                <li><a href="#">Default 1</a></li>
+                <li><a href="#">Default 2</a></li>
+            </ul>
+        </div>
+    </div>
+    </div> 
+
+  
+    <section id="empty-state" class="hidden">
+                        <h2 class="heading-medium">Transfer projection balance</h2>
+                                    <details class="text">
+                <summary>What do the figures mean?</summary>
+              <div class="panel panel-width-thin">
+           <p>The &lsquo;transfer allowance&rsquo; column shows 10% of your total levy funds taken from the previous tax year. </p> 
+
+<p>The &lsquo;actual cost of training&rsquo; column shows the actual cost of the apprenticeships that you’ve selected to fund with you transfer. This includes the completion payments.  
+</p>
+<p>The &lsquo;transfer allowance remaining&rsquo; column shows the difference between the transfer allowance and the apprentices you’ve already selected to fund. 
+</p>         
+                    </div>  
+
+            </details>
+        <table class="" id="empty-table">
+                    <thead>
+            <tr>
+                <th>Tax year</th>
+                <th>Transfer allowance</th>
+                <th>Actual cost of training </th>
+                <th>Estimated cost of training</th>
+                <th>Transfer allowance remaining</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2018/19</td>
+                <td>£100,000</td>
+                <td>£0</td>
+                <td>£0</td>
+                <td>£100,000</td>
+            </tr>
+    </tbody>
+            </table>        <span class="form-hint">You currently have no transfers forecast, <a href="add-cohort-wizard.html">Add an apprenticeship</a> to see the estimated transfer costs.</span>
+
+        
+                   <h2 class="heading-medium">Estimated transfer costs by apprenticeships</h2>
+        <p class="text">This table shows the cost of apprenticeships that you've added to your estimate which is shown over the tax year.</p>
+        <table class="small" id="">
+                    <thead>
+            <tr>
+                <th>Apprenticeship</th>
+                <th>Total cost</th>
+                <th>2018/2019</th>
+                <th>2019/2020</th>
+                <th>2020/2021</th>
+                <th>2021/2022</th>
+            </tr>
+        </thead>
+        <tbody>
+
+    </tbody>
+            </table><span class="form-hint">You currently have no transfers forecast, <a href="add-cohort-wizard.html">Add an apprenticeship</a> to see the estimated transfer costs.</span>
+    </section>
+    
+    <section id="populated-state">
+<div id="transactions" class="container" style="">
+                    <h2 class="heading-medium">Transfer projection balance</h2>
+                <details class="text">
+                <summary>What do the figures mean?</summary>
+              <div class="panel panel-width-thin">
+           <p>The ‘transfer allowance’ column shows 10% of your total levy funds taken from the previous tax year. </p> 
+
+<p>The ‘actual cost of training’ column shows the actual cost of the apprenticeships that you’ve selected to fund with you transfer funds.  
+</p>
+<p>The ‘transfer allowance remaining’ column shows the difference between the transfer allowance and the apprentices you’ve already selected to fund. 
+</p>         
+                    </div>  
+
+            </details>
+        <table class="small" id="transferProjectionBalance">
+                    <thead>
+            <tr>
+                <th>Tax year</th>
+                <th>Transfer allowance</th>
+                <th class="">Actual cost of training</th>
+                <th>Your estimated cost of training</th>
+                <th>Transfer allowance remaining</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2020/2021</td>
+                <td>£999.999</td>
+                <td>£999,999</td>
+                <td>£999,999</td>
+                <td><a href="monthly-transfer-forecast">Details</a></td>
+            </tr>
+    </tbody>
+            </table>
+        <a href="monthly-transfer-forecast.html" class="hidden">View monthly figures</a>
+    </div>    
+
+    <div id="apprenticeships" class="container" style="">
+                   <h2 class="heading-medium">Estimated transfer costs by apprenticeships</h2>
+        <p class="text">This table shows the cost of apprenticeships that you've added to your estimate which is shown over the tax year.</p>
+        <table class="small" id="apprenticeshipsTransferProjection">
+                    <thead>
+            <tr>
+                <th>Start date</th>
+                <th>Apprenticeship</th>
+                <th>Number of apprenitces</th>
+                <th>Total cost of training</th>
+                <th>2018/2019</th>
+                <th>2019/2020</th>
+                <th>2020/2021</th>
+                <th>2021/2022</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+    </tbody>
+            </table>
+        </div>    
+    <br>
+    </section>
+    
+    
+</main><!-- / #content -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+
+{% endblock %}

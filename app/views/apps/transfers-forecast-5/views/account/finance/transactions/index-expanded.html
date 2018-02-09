@@ -1,0 +1,463 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="finance-transactions-expanded" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    
+    
+<div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+            <h1 class="heading-xlarge">Your transactions</h1>
+                <p class="lede">A record of payments made to and from your levy balance.</p>
+            </div>
+        </div>
+</div> 
+
+        <div class="grid-row" data-module="highlight-active-section-heading">
+		<div id="transactions-aside">
+			<!--  Page contents -->
+			<nav aria-label="skip to job profile" class="page-contents js-page-contents js-stick-at-top-when-scrolling js-sticky-resize">
+				<h2 class="page-contents__title">Skip to month:</h2>
+				<ul class="page-contents__list">
+					<li>December 17</li>
+					<li><a href="#november17" class="active">November 17</a></li>
+	                <li><a href="#october17">October 17</a></li>
+	                <li><a href="#september17">September 17</a></li>
+					<li><a href="#august17">August 17</a></li>							   
+	                <li><a href="#july17">July 17</a></li>
+	                <li><a href="#june17">June 17</a></li>
+	                <li><a href="#may17">May 17</a></li>
+		            <li><a href="#april17">April 17</a></li>
+		            <li><a href="#march17">March 17</a></li>
+		            <li><a href="#march17">2016</a></li>
+				</ul>
+                <br>
+				<h2 class="page-contents__title">Skip to year:</h2>
+                <ul class="page-contents__list">
+		            <li><a href="#march17">2018</a></li>                    
+		            <li><a href="#march17">2017</a></li>                    
+                </ul>
+			</nav>
+		</div>
+            
+            <div id="transaction-wrapper">
+                
+                <div id="transaction-header" class="row">
+                    <div class="date">Date</div>
+                    <div class="description">Description</div>
+                    <div class="amount">Amount</div>
+                    <div class="details">&nbsp;</div>
+                </div>
+                <div id="transaction-rows">
+                    <div id="november17">
+                        <div  class="row">
+                            <div class="date">22 November</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 November</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 November</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 November</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>                        
+                    </div> 
+                    <div id="october17">
+                        <div  class="row">
+                            <div class="date">22 October</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 October</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 October</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 October</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 October</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 October</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 October</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 October</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 October</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 October</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 October</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 October</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>                        
+                    </div> 
+                    <div id="september17">
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>  
+                        <div  class="row">
+                            <div class="date">22 September</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>                        
+                    </div>     
+                    <div id="august17">
+                        <div  class="row">
+                            <div class="date">22 August 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 August 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 August 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 August 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 August 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 August 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 August 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 August 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 August 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 August 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>                     
+                    </div>
+                    <div id="july17">
+                        <div  class="row">
+                            <div class="date">22 July 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 July 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 July 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                        <div  class="row">
+                            <div class="date">22 July 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                    </div>
+                    <div id="june17">
+                        <div  class="row">
+                            <div class="date">22 June 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>
+                        <div  class="row">
+                            <div class="date">22 June 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>
+                        <div  class="row">
+                            <div class="date">22 June 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>
+                        <div  class="row">
+                            <div class="date">22 June 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>
+                        <div  class="row">
+                            <div class="date">22 June 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div> 
+                    </div>
+                    <div id="may17">
+                        <div  class="row">
+                            <div class="date">22 May 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>
+                        <div  class="row">
+                            <div class="date">22 May 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>
+                        <div  class="row">
+                            <div class="date">22 May 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>
+                        <div  class="row">
+                            <div class="date">22 May 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>
+                        <div  class="row">
+                            <div class="date">22 May 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>
+                    </div>
+                    <div id="april17">
+                        <div  class="row">
+                            <div class="date">22 April 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>
+                        <div  class="row">
+                            <div class="date">22 April 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>
+                        <div  class="row">
+                            <div class="date">22 April 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>
+                    </div>
+                    <div id="march17">
+                        <div  class="row">
+                            <div class="date">22 March 17</div>
+                            <div class="description">Levy funds</div>
+                            <div class="amount">£5,000.00</div>
+                            <div class="details"><a href="#">Details</a></div>                        
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+
+    </div>
+
+</main><!-- / #content -->
+{% endblock %}
