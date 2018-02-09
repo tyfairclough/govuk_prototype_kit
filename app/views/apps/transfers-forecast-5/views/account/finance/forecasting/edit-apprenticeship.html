@@ -3,14 +3,32 @@
     <a href="#" class="link-back">Back</a>
 
     
-    <div class="grid-row">
-        <div class="column-two-thirds">
-            <div class="success-summary hidden">
-                <h3 class="heading-medium">Apprenticeship removed</h3>
-                <p>You have removed an apprenticeship from your estimation. <a href="#">Undo</a></p>
-            </div>
-        </div>
-    </div>
+
+        <div class="error-summary hidden" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+
+      <h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+        Errors to fix
+      </h2>
+
+      <p>
+        Please check the details you have entered against the criteria needed.
+      </p>
+
+<ul class="error-summary-list list list-links">
+    <li class="hidden" id="noStandardSelected"><a href="#standardNew">Please ensure you have selected an apprenticeship standard.</a></li>
+    <li class="hidden" id="noNumberOfApprentices"><a href="#cohortsNew">Please enter a number of apprentices equal to or greater than 1.</a></li>
+    <li class="hidden" id="wrongYears"><a href="#startDateYear">The start year for an apprenticeship must be either 2018 or 2019.</a></li>
+    <li class="hidden" id="wrong2018month"><a href="#startDateMonth">Apprenticeships starting in 2018 must start after May (05).</a></li>
+    <li class="hidden" id="wrong2019month"><a href="#startDateMonth">Apprenticeships starting in 2019 must start before the end of the academic year of September (09).</a></li>
+    <li class="hidden" id="overCap"><a href="#levy-value">The total cost can not be above the government funding cap for this estimate, lower your total cost to fix this.</a></li>
+    <li class="hidden" id="noCost"><a href="#levy-value">You need to declare a total cost of the apprenticeships added.</a></li>
+    <li class="hidden" id="noLength"><a href="#levy-length">The number of months was not entered, you need to enter a number greater than or equal to 12 here.</a></li>
+    <li class="hidden" id="shortLength"><a href="#levy-length">Apprenticeships must last at least 12 months, you need to enter a number greater than or equal to 12 here.</a></li>
+</ul>
+
+    </div>   
+    
+
     
     
     <div class="grid-row">
@@ -30,6 +48,8 @@
             <form>
                 <div class="form-group">
                     <label class="form-label-bold" for="email">Choose your apprenticeship standard</label>
+                    <span class="error-message hidden">Please ensure you have selected an apprenticeship standard.</span>
+                    
                     <select name="apprenticeship" id="standardNew" class="form-control training-standard select2-control select2-hidden-accessible" aria-label="Training apprenticeship" tabindex="-1" aria-hidden="true">
                                 <option value="noselection">Select one</option>
                                     <option value="34" data-price="9000" data-duration="18">Able seafarer (deck) - Level 2</option>
@@ -829,13 +849,18 @@
 
                 <div class="form-group">
                     <label class="form-label-bold" for="email">Number of apprentices</label>
+                    <span class="error-message hidden">Please enter a number of apprentices equal to or greater than 1.</span>
                     <input name="cohorts" id="cohortsNew" type="number" class="form-control cohort-size" aria-label="Number of apprentices" min="1" max="1000000" style="width: 50px;">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" id="dateWrapper">
                     <fieldset>
                         <legend class="form-label-bold">Start date</legend>
                         <span class="form-hint">A date detween May 2018 and September 2019</span>
+                        <span class="error-message hidden" id="declareDate">The start year for an apprenticeship must be either 2018 or 2019.</span>
+                        <span class="error-message hidden" id="2018montherror">Apprenticeships starting in 2018 must start after May (05).</span>
+                        <span class="error-message hidden" id="2019montherror">Apprenticeships starting in 2019 must start before the end of the academic year of September (09).</span>
+                        
                         <div class="form-date">
                             <div class="form-group form-group-month">
                                 <label for="startDateMonth">Month</label>
@@ -852,10 +877,16 @@
 
                 <div class="form-group">
                     <label class="form-label-bold" for="levy-value">Total cost</label>
+                        <span class="form-hint">Only change this if you have negotiated a cost lower than the government funding cap</span>
+                        <span class="error-message hidden">You need to declare a total cost of the apprenticeships added.</span>
+                        <span class="error-message hidden">The total cost can not be above the government funding cap for this estimate, lower your total cost to fix this.</span>
                     <input class="form-control" id="levy-value" name="levy-value" type="text" />
                 </div>
                 <div class="form-group">
                     <label class="form-label-bold" for="levy-length">Number of months</label>
+                        <span class="form-hint">All apprenticeships must be at leas 12 months</span>                    
+                        <span class="error-message hidden">The number of months was not entered, you need to enter a number greater than or equal to 12 here.</span>
+                        <span class="error-message hidden">Apprenticeships must last at least 12 months, you need to enter a number greater than or equal to 12 here.</span>
                     <input class="form-control" id="levy-length" name="levy-length" type="text" style="width: 50px;" />
                 </div>
             </form>
@@ -867,7 +898,6 @@
 
         <div class="column-full">
             <a class="button save" href="forecast-transfer?msg=updated">Save and continue</a>
-                        <a class="add-another button text-link" href="#">Save and add another apprenticeship</a>   
             <a class="button text-link pull-right" href="#" style="float:right;">Cancel</a>
 
         </div>
