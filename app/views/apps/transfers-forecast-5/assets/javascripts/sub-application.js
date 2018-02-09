@@ -60,12 +60,36 @@ var fieldHasError = false;
 
     
     function forecastNameForecast() {
-        $(".button").click(function(e){
-            e.preventDefault();
+        
+        
+                
+ $(".button").click(function(e){
+    e.preventDefault(); 
+    state = $("input[name=radio-group]:checked").val()                  
+    switch (state) {
+        case 'Yes':
+            // do something if they select the "yes" options
+
             localStorage.setItem("transferForecastState","saved");
-            localStorage.setItem("transferForecastSavedNames",$("input").val());
-            window.location.href = 'forecast-transfer?msg=saved'
-        })
+            localStorage.setItem("transferForecastSavedNames",$("#contact-email").val());
+            window.location.href = 'forecast-transfer?msg=saved';
+            
+            
+        break;
+        case 'No':
+            // do something if they select the "no" options
+            localStorage.setItem("transferForecastState","saved");
+            window.location.href = 'forecast-transfer?msg=saved';
+        break;
+        default: 
+            // if they select nothing 
+            alert("select an option");
+            window.location.href = 'forecast-transfer?msg=saved';
+        break;
+    }                        
+});       
+            
+        
     }
 
     function forecastAddCohortWizard(){
@@ -291,7 +315,10 @@ var fieldHasError = false;
                         $(".error-message").removeClass("hidden");
                         
                     }
-            })
+            });
+                
+                
+                         
             
         }
     
