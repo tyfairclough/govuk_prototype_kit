@@ -44,7 +44,7 @@
   {% if useAutoStoreData %}
     <ul>
       <li>
-        <a href="/prototype-admin/clear-data">Clear data</a>
+        <a href="#" id="clearData">Clear data</a>
       </li>
     </ul>
   {% endif %}
@@ -55,6 +55,8 @@
     {% include "includes/scripts.html" %}
     {% block page_scripts %}{% endblock %}
 		<script src="{{ currentApp.urlPaths.scriptsPath + currentApp.config.jsFile | d('sub-application.js') }}" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.3/chosen.jquery.min.js"></script>
+
   {% endblock %}
   <!-- GOV.UK Prototype kit {{releaseVersion}} -->
 {% endblock %}

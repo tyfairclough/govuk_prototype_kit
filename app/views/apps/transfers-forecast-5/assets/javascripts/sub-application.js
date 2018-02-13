@@ -29,6 +29,13 @@ var fieldHasError = false;
         e.preventDefault();
            window.history.back(); 
     });
+    
+    
+    $("#clearData").click(function(e){
+        e.preventDefault();
+        localStorage.clear();
+        location.reload();
+    })
 
 
    switch (className) {
@@ -65,11 +72,10 @@ var fieldHasError = false;
                 
  $(".button").click(function(e){
     e.preventDefault(); 
-    state = $("input[name=radio-group]:checked").val()                  
+    state = $("input[name=radio-contact-group]:checked").val()                  
     switch (state) {
         case 'Yes':
             // do something if they select the "yes" options
-
             localStorage.setItem("transferForecastState","saved");
             localStorage.setItem("transferForecastSavedNames",$("#contact-email").val());
             window.location.href = 'forecast-transfer?msg=saved';
@@ -83,8 +89,8 @@ var fieldHasError = false;
         break;
         default: 
             // if they select nothing 
-            alert("select an option");
-            window.location.href = 'forecast-transfer?msg=saved';
+            console.log("select an option");
+            //window.location.href = 'forecast-transfer?msg=saved';
         break;
     }                        
 });       
@@ -94,6 +100,12 @@ var fieldHasError = false;
 
     function forecastAddCohortWizard(){
         
+        $("#standardNew").chosen()
+        
+        
+        if ( (localStorage.getItem("transferForecastState") == "populated") || ( localStorage.getItem("transferForecastState") == "saved") ) {
+            $("#existingApps").removeClass("hidden");
+        }
         
         if ( msg == "added" ) {
             $("#apprenticeshipAdded").removeClass("hidden")
@@ -286,6 +298,15 @@ var fieldHasError = false;
     }
     
             function transfersAllowanceCalc(){
+                
+                
+                transferForecastState = localStorage.getItem("transferForecastState")
+                
+                if ( (transferForecastState == null) || (transferForecastState == "") ) {
+                    // do nothing
+                } else {
+                    window.location.href = "forecast-transfer"
+                }
             
                 
                  $(".money-mask").mask("999,999,999",{reverse: true});
@@ -323,7 +344,22 @@ var fieldHasError = false;
         }
     
     function transfersDashboard(){
-                
+        
+        
+        $("#estimateSaved p span, .estimateSavedName").text(localStorage.getItem("transferForecastSavedNames"));
+
+        
+        $(".button.new").click(function(e){
+            e.preventDefault();
+            localStorage.setItem("transferForecastState","empty")
+            location.reload();
+        })
+        
+        $("#editAllowance").click(function(e){
+            e.preventDefault();
+            localStorage.setItem("transferForecastState","");
+            window.location.href = "request-paybill";
+        })
         
         if ( msg == "added") {
           $("#apprenticeshipAdded").removeClass("hidden");  

@@ -22,7 +22,7 @@
     
     <div class="success-summary hidden" id="estimateSaved">
     <h3 class="heading-medium">Estimate saved</h3>
-    <p>Your estimate has been saved as [file name].</p>
+    <p>Your estimate has been saved as <span>Default 1</span>.</p>
 </div>
          
     
@@ -36,8 +36,8 @@
                 
                 <p class="lede">Calculate how many apprenticeships you can pay for from your available transfer funds.</p>
                       
-                <a class="button" href="../forecasting/add-cohort-wizard.html">Add an apprenticeship</a>                
-    <a class="button save secondary" href="name-forecast.html">Save estimate</a>
+                <a class="button" href="../forecasting/add-cohort-wizard.html">Add an apprenticeship</a>                 <a class="button save secondary" href="name-forecast.html">Save estimate</a>
+     
 
 </div>
             
@@ -48,8 +48,7 @@
             <h3 class="heading-medium">Saved transfer estimates:</h3>
             <span class="form-hint">You don’t have any saved.</span>
             <ul class="list bullet-list">
-                <li><a href="#">Default 1</a></li>
-                <li><a href="#">Default 2</a></li>
+                <li><a href="#" class="estimateSavedName">Default 1</a></li>
             </ul>
         </div>
     </div>
@@ -57,7 +56,8 @@
 
   
     <section id="empty-state" class="hidden">
-                        <h2 class="heading-medium">Transfer projection balance</h2>
+                        <h2 class="heading-medium">Transfer projection balance <span class="font-small"><a href="request-paybill.html" id="editAllowance" style="float: right;">Edit the transfer allowance</a></span></h2>
+        <div class="form-group"></div>
                                     <details class="text">
                 <summary>What do the figures mean?</summary>
               <div class="panel panel-width-thin">
@@ -83,10 +83,11 @@
         <tbody>
             <tr>
                 <td>2018/19</td>
-                <td class="levy-credit">£100,000</td>
+                <td class="levy-credit">£15,000</td>
                 <td>£0</td>
                 <td>£0</td>
-                <td>£100,000</td>
+                <td>£15,000</td>
+                <td>£15,000</td>
             </tr>
     </tbody>
             </table>        <span class="form-hint">You currently have no transfers forecast, <a href="add-cohort-wizard.html">Add an apprenticeship</a> to see the estimated transfer costs.</span>
@@ -113,7 +114,7 @@
     
     <section id="populated-state">
 <div id="transactions" class="container" style="">
-                    <h2 class="heading-medium">Transfer projection balance</h2>
+                        <h2 class="heading-medium">Transfer projection balance <span class="font-small"><a href="request-paybill.html" id="editAllowance" style="float: right;">Edit the transfer allowance</a></span></h2>
                 <details class="text">
                 <summary>What do the figures mean?</summary>
               <div class="panel panel-width-thin">
@@ -146,11 +147,12 @@
             </tr>
     </tbody>
             </table>
+    
         <a href="monthly-transfer-forecast.html" class="hidden">View monthly figures</a>
     </div>    
 
     <div id="apprenticeships" class="container" style="">
-                   <h2 class="heading-medium">Estimated transfer costs by apprenticeships</h2>
+                   <h2 class="heading-medium">Estimatezd transfer costs by apprenticeships</h2>
         <p class="text">This table shows the cost of apprenticeships that you've added to your estimate which is shown over the tax year.</p>
         <table class="small" id="apprenticeshipsTransferProjection">
                     <thead>
@@ -174,7 +176,9 @@
     <br>
     </section>
     
-    
+      <a class="button save secondary" href="name-forecast.html">Save estimate</a>
+      <a class="button new text-link" href="name-forecast.html">Start a new estimate</a>
+  
 </main><!-- / #content -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 
