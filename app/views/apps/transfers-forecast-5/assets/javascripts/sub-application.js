@@ -76,10 +76,16 @@ var fieldHasError = false;
     switch (state) {
         case 'Yes':
             // do something if they select the "yes" options
+            if ($("#contact-email").val() == "" ) {
+                //throw error
+                $("#contact-by-email label span").removeClass("hidden");
+                $(".error-summary").removeClass("hidden");
+                $(".panel").css("border-color","#b10e1e");
+            } else {
             localStorage.setItem("transferForecastState","saved");
             localStorage.setItem("transferForecastSavedNames",$("#contact-email").val());
             window.location.href = 'forecast-transfer?msg=saved';
-            
+            }
             
         break;
         case 'No':
