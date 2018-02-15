@@ -30,58 +30,107 @@
             </div>
 
 <section id="populated-state">
+    
+    <div id="chartPanel">
+        <div id="chart"></div>
+    </div>
     <div id="transactions" class="container" style="">
-        <h2 class="heading-medium">Transfer projection balance <span class="font-small"><a href="request-paybill.html" id="editAllowance" style="float: right;">Edit the transfer allowance</a></span></h2>
+        <h2 class="heading-medium">MONTHLY ACCOUNT BALANCE FIGURES<span class="font-small"><a href="request-paybill.html" id="editAllowance" style="float: right;">Edit the transfer allowance</a></span></h2>
         <details class="text" role="group">
             <summary role="button" aria-controls="details-content-1" aria-expanded="false">What do the figures mean?</summary>
             <div class="panel panel-width-thin" id="details-content-1" aria-hidden="true">
+                
+    <h3 class="heading-small">How are transfers calculated</h3>         
+                
                 <p>The ‘transfer allowance’ column shows 10% of your total levy funds taken from the previous tax year. </p>
 
                 <p>The ‘actual cost of training’ column shows the actual cost of the apprenticeships that you’ve selected to fund with you transfer funds.
                 </p>
                 <p>The ‘transfer allowance remaining’ column shows the difference between the transfer allowance and the apprentices you’ve already selected to fund.
                 </p>
+    <h3 class="heading-small">How the cost of training is calculated</h3>         
+            <p>The balance sheet is based on last month’s payment for both levy credit and cost of training.</p>
+
+<p>It doesn’t include any future apprenticeship starts or apprentices who’ve already started and payment has not yet been made to their training provider.</p>
+                
+                    <h3 class="heading-small">Where is the end point assessment cost?</h3>         
+                <p>The end point assessment cost is separate from the payment that the provider receives when they inform the Education and Skills Funding Agency (ESFA) that the apprentice has completed their training.</p>
+                <p>This payment will be made to the end point assessment organisation by the training provider at the end of the apprenticeship or soon after the apprenticeship has finished.</p>
+                <p>This payment will be made to the end point assessment organisation by the training provider, at the end of the apprenticeship or soon after the apprenticeship has finished.</p>
             </div>
 
         </details>
         <table class="small" id="transferProjectionBalance">
             <thead>
                 <tr>
-                    <th>Tax year</th>
+                    <th>Date</th>
+                    <th>Levy credit</th>
                     <th>Transfer allowance</th>
-                    <th class="">Actual cost of training</th>
-                    <th>Your estimated cost of training</th>
+                    <th>Your cost of transfers <span class="form-hint">pre-existing transfer costs</span></th>
+                    <th>Transfer completion payments <span class="form-hint">pre-existing transfer completion payments</span></th>
+                    <th>Your estimated cost of training <span class="form-hint">pre-existing cost of training</span></th>
+                    <th>Completion payments <span class="form-hint">pre-existing completion payments</span></th>
+                    <th>Employer contribution (10%)</th>
+                    <th>Government contribution (90%)</th>
+                    <th>Expired funds</th>
                     <th>Transfer allowance remaining</th>
+                    <th>Account balance</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="nowrap">2018/19</td>
-                    <td class="financial">£ 15,000 </td>
-                    <td class="financial">£ 0 </td>
-                    <td class="financial">£ 0 </td>
-                    <td class="financial">£ 15,000 </td>
-                </tr>
-                <tr>
-                    <td class="nowrap">2019/20</td>
-                    <td class="financial">£ 15,000 </td>
+                    <td class="nowrap">{Date}</td>
                     <td class="financial">£0</td>
-                    <td class="financial">£ 5,646 </td>
-                    <td class="financial">£ 9,354 </td>
-                </tr>
-                <tr>
-                    <td class="nowrap">2020/21</td>
-                    <td class="financial">£ 15,000 </td>
                     <td class="financial">£0</td>
-                    <td class="financial">£ 4,354 </td>
-                    <td class="financial">£ 10,646 </td>
+                    <td class="financial">£0 <span class="form-hint">£0</span></td>
+                    <td class="financial">£0 <span class="form-hint">£0</span></td>
+                    <td class="financial">£0 <span class="form-hint">£0</span></td>
+                    <td class="financial">£0 <span class="form-hint">£0</span></td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
                 </tr>
                 <tr>
-                    <td class="nowrap">2021/22</td>
-                    <td class="financial">£ 15,000 </td>
-                    <td class="financial">£ 0 </td>
-                    <td class="financial">£ 0 </td>
-                    <td class="financial">£ 15,000 </td>
+                    <td class="nowrap">{Date}</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0 <span class="form-hint">£0</span></td>
+                    <td class="financial">£0 <span class="form-hint">£0</span></td>
+                    <td class="financial">£0 <span class="form-hint">£0</span></td>
+                    <td class="financial">£0 <span class="form-hint">£0</span></td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                </tr>                <tr>
+                    <td class="nowrap">{Date}</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0 <span class="form-hint">£0</span></td>
+                    <td class="financial">£0 <span class="form-hint">£0</span></td>
+                    <td class="financial">£0 <span class="form-hint">£0</span></td>
+                    <td class="financial">£0 <span class="form-hint">£0</span></td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                </tr>                <tr>
+                    <td class="nowrap">{Date}</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0 <span class="form-hint">£0</span></td>
+                    <td class="financial">£0 <span class="form-hint">£0</span></td>
+                    <td class="financial">£0 <span class="form-hint">£0</span></td>
+                    <td class="financial">£0 <span class="form-hint">£0</span></td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
+                    <td class="financial">£0</td>
                 </tr>
             </tbody>
         </table>
@@ -90,7 +139,7 @@
     </div>
 
     <div id="apprenticeships" class="container" style="">
-        <h2 class="heading-medium">Estimatezd transfer costs by apprenticeships</h2>
+        <h2 class="heading-medium">Estimated transfer costs by apprenticeships</h2>
         <p class="text">This table shows the cost of apprenticeships that you've added to your estimate which is shown over the tax year.</p>
         <table class="small" id="apprenticeshipsTransferProjection">
             <thead>

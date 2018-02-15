@@ -93,7 +93,7 @@ function forecastIndexWide(){
     });
 
 var chart = c3.generate({
-    bindto: '#chart',
+    bindto: '#chart2',
     data: {
       columns: [
         ['data1', 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250],
@@ -109,20 +109,57 @@ var chart = c3.generate({
             data3: '#cccccc'
         },
         names: {
-            data1: 'Levy in',
-            data2: 'Traiing costs',
+            data1: 'Balance',
             data3: 'Co-investment',
-            data4: 'Transfers'
+            data2: 'Your training',
+            data4: 'Transfered training'
         }
     },
     subchart: {
             show: true
         },
-        zoom: {
-        enabled: true
+    zoom: {
+    enabled: true
         }
 
 });
+    
+    
+var chart = c3.generate({
+    bindto: '#chart',
+    data: {
+        x: 'x',
+//        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
+        columns: [
+            ['x', '2018-01-01', '2018-02-02', '2018-03-03', '2018-04-04', '2018-05-05', '2018-06-06', '2018-07-07', '2018-08-08', '2018-09-09', '2018-10-10', '2018-11-11', '2018-12-12', '2019-01-01', '2019-02-02'],
+//            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
+            ['data1', 30, 200, 100, 400, 150, 250],
+            ['data2', 130, 340, 200, 500, 250, 350]
+        ],
+type: 'area-spline',
+        colors: {
+            data1: '#d53880',
+            data2: '#2e358b',
+            data3: '#912b88',
+            data3: '#cccccc'
+        },
+        names: {
+            data1: 'Balance',
+            data3: 'Co-investment',
+            data2: 'Your training',
+            data4: 'Transfered training',
+            data5: 'Transfer allowance'
+        }        
+    },
+    axis: {
+        x: {
+            type: 'timeseries',
+            tick: {
+                format: '%Y-%b'
+            }
+        }
+    }
+});    
     
 };
 
