@@ -2753,13 +2753,13 @@ body.wide {
             position: relative;
             .main {
                 width: 100%;
-                padding-left: 350px;
+                padding-right: 350px;
             }
             .aside {
                 width: 335px;
-                float: left;
-                position: absolute;
-                padding: 0 15px 0 0;
+                right: 0;
+                position: fixed;
+                padding: 290px 15px 0 0;
                 top: 0;
                 border-right: 1px solid $grey-3;
                 height: 100%;

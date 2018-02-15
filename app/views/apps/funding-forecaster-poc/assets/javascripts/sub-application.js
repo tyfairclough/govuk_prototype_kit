@@ -66,6 +66,69 @@ var fieldHasError = false;
 }
 
     
+    
+function forecastIndexWide(){
+  $("body").addClass("wide");
+    
+    
+    
+    userAuth = localStorage.getItem("userAuth");
+    
+    if ( userAuth != "true" ) {
+    } else {
+        $("#noForecasts").hide();
+        $("#existingForecasts").removeClass("hidden");        
+    }
+    $("#saveForecast").click(function(e){
+        e.preventDefault();
+        if ( userAuth  != "true") {
+            // a quick save to the existing forecasts
+            window.location.href = "../../../index";
+            $(".success-summary a").hide();
+        } else {
+            //sender user to register
+            $(".success-summary h3").text("FORECAST SAVED");
+            $(".success-summary p").text("YOU CAN ACCESS IT FROM THE MANAGE LIST");
+        }
+    });
+
+var chart = c3.generate({
+    bindto: '#chart',
+    data: {
+      columns: [
+        ['data1', 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250],
+        ['data2', 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 321, 22],
+        ['data3', 50, 20, 10, 40, 15, 25, 30, 200, 222, 332, 533, 432],
+        ['data4', 50, 20, 10, 40, 15, 25, 30, 200, 221, 342, 112, 235]
+      ],
+        type: 'area',
+        colors: {
+            data1: '#d53880',
+            data2: '#2e358b',
+            data3: '#912b88',
+            data3: '#cccccc'
+        },
+        names: {
+            data1: 'Levy in',
+            data2: 'Traiing costs',
+            data3: 'Co-investment',
+            data4: 'Transfers'
+        }
+    },
+    subchart: {
+            show: true
+        },
+        zoom: {
+        enabled: true
+        }
+
+});
+    
+};
+
+
+    
+    
     function forecastNameForecast() {
         
         
@@ -595,12 +658,8 @@ content += '<tr><td class="nowrap">'+data[i].month+'</td><td class="financial">Â
 }
 
 
+   
     
-/*----- UN-POPULATED BALANCES -----*/
-
-    
-/*----- POPULATED BALANCES -----*/
-
     
     $(document).ready(function() {
         
