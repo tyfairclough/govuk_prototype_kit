@@ -1,0 +1,46 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="transfers-remove-confirm" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+ 
+<div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+            <h1 class="heading-xlarge">
+                Delete apprenticeship
+      </h1>
+                
+                <p class="lede">You are about to delete the {apprenticeship} apprenticeship. Are you sure you want to do this?</p>           
+</div>
+        </div>
+    </div> 
+    
+    <div class="grid-row">
+        <div class="column-full">
+            <form>
+  <div class="form-group">
+    <fieldset>
+      <div class="multiple-choice">
+        <input id="radio-1" type="radio" name="radio-group" value="yes">
+        <label for="radio-1">Yes - I do want to delete {apprenticeship} apprenticeship</label>
+      </div>
+      <div class="multiple-choice">
+        <input id="radio-2" type="radio" name="radio-group" value="no">
+        <label for="radio-2">No - I want to keep {apprenticeship} apprenticeship</label>
+      </div>
+    </fieldset>
+  </div>
+                      <a class="button" href="forecast-transfer?msg=removed">Continue</a>
+
+</form>
+        </div>
+    </div>
+
+  
+   
+</main><!-- / #content -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+
+{% endblock %}
