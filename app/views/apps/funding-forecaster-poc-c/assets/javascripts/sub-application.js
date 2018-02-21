@@ -120,7 +120,7 @@ var chart = c3.generate({
             value: ['levy_in', 'transfer_allowance','transfer_balance','actual_transfer_monthly','actual_transfer_completion','estimated_transfer_monthly','estimated_transfer_completion','actual_training_monthly','actual_training_completion','estimated_training_monthly','estimated_training_completion','expired_funds','account_balance_formatted','your_contribution','gov_contribution'],
           },
         xFormat: '%Y-%m-%d', // 'xFormat' can be used as custom format of 'x'
-        type: 'bar',
+        type: 'line',
         colors: {
             data1: '#d53880',
             data2: '#2e358b',
