@@ -17,7 +17,7 @@
           
             <div class="grid-row">
                 <div class="column-two-thirds">
-    <div class="success-summary">
+    <div class="success-summary hidden">
     <h3 class="heading-medium">FORECAST CREATED</h3>
     <p class="text">YOU CAN VIEW AND AMEND YOUR FORECAST AT ANY TIME</p>
     </div>                
@@ -27,11 +27,14 @@
             <div class="hgroup">
                 <h1 class="heading-xlarge">FORECAST YOUR FUNDING</h1>
                 <p class="lede text">USE THIS PAGE TO SEE HOW YOUR FUNDS CHANGE OVER TIME AND MODEL DIFFERENT FUTURE APPRENTICESHIPS AGAINST THIS DATA.</p>
+         <a class="button" href="start.html">CREATE A FORECAST</a>
+                
             </div>
 
 <section id="populated-state">
     
     <div id="chartPanel">
+        <h3 class="heading-medium">FORECAST CHART</h3>
         <div id="chart"></div>
         <div id="json"></div>
     </div>
@@ -92,7 +95,7 @@
                 <tr>
                     <th data-column="1">Date</th>
                     <th data-column="2">Levy credit</th>
-                    <th data-column="3">Transfer allowance</th>
+                   <!-- <th data-column="3">Transfer allowance</th> -->
                     <th data-column="4">Your cost of transfers <span class="form-hint">pre-existing transfer costs</span></th>
                     <th data-column="5">Transfer completion payments <span class="form-hint">pre-existing transfer completion payments</span></th>
                     <th data-column="6">Your estimated cost of training <span class="form-hint">pre-existing cost of training</span></th>
@@ -123,10 +126,10 @@
                     <th>Apprenticeship</th>
                     <th>Number of apprenitces</th>
                     <th>Total cost of training</th>
-                    <th>2018/2019</th>
-                    <th>2019/2020</th>
-                    <th>2020/2021</th>
-                    <th>2021/2022</th>
+                    <th>2018 to 2019</th>
+                    <th>2019 to 2020</th>
+                    <th>2020 to 2021</th>
+                    <th>2021 to 2022</th>
                     <th></th>
                 </tr>
             </thead>
@@ -215,72 +218,53 @@
                 <div class="column-full">
                     <div>
         <div class="related">
-         <h2 class="heading-medium">Forecasts</h2>                             
-            <p>THIS IS WHERE USERS GO TO MANIPULATE THEIR DATA</p>
-         <a class="button" href="start.html">Create a new forecast</a>
-        </div>
-<div data-module="accordion-with-descriptions">
-    <div class="subsection-wrapper">
-        <div class="subsection js-subsection">
-            <div class="subsection__header">
-                <h2 class="subsection__title">forecast 301017 16:14</h2>
-                <p class="subsection__description">Last updated: 30 October 2017</p>
-            </div>
-            <div class="subsection__content js-subsection-content" id="subsection_content_0">
+         <h2 class="heading-medium"><span class="form-hint">CURRENT FORECAST</span>{MY FIRST FORECAST}</h2>               <p>THIS IS WHERE USERS GO TO MANIPULATE THEIR DATA</p>
+<p class="subsection__description">LAST UPDATED: {DATE}</p>
+<p class="subsection__description">BY USER: {USER}</p>
+            
                 <ul class="subsection__list">
                     <li class="subsection__list-item">
-                         <a href="#1">Present forecast</a>
+                         <a class="button secondary" href="#1">ADD A COST</a>
                     </li> 
                     <li class="subsection__list-item">
-                         <a href="#1">Export data</a>
+                         <a class="button secondary" href="#1">ADD A RETURN</a>
+                    </li>             
+                </ul>       
+            <hr />
+                <ul class="subsection__list">
+                    <li class="subsection__list-item">
+                         <a href="#1">PRESENT FORECAST</a>
                     </li> 
                     <li class="subsection__list-item">
-                         <a href="#1">Delete forecast</a>
-                    </li>
+                         <a href="#1">EXPORT RAW DATA</a>
+                    </li> 
+                   <li class="subsection__list-item">
+                         <a href="#1">RENAME FORECAST</a>
+                    </li> 
                     <li class="subsection__list-item">
-                         <a href="#1">Rename forecast</a>
-                    </li>
-                     <li class="subsection__list-item">
-                         <a href="#1">Share forecast</a>
-                    </li>
-                     
-                </ul>
-            </div>
+                         <a href="#1">DELETE FORECAST</a>
+                    </li>             
+                </ul>   
+            <hr />
+            <h3 class="heading-small">OTHER FORECASTS</h3>
+            <table class="small">
+                <tr>
+                    <th>Name</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>{FORECAST NAME}</td>
+                    <td><a href="#">Open</a></td>
+                </tr>                <tr>
+                    <td>{FORECAST NAME}</td>
+                    <td><a href="#">Open</a></td>
+                </tr>                <tr>
+                    <td>{FORECAST NAME}</td>
+                    <td><a href="#">Open</a></td>
+                </tr>
+            </table>
         </div>
-        <div class="subsection js-subsection">
-            <div class="subsection__header">
-                <h2 class="subsection__title">My first forecast</h2>
-                <p class="subsection__description">Last updated: 3 days ago</p>
-            </div>
-            <div class="subsection__content js-subsection-content" id="subsection_content_1">
-                <ul class="subsection__list">
-                    <li class="subsection__list-item">
-                         <a href="#1">List item one</a>
-                    </li>
-                    <li class="subsection__list-item">
-                         <a href="#1">List item two</a>
-                    </li>                      
-                </ul>
-            </div>
-        </div>
-        <div class="subsection js-subsection">
-            <div class="subsection__header">
-                <h2 class="subsection__title">5 year forecast</h2>
-                <p class="subsection__description">Last updated: just now</p>
-            </div>
-            <div class="subsection__content js-subsection-content" id="subsection_content_1">
-                <ul class="subsection__list">
-                    <li class="subsection__list-item">
-                         <a href="#1">List item one</a>
-                    </li>
-                    <li class="subsection__list-item">
-                         <a href="#1">List item two</a>
-                    </li>                      
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>     
+
              
                     </div>
                 </div>

@@ -117,7 +117,7 @@ var chart = c3.generate({
         keys: {
             //x: 'date', // it's possible to specify 'x' when category axis
             x: 'date',
-            value: ['levy_in', 'transfer_allowance','transfer_balance','actual_transfer_monthly','actual_transfer_completion','estimated_transfer_monthly','estimated_transfer_completion','actual_training_monthly','actual_training_completion','estimated_training_monthly','estimated_training_completion','expired_funds','account_balance_formatted','your_contribution','gov_contribution'],
+            value: ['levy_in', 'transfer_balance','actual_transfer_monthly','actual_transfer_completion','estimated_transfer_monthly','estimated_transfer_completion','actual_training_monthly','actual_training_completion','estimated_training_monthly','estimated_training_completion','expired_funds','account_balance_formatted','your_contribution','gov_contribution'],
           },
         xFormat: '%Y-%m-%d', // 'xFormat' can be used as custom format of 'x'
         type: 'line',
@@ -153,6 +153,9 @@ var chart = c3.generate({
                 {value: "2023-04-05", text: 'Financial year 2023'},
                 {value: "2024-04-05", text: 'Financial year 2024'}
             ]
+        },
+        y: {
+            value: 'transfer_allowance', text: 'Transfer allowance'
         }
     },    
     axis: {
@@ -209,7 +212,7 @@ var chart = c3.generate({
            pos = i + 1;
            content += '<tr><td class="nowrap">' + data[i].date_easy + '</td>';
            content += '<td class="financial">£' + data[i].levy_in + '</td>';
-           content += '<td class="financial">£' + data[i].transfer_allowance + '</td>';
+          // content += '<td class="financial">£' + data[i].transfer_allowance + '</td>';
            content += '<td class="financial">£' + data[i].actual_transfer_monthly + '<span class="form-hint">£' + data[i].estimated_transfer_monthly + '</span></td>';
            content += '<td class="financial">£' + data[i].actual_transfer_completion + '<span class="form-hint">£' + data[i].estimated_transfer_completion + '</span></td>';
            content += '<td class="financial">£' + data[i].actual_training_monthly + '<span class="form-hint">£' + data[i].estimated_training_monthly + '</span></td>';

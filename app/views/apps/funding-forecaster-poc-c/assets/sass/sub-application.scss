@@ -1123,8 +1123,13 @@ dl.confirm-details {
 
 .page-navigation {
     padding-top: 10px;
+    text-align: center
     .description {
         display: block
+    }
+    a {
+        width: auto;
+        padding: 0 50px;
     }
     .counter {
         display: block;
@@ -2758,8 +2763,8 @@ body.wide {
             .aside {
                 width: 335px;
                 right: 0;
-                position: fixed;
-                padding: 290px 15px 0 0;
+                position: absolute;
+                padding: 80px 15px 0 0;
                 top: 0;
                 border-right: 1px solid $grey-3;
                 height: 100%;
