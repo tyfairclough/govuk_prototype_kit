@@ -1,0 +1,120 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="estimator-outcomes" id="content" role="main" tabindex="-1">
+    
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.18/c3.min.css" media="screen" rel="stylesheet" type="text/css" />    
+
+
+<!--
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.core.standalone.css" media="screen" rel="stylesheet" type="text/css" />    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.js" type="text/javascript"></script>
+-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" type="text/javascript"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.18/c3.min.js" type="text/javascript"></script>
+    
+    {% include "includes/link-back.html" %}
+<script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
+
+    
+    <div class="grid-row">
+        <div class="column-two-thirds">
+                <div class="success-summary">
+                    <h3 class="heading-medium">SUCCESS</h3>
+                    <p>You have enough in your transfer allowance for this transfer </p>
+                </div>
+                <div class="success-summary">
+                    <h3 class="heading-medium">SUCCESS</h3>
+                    <p></p>
+                </div>
+                <div class="error-summary">
+                    <h3 class="heading-medium">FAIL</h3>
+                    <p>NOT ENOUGH TRANSFER ALLOWANCE</p>
+                </div> 
+                <div class="error-summary">
+                    <h3 class="heading-medium">FAIL</h3>
+                    <p>You don't have enough funds in your account to make a transfer.</p>
+                </div>            
+        </div>
+    </div>
+    
+    <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup form-group">
+           <h1 class="heading-xlarge">
+Your forecast results            </h1>
+          <p class="lede">The estimation gives an overall look at your unspent funds. You can access a more detailed breakdown of the figures from one of the choices below.</p> 
+
+<p><a class="" href="add-apprenticeship.html">Add more apprenticeships to your current estimate</a>.</p>
+ 
+        </div>
+        
+      </div>
+       
+    </div>
+    
+    <section id="estimate-outcomes">
+        <div class="grid-row">
+            <div class="column-two-thirds">
+                <div class="panel panel-width-thin">
+                    <p>You have enough in your transfer allowance for this transfer.</p>
+                    <a href="details.html">SEE THE TRANSFER ALLOWANCE BREAKDOWN</a>
+                </div>
+            </div>
+            <div class="column-two-thirds">
+                <div class="panel panel-width-thin">
+                    <p>You have enough funds in your account to make this transfer.</p>
+                    <a href="details.html">SEE THE LEVY FUNDING BREAKDOWN</a>
+                </div>
+            </div>
+            <div class="column-two-thirds">
+                <div class="panel panel-width-thin">
+                    <p>You have insufficient transfer allowance for this transfer.</p>
+                    <a href="details.html">SEE THE TRANSFER ALLOWANCE BREAKDOWN</a>
+                </div>
+            </div>
+            <div class="column-two-thirds">
+                <div class="panel panel-width-thin">
+                    <p>You have insufficient funds in your account for this transfer.<p>
+                    <a href="details.html">SEE THE LEVY FUNDING BREAKDOWN</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <div id="byApprenticeship" name="apprenticeship" class="grid-row hidden">
+       <div class="column-full">
+                <h4 class="heading-large">Cost by apprenticeship</h4>
+
+<table class="small">
+                <thead>
+                    <tr>
+                        <th>Apprenticeship <span class="form-hint">Level</span></th>
+                        <th>Training provider</th>
+                        <th class="">Number of  apprentices</th>
+                        <th class="">Start date</th>
+                        <th class="">Cost per apprenticeship</th>
+                        <th class="">Number of monthly payments  <span class="form-hint">(Pending completion payments)</span></th>
+                        <th class="">Monthly payment</th>
+                        <th>Completion payment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>   
+        </div>
+
+    </div>   
+    
+    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+
+
+</main><!-- / #content -->
+{% endblock %}

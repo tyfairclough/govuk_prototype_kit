@@ -1,0 +1,27 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="forecast-start" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+    <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup form-group">
+           <h1 class="heading-xlarge">
+ESTIMATE THE FUNDS YOU COULD SPEND      </h1>
+          <p>USE THIS ESTIMATOR TOOL TO SEE THE AMOUNT OF UNUSED FUNDS YOU COULD SPEND TO PAY FOR APPRENTICESHIPS.</p>          
+        </div>
+      </div>
+    </div>
+    
+    <div class="grid-row">
+        <div class="column-two-thirds">
+          
+            
+            <a class="button button-start" href="add-apprenticeship.html">Start</a>
+        </div>
+    </div>
+   
+
+</main><!-- / #content -->
+{% endblock %}
