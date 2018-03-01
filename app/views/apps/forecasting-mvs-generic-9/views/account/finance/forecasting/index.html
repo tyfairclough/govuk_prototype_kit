@@ -1,4 +1,5 @@
 {% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
 {% block main_content %}
 
 <main class="forecast-index" id="content" role="main" tabindex="-1">
@@ -550,18 +551,13 @@ AUAFABQB/9k=
                 </div>
             </details> 
                 
-                                <details style="margin-top: 15px;">
-                    <summary>WHY DO I HAVE UNALLOCATED FUNDS?</summary>
-                    <div class="panel panel-width-thin">
-                    <p>EXPLAIN TO THE USER THAT IF APPRENTICESHIP HAS PASSED IT'S END DATE BUT NO ACTUAL COMPLETION PAYMENT IS MADE, WE DON'T KNOW WHEN TO ALLOCATE IT TO THE CALCULATION, SO WE HAVE TO LEAVE IT OUT.</p>
-                    </div>
-                </details>  
+    
               
               </div>
             <div class="column-one-third">
                    <div id="" class="panel panel-width-thin">
             <div class="chart-date">
-                UNALLOCATED FUNDS
+                Pending completion payments
             </div>
             <div class="chart-value">
             <span class="bold-large">£999,999,999</span>
@@ -595,8 +591,12 @@ AUAFABQB/9k=
     <div id="byApprentice" name="apprentice" class="grid-row">        
 <div class="column-full">
     <h4 class="heading-large">Cost by apprentice</h4>
-    
-  
+                              <details style="margin-top: 15px;">
+                    <summary>WHY DO I HAVE  Pending completion payments?</summary>
+                    <div class="panel panel-width-thin">
+                    <p>EXPLAIN TO THE USER THAT IF APPRENTICESHIP HAS PASSED IT'S END DATE BUT NO ACTUAL COMPLETION PAYMENT IS MADE, WE DON'T KNOW WHEN TO ALLOCATE IT TO THE CALCULATION, SO WE HAVE TO LEAVE IT OUT OF THE CALCULATION BUT INDICATE WHERE IT WAS DUE TO BE PAID.</p>
+                    </div>
+                </details>  
                <div id="">
      
         <table class="small">
@@ -607,7 +607,7 @@ AUAFABQB/9k=
                         <th>Start date</th>
                         <th>Monthly payment</th>
                         <th>Number of monthly payments</th>
-                        <th>Completion payment</th>
+                        <th>Completion payment<span class="form-hint">(Pending completion payments)</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -652,7 +652,7 @@ AUAFABQB/9k=
                         <th class="">Number of  apprentices</th>
                         <th class="">Start date</th>
                         <th class="">Cost per apprenticeship</th>
-                        <th class="">Number of monthly payments</th>
+                        <th class="">Number of monthly payments  <span class="form-hint">(Pending completion payments)</span></th>
                         <th class="">Monthly payment</th>
                         <th>Completion payment</th>
                     </tr>
