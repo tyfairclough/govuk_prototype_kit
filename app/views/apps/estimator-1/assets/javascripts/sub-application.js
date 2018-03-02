@@ -4,8 +4,19 @@ $(document).ready(function() {
 var root = "/apps/{{currentApp.appDirName}}/views/";
 console.log(root);
 var className = $("main").attr('class');
-
-
+var type =  getQueryVariable("type");
+    //get url variables    
+    function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) {
+                return pair[1];
+            }
+        }
+        return (false);
+    }
 
 
 
@@ -13,10 +24,203 @@ var className = $("main").attr('class');
        case 'forecastAlreadyHaveAccount':
            forecastAlreadyHaveAccount();
        break;
+       case 'estimate-add-apprenticeship':
+           estimateAddApprenticeship();
+       break;
        default: break;
 }
     
-// global js
+/*----- PAGE FUNCTIONS -----*/
+    
+    
+    function estimateAddApprenticeship(){
+
+        
+        $("#standardNew").chosen()
+        
+        
+ console.log(type);
+        
+        if ( type == "levy" ) {
+            $("input[name=radio-inline-group][value=" + 1 + "]").prop('checked', true);
+        } else if ( type == "transfer") {
+            $("input[name=radio-inline-group][value=" + 0 + "]").prop('checked', true);            
+        };
+
+       
+        $("select").on('change',function(){
+             estimatePrice = $(this).find(':selected').attr('data-price');
+             levyLength = $(this).find(':selected').attr('data-duration');
+        });
+        
+        
+        $(".button.cancel").click(function(e){
+            e.preventDefault();
+            localStorage.setItem("transferForecastState","empty");
+            
+            window.location.href = 'forecast-transfer'            
+        })
+        
+        $( "#cohortsNew" ).change(function() {
+        var appCount = $(this).val();
+            appValue = appCount*estimatePrice;
+            
+            //$("#levy-value").val(appValue);
+            $("#levy-cap").text("£" + appValue);
+            $("#levy-cap").removeClass("hidden");
+//            $(".grand-total span").text("£" +appCount*estimatePrice);
+            $("#levy-length").val(levyLength)
+            
+});
+
+        
+   $(".save,.add-another").click(function(e){
+       e.preventDefault();
+       formHasErrors = false;       
+       var selectedCourse = $("#standardNew").find(':selected').text();
+       localStorage.setItem("lastAdded",selectedCourse);
+       var totalCost = $("#levy-value").val();
+       var year = $("#startDateYear").val();
+       var month = $("#startDateMonth").val();
+       var numberOfApprentices = $("#cohortsNew").val();
+       
+       
+       
+       // reset the error messages
+       
+       $(".error-summary, .error-message, .error-summary ul li").addClass("hidden");
+       $(".form-group").removeClass("form-group-error");
+       
+       
+       // check they've chosen an apprenticeship
+     if ( selectedCourse  == ("noselection" || "Select one" || "") ) {
+            errorCheck(true);
+            $("#noStandardSelected").removeClass("hidden");
+            $("#standardNew").parent().addClass("form-group-error")
+            $("#standardNew").prev().removeClass("hidden")         
+     } else {
+            errorCheck(false);
+     }       
+       
+       
+       
+       // checks apprentice count is is not empty
+       if ( numberOfApprentices <= 0 || numberOfApprentices == "" ){
+           errorCheck(true);
+           $("#noNumberOfApprentices").removeClass("hidden");       
+           $("#cohortsNew").parent().addClass("form-group-error")
+           $("#cohortsNew").prev().removeClass("hidden")
+       }  else {
+            errorCheck(false);            
+       }
+       
+       
+        
+       
+       // has to be between certain dates startDateMonth startDateYear
+    if ( year < 2018 || year > 2019) {
+            errorCheck(true);
+            $("#wrongYears").removeClass("hidden");  
+            $("#dateWrapper").addClass("form-group-error")
+            $("#declareDate").removeClass("hidden");
+    } else if ( year == 2019 ) {
+        console.log("years is 2019")
+        if ( month <= 9 ) {
+            errorCheck(false);
+        } else {
+            errorCheck(true);
+            $("#wrong2019month").removeClass("hidden");     
+            $("#dateWrapper").addClass("form-group-error")
+            $("#2019montherror").removeClass("hidden");               
+        }
+    } else if ( year == 2018 ) {
+        if ( month >= 5 ) {
+            errorCheck(false);
+        } else {
+            errorCheck(true);
+            $("#wrong2018month").removeClass("hidden");     
+            $("#dateWrapper").addClass("form-group-error")
+            $("#2018montherror").removeClass("hidden");                  
+        }        
+    }
+            
+
+       
+       // cant be above gov cap
+       
+       if (totalCost == "" ) {
+            errorCheck(true);
+            $("#noCost").removeClass("hidden");  
+            $("#levy-value").parent().addClass("form-group-error")
+            $("#levy-value").prev().prev().removeClass("hidden")             
+       } else if ( totalCost > appValue ) {
+            errorCheck(true);          
+            $("#overCap").removeClass("hidden");  
+            $("#levy-value").parent().addClass("form-group-error")
+            $("#levy-value").prev().removeClass("hidden")  
+       } else {
+            errorCheck(false);           
+       }
+       
+       
+
+       
+       
+       // checks levy length is not empty
+       if ( $("#levy-length").val() == "" ){
+//           console.log("length of apprenticeships is null")
+           errorCheck(true);
+           $("#noLength").removeClass("hidden");                                                      
+           $("#levy-length").parent().addClass("form-group-error")
+           $("#levy-length").prev().prev().removeClass("hidden")           
+       }  else {
+           // cant be less than 12 months duration
+           if ( $("#levy-length").val() < 12 ){
+//               console.log("value must be at least 12 months")
+           errorCheck(true);
+         console.log("true");               
+               $("#shortLength").removeClass("hidden");                                           
+               $("#levy-length").parent().addClass("form-group-error")
+               $("#levy-length").prev().removeClass("hidden")               
+           } else {
+               errorCheck(false);
+           } 
+       }      
+
+       
+      
+       
+
+
+       // reveal the errors and do the redirects
+       console.log("value for formHasErrors " + formHasErrors)
+    
+        
+       if ( formHasErrors == true ) {
+          // alert("we've got an error")
+           $(".error-summary").removeClass("hidden");
+           $("html, body").animate({ scrollTop: 0 }, "slow");
+       }    else {     
+               localStorage.setItem("transferForecastState","populated");      
+               window.location.href = 'outcomes'
+       }
+       
+       
+   });     
+        
+        
+    }
+    
+    
+    
+/*----- GLOBAL JS -----*/
+    
+        function errorCheck(fieldHasError){
+        console.log("does field has error " + fieldHasError)
+        if ( fieldHasError == true ) {
+            formHasErrors = true
+        }
+    }
     
     
     
