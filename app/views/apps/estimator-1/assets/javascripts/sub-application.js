@@ -27,10 +27,90 @@ var type =  getQueryVariable("type");
        case 'estimate-add-apprenticeship':
            estimateAddApprenticeship();
        break;
+        case 'estimator-details':
+           estimatorDetails();
+       break;
        default: break;
 }
     
 /*----- PAGE FUNCTIONS -----*/
+    
+    function estimatorDetails(){
+        
+  
+ var googleDocA = 'https://docs.google.com/spreadsheets/d/1QxyoHTHzaVwbxXbGHQyAWxVGXgTq44lVxQeaB7Bldns/pubhtml';
+  
+    
+    function levyEstimate() {
+    Tabletop.init( { key: googleDocA,
+                     callback: showInfoA,
+                     simpleSheet: true } )
+  }
+    
+        function showInfoA(data, tabletop) {
+      loadArrayA(data);
+  }
+    
+        function loadArrayA(data){
+        var content = "";
+        var pos = "";
+        //+data[i].Points+
+       for (i = 0; i < data.length; i++) {
+             //console.log(i)
+           pos = i + 1;
+content += '<tr><td class="nowrap">'+data[i].year+'</td><td class="financial">£'+data[i].transfer_allowance+'</td><td class="financial">£'+data[i].actual_cost_of_training+'</td></tr>';
+           renderTableA(content);
+            }
+        }   
+    
+    
+        function renderTableA(content){
+            $(document).ready(function () {
+                $("#tab-1 tbody").html(content);
+                //paginateBalancesheet();
+            });
+        }       
+        
+        
+  
+ var googleDocB = 'https://docs.google.com/spreadsheets/d/1QxyoHTHzaVwbxXbGHQyAWxVGXgTq44lVxQeaB7Bldns/pubhtml';
+  
+    
+    function transferEstimate() {
+    Tabletop.init( { key: googleDocB,
+                     callback: showInfoB,
+                     simpleSheet: true } )
+  }
+    
+        function showInfoB(data, tabletop) {
+      loadArrayB(data);
+  }
+    
+        function loadArrayB(data){
+        var content = "";
+        var pos = "";
+        //+data[i].Points+
+       for (i = 0; i < data.length; i++) {
+             //console.log(i)
+           pos = i + 1;
+content += '<tr><td class="nowrap">'+data[i].year+'</td><td class="financial">£'+data[i].transfer_allowance+'</td><td class="financial">£'+data[i].actual_cost_of_training+'</td></tr>';
+           renderTableB(content);
+            }
+        }   
+    
+    
+        function renderTableB(content){
+            $(document).ready(function () {
+                $("#tab-2 tbody").html(content);
+                //paginateBalancesheet();
+            });
+        }         
+        
+        
+levyEstimate();        
+transferEstimate();        
+        
+    }
     
     
     function estimateAddApprenticeship(){
