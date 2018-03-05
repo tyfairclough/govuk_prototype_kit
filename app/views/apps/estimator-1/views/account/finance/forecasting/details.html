@@ -24,12 +24,16 @@
     <div class="grid-row">
         <div class="column-two-thirds">
                 <div class="error-summary">
-                    <h3 class="heading-medium">FAIL</h3>
-                    <p>NOT ENOUGH TRANSFER ALLOWANCE IN MONTH X</p>
+                    <h3 class="heading-medium">Unsuccessful</h3>
+                    <p>You don't have enough transfer allowance in month {month} to support this transfer</p>
+                </div> 
+            <div class="error-summary">
+                    <h3 class="heading-medium">Unsuccessful</h3>
+                    <p>You don't have enough available funds for {month}, {month} and {month}. The receiving employer will go into co-investment for this period.</p>
                 </div> 
                 <div class="error-summary">
-                    <h3 class="heading-medium">FAIL</h3>
-                    <p>NOT ENOUGH LEVY FUNDS IN MONTH X</p>
+                    <h3 class="heading-medium">Unsuccessful</h3>
+                    <p>You don't have enough available funds in {month}, {month} and {month} to fund your apprenticeships. You will go into co-investment for this period.</p>
                 </div> 
         </div>
     </div>
@@ -37,9 +41,8 @@
     <div class="grid-row">
     <div class="column-two-thirds">
         <div class="hgroup form-group">
-           <h1 class="heading-xlarge">
-DETAILS PAGE            </h1>
-          <p class="lede">The estimation gives an overall look at your unspent funds. You can access a more detailed breakdown of the figures from one of the choices below.</p> 
+           <h1 class="heading-xlarge">Modelled costs</h1>
+          <p class="lede">This page breaks down the modelled costs on a month by month basis.</p> 
 
 <p><a class="" href="add-apprenticeship.html">Add more apprenticeships to your current estimate</a>.</p>
  
@@ -50,22 +53,22 @@ DETAILS PAGE            </h1>
     </div>
     <div id="tabs-container">
     <ul class="tabs-menu">
-        <li class="current"><a href="#tab-1">LEVY BALANCE</a></li>
-        <li class=""><a href="#tab-2">TRANSFER ALLOWANCE</a></li>
-        <li class=""><a href="#tab-3">APPRENTICESHIPS</a></li>
+        <li class="current"><a href="#tab-1">Your funds</a></li>
+        <li class=""><a href="#tab-2">Transfer allowance</a></li>
+        <li class=""><a href="#tab-3">Modelled apprenticeships</a></li>
     </ul>
     <div id="tab-1" class="tab-content" style="">
         <table class="small responsive">
             <thead>
             <tr>
-                <th>DATE</th>
-                <th>PROJECTED FUNDS</th>
+                <th>Date</th>
+                <th>Projected funds</th>
                 <th>Modelled costs</th>
             </tr>            
             </thead>
             <tbody>
             <tr>
-                <td>DATE</td>
+                <td>Date</td>
                 <td>£999,999</td>
                 <td>£999,999</td>
             </tr>
@@ -78,14 +81,14 @@ DETAILS PAGE            </h1>
         <table class="small responsive">
             <thead>
             <tr>
-                <th>DATE</th>
-                <th>TRANSFER BALANCE</th>
+                <th>Date</th>
+                <th>Transfer allowance</th>
                 <th>Modelled costs</th>
             </tr>            
             </thead>
             <tbody>
             <tr>
-                <td>DATE</td>
+                <td>Date</td>
                 <td>£999,999</td>
                 <td>£999,999</td>
             </tr>            
@@ -103,8 +106,8 @@ DETAILS PAGE            </h1>
                 <th>Start date</th>
                 <th>Monthly payment</th>
                 <th>Number of monthly payments</th>
-                <th>TYPE</th>
                 <th>Completion payment</th>
+                <th>Transfer</th>
                 <th></th>
                 <th></ th>
             </tr>
@@ -115,10 +118,10 @@ DETAILS PAGE            </h1>
                 <td>DATE</td>
                 <td>£999,999</td>
                 <td>99</td>
-                <td>TYPE</td>
                 <td>£999,9999</td>
-                <td><a href="#">REMOVE</a></td>
-                <td><a href="#">Details</a></td>
+                <td>Yes</td>
+                <td><a href="remove.html">Remove</a></td>
+                <td><a href="add-apprenticeship.html">Details</a></td>
             </tr>
         </table>
     </div>
