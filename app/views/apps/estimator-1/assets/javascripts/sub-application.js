@@ -44,11 +44,12 @@ var type =  getQueryVariable("type");
     function levyEstimate() {
     Tabletop.init( { key: googleDocA,
                      callback: showInfoA,
-                     simpleSheet: true } )
+                     simpleSheet: false } )
   }
     
         function showInfoA(data, tabletop) {
       loadArrayA(data);
+            console.log(data);
   }
     
         function loadArrayA(data){
@@ -122,9 +123,9 @@ transferEstimate();
  console.log(type);
         
         if ( type == "levy" ) {
-            $("input[name=radio-inline-group][value=" + 1 + "]").prop('checked', true);
+            $("input[name=radio-inline-group][value=" + 0 + "]").prop('checked', true);
         } else if ( type == "transfer") {
-            $("input[name=radio-inline-group][value=" + 0 + "]").prop('checked', true);            
+            $("input[name=radio-inline-group][value=" + 1 + "]").prop('checked', true);            
         };
 
        
@@ -143,15 +144,23 @@ transferEstimate();
         
         $( "#cohortsNew" ).change(function() {
         var appCount = $(this).val();
-            appValue = appCount*estimatePrice;
-            
+            appTotalValue = appCount*estimatePrice;
+            if ( appCount > 1 ) {
+                s = "s";
+            } else {
+                s = ""
+            }
             //$("#levy-value").val(appValue);
-            $("#levy-cap").text("£" + appValue);
+            $("#levy-cap").text("Government funding cap for this apprenticeship is £" + estimatePrice);
             $("#levy-cap").removeClass("hidden");
+            $("#levy-cap").prev().hide();
 //            $(".grand-total span").text("£" +appCount*estimatePrice);
             $("#levy-length").val(levyLength)
+            $("#levy-total-cap").html("Total government funding cap for <span class='bold-small'>" + appCount + "</span> apprentice" +s+ " is <span class='bold-small'>£" + appTotalValue + "</span>");
+            $("#levy-total-cap").removeClass("hidden");
             
 });
+
 
         
    $(".save,.add-another").click(function(e){
@@ -233,7 +242,7 @@ transferEstimate();
             $("#noCost").removeClass("hidden");  
             $("#levy-value").parent().addClass("form-group-error")
             $("#levy-value").prev().prev().removeClass("hidden")             
-       } else if ( totalCost > appValue ) {
+       } else if ( totalCost > appTotalValue ) {
             errorCheck(true);          
             $("#overCap").removeClass("hidden");  
             $("#levy-value").parent().addClass("form-group-error")
