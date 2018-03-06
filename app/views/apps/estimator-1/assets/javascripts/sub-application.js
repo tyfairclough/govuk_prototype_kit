@@ -37,11 +37,13 @@ var type =  getQueryVariable("type");
     
     function estimatorDetails(){
         
-  
- var googleDocA = 'https://docs.google.com/spreadsheets/d/1QxyoHTHzaVwbxXbGHQyAWxVGXgTq44lVxQeaB7Bldns/pubhtml';
+
+        
+        
+ var googleDocA = 'https://docs.google.com/spreadsheets/d/1PwP2NxBj3WVuzwwU6Z4USUCurOxuu2kiHkg8nVWKssE/pubhtml';
   
     
-    function levyEstimate() {
+    function googleTables() {
     Tabletop.init( { key: googleDocA,
                      callback: showInfoA,
                      simpleSheet: false } )
@@ -49,67 +51,59 @@ var type =  getQueryVariable("type");
     
         function showInfoA(data, tabletop) {
       loadArrayA(data);
-            console.log(data);
   }
     
         function loadArrayA(data){
         var content = "";
         var pos = "";
-        //+data[i].Points+
-       for (i = 0; i < data.length; i++) {
-             //console.log(i)
+            
+       for (i = 0; i < data.levy.elements.length; i++) {
            pos = i + 1;
-content += '<tr><td class="nowrap">'+data[i].year+'</td><td class="financial">£'+data[i].transfer_allowance+'</td><td class="financial">£'+data[i].actual_cost_of_training+'</td></tr>';
+           content += '<tr><td>'+data.levy.elements[i].date+'</td><td>'+data.levy.elements[i].projected_funds+'</td><td>'+data.levy.elements[i].modelled_costs+'</td></tr>';
            renderTableA(content);
             }
-        }   
-    
+            content = "";
+            
+        for (i = 0; i < data.transfer.elements.length; i++) {
+           pos = i + 1;
+           content += '<tr><td>'+data.transfer.elements[i].date+'</td><td>'+data.transfer.elements[i].transfer_balance+'</td><td>'+data.transfer.elements[i].modelled_costs+'</td></tr>';
+           renderTableB(content);
+            }
+         
+        content = "";
+
+        for (i = 0; i < data.apprenticeships.elements.length; i++) {
+           pos = i + 1;
+           content += '<tr><td>'+data.apprenticeships.elements[i].apprenticeship+'<span class="form-hint">'+data.apprenticeships.elements[i].apprenticeship_level+'</span></td><td>'+data.apprenticeships.elements[i].number_of_apprentices+'</td><td>'+data.apprenticeships.elements[i].training_provider+'</td><td>'+data.apprenticeships.elements[i].start_date+'</td><td>'+data.apprenticeships.elements[i].monthly_payment+'</td><td>'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td>'+data.apprenticeships.elements[i].completion_payment+'</td><td>'+data.apprenticeships.elements[i].transfer+'</td></tr>';
+           renderTableC(content);
+            }
+   
+        content = "";
+        }
     
         function renderTableA(content){
             $(document).ready(function () {
                 $("#tab-1 tbody").html(content);
                 //paginateBalancesheet();
             });
-        }       
-        
-        
-  
- var googleDocB = 'https://docs.google.com/spreadsheets/d/1QxyoHTHzaVwbxXbGHQyAWxVGXgTq44lVxQeaB7Bldns/pubhtml';
-  
-    
-    function transferEstimate() {
-    Tabletop.init( { key: googleDocB,
-                     callback: showInfoB,
-                     simpleSheet: true } )
-  }
-    
-        function showInfoB(data, tabletop) {
-      loadArrayB(data);
-  }
-    
-        function loadArrayB(data){
-        var content = "";
-        var pos = "";
-        //+data[i].Points+
-       for (i = 0; i < data.length; i++) {
-             //console.log(i)
-           pos = i + 1;
-content += '<tr><td class="nowrap">'+data[i].year+'</td><td class="financial">£'+data[i].transfer_allowance+'</td><td class="financial">£'+data[i].actual_cost_of_training+'</td></tr>';
-           renderTableB(content);
-            }
-        }   
-    
+        }     
     
         function renderTableB(content){
             $(document).ready(function () {
                 $("#tab-2 tbody").html(content);
                 //paginateBalancesheet();
             });
-        }         
+        }       
+                function renderTableC(content){
+            $(document).ready(function () {
+                $("#tab-3 tbody").html(content);
+                //paginateBalancesheet();
+            });
+        }       
         
+         
         
-levyEstimate();        
-transferEstimate();        
+googleTables();        
         
     }
     
