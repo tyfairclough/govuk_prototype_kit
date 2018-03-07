@@ -5,6 +5,7 @@ var root = "/apps/{{currentApp.appDirName}}/views/";
 console.log(root);
 var className = $("main").attr('class');
 var type =  getQueryVariable("type");
+var scenario =  getQueryVariable("scenario");
     //get url variables    
     function getQueryVariable(variable) {
         var query = window.location.search.substring(1);
@@ -51,10 +52,11 @@ $(".error-summary").hide();
         
  var googleDocA = 'https://docs.google.com/spreadsheets/d/1PwP2NxBj3WVuzwwU6Z4USUCurOxuu2kiHkg8nVWKssE/pubhtml';
  var googleDocB = 'https://docs.google.com/spreadsheets/d/1QhGGbIZDyFXvCej3UHh-nQmM5L6iPLthzz--RHCHaQY/pubhtml';
-  
+        var googleDoc = localStorage.getItem("googleDoc");
+        console.log(googleDoc);
     
     function googleTables() {
-    Tabletop.init( { key: googleDocA,
+    Tabletop.init( { key: googleDoc,
                      callback: showInfoA,
                      simpleSheet: false } )
   }
@@ -307,6 +309,17 @@ googleTables();
     
     
 /*----- GLOBAL JS -----*/
+    
+    
+    if ( scenario == 1 ) {
+        //load the first spreadsheet
+                console.log("v1");
+        localStorage.setItem("googleDoc","https://docs.google.com/spreadsheets/d/1PwP2NxBj3WVuzwwU6Z4USUCurOxuu2kiHkg8nVWKssE/pubhtml")
+    } else if ( scenario == 2 ) {
+        //load the second spreadsheet
+        console.log("v2");
+        localStorage.setItem("googleDoc","https://docs.google.com/spreadsheets/d/1QhGGbIZDyFXvCej3UHh-nQmM5L6iPLthzz--RHCHaQY/pubhtml")
+    };
     
         function errorCheck(fieldHasError){
         console.log("does field has error " + fieldHasError)
