@@ -99,7 +99,7 @@ $(".error-summary").hide();
 
         for (i = 0; i < data.apprenticeships.elements.length; i++) {
            pos = i + 1;
-           content += '<tr><td>'+data.apprenticeships.elements[i].apprenticeship+'<span class="form-hint">'+data.apprenticeships.elements[i].apprenticeship_level+'</span></td><td>'+data.apprenticeships.elements[i].number_of_apprentices+'</td><td>'+data.apprenticeships.elements[i].training_provider+'</td><td>'+data.apprenticeships.elements[i].start_date+'</td><td>'+data.apprenticeships.elements[i].monthly_payment+'</td><td>'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td>'+data.apprenticeships.elements[i].completion_payment+'</td><td>'+data.apprenticeships.elements[i].transfer+'</td></tr>';
+           content += '<tr><td>'+data.apprenticeships.elements[i].apprenticeship+'<span class="form-hint">'+data.apprenticeships.elements[i].apprenticeship_level+'</span></td><td>'+data.apprenticeships.elements[i].number_of_apprentices+'</td><td>'+data.apprenticeships.elements[i].start_date+'</td><td>'+data.apprenticeships.elements[i].monthly_payment+'</td><td>'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td>'+data.apprenticeships.elements[i].completion_payment+'</td><td>'+data.apprenticeships.elements[i].transfer+'</td></tr>';
            renderTableC(content);
             }
    
