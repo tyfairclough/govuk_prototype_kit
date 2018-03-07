@@ -43,11 +43,24 @@ var scenario =  getQueryVariable("scenario");
     function estimatorOutcomes(){
         $(".error-summary").hide();
         $(".success-summary").hide();
+        
+        scenario = localStorage.getItem("scenario");
+        if ( scenario == "1" ) {
+            $("#successOne.success-summary").show();            
+        } else {
+            $("#ErrorOne.error-summary").show();            
+        }
     }
     
     function estimatorDetails(){
         
 $(".error-summary").hide();
+        
+        
+                scenario = localStorage.getItem("scenario");
+        if ( scenario == "2" ) {
+            $("#errorOne.error-summary").show();            
+        };
         
         
  var googleDocA = 'https://docs.google.com/spreadsheets/d/1PwP2NxBj3WVuzwwU6Z4USUCurOxuu2kiHkg8nVWKssE/pubhtml';
@@ -315,10 +328,12 @@ googleTables();
         //load the first spreadsheet
                 console.log("v1");
         localStorage.setItem("googleDoc","https://docs.google.com/spreadsheets/d/1PwP2NxBj3WVuzwwU6Z4USUCurOxuu2kiHkg8nVWKssE/pubhtml")
+        localStorage.setItem("scenario","1")
     } else if ( scenario == 2 ) {
         //load the second spreadsheet
         console.log("v2");
         localStorage.setItem("googleDoc","https://docs.google.com/spreadsheets/d/1QhGGbIZDyFXvCej3UHh-nQmM5L6iPLthzz--RHCHaQY/pubhtml")
+        localStorage.setItem("scenario","2")
     };
     
         function errorCheck(fieldHasError){
