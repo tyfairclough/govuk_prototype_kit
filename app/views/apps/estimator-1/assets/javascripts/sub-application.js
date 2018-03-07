@@ -30,17 +30,27 @@ var type =  getQueryVariable("type");
         case 'estimator-details':
            estimatorDetails();
        break;
+       case 'estimator-outcomes':
+           estimatorOutcomes();
+       break;
        default: break;
 }
     
 /*----- PAGE FUNCTIONS -----*/
     
+    
+    function estimatorOutcomes(){
+        $(".error-summary").hide();
+        $(".success-summary").hide();
+    }
+    
     function estimatorDetails(){
         
-
+$(".error-summary").hide();
         
         
  var googleDocA = 'https://docs.google.com/spreadsheets/d/1PwP2NxBj3WVuzwwU6Z4USUCurOxuu2kiHkg8nVWKssE/pubhtml';
+ var googleDocB = 'https://docs.google.com/spreadsheets/d/1QhGGbIZDyFXvCej3UHh-nQmM5L6iPLthzz--RHCHaQY/pubhtml';
   
     
     function googleTables() {
