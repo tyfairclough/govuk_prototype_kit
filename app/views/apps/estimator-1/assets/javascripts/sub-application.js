@@ -136,7 +136,9 @@ googleTables();
     function estimateAddApprenticeship(){
 
         
-        $("#standardNew").chosen()
+        $("#standardNew").chosen();
+        
+        $(".money-mask").mask("999,999,999",{reverse: true});
         
         
  console.log(type);

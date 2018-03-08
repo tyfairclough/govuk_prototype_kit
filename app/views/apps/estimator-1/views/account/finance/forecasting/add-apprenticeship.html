@@ -23,7 +23,7 @@
     <li class="hidden" id="wrong2019month"><a href="#startDateMonth">Apprenticeships that start in 2019 must start before the end of the academic year - September 2019</a></li>
     <li class="hidden" id="overCap"><a href="#levy-value">The total cost can not be above the government funding cap for this estimate, lower your total cost to fix this</a></li>
     <li class="hidden" id="noCost"><a href="#levy-value">You need to declare a total cost of the apprenticeships added</a></li>
-    <li class="hidden" id="noLength"><a href="#levy-length">The number of months was not entered, you need to enter a number greater than or equal to 12 here</a></li>
+    <li class="hidden" id="noLength"><a href="#levy-length">The number of months was not entered, you need to enter a number greater than or equal to 12</a></li>
     <li class="hidden" id="shortLength"><a href="#levy-length">Apprenticeships must last at least 12 months, you need to enter a number greater than or equal to 12 here</a></li>
 </ul>
 
@@ -41,9 +41,9 @@
         <div class="column-two-thirds">
             <div class="hgroup form-group">
                 <h1 class="heading-xlarge">
-                   Add apprenticeships
+Add apprenticeships to estimate cost
                 </h1>
-                <p>Add the details for the apprenticeship.  We will show the government cap on funds and typical duration of the apprenticeship.  You can adjust the cost and monthly figures should you need to.</p>
+                <p>Add the apprenticeship details you'd like to estimate the cost for. We will show the government cap on funds and typical duration of the apprenticeship. You can adjust the cost and monthly figures should you need to.</p>
             </div>
         </div>
     </div>
@@ -897,7 +897,7 @@ Are you transferring funds to another employer for this apprenticeship?       </
                                 <label for="startDateMonth">Month</label>
                                 <input name="startDateMonth" id="startDateMonth" type="number" pattern="[0-9]*" min="0" max="12" class="form-control" placeholder="MM">
                             </div>
-                            <div class="form-group form-group-month">
+                            <div class="form-group form-group-year">
                                 <label for="startDateYear">Year</label>
                                 <input name="startDateYear" id="startDateYear" type="number" pattern="[0-9]*" min="17" max="21" class="form-control" placeholder="YYYY">
                             </div>
@@ -909,7 +909,7 @@ Are you transferring funds to another employer for this apprenticeship?       </
                      
                 <div class="form-group">
                     <label class="form-label-bold">Government funding cap</label>
-                    <span class="form-hint">Choose an apprenticeship and number of apprentices to see this figure. <a href="#">More information about government funding caps</a></span>
+                    <span class="form-hint">Choose an apprenticeship and number of apprentices to see this figure <br><a href="#">More information about government funding caps</a></span>
                     <span id="levy-cap" class="form-hint bold-xsmall"></span>
                     <span id="levy-total-cap" class="form-hint bold-xsmall"></span>
                 </div>
@@ -917,7 +917,7 @@ Are you transferring funds to another employer for this apprenticeship?       </
                
                 <div class="form-group">
                     <label class="form-label-bold" for="levy-value">Agreed total cost</label>
-                        <span class="form-hint">This figure can not be above the total government funding cap</span>
+                        <span class="form-hint">This figure can't be above the total government funding cap</span>
                         <span class="error-message hidden">You need to let us know a total cost of the apprenticeship added</span>
                         <span class="error-message hidden">The total cost can't be higher than the government funding cap for this apprenticeship</span>
                     <label for="levy-value-2" class="text-box-unit">£</label>
