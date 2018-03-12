@@ -4206,3 +4206,11 @@ table.results-table td.training-column {
         background-repeat:no-repeat!important
     }
 }
+
+
+.errorTable {
+    tr:nth-child(8) {
+        border: 5px solid white;
+        outline: 5px solid $red
+    }
+}

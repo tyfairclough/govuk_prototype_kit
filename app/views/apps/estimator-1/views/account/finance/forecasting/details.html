@@ -41,11 +41,19 @@
     <div class="grid-row">
     <div class="column-two-thirds">
         <div class="hgroup form-group">
-           <h1 class="heading-xlarge">Modelled costs</h1>
-          <p class="lede">This page breaks down the modelled costs on a month by month basis.</p> 
+           <h1 class="heading-xlarge">Estimated costs</h1>
+          <p class="lede">The estimation gives you an overall projection of your account funds; a look at your available transfer allowance and the cost of the apprenticeships you’ve estimated using these funds.</p> 
 
-<p><a class="" href="add-apprenticeship?scenario=2">Add more apprenticeships to your current estimate</a>.</p>
- 
+<p><a class="" href="add-apprenticeship?scenario=2">Add more apprenticeships to your current estimate</a></p>
+            
+            <details>
+                <summary>What does this table show</summary>
+                <div class="panel panel-width-thin">
+<p>                    The ‘account funds’ table shows the monthly breakdown of your projected funds in your account and the apprenticeship costs you’ve estimated for a transfer.  </p>
+<p>                   The ‘remaining transfer allowance’ table shows a monthly breakdown of your transfer allowance taking into account the apprenticeships you’ve estimated.  Your transfer allowance will reset every April.  </p>
+<p>                    The ‘apprenticeships added’ table shows the detail of apprenticeships you’ve added to your estimation.</p>
+                </div>
+            </details>
         </div>
         
       </div>
@@ -53,17 +61,17 @@
     </div>
     <div id="tabs-container">
     <ul class="tabs-menu">
-        <li class="current"><a href="#tab-1">Your funds</a></li>
-        <li class=""><a href="#tab-2">Transfer allowance</a></li>
-        <li class=""><a href="#tab-3">Modelled apprenticeships</a></li>
+        <li class=""><a href="#tab-1">Account funds</a></li>
+        <li class="current"><a href="#tab-2">Remaining transfer allowance</a></li>
+        <li class=""><a href="#tab-3">Apprenticeships added</a></li>
     </ul>
-    <div id="tab-1" class="tab-content" style="">
+    <div id="tab-1" class="tab-content"  style="">
         <table class="small responsive">
             <thead>
             <tr>
                 <th>Date</th>
                 <th>Projected funds</th>
-                <th>Modelled costs</th>
+                <th>Transferred apprenticeship costs</th>
             </tr>            
             </thead>
             <tbody>
@@ -77,13 +85,13 @@
     </div>
 
 
-    <div id="tab-2" class="tab-content" style="display: none;">
+    <div id="tab-2" class="tab-content" style="">
         <table class="small responsive">
             <thead>
             <tr>
                 <th>Date</th>
-                <th>Transfer allowance</th>
-                <th>Modelled costs</th>
+                <th>Remaining transfer allowance</th>
+                <th>Transferred apprenticeship costs</th>
             </tr>            
             </thead>
             <tbody>
@@ -97,7 +105,7 @@
         </table>
     </div>
         
-    <div id="tab-3" class="tab-content" style="display: none;">
+    <div id="tab-3" class="tab-content" style="">
         <table class="small responsive">
             <thead>
             <tr>
@@ -107,7 +115,7 @@
                 <th>Monthly payment</th>
                 <th>Number of monthly payments</th>
                 <th>Completion payment</th>
-                <th>Transfer</th>
+                <th style="display:none">Transfer</th>
                 <th></th>
                 <th></ th>
             </tr>

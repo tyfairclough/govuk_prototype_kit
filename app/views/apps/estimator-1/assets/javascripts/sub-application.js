@@ -48,19 +48,13 @@ var scenario =  getQueryVariable("scenario");
         if ( scenario == "1" ) {
             $("#successOne.success-summary").show();            
         } else {
-            $("#ErrorOne.error-summary").show();            
+            $("#ErrorOne.error-summary").show();  
         }
     }
     
     function estimatorDetails(){
         
-$(".error-summary").hide();
-        
-        
-                scenario = localStorage.getItem("scenario");
-        if ( scenario == "2" ) {
-            $("#errorOne.error-summary").show();            
-        };
+
         
         
  var googleDocA = 'https://docs.google.com/spreadsheets/d/1PwP2NxBj3WVuzwwU6Z4USUCurOxuu2kiHkg8nVWKssE/pubhtml';
@@ -99,7 +93,7 @@ $(".error-summary").hide();
 
         for (i = 0; i < data.apprenticeships.elements.length; i++) {
            pos = i + 1;
-           content += '<tr><td>'+data.apprenticeships.elements[i].apprenticeship+'<span class="form-hint">'+data.apprenticeships.elements[i].apprenticeship_level+'</span></td><td>'+data.apprenticeships.elements[i].number_of_apprentices+'</td><td>'+data.apprenticeships.elements[i].start_date+'</td><td>'+data.apprenticeships.elements[i].monthly_payment+'</td><td>'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td>'+data.apprenticeships.elements[i].completion_payment+'</td><td>'+data.apprenticeships.elements[i].transfer+'</td></tr>';
+           content += '<tr><td>'+data.apprenticeships.elements[i].apprenticeship+'<span class="form-hint">'+data.apprenticeships.elements[i].apprenticeship_level+'</span></td><td>'+data.apprenticeships.elements[i].number_of_apprentices+'</td><td>'+data.apprenticeships.elements[i].start_date+'</td><td>'+data.apprenticeships.elements[i].monthly_payment+'</td><td>'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td>'+data.apprenticeships.elements[i].completion_payment+'</td><td style="display:none">'+data.apprenticeships.elements[i].transfer+'</td><td><a href="#">Remove</a></td><td><a href="add-apprenticeship.html">Edit</a></td></tr>';
            renderTableC(content);
             }
    
@@ -129,6 +123,17 @@ $(".error-summary").hide();
          
         
 googleTables();        
+        
+$(".error-summary").hide();
+        
+        
+                scenario = localStorage.getItem("scenario");
+        if ( scenario == "2" ) {
+            $("#errorOne.error-summary").show();    
+            $("#tab-2 tbody").addClass("errorTable");
+// ADD ERROR STYLES HERE
+
+        };        
         
     }
     
@@ -353,7 +358,7 @@ googleTables();
     });
    
 /*----- TABS -----*/
-    $(".tab-content").not("#tab-1").css("display", "none");
+    $(".tab-content").not("#tab-2").css("display", "none");
 
     //tabs pattern
     $(".tabs-menu a").click(function(event) {
