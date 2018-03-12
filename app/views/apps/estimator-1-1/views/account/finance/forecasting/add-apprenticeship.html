@@ -1,0 +1,996 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %} {% block main_content %}
+<main class="estimate-add-apprenticeship" id="content" role="main" tabindex="-1">
+    <a href="#" class="link-back">Back</a>
+
+
+    
+    
+    <div class="error-summary hidden" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+
+      <h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+        Errors to fix
+      </h2>
+
+      <p>
+        Please check the details you have entered against the criteria needed.
+      </p>
+
+<ul class="error-summary-list list list-links">
+    <li class="hidden" id="noStandardSelected"><a href="#standardNew">Please make sure you have selected an apprenticeship standard</a></li>
+    <li class="hidden" id="noNumberOfApprentices"><a href="#cohortsNew">Make sure you have at least 1 or more apprentices</a></li>
+    <li class="hidden" id="wrongYears"><a href="#startDateYear">The start year for an apprenticeship must be either 2018 or 2019</a></li>
+    <li class="hidden" id="wrong2018month"><a href="#startDateMonth">Apprenticeships starting in 2018 must start after May</a></li>
+    <li class="hidden" id="wrong2019month"><a href="#startDateMonth">Apprenticeships that start in 2019 must start before the end of the academic year - September 2019</a></li>
+    <li class="hidden" id="overCap"><a href="#levy-value">The total cost can not be above the government funding cap for this estimate, lower your total cost to fix this</a></li>
+    <li class="hidden" id="noCost"><a href="#levy-value">You need to declare a total cost of the apprenticeships added</a></li>
+    <li class="hidden" id="noLength"><a href="#levy-length">The number of months was not entered, you need to enter a number greater than or equal to 12</a></li>
+    <li class="hidden" id="shortLength"><a href="#levy-length">Apprenticeships must last at least 12 months, you need to enter a number greater than or equal to 12 here</a></li>
+</ul>
+
+    </div>    
+    
+        
+    <div class="success-summary hidden" id="apprenticeshipAdded">
+    <h3 class="heading-medium">Apprenticeship added</h3>
+    <p>The apprenticeship <span class="apprenticeship-name">{apprenticeship}</span> has been added.</p>
+</div> 
+    
+
+    
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup form-group">
+                <h1 class="heading-xlarge">
+Add apprenticeships to estimate cost
+                </h1>
+                <p>Add the apprenticeship details so you can estimate the cost and see how much you could transfer to another employer.  We will show the government cap on funds and typical duration of the apprenticeship.  You can adjust the cost and monthly figures should you need to.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <form>
+     <div class="form-group hidden">
+    <fieldset class="inline">
+
+      <legend>
+        <h1 class="heading-small">
+Are you transferring funds to another employer for this apprenticeship?       </h1>
+      </legend>
+
+      <div class="multiple-choice">
+        <input id="radio-inline-1" type="radio" name="radio-inline-group" value="1">
+        <label for="radio-inline-1">Yes</label>
+      </div>
+      <div class="multiple-choice">
+        <input id="radio-inline-2" type="radio" name="radio-inline-group" value="0">
+        <label for="radio-inline-2">No</label>
+      </div>
+
+    </fieldset>
+  </div>
+                <div class="form-group">
+                    <label class="form-label-bold" for="email">Choose apprenticeship <span class="hidden">standard</span></label>
+                     <span class="error-message hidden">Choose an apprenticeship</span>
+                    <span class="error-message hidden">Please make sure you have selected an apprenticeship</span>
+                    
+                    
+                    
+                    
+                    <select name="apprenticeship" id="standardNew" class="typeahead form-control training-standard select2-control select2-hidden-accessible" aria-label="Training apprenticeship" tabindex="-1" aria-hidden="true">
+                                <option value="noselection">Select one</option>
+                                    <option value="34" data-price="9000" data-duration="18">Able seafarer (deck) - Level 2</option>
+                                    <option value="176" data-price="9000" data-duration="24">Accident Repair Technician - Level 3</option>
+                                    <option value="204" data-price="21000" data-duration="36">Accountancy Taxation Professional - Level 7</option>
+                                    <option value="454-3-1" data-price="2000" data-duration="12">Accounting: Accounting - Level 2</option>
+                                    <option value="454-2-1" data-price="2000" data-duration="18">Accounting: Accounting - Level 3</option>
+                                    <option value="454-20-1" data-price="2500" data-duration="18">Accounting: Accounting - Level 4</option>
+                                    <option value="460-3-3" data-price="2000" data-duration="12">Activity Leadership: Coaching - Level 2</option>
+                                    <option value="460-3-2" data-price="2000" data-duration="12">Activity Leadership: Exercise and Fitness - Level 2</option>
+                                    <option value="460-3-4" data-price="2000" data-duration="12">Activity Leadership: Leadership - Level 2</option>
+                                    <option value="460-3-1" data-price="1500" data-duration="12">Activity Leadership: Outdoors - Level 2</option>
+                                    <option value="17" data-price="15000" data-duration="24">Actuarial technician - Level 4</option>
+                                    <option value="119" data-price="3000" data-duration="12">Adult care worker - Level 2</option>
+                                    <option value="152" data-price="12000" data-duration="22">Advanced butcher - Level 3</option>
+                                    <option value="148" data-price="9000" data-duration="18">Advanced credit controller / debt collection specialist - Level 3</option>
+                                    <option value="149" data-price="27000" data-duration="36">Advanced dairy technologist - Level 5</option>
+                                    <option value="37" data-price="27000" data-duration="48">Aerospace engineer - Level 6</option>
+                                    <option value="38" data-price="27000" data-duration="48">Aerospace software development engineer - Level 6</option>
+                                    <option value="528-3-1" data-price="1500" data-duration="15">Agriculture: Agriculture - Level 2</option>
+                                    <option value="528-2-1" data-price="3000" data-duration="18">Agriculture: Agriculture - Level 3</option>
+                                    <option value="114" data-price="24000" data-duration="48">Aircraft maintenance certifying engineer - Level 4</option>
+                                    <option value="121" data-price="3000" data-duration="12">Airside operator - Level 2</option>
+                                    <option value="439-3-1" data-price="2000" data-duration="18">Animal Care: Animal Care - Level 2</option>
+                                    <option value="439-2-1" data-price="2500" data-duration="24">Animal Care: Animal Care - Level 3</option>
+                                    <option value="179" data-price="6000" data-duration="15">Animal Technologist - Level 3</option>
+                                    <option value="180" data-price="15000" data-duration="24">Arborist - Level 2</option>
+                                    <option value="133" data-price="9000" data-duration="18">Assistant accountant - Level 3</option>
+                                    <option value="85" data-price="9000" data-duration="18">Assistant technical director (visual effects) - Level 4</option>
+                                    <option value="156" data-price="15000" data-duration="18">Associate Ambulance Practitioner - Level 4</option>
+                                    <option value="128" data-price="9000" data-duration="24">Associate project manager - Level 4</option>
+                                    <option value="87" data-price="3000" data-duration="12">Aviation ground operative - Level 2</option>
+                                    <option value="86" data-price="3000" data-duration="18">Aviation ground specialist - Level 3</option>
+                                    <option value="141" data-price="12000" data-duration="18">Aviation maintenance mechanic (military) - Level 2</option>
+                                    <option value="123" data-price="5000" data-duration="18">Aviation operations manager - Level 4</option>
+                                    <option value="405-3-1" data-price="3000" data-duration="12">Aviation Operations on the Ground: Aviation Operations on the Ground - Level 2</option>
+                                    <option value="405-2-1" data-price="6000" data-duration="18">Aviation Operations on the Ground: Aviation Operations on the Ground - Level 3</option>
+                                    <option value="177" data-price="9000" data-duration="12">Baker - Level 2</option>
+                                    <option value="507-3-1" data-price="3000" data-duration="12">Barbering: Barbering - Level 2</option>
+                                    <option value="507-2-1" data-price="3000" data-duration="12">Barbering: Barbering - Level 3</option>
+                                    <option value="422-3-1" data-price="2000" data-duration="12">Beauty Therapy: Beauty Therapy General - Level 2</option>
+                                    <option value="422-2-1" data-price="2500" data-duration="12">Beauty Therapy: Beauty Therapy General - Level 3</option>
+                                    <option value="422-3-2" data-price="2000" data-duration="12">Beauty Therapy: Beauty Therapy Make-up - Level 2</option>
+                                    <option value="422-2-2" data-price="3000" data-duration="12">Beauty Therapy: Beauty Therapy Make-up - Level 3</option>
+                                    <option value="422-2-3" data-price="2500" data-duration="12">Beauty Therapy: Beauty Therapy Massage - Level 3</option>
+                                    <option value="183" data-price="9000" data-duration="24">Bespoke Saddler - Level 3</option>
+                                    <option value="72" data-price="15000" data-duration="24">Bespoke tailor and cutter - Level 5</option>
+                                    <option value="76" data-price="27000" data-duration="48">Boatbuilder - Level 3</option>
+                                    <option value="112" data-price="9000" data-duration="12">Broadcast production assistant - Level 3</option>
+                                    <option value="605-22-1" data-price="9000" data-duration="12">Broadcast Technology Higher Apprenticeship - BBC: Broadcast Technology - Level 6</option>
+                                    <option value="198" data-price="27000" data-duration="66">Building Services Design Engineer - Level 6</option>
+                                    <option value="178" data-price="12000" data-duration="42">Building Services Design Technician - Level 3</option>
+                                    <option value="173" data-price="18000" data-duration="36">Building Services Engineering Craftsperson - Level 3</option>
+                                    <option value="185" data-price="27000" data-duration="48">Building Services Engineering Ductwork Craftsperson - Level 3</option>
+                                    <option value="192" data-price="15000" data-duration="24">Building Services Engineering Ductwork Installer - Level 2</option>
+                                    <option value="164" data-price="12000" data-duration="24">Building Services Engineering Installer - Level 2</option>
+                                    <option value="193" data-price="18000" data-duration="48">Building Services Engineering Service and Maintenance Engineer - Level 3</option>
+                                    <option value="543-2-2" data-price="12000" data-duration="42">Building Services Engineering Technology and Project Management: Design Technician - Level 3</option>
+                                    <option value="543-2-1" data-price="12000" data-duration="42">Building Services Engineering Technology and Project Management: Technician - Level 3</option>
+                                    <option value="194" data-price="9000" data-duration="24">Building Services Engineering Ventilation Hygiene Technician - Level 3</option>
+                                    <option value="431-3-3" data-price="4000" data-duration="24">Bus and Coach Engineering and Maintenance: Body - Level 2</option>
+                                    <option value="431-2-3" data-price="9000" data-duration="24">Bus and Coach Engineering and Maintenance: Body - Level 3</option>
+                                    <option value="431-3-2" data-price="3500" data-duration="24">Bus and Coach Engineering and Maintenance: Electrical - Level 2</option>
+                                    <option value="431-2-2" data-price="9000" data-duration="24">Bus and Coach Engineering and Maintenance: Electrical - Level 3</option>
+                                    <option value="431-3-1" data-price="4000" data-duration="24">Bus and Coach Engineering and Maintenance: Mechanical - Level 2</option>
+                                    <option value="431-2-1" data-price="9000" data-duration="24">Bus and Coach Engineering and Maintenance: Mechanical - Level 3</option>
+                                    <option value="431-2-4" data-price="9000" data-duration="24">Bus and Coach Engineering and Maintenance: Mechanical and Electrical - Level 3</option>
+                                    <option value="136" data-price="9000" data-duration="36">Bus and coach engineering manager - Level 4</option>
+                                    <option value="134" data-price="18000" data-duration="36">Bus and coach engineering technician - Level 3</option>
+                                    <option value="196" data-price="5000" data-duration="18">Business Administrator - Level 3</option>
+                                    <option value="54" data-price="9000" data-duration="18">Butcher - Level 2</option>
+                                    <option value="584-21-1" data-price="2000" data-duration="12">Care Leadership and Management: General Adult Social Care - Level 5</option>
+                                    <option value="584-21-2" data-price="2500" data-duration="12">Care Leadership and Management: Specialist Adult Social Care - Level 5</option>
+                                    <option value="582-3-4" data-price="2000" data-duration="12">Catering and Professional Chefs: Chefs in the Licensed Hospitality Industry - Level 2</option>
+                                    <option value="582-3-3" data-price="3500" data-duration="24">Catering and Professional Chefs: Craft Cuisine - Level 2</option>
+                                    <option value="582-2-3" data-price="5000" data-duration="30">Catering and Professional Chefs: Craft Cuisine - Level 3</option>
+                                    <option value="582-3-1" data-price="2000" data-duration="12">Catering and Professional Chefs: Food Production and Cooking - Level 2</option>
+                                    <option value="582-2-2" data-price="2500" data-duration="18">Catering and Professional Chefs: Patisserie and Confectionery - Level 3</option>
+                                    <option value="582-3-2" data-price="2500" data-duration="18">Catering and Professional Chefs: Professional Cookery - Level 2</option>
+                                    <option value="582-2-1" data-price="2500" data-duration="18">Catering and Professional Chefs: Professional Cookery - Level 3</option>
+                                    <option value="41" data-price="12000" data-duration="60">Chartered legal executive - Level 6</option>
+                                    <option value="55" data-price="27000" data-duration="48">Chartered manager degree apprenticeship - Level 6</option>
+                                    <option value="50" data-price="27000" data-duration="60">Chartered surveyor - Level 6</option>
+                                    <option value="169" data-price="9000" data-duration="12">Chef De Partie - Level 3</option>
+                                    <option value="445-2-2" data-price="2500" data-duration="20">Children and Young People's Workforce: Children and Young People's Social Care - Level 3</option>
+                                    <option value="445-3-1" data-price="2000" data-duration="12">Children and Young People's Workforce: Children and Young People's Workforce - Level 2</option>
+                                    <option value="445-2-1" data-price="2500" data-duration="20">Children and Young People's Workforce: Early Years Educator - Level 3</option>
+                                    <option value="445-2-3" data-price="2500" data-duration="20">Children and Young People's Workforce: Residential Childcare - Level 3</option>
+                                    <option value="200" data-price="27000" data-duration="66">Civil Engineer - Level 6</option>
+                                    <option value="199" data-price="12000" data-duration="36">Civil Engineering Technician - Level 3</option>
+                                    <option value="498-3-1" data-price="1500" data-duration="12">Cleaning and Environmental Support Services: Cleaning and Support Services - Level 2</option>
+                                    <option value="498-2-1" data-price="1500" data-duration="12">Cleaning and Environmental Support Services: Cleaning Supervision - Level 3</option>
+                                    <option value="498-3-2" data-price="1500" data-duration="12">Cleaning and Environmental Support Services: Local Environmental Services - Level 2</option>
+                                    <option value="498-3-3" data-price="1500" data-duration="12">Cleaning and Environmental Support Services: Pest Management - Level 2</option>
+                                    <option value="561-3-1" data-price="1500" data-duration="12">Coaching: Coaching Swimming - Level 2</option>
+                                    <option value="561-3-2" data-price="1500" data-duration="12">Coaching: Coaching Tennis - Level 2</option>
+                                    <option value="561-2-1" data-price="2000" data-duration="18">Coaching: Coaching Tennis - Level 3</option>
+                                    <option value="222" data-price="9000" data-duration="24">Commercial Procurement and Supply - Level 4</option>
+                                    <option value="93" data-price="9000" data-duration="12">Commis chef - Level 2</option>
+                                    <option value="215" data-price="6000" data-duration="18">Community Activator Coach - Level 2</option>
+                                    <option value="492-3-1" data-price="2000" data-duration="12">Community Arts: Community Arts Administration - Level 2</option>
+                                    <option value="492-2-1" data-price="2500" data-duration="12">Community Arts: Community Arts Management - Level 3</option>
+                                    <option value="617-3-1" data-price="1500" data-duration="12">Community Safety: Community Fire Safety - Level 2</option>
+                                    <option value="143" data-price="9000" data-duration="15">Compliance / risk officer - Level 3</option>
+                                    <option value="596-3-1" data-price="3000" data-duration="18">Composite Engineering: Composite Engineering - Level 2</option>
+                                    <option value="596-2-1" data-price="12000" data-duration="18">Composite Engineering: Composite Engineering - Level 3</option>
+                                    <option value="160" data-price="27000" data-duration="36">Composites Technician - Level 3</option>
+                                    <option value="522-2-3" data-price="9000" data-duration="30">Construction Building: Decorative Finishing - Level 3</option>
+                                    <option value="522-3-1" data-price="6000" data-duration="18">Construction Building: Decorative Finishing and Industrial Painting - Level 2</option>
+                                    <option value="522-3-2" data-price="5000" data-duration="18">Construction Building: Maintenance Operations - Level 2</option>
+                                    <option value="522-3-3" data-price="5000" data-duration="18">Construction Building: Trowel Occupations - Level 2</option>
+                                    <option value="522-2-1" data-price="6000" data-duration="30">Construction Building: Trowel Occupations - Level 3</option>
+                                    <option value="522-3-4" data-price="6000" data-duration="18">Construction Building: Wood Occupations - Level 2</option>
+                                    <option value="522-2-2" data-price="9000" data-duration="30">Construction Building: Wood Occupations - Level 3</option>
+                                    <option value="522-3-5" data-price="6000" data-duration="18">Construction Building: Woodmachining - Level 2</option>
+                                    <option value="520-3-1" data-price="4000" data-duration="18">Construction Civil Engineering: Construction Operations - Level 2</option>
+                                    <option value="520-3-2" data-price="6000" data-duration="18">Construction Civil Engineering: Formwork Occupations - Level 2</option>
+                                    <option value="520-3-3" data-price="5000" data-duration="18">Construction Civil Engineering: Highways Maintenance - Level 2</option>
+                                    <option value="520-3-4" data-price="9000" data-duration="18">Construction Civil Engineering: Plant Maintenance - Level 2</option>
+                                    <option value="520-2-1" data-price="12000" data-duration="30">Construction Civil Engineering: Plant Maintenance - Level 3</option>
+                                    <option value="520-3-5" data-price="4000" data-duration="18">Construction Civil Engineering: Plant Operations - Level 2</option>
+                                    <option value="520-3-7" data-price="5000" data-duration="18">Construction Civil Engineering: Specialist Concrete Occupations - Level 2</option>
+                                    <option value="520-3-9" data-price="5000" data-duration="18">Construction Civil Engineering: Steelfixing - Level 2</option>
+                                    <option value="520-3-10" data-price="9000" data-duration="18">Construction Civil Engineering: Steelfixing Occupations Major Projects - Level 2</option>
+                                    <option value="520-3-6" data-price="5000" data-duration="23">Construction Civil Engineering: Tunnelling Operations - Level 2</option>
+                                    <option value="612-20-1" data-price="12000" data-duration="12">Construction Management: Construction and Building Services Management and Supervision (Sustainability) - Level 4</option>
+                                    <option value="612-22-1" data-price="12000" data-duration="12">Construction Management: Construction Site Management - Level 6</option>
+                                    <option value="612-20-2" data-price="12000" data-duration="12">Construction Management: Construction Site Supervision - Level 4</option>
+                                    <option value="612-21-3" data-price="12000" data-duration="12">Construction Management: Foundation Degree in Architecture - Level 5</option>
+                                    <option value="612-21-4" data-price="12000" data-duration="12">Construction Management: Foundation Degree in Built Environment - Level 5</option>
+                                    <option value="612-21-5" data-price="12000" data-duration="12">Construction Management: Foundation Degree in Civil Engineering - Level 5</option>
+                                    <option value="612-21-1" data-price="12000" data-duration="12">Construction Management: Foundation Degree Professional Practice in Construction Operations Management - Level 5</option>
+                                    <option value="612-22-2" data-price="12000" data-duration="12">Construction Management: Management Quantity Surveying and Commercial Management - Level 6</option>
+                                    <option value="612-21-2" data-price="12000" data-duration="12">Construction Management: Sustainability - Level 5</option>
+                                    <option value="519-3-1" data-price="6000" data-duration="18">Construction Specialist: Accessing and Rigging - Level 2</option>
+                                    <option value="519-3-2" data-price="6000" data-duration="18">Construction Specialist: Applied Waterproof Membranes - Level 2</option>
+                                    <option value="519-3-3" data-price="6000" data-duration="18">Construction Specialist: Cladding Occupations - Level 2</option>
+                                    <option value="519-3-5" data-price="5000" data-duration="18">Construction Specialist: Fitted Interiors - Level 2</option>
+                                    <option value="519-3-6" data-price="5000" data-duration="18">Construction Specialist: Floorcovering - Level 2</option>
+                                    <option value="519-2-5" data-price="6000" data-duration="30">Construction Specialist: Heritage Skills - Level 3</option>
+                                    <option value="519-3-12" data-price="3500" data-duration="12">Construction Specialist: Insulation and Building Treatments - Level 2</option>
+                                    <option value="519-3-7" data-price="5000" data-duration="18">Construction Specialist: Interior Systems - Level 2</option>
+                                    <option value="519-3-8" data-price="6000" data-duration="18">Construction Specialist: Mastic Asphalting - Level 2</option>
+                                    <option value="519-2-6" data-price="9000" data-duration="30">Construction Specialist: Mastic Asphalting - Level 3</option>
+                                    <option value="519-3-9" data-price="6000" data-duration="18">Construction Specialist: Plastering - Level 2</option>
+                                    <option value="519-2-1" data-price="6000" data-duration="30">Construction Specialist: Plastering - Level 3</option>
+                                    <option value="519-3-10" data-price="6000" data-duration="18">Construction Specialist: Roofing Occupations - Level 2</option>
+                                    <option value="519-2-2" data-price="12000" data-duration="30">Construction Specialist: Roofing Occupations - Level 3</option>
+                                    <option value="519-3-11" data-price="6000" data-duration="18">Construction Specialist: Stonemasonry - Level 2</option>
+                                    <option value="519-2-3" data-price="9000" data-duration="30">Construction Specialist: Stonemasonry - Level 3</option>
+                                    <option value="519-3-13" data-price="4000" data-duration="18">Construction Specialist: Thermal Insulation - Level 2</option>
+                                    <option value="519-2-7" data-price="6000" data-duration="30">Construction Specialist: Thermal Insulation - Level 3</option>
+                                    <option value="519-3-4" data-price="5000" data-duration="18">Construction Specialist: Wall and Floor Tiling - Level 2</option>
+                                    <option value="519-2-4" data-price="9000" data-duration="30">Construction Specialist: Wall and Floor Tiling - Level 3</option>
+                                    <option value="171" data-price="12000" data-duration="18">Construction Steel Fixer - Level 2</option>
+                                    <option value="521-2-6" data-price="9000" data-duration="18">Construction Technical and Professional: Building Control - Level 3</option>
+                                    <option value="521-2-1" data-price="6000" data-duration="18">Construction Technical and Professional: Built Environment and Design - Level 3</option>
+                                    <option value="521-2-4" data-price="9000" data-duration="18">Construction Technical and Professional: Civil Engineering for Technicians - Level 3</option>
+                                    <option value="521-2-2" data-price="9000" data-duration="18">Construction Technical and Professional: Construction Contracting Operations - Level 3</option>
+                                    <option value="521-2-7" data-price="9000" data-duration="18">Construction Technical and Professional: Geomatics Data Analysis - Level 3</option>
+                                    <option value="521-2-5" data-price="5000" data-duration="18">Construction Technical and Professional: Occupational Work Supervision - Level 3</option>
+                                    <option value="521-2-8" data-price="9000" data-duration="18">Construction Technical and Professional: Town Planning Technical Support - Level 3</option>
+                                    <option value="587-3-1" data-price="2000" data-duration="24">Consumer Electrical and Electronic Products: Delivering and Installing - Level 2</option>
+                                    <option value="587-2-1" data-price="3500" data-duration="24">Consumer Electrical and Electronic Products: Repairing Component Faults - Level 3</option>
+                                    <option value="587-3-2" data-price="3000" data-duration="24">Consumer Electrical and Electronic Products: Repairing Module Faults - Level 2</option>
+                                    <option value="489-3-1" data-price="1500" data-duration="12">Contact Centre Operations: Contact Centre Operations - Level 2</option>
+                                    <option value="489-2-1" data-price="2000" data-duration="12">Contact Centre Operations: Contact Centre Operations - Level 3</option>
+                                    <option value="9" data-price="27000" data-duration="60">Control / technical support engineer - Level 6</option>
+                                    <option value="39" data-price="9000" data-duration="12">Conveyancing technician - Level 4</option>
+                                    <option value="406-3-1" data-price="1500" data-duration="12">Court, Tribunal and Prosecution Operations: Court and Tribunal Administration - Level 2</option>
+                                    <option value="406-2-1" data-price="1500" data-duration="12">Court, Tribunal and Prosecution Operations: Court and Tribunal Administration - Level 3</option>
+                                    <option value="449-2-1" data-price="4000" data-duration="15">Creative and Digital Media: Creative and Digital Media - Level 3</option>
+                                    <option value="449-20-1" data-price="2500" data-duration="15">Creative and Digital Media: Interactive Design and Development - Level 4</option>
+                                    <option value="77" data-price="5000" data-duration="12">Credit controller / collector - Level 2</option>
+                                    <option value="495-3-2" data-price="2000" data-duration="12">Cultural and Heritage Venue Operations: Cultural and Heritage Venue Operations - Level 2</option>
+                                    <option value="495-2-2" data-price="2500" data-duration="12">Cultural and Heritage Venue Operations: Cultural and Heritage Venue Operations - Level 3</option>
+                                    <option value="495-3-1" data-price="2000" data-duration="12">Cultural and Heritage Venue Operations: Cultural Heritage - Level 2</option>
+                                    <option value="495-2-1" data-price="2000" data-duration="12">Cultural and Heritage Venue Operations: Cultural Heritage - Level 3</option>
+                                    <option value="410-3-1" data-price="2000" data-duration="12">Custodial Care: Custodial Care - Level 2</option>
+                                    <option value="410-2-1" data-price="2000" data-duration="12">Custodial Care: Custodial Care - Level 3</option>
+                                    <option value="122" data-price="4000" data-duration="12">Customer service practitioner - Level 2</option>
+                                    <option value="488-3-1" data-price="1500" data-duration="12">Customer Service: Customer Service - Level 2</option>
+                                    <option value="488-2-1" data-price="2000" data-duration="12">Customer Service: Customer Service - Level 3</option>
+                                    <option value="79" data-price="18000" data-duration="24">Cyber intrusion analyst - Level 4</option>
+                                    <option value="98" data-price="18000" data-duration="24">Cyber security technologist - Level 4</option>
+                                    <option value="80" data-price="15000" data-duration="24">Data analyst - Level 4</option>
+                                    <option value="19" data-price="5000" data-duration="18">Dental laboratory assistant - Level 3</option>
+                                    <option value="61" data-price="9000" data-duration="18">Dental nurse - Level 3</option>
+                                    <option value="20" data-price="9000" data-duration="24">Dental practice manager - Level 4</option>
+                                    <option value="18" data-price="18000" data-duration="36">Dental technician - Level 5</option>
+                                    <option value="497-2-1" data-price="5000" data-duration="12">Design: Design - Level 3</option>
+                                    <option value="497-3-1" data-price="2000" data-duration="12">Design: Design Support - Level 2</option>
+                                    <option value="25" data-price="27000" data-duration="36">Digital and technology solutions professional - Level 6</option>
+                                    <option value="636-2-1" data-price="4000" data-duration="24">Digital Learning Design: Digital Learning Design - Level 3</option>
+                                    <option value="636-20-1" data-price="2000" data-duration="24">Digital Learning Design: Digital Learning Design - Level 4</option>
+                                    <option value="78" data-price="12000" data-duration="18">Digital marketer - Level 3</option>
+                                    <option value="516-3-1" data-price="5000" data-duration="24">Domestic Heating: Domestic Heating - Level 2</option>
+                                    <option value="516-2-2" data-price="6000" data-duration="24">Domestic Heating: Gas-Fired Warm Air Appliances - Level 3</option>
+                                    <option value="516-2-3" data-price="6000" data-duration="24">Domestic Heating: Gas-Fired Water and Central Heating Appliances - Level 3</option>
+                                    <option value="516-2-1" data-price="6000" data-duration="24">Domestic Heating: Oil-Fired, Solid Fuel or Environmental Options - Level 3</option>
+                                    <option value="441-3-4" data-price="2000" data-duration="12">Driving Goods Vehicles: Articulated/Drawbar Driver - Level 2</option>
+                                    <option value="441-2-3" data-price="1500" data-duration="12">Driving Goods Vehicles: Articulated/Drawbar Driver - Level 3</option>
+                                    <option value="441-3-1" data-price="2000" data-duration="12">Driving Goods Vehicles: Motorcycle/Cycle Courier - Level 2</option>
+                                    <option value="441-3-3" data-price="2500" data-duration="12">Driving Goods Vehicles: Rigid Vehicle Driver - Level 2</option>
+                                    <option value="441-2-2" data-price="1500" data-duration="12">Driving Goods Vehicles: Rigid Vehicle Driver - Level 3</option>
+                                    <option value="441-2-6" data-price="1500" data-duration="12">Driving Goods Vehicles: Transporting Freight by Road (Articulated/Drawbar) - Level 3</option>
+                                    <option value="441-2-5" data-price="1500" data-duration="12">Driving Goods Vehicles: Transporting Freight by Road (Rigid) - Level 3</option>
+                                    <option value="441-2-4" data-price="1500" data-duration="12">Driving Goods Vehicles: Transporting Freight by Road (Van) - Level 3</option>
+                                    <option value="441-3-2" data-price="2000" data-duration="12">Driving Goods Vehicles: Van Driver - Level 2</option>
+                                    <option value="441-2-1" data-price="1500" data-duration="12">Driving Goods Vehicles: Van Driver - Level 3</option>
+                                    <option value="26" data-price="12000" data-duration="14">Dual fuel smart meter installer - Level 2</option>
+                                    <option value="10" data-price="27000" data-duration="60">Electrical / electronic technical support engineer - Level 6</option>
+                                    <option value="216" data-price="27000" data-duration="30">Electrical Power Networks Engineer - Level 4</option>
+                                    <option value="127" data-price="27000" data-duration="36">Electrical power protection and plant commissioning engineer - Level 4</option>
+                                    <option value="212" data-price="9000" data-duration="36">Electrical, Electronic Product Service and Installation Engineer - Level 3</option>
+                                    <option value="513-2-1" data-price="12000" data-duration="42">Electrotechnical: Electrical Installation - Level 3</option>
+                                    <option value="107" data-price="27000" data-duration="36">Embedded electronic systems design and development engineer - Level 6</option>
+                                    <option value="409-2-1" data-price="3000" data-duration="24">Emergency Fire Service Operations: Emergency Fire Services Operations - Level 3</option>
+                                    <option value="536-2-1" data-price="1500" data-duration="12">Employment Related Services: Employment Related Services - Level 3</option>
+                                    <option value="202" data-price="21000" data-duration="42">Engineering Construction Pipefitter - Level 3</option>
+                                    <option value="517-2-16" data-price="12000" data-duration="36">Engineering Construction: Construction and Completions Control - Level 3</option>
+                                    <option value="517-2-13" data-price="12000" data-duration="36">Engineering Construction: Design and Draughting - Level 3</option>
+                                    <option value="517-2-8" data-price="12000" data-duration="36">Engineering Construction: Electrical Installation - Level 3</option>
+                                    <option value="517-2-11" data-price="12000" data-duration="42">Engineering Construction: Electrical Maintenance - Level 3</option>
+                                    <option value="517-2-10" data-price="9000" data-duration="42">Engineering Construction: Instrument and Control - Level 3</option>
+                                    <option value="517-2-15" data-price="12000" data-duration="36">Engineering Construction: Instrument Pipefitting - Level 3</option>
+                                    <option value="517-2-2" data-price="9000" data-duration="36">Engineering Construction: Mechanical Fitting - Level 3</option>
+                                    <option value="517-2-12" data-price="12000" data-duration="42">Engineering Construction: Mechanical Maintenance - Level 3</option>
+                                    <option value="517-2-9" data-price="6000" data-duration="36">Engineering Construction: Non Destructive Testing - Level 3</option>
+                                    <option value="517-2-1" data-price="9000" data-duration="36">Engineering Construction: Pipefitting - Level 3</option>
+                                    <option value="517-2-5" data-price="9000" data-duration="36">Engineering Construction: Plating - Level 3</option>
+                                    <option value="517-2-14" data-price="12000" data-duration="36">Engineering Construction: Project Control - Level 3</option>
+                                    <option value="517-2-7" data-price="12000" data-duration="36">Engineering Construction: Rigging (Moving Loads) - Level 3</option>
+                                    <option value="517-2-6" data-price="12000" data-duration="36">Engineering Construction: Steel Erecting - Level 3</option>
+                                    <option value="517-2-3" data-price="12000" data-duration="36">Engineering Construction: Welding (Pipework) - Level 3</option>
+                                    <option value="517-2-4" data-price="9000" data-duration="36">Engineering Construction: Welding (Plate) - Level 3</option>
+                                    <option value="92" data-price="27000" data-duration="42">Engineering design and draughtsperson - Level 3</option>
+                                    <option value="539-3-1" data-price="5000" data-duration="18">Engineering Manufacture: Aerospace - Level 2</option>
+                                    <option value="539-2-1" data-price="9000" data-duration="42">Engineering Manufacture: Aerospace - Level 3</option>
+                                    <option value="539-2-12" data-price="12000" data-duration="42">Engineering Manufacture: Automotive - Level 3</option>
+                                    <option value="539-2-9" data-price="12000" data-duration="42">Engineering Manufacture: Electrical and Electronic Engineering - Level 3</option>
+                                    <option value="539-2-14" data-price="12000" data-duration="42">Engineering Manufacture: Engineering Leadership - Level 3</option>
+                                    <option value="539-2-5" data-price="9000" data-duration="42">Engineering Manufacture: Engineering Maintenance - Level 3</option>
+                                    <option value="539-3-4" data-price="4000" data-duration="18">Engineering Manufacture: Engineering Maintenance and Installation - Level 2</option>
+                                    <option value="539-3-7" data-price="5000" data-duration="18">Engineering Manufacture: Engineering Technical Support - Level 2</option>
+                                    <option value="539-2-8" data-price="9000" data-duration="42">Engineering Manufacture: Engineering Technical Support - Level 3</option>
+                                    <option value="539-2-11" data-price="12000" data-duration="42">Engineering Manufacture: Engineering Toolmaking - Level 3</option>
+                                    <option value="539-2-13" data-price="9000" data-duration="42">Engineering Manufacture: Engineering Woodworking, Pattern and Modelmaking - Level 3</option>
+                                    <option value="539-3-5" data-price="5000" data-duration="18">Engineering Manufacture: Fabrication and Welding - Level 2</option>
+                                    <option value="539-2-6" data-price="9000" data-duration="42">Engineering Manufacture: Fabrication and Welding - Level 3</option>
+                                    <option value="539-2-10" data-price="9000" data-duration="42">Engineering Manufacture: Installation and Commissioning - Level 3</option>
+                                    <option value="539-2-2" data-price="12000" data-duration="42">Engineering Manufacture: Marine (Ship Building, Maintenance and Repair) - Level 3</option>
+                                    <option value="539-3-2" data-price="5000" data-duration="18">Engineering Manufacture: Marine (Ship, Yacht, Boatbuilding, Maintenance and Repair) - Level 2</option>
+                                    <option value="539-2-4" data-price="12000" data-duration="42">Engineering Manufacture: Marine (Yacht and Boat Building, Maintenance and Repair) - Level 3</option>
+                                    <option value="539-3-6" data-price="4000" data-duration="18">Engineering Manufacture: Materials Processing and Finishing - Level 2</option>
+                                    <option value="539-2-7" data-price="9000" data-duration="42">Engineering Manufacture: Materials Processing and Finishing - Level 3</option>
+                                    <option value="539-3-3" data-price="4000" data-duration="18">Engineering Manufacture: Mechanical Manufacturing Engineering - Level 2</option>
+                                    <option value="539-2-3" data-price="12000" data-duration="42">Engineering Manufacture: Mechanical Manufacturing Engineering - Level 3</option>
+                                    <option value="167" data-price="27000" data-duration="42">Engineering Technician - Level 3</option>
+                                    <option value="524-3-2" data-price="1500" data-duration="15">Environmental Conservation: Dry Stone Walling - Level 2</option>
+                                    <option value="524-2-2" data-price="1500" data-duration="18">Environmental Conservation: Dry Stone Walling - Level 3</option>
+                                    <option value="524-3-1" data-price="1500" data-duration="15">Environmental Conservation: Environmental Conservation - Level 2</option>
+                                    <option value="524-2-1" data-price="1500" data-duration="18">Environmental Conservation: Environmental Conservation - Level 3</option>
+                                    <option value="511-3-3" data-price="2000" data-duration="18">Equine: Harness Horse Care - Level 2</option>
+                                    <option value="511-2-3" data-price="2500" data-duration="24">Equine: Harness Horse Care and Management - Level 3</option>
+                                    <option value="511-3-1" data-price="2000" data-duration="18">Equine: Horse Care - Level 2</option>
+                                    <option value="511-2-1" data-price="3000" data-duration="24">Equine: Horse Care and Management - Level 3</option>
+                                    <option value="511-3-2" data-price="2000" data-duration="18">Equine: Racehorse Care - Level 2</option>
+                                    <option value="511-2-2" data-price="3000" data-duration="24">Equine: Racehorse Care and Management - Level 3</option>
+                                    <option value="159" data-price="9000" data-duration="18">Event Assistant - Level 3</option>
+                                    <option value="462-3-1" data-price="2500" data-duration="12">Exercise and Fitness: Exercise and Fitness - Level 2</option>
+                                    <option value="462-2-1" data-price="2500" data-duration="18">Exercise and Fitness: Personal Training - Level 3</option>
+                                    <option value="162" data-price="4000" data-duration="18">Facilities Management Supervisor - Level 3</option>
+                                    <option value="501-21-2" data-price="1500" data-duration="12">Facilities Management: Building Services - Level 5</option>
+                                    <option value="501-2-1" data-price="2000" data-duration="12">Facilities Management: Facilities Management - Level 3</option>
+                                    <option value="501-3-1" data-price="1500" data-duration="12">Facilities Management: Facilities Services - Level 2</option>
+                                    <option value="501-20-1" data-price="1500" data-duration="12">Facilities Management: Generic - Level 4</option>
+                                    <option value="501-21-1" data-price="6000" data-duration="12">Facilities Management: Generic - Level 5</option>
+                                    <option value="526-2-1" data-price="9000" data-duration="50">Farriery: Farriery - Level 3</option>
+                                    <option value="423-3-2" data-price="2000" data-duration="12">Fashion and Textiles: Apparel - Level 2</option>
+                                    <option value="423-2-2" data-price="12000" data-duration="24">Fashion and Textiles: Apparel - Level 3</option>
+                                    <option value="423-3-4" data-price="2500" data-duration="12">Fashion and Textiles: Footwear - Level 2</option>
+                                    <option value="423-2-4" data-price="9000" data-duration="24">Fashion and Textiles: Footwear - Level 3</option>
+                                    <option value="423-3-3" data-price="2500" data-duration="12">Fashion and Textiles: Leather goods - Level 2</option>
+                                    <option value="423-2-3" data-price="12000" data-duration="24">Fashion and Textiles: Leather goods - Level 3</option>
+                                    <option value="423-3-9" data-price="2000" data-duration="12">Fashion and Textiles: Leather Production - Level 2</option>
+                                    <option value="423-2-7" data-price="12000" data-duration="24">Fashion and Textiles: Leather Production - Level 3</option>
+                                    <option value="423-3-5" data-price="4000" data-duration="12">Fashion and Textiles: Saddlery - Level 2</option>
+                                    <option value="423-2-6" data-price="9000" data-duration="24">Fashion and Textiles: Tailoring - Level 3</option>
+                                    <option value="423-3-1" data-price="2500" data-duration="12">Fashion and Textiles: Textiles - Level 2</option>
+                                    <option value="423-2-1" data-price="9000" data-duration="24">Fashion and Textiles: Textiles - Level 3</option>
+                                    <option value="530-3-1" data-price="3500" data-duration="15">Fencing: Fencing - Level 2</option>
+                                    <option value="530-2-1" data-price="2500" data-duration="18">Fencing: Fencing Supervision - Level 3</option>
+                                    <option value="153" data-price="9000" data-duration="24">Financial Adviser - Level 4</option>
+                                    <option value="8" data-price="12000" data-duration="12">Financial services administrator - Level 3</option>
+                                    <option value="28" data-price="4000" data-duration="12">Financial services customer adviser - Level 2</option>
+                                    <option value="213" data-price="18000" data-duration="42">Financial Services Professional - Level 6</option>
+                                    <option value="126" data-price="18000" data-duration="36">Fire emergency and security systems technician - Level 3</option>
+                                    <option value="172" data-price="12000" data-duration="24">Fishmonger - Level 2</option>
+                                    <option value="523-3-1" data-price="2000" data-duration="18">Floristry: Floristry - Level 2</option>
+                                    <option value="523-2-1" data-price="2500" data-duration="24">Floristry: Floristry - Level 3</option>
+                                    <option value="129" data-price="9000" data-duration="24">Food and drink advanced process operator - Level 3</option>
+                                    <option value="16" data-price="27000" data-duration="36">Food and drink maintenance engineer - Level 3</option>
+                                    <option value="130" data-price="5000" data-duration="30">Food and drink process operator - Level 2</option>
+                                    <option value="403-3-2" data-price="1500" data-duration="12">Food and Drink: Baking Industry Skills - Level 2</option>
+                                    <option value="403-2-2" data-price="9000" data-duration="12">Food and Drink: Baking Industry Skills - Level 3</option>
+                                    <option value="403-3-7" data-price="1500" data-duration="12">Food and Drink: Brewing Industry Skills - Level 2</option>
+                                    <option value="403-3-8" data-price="2000" data-duration="12">Food and Drink: Dairy Industry Skills - Level 2</option>
+                                    <option value="403-3-6" data-price="1500" data-duration="12">Food and Drink: Fish and Shellfish Industry Skills - Level 2</option>
+                                    <option value="403-2-7" data-price="6000" data-duration="12">Food and Drink: Fish and Shellfish Industry Skills - Level 3</option>
+                                    <option value="403-3-4" data-price="1500" data-duration="12">Food and Drink: Food Industry Skills - Level 2</option>
+                                    <option value="403-2-3" data-price="6000" data-duration="12">Food and Drink: Food Industry Skills and Technical Management - Level 3</option>
+                                    <option value="403-3-11" data-price="1500" data-duration="12">Food and Drink: Food Industry Team Leading - Level 2</option>
+                                    <option value="403-3-5" data-price="1500" data-duration="12">Food and Drink: Food Manufacturing Excellence - Level 2</option>
+                                    <option value="403-2-4" data-price="6000" data-duration="12">Food and Drink: Food Manufacturing Excellence - Level 3</option>
+                                    <option value="403-3-9" data-price="1500" data-duration="12">Food and Drink: Fresh Produce Industry Skills - Level 2</option>
+                                    <option value="403-2-5" data-price="6000" data-duration="12">Food and Drink: Fresh Produce Industry Skills - Level 3</option>
+                                    <option value="403-3-10" data-price="2000" data-duration="12">Food and Drink: Livestock Market Droving Operations - Level 2</option>
+                                    <option value="403-3-1" data-price="1500" data-duration="12">Food and Drink: Meat and Poultry Industry Skills - Level 2</option>
+                                    <option value="403-2-1" data-price="9000" data-duration="12">Food and Drink: Meat and Poultry Industry Skills - Level 3</option>
+                                    <option value="403-3-3" data-price="2000" data-duration="12">Food and Drink: Milling Industry Skills - Level 2</option>
+                                    <option value="184" data-price="27000" data-duration="48">Food Industry Technical Professional - Level 6</option>
+                                    <option value="131" data-price="18000" data-duration="36">Food technologist - Level 3</option>
+                                    <option value="182" data-price="12000" data-duration="24">Forest Operative - Level 2</option>
+                                    <option value="578-3-1" data-price="1500" data-duration="12">Funeral Operations and Services: Funeral Operations and Services - Level 2</option>
+                                    <option value="578-2-1" data-price="1500" data-duration="12">Funeral Operations and Services: Funeral Operations and Services - Level 3</option>
+                                    <option value="137" data-price="9000" data-duration="24">Furniture manufacturer - Level 2</option>
+                                    <option value="551-3-2" data-price="5000" data-duration="18">Furniture, Furnishings and Interiors Manufacturing: Finishing Furniture - Level 2</option>
+                                    <option value="551-2-2" data-price="6000" data-duration="24">Furniture, Furnishings and Interiors Manufacturing: Finishing Furniture - Level 3</option>
+                                    <option value="551-3-4" data-price="4000" data-duration="18">Furniture, Furnishings and Interiors Manufacturing: Fitted Furniture and Interiors - Level 2</option>
+                                    <option value="551-2-4" data-price="6000" data-duration="24">Furniture, Furnishings and Interiors Manufacturing: Fitted Furniture and Interiors - Level 3</option>
+                                    <option value="551-3-8" data-price="6000" data-duration="18">Furniture, Furnishings and Interiors Manufacturing: Furniture and Wood Processing - CNC Machining - Level 2</option>
+                                    <option value="551-3-7" data-price="6000" data-duration="18">Furniture, Furnishings and Interiors Manufacturing: Furniture and Wood Processing - Level 2</option>
+                                    <option value="551-2-5" data-price="6000" data-duration="24">Furniture, Furnishings and Interiors Manufacturing: Furniture Design - Level 3</option>
+                                    <option value="551-3-1" data-price="5000" data-duration="18">Furniture, Furnishings and Interiors Manufacturing: Furniture Making - Level 2</option>
+                                    <option value="551-2-1" data-price="9000" data-duration="24">Furniture, Furnishings and Interiors Manufacturing: Furniture Making - Level 3</option>
+                                    <option value="551-3-3" data-price="4000" data-duration="18">Furniture, Furnishings and Interiors Manufacturing: Restoring Furniture - Level 2</option>
+                                    <option value="551-2-3" data-price="5000" data-duration="24">Furniture, Furnishings and Interiors Manufacturing: Restoring Furniture - Level 3</option>
+                                    <option value="551-3-9" data-price="2000" data-duration="18">Furniture, Furnishings and Interiors Manufacturing: Solid Surfaces - Level 2</option>
+                                    <option value="551-2-7" data-price="6000" data-duration="24">Furniture, Furnishings and Interiors Manufacturing: Supervision in the Furniture, Furnishings and Interiors Industry - Level 3</option>
+                                    <option value="551-3-5" data-price="5000" data-duration="18">Furniture, Furnishings and Interiors Manufacturing: Upholstery and Soft Furnishings - Level 2</option>
+                                    <option value="551-2-6" data-price="6000" data-duration="24">Furniture, Furnishings and Interiors Manufacturing: Upholstery and Soft Furnishings - Level 3</option>
+                                    <option value="551-3-6" data-price="5000" data-duration="24">Furniture, Furnishings and Interiors Manufacturing: Wood Machining - Level 2</option>
+                                    <option value="551-2-8" data-price="6000" data-duration="24">Furniture, Furnishings and Interiors Manufacturing: Wood Machining - Level 3</option>
+                                    <option value="438-3-1" data-price="2000" data-duration="18">Game and Wildlife Management: Game and Wildlife Management - Level 2</option>
+                                    <option value="438-2-1" data-price="2000" data-duration="24">Game and Wildlife Management: Game and Wildlife Management - Level 3</option>
+                                    <option value="74" data-price="27000" data-duration="18">Gas engineering - Level 3</option>
+                                    <option value="57" data-price="27000" data-duration="48">Gas network craftsperson - Level 3</option>
+                                    <option value="58" data-price="9000" data-duration="12">Gas network team leader - Level 2</option>
+                                    <option value="502-2-1" data-price="3000" data-duration="24">Glass Industry: Automotive Glazing - Level 3</option>
+                                    <option value="502-3-1" data-price="3000" data-duration="12">Glass Industry: Curtain Wall Installation - Level 2</option>
+                                    <option value="502-3-2" data-price="3000" data-duration="12">Glass Industry: Domestic Fascia, Soffit and Bargeboard Installation - Level 2</option>
+                                    <option value="502-3-6" data-price="3000" data-duration="12">Glass Industry: Fabrication of Glass Supporting Structures - Level 2</option>
+                                    <option value="502-2-2" data-price="9000" data-duration="24">Glass Industry: Fabrication of Glass Supporting Structures - Level 3</option>
+                                    <option value="502-3-5" data-price="3000" data-duration="12">Glass Industry: Fenestration Installation - Level 2</option>
+                                    <option value="502-2-4" data-price="9000" data-duration="24">Glass Industry: Fenestration Installation - Level 3</option>
+                                    <option value="502-2-5" data-price="4000" data-duration="24">Glass Industry: Fenestration Surveyor - Level 3</option>
+                                    <option value="502-3-7" data-price="3000" data-duration="12">Glass Industry: Flat Glass Manufacture - Level 2</option>
+                                    <option value="502-2-8" data-price="3500" data-duration="24">Glass Industry: Glass Manufacturing - Level 3</option>
+                                    <option value="502-3-3" data-price="3000" data-duration="12">Glass Industry: Glass Processing - Level 2</option>
+                                    <option value="502-2-6" data-price="4000" data-duration="24">Glass Industry: Glass Processor - Level 3</option>
+                                    <option value="502-3-13" data-price="3000" data-duration="12">Glass Industry: Glass Related Distribution and Warehousing - Level 2</option>
+                                    <option value="502-2-7" data-price="3500" data-duration="24">Glass Industry: Glass Related Distribution and Warehousing - Level 3</option>
+                                    <option value="502-3-9" data-price="3000" data-duration="12">Glass Industry: Glazing - Level 2</option>
+                                    <option value="502-2-3" data-price="9000" data-duration="24">Glass Industry: Glazing - Level 3</option>
+                                    <option value="502-3-11" data-price="3000" data-duration="12">Glass Industry: Photovoltaics Installation - Level 2</option>
+                                    <option value="21" data-price="6000" data-duration="24">Golf greenkeeper - Level 2</option>
+                                    <option value="157" data-price="9000" data-duration="24">Hair Professional - Level 2</option>
+                                    <option value="508-3-1" data-price="3000" data-duration="12">Hairdressing: Hairdressing - Level 2</option>
+                                    <option value="508-2-1" data-price="3000" data-duration="12">Hairdressing: Hairdressing - Level 3</option>
+                                    <option value="478-2-1" data-price="2500" data-duration="18">Health Allied Health Profession Support: Health Allied Health Profession Support - Level 3</option>
+                                    <option value="444-3-1" data-price="2000" data-duration="12">Health and Social Care: Adult social care - Level 2</option>
+                                    <option value="444-2-1" data-price="2000" data-duration="18">Health and Social Care: Adult social care - Level 3</option>
+                                    <option value="444-3-2" data-price="1500" data-duration="12">Health and Social Care: Health - Level 2</option>
+                                    <option value="444-2-2" data-price="1500" data-duration="18">Health and Social Care: Health - Level 3</option>
+                                    <option value="602-21-1" data-price="5000" data-duration="12">Health Assistant Practitioner: Health Assistant Practitioner - Level 5</option>
+                                    <option value="473-3-1" data-price="2000" data-duration="12">Health Clinical Healthcare Support: Health Clinical Healthcare Support - Level 2</option>
+                                    <option value="473-2-1" data-price="2500" data-duration="18">Health Clinical Healthcare Support: Health Clinical Healthcare Support - Level 3</option>
+                                    <option value="479-2-1" data-price="2500" data-duration="18">Health Dental Nursing: Health Dental Nursing - Level 3</option>
+                                    <option value="476-3-1" data-price="1500" data-duration="12">Health Emergency Care: Health Emergency Care - Level 2</option>
+                                    <option value="474-3-1" data-price="2000" data-duration="12">Health Healthcare Support Services: Health Healthcare Support Services - Level 2</option>
+                                    <option value="474-2-1" data-price="2000" data-duration="18">Health Healthcare Support Services: Health Healthcare Support Services - Level 3</option>
+                                    <option value="475-2-1" data-price="2500" data-duration="18">Health Maternity and Paediatric Support: Health Maternity and Paediatric Support - Level 3</option>
+                                    <option value="471-3-1" data-price="2000" data-duration="15">Health Optical Retail: Health Optical Retail - Level 2</option>
+                                    <option value="471-2-1" data-price="2000" data-duration="18">Health Optical Retail: Health Optical Retail - Level 3</option>
+                                    <option value="477-2-1" data-price="2000" data-duration="18">Health Perioperative Support: Health Perioperative Support - Level 3</option>
+                                    <option value="480-3-1" data-price="2000" data-duration="12">Health Pharmacy Services: Health Pharmacy Services - Level 2</option>
+                                    <option value="480-2-1" data-price="4000" data-duration="18">Health Pharmacy Services: Health Pharmacy Services - Level 3</option>
+                                    <option value="102" data-price="12000" data-duration="18">Healthcare assistant practitioner - Level 5</option>
+                                    <option value="99" data-price="5000" data-duration="12">Healthcare science assistant - Level 2</option>
+                                    <option value="150" data-price="9000" data-duration="24">Healthcare science associate - Level 4</option>
+                                    <option value="168" data-price="27000" data-duration="36">Healthcare Science Practitioner - Level 6</option>
+                                    <option value="103" data-price="3000" data-duration="12">Healthcare support worker - Level 2</option>
+                                    <option value="515-3-1" data-price="6000" data-duration="24">Heating and Ventilating: Ductwork Systems - Level 2</option>
+                                    <option value="515-2-1" data-price="6000" data-duration="24">Heating and Ventilating: Ductwork Systems - Level 3</option>
+                                    <option value="515-3-2" data-price="5000" data-duration="24">Heating and Ventilating: Pipework Systems - Level 2</option>
+                                    <option value="515-2-2" data-price="6000" data-duration="24">Heating and Ventilating: Pipework Systems - Level 3</option>
+                                    <option value="515-3-3" data-price="5000" data-duration="24">Heating and Ventilating: Servicing and Maintaining H and V Systems - Level 2</option>
+                                    <option value="515-2-3" data-price="6000" data-duration="24">Heating and Ventilating: Servicing and Maintaining H and V Systems - Level 3</option>
+                                    <option value="135" data-price="18000" data-duration="36">Heavy vehicle service and maintenance technician - Level 3</option>
+                                    <option value="220" data-price="21000" data-duration="36">High Speed Rail and Infrastructure Technician - Level 4</option>
+                                    <option value="125" data-price="9000" data-duration="24">Highway electrical maintenance and installation operative - Level 2</option>
+                                    <option value="124" data-price="9000" data-duration="24">Highways electrician / service operative - Level 3</option>
+                                    <option value="108" data-price="2500" data-duration="12">HM Forces serviceperson (public services) - Level 2</option>
+                                    <option value="537-3-1" data-price="1500" data-duration="12">HM Forces: HM Forces - Level 2</option>
+                                    <option value="181" data-price="5000" data-duration="24">Horticulture and Landscape Operative - Level 2</option>
+                                    <option value="527-3-1" data-price="2000" data-duration="20">Horticulture: Horticulture - Level 2</option>
+                                    <option value="527-2-1" data-price="2500" data-duration="24">Horticulture: Horticulture - Level 3</option>
+                                    <option value="580-20-1" data-price="2500" data-duration="12">Hospitality Management: Hospitality Management - Level 4</option>
+                                    <option value="223" data-price="6000" data-duration="18">Hospitality Manager - Level 4</option>
+                                    <option value="138" data-price="5000" data-duration="12">Hospitality supervisor - Level 3</option>
+                                    <option value="96" data-price="5000" data-duration="12">Hospitality team member - Level 2</option>
+                                    <option value="583-3-2" data-price="2000" data-duration="12">Hospitality: Food and Beverage Services - Level 2</option>
+                                    <option value="583-3-4" data-price="2000" data-duration="12">Hospitality: Front of House Reception - Level 2</option>
+                                    <option value="583-2-2" data-price="2500" data-duration="12">Hospitality: Hospitality Retail Outlet Supervision - Level 3</option>
+                                    <option value="583-3-1" data-price="1500" data-duration="12">Hospitality: Hospitality Services - Level 2</option>
+                                    <option value="583-2-1" data-price="2000" data-duration="12">Hospitality: Hospitality Supervision and Leadership - Level 3</option>
+                                    <option value="583-3-3" data-price="1500" data-duration="12">Hospitality: House Keeping - Level 2</option>
+                                    <option value="65" data-price="9000" data-duration="18">Housing / property management - Level 3</option>
+                                    <option value="64" data-price="3000" data-duration="12">Housing / property management assistant - Level 2</option>
+                                    <option value="499-3-1" data-price="1500" data-duration="12">Housing: Housing - Level 2</option>
+                                    <option value="190" data-price="9000" data-duration="36">HR Consultant / Partner - Level 5</option>
+                                    <option value="191" data-price="5000" data-duration="18">HR Support - Level 3</option>
+                                    <option value="574-21-1" data-price="2000" data-duration="12">Human Resource Management: Human Resource Management - Level 5</option>
+                                    <option value="504-3-1" data-price="4000" data-duration="12">Improving Operational Performance: Performing Engineering Operations - Level 2</option>
+                                    <option value="504-3-2" data-price="3500" data-duration="12">Improving Operational Performance: Performing Manufacturing Operations - Level 2</option>
+                                    <option value="82" data-price="15000" data-duration="12">Infrastructure technician - Level 3</option>
+                                    <option value="5" data-price="18000" data-duration="42">Installation electrician / maintenance electrician - Level 3</option>
+                                    <option value="60" data-price="9000" data-duration="12">Insurance practitioner - Level 3</option>
+                                    <option value="63" data-price="9000" data-duration="24">Insurance professional - Level 4</option>
+                                    <option value="637-20-1" data-price="3000" data-duration="12">Intelligence Operations: Intelligence Operations - Level 4</option>
+                                    <option value="413-3-1" data-price="2000" data-duration="12">International Trade and Logistics Operations: International Trade and Logistics Operations - Level 2</option>
+                                    <option value="29" data-price="5000" data-duration="12">Investment operations administrator - Level 2</option>
+                                    <option value="30" data-price="9000" data-duration="18">Investment operations specialist - Level 4</option>
+                                    <option value="33" data-price="9000" data-duration="18">Investment operations technician - Level 3</option>
+                                    <option value="419-3-1" data-price="2000" data-duration="12">IT Application Specialist: IT Application Specialist - Level 2</option>
+                                    <option value="419-2-1" data-price="4000" data-duration="12">IT Application Specialist: IT Application Specialist - Level 3</option>
+                                    <option value="142" data-price="12000" data-duration="12">IT technical salesperson - Level 3</option>
+                                    <option value="418-3-1" data-price="4000" data-duration="12">IT, Software, Web and Telecoms Professionals: IT, Software, Web and Telecoms Professionals - Level 2</option>
+                                    <option value="418-2-1" data-price="9000" data-duration="12">IT, Software, Web and Telecoms Professionals: IT, Software, Web and Telecoms Professionals - Level 3</option>
+                                    <option value="418-20-1" data-price="12000" data-duration="18">IT, Software, Web and Telecoms Professionals: IT, Software, Web and Telecoms Professionals - Level 4</option>
+                                    <option value="548-3-1" data-price="3500" data-duration="15">Jewellery, Silversmithing and Allied Trades: Jewellery Manufacturing - Level 2</option>
+                                    <option value="548-2-1" data-price="5000" data-duration="24">Jewellery, Silversmithing and Allied Trades: Jewellery Manufacturing - Level 3</option>
+                                    <option value="548-2-3" data-price="5000" data-duration="24">Jewellery, Silversmithing and Allied Trades: Precious Metal CAD/CAM - Level 3</option>
+                                    <option value="548-2-2" data-price="6000" data-duration="24">Jewellery, Silversmithing and Allied Trades: Silversmithing - Level 3</option>
+                                    <option value="84" data-price="9000" data-duration="18">Junior 2D artist (visual effects) - Level 4</option>
+                                    <option value="174" data-price="12000" data-duration="12">Junior Content Producer - Level 3</option>
+                                    <option value="68" data-price="9000" data-duration="24">Junior energy manager - Level 3</option>
+                                    <option value="22" data-price="12000" data-duration="18">Junior journalist - Level 3</option>
+                                    <option value="83" data-price="9000" data-duration="24">Junior management consultant - Level 4</option>
+                                    <option value="506-3-1" data-price="4000" data-duration="18">Laboratory and Science Technicians: Education Science - Level 2</option>
+                                    <option value="506-2-1" data-price="9000" data-duration="24">Laboratory and Science Technicians: Education Science - Level 3</option>
+                                    <option value="506-3-2" data-price="4000" data-duration="18">Laboratory and Science Technicians: Industrial Science - Level 2</option>
+                                    <option value="506-2-2" data-price="12000" data-duration="24">Laboratory and Science Technicians: Industrial Science - Level 3</option>
+                                    <option value="44" data-price="27000" data-duration="60">Laboratory scientist - Level 5</option>
+                                    <option value="221" data-price="27000" data-duration="60">Laboratory Scientist - Level 6</option>
+                                    <option value="14" data-price="21000" data-duration="18">Laboratory technician - Level 3</option>
+                                    <option value="525-3-1" data-price="4000" data-duration="24">Land-based Engineering: Land-based Engineering - Level 2</option>
+                                    <option value="525-2-1" data-price="4000" data-duration="15">Land-based Engineering: Land-based Engineering - Level 3</option>
+                                    <option value="69" data-price="18000" data-duration="18">Land-based service engineer - Level 2</option>
+                                    <option value="70" data-price="27000" data-duration="36">Land-based service engineering technician - Level 3</option>
+                                    <option value="110" data-price="5000" data-duration="12">Large goods vehicle (LGV) driver - Level 2</option>
+                                    <option value="118" data-price="3000" data-duration="12">Lead adult care worker - Level 3</option>
+                                    <option value="541-2-1" data-price="2500" data-duration="12">Learning and Development: Learning and Development - Level 3</option>
+                                    <option value="565-2-2" data-price="3000" data-duration="18">Legal Services: Civil Litigation - Level 3</option>
+                                    <option value="565-20-1" data-price="2000" data-duration="24">Legal Services: Commercial Litigation - Level 4</option>
+                                    <option value="565-2-1" data-price="1500" data-duration="12">Legal Services: Criminal Prosecution - Level 3</option>
+                                    <option value="565-20-2" data-price="3500" data-duration="24">Legal Services: Debt Recovery and Insolvency - Level 4</option>
+                                    <option value="565-2-3" data-price="3000" data-duration="18">Legal Services: Employment Practice - Level 3</option>
+                                    <option value="565-2-4" data-price="3000" data-duration="18">Legal Services: Family Practice - Level 3</option>
+                                    <option value="565-2-7" data-price="3000" data-duration="18">Legal Services: Paralegal Practice - Level 3</option>
+                                    <option value="565-20-3" data-price="4000" data-duration="24">Legal Services: Personal Injury - Level 4</option>
+                                    <option value="565-2-6" data-price="3000" data-duration="18">Legal Services: Private Client Practice - Level 3</option>
+                                    <option value="565-2-5" data-price="3000" data-duration="18">Legal Services: Property - Level 3</option>
+                                    <option value="224" data-price="21000" data-duration="36">Leisure and Entertainment Maintenance Engineering Technician - Level 3</option>
+                                    <option value="463-2-1" data-price="2000" data-duration="12">Leisure Management: Leisure Management - Level 3</option>
+                                    <option value="466-2-1" data-price="2000" data-duration="12">Leisure Operations and Leisure Management: Leisure Management - Level 3</option>
+                                    <option value="466-3-1" data-price="2000" data-duration="12">Leisure Operations and Leisure Management: Leisure Operations - Level 2</option>
+                                    <option value="450-3-1" data-price="2000" data-duration="12">Libraries, Archives, Records and Information Management Services: Libraries, Archives, Records and Information Management Services - Level 2</option>
+                                    <option value="450-2-1" data-price="3000" data-duration="12">Libraries, Archives, Records and Information Management Services: Libraries, Archives, Records and Information Management Services - Level 3</option>
+                                    <option value="40" data-price="9000" data-duration="18">Licensed conveyancer - Level 6</option>
+                                    <option value="404-3-1" data-price="2000" data-duration="12">Licensed Hospitality: Licensed Hospitality - Level 2</option>
+                                    <option value="404-2-1" data-price="2500" data-duration="12">Licensed Hospitality: Licensed Hospitality Management - Level 3</option>
+                                    <option value="563-20-1" data-price="5000" data-duration="24">Life Science and Chemical Science Professionals: Chemical Science Technician - Level 4</option>
+                                    <option value="563-21-1" data-price="15000" data-duration="24">Life Science and Chemical Science Professionals: Chemical Science Technologist - Level 5</option>
+                                    <option value="563-21-6" data-price="12000" data-duration="24">Life Science and Chemical Science Professionals: Food Science Technologist - Level 5</option>
+                                    <option value="563-20-3" data-price="5000" data-duration="24">Life Science and Chemical Science Professionals: Healthcare Science Technician - Level 4</option>
+                                    <option value="563-21-3" data-price="12000" data-duration="24">Life Science and Chemical Science Professionals: Healthcare Science Technologist - Level 5</option>
+                                    <option value="563-20-2" data-price="5000" data-duration="24">Life Science and Chemical Science Professionals: Life Science Technician - Level 4</option>
+                                    <option value="563-21-2" data-price="15000" data-duration="24">Life Science and Chemical Science Professionals: Life Science Technologist - Level 5</option>
+                                    <option value="563-20-4" data-price="9000" data-duration="24">Life Science and Chemical Science Professionals: Process Development Technician - Level 4</option>
+                                    <option value="219" data-price="15000" data-duration="18">Lifting Technician - Level 2</option>
+                                    <option value="71" data-price="9000" data-duration="36">Live event rigger - Level 3</option>
+                                    <option value="491-3-1" data-price="1500" data-duration="12">Live Events and Promotion: Live Events and Promotion - Level 2</option>
+                                    <option value="491-2-1" data-price="2500" data-duration="12">Live Events and Promotion: Live Events and Promotion - Level 3</option>
+                                    <option value="442-2-1" data-price="2500" data-duration="12">Logistics Operations: Logistics Operations Team Leader/Section Supervisor - Level 3</option>
+                                    <option value="442-3-1" data-price="1500" data-duration="12">Logistics Operations: Logistics Operative - Level 2</option>
+                                    <option value="442-3-2" data-price="1500" data-duration="12">Logistics Operations: Logistics Support Operative - Level 2</option>
+                                    <option value="146" data-price="27000" data-duration="36">Maintenance and operations engineering technician - Level 3</option>
+                                    <option value="487-21-1" data-price="2500" data-duration="12">Management: Leadership and Management - Level 5</option>
+                                    <option value="487-2-1" data-price="2000" data-duration="18">Management: Management - Level 3</option>
+                                    <option value="487-20-1" data-price="2000" data-duration="12">Management: Management - Level 4</option>
+                                    <option value="487-3-1" data-price="1500" data-duration="12">Management: Team Leading - Level 2</option>
+                                    <option value="487-3-2" data-price="3500" data-duration="18">Management: Team Leading (Construction) - Level 2</option>
+                                    <option value="11" data-price="27000" data-duration="60">Manufacturing engineer - Level 6</option>
+                                    <option value="550-20-1" data-price="9000" data-duration="12">Manufacturing Engineering: Aerospace - Level 4</option>
+                                    <option value="550-20-7" data-price="12000" data-duration="12">Manufacturing Engineering: Automotive - Level 4</option>
+                                    <option value="550-20-5" data-price="12000" data-duration="12">Manufacturing Engineering: Electrical/Electronics - Level 4</option>
+                                    <option value="550-20-6" data-price="12000" data-duration="12">Manufacturing Engineering: Electrical/Electronics continuation of Pathway 5 - Level 4</option>
+                                    <option value="550-20-8" data-price="9000" data-duration="12">Manufacturing Engineering: Maintenance - Level 4</option>
+                                    <option value="550-20-11" data-price="9000" data-duration="12">Manufacturing Engineering: Marine - Level 4</option>
+                                    <option value="550-20-3" data-price="12000" data-duration="12">Manufacturing Engineering: Mechanical - Level 4</option>
+                                    <option value="550-20-4" data-price="12000" data-duration="12">Manufacturing Engineering: Mechanical continuation of Pathway 3 - Level 4</option>
+                                    <option value="550-20-2" data-price="12000" data-duration="12">Manufacturing Engineering: Nuclear Related Technology - Level 4</option>
+                                    <option value="550-20-13" data-price="12000" data-duration="12">Manufacturing Engineering: Rail Engineering - Level 4</option>
+                                    <option value="550-20-12" data-price="9000" data-duration="12">Manufacturing Engineering: Space Engineering - Level 4</option>
+                                    <option value="550-20-9" data-price="12000" data-duration="12">Manufacturing Engineering: Wind Generation - Level 4</option>
+                                    <option value="226" data-price="27000" data-duration="48">Marine Engineer - Level 3</option>
+                                    <option value="560-3-4" data-price="4000" data-duration="12">Maritime Occupations: Able Seafarer/tug rating - engine room - Level 2</option>
+                                    <option value="560-3-7" data-price="4000" data-duration="12">Maritime Occupations: Marinas and Boatyards - Level 2</option>
+                                    <option value="560-2-1" data-price="5000" data-duration="12">Maritime Occupations: Merchant Navy (Deck) - Level 3</option>
+                                    <option value="560-2-2" data-price="5000" data-duration="12">Maritime Occupations: Merchant Navy (Engineering) - Level 3</option>
+                                    <option value="560-2-4" data-price="5000" data-duration="18">Maritime Occupations: Officer of the watch on merchant vessels of less than 3,000 gross tonnage - near coastal - Level 3</option>
+                                    <option value="560-2-3" data-price="5000" data-duration="12">Maritime Occupations: Officer of the watch on merchant vessels of less than 500 gross tonnage - near coastal - Level 3</option>
+                                    <option value="560-3-5" data-price="3500" data-duration="15">Maritime Occupations: Port Operations - Level 2</option>
+                                    <option value="560-3-1" data-price="5000" data-duration="12">Maritime Occupations: Rivers, inland waterways and limited distances to sea - Level 2</option>
+                                    <option value="560-3-2" data-price="5000" data-duration="12">Maritime Occupations: Sea Fishing - Level 2</option>
+                                    <option value="560-3-6" data-price="5000" data-duration="12">Maritime Occupations: Workboat Operation - Level 2</option>
+                                    <option value="486-3-1" data-price="1500" data-duration="12">Marketing: Marketing - Level 2</option>
+                                    <option value="486-2-1" data-price="2500" data-duration="18">Marketing: Marketing - Level 3</option>
+                                    <option value="187" data-price="24000" data-duration="36">Metrology Technician - Level 3</option>
+                                    <option value="175" data-price="9000" data-duration="18">Mineral Processing Mobile and Static Plant Operator - Level 2</option>
+                                    <option value="593-21-1" data-price="12000" data-duration="24">Mineral Products Technology: Technical and Management - Level 5</option>
+                                    <option value="593-20-1" data-price="15000" data-duration="24">Mineral Products Technology: Technical and Managerial Development in Mineral Products Technology Industry - Level 4</option>
+                                    <option value="62" data-price="9000" data-duration="12">Mortgage adviser - Level 3</option>
+                                    <option value="210" data-price="6000" data-duration="24">Motor Finance Specialist - Level 3</option>
+                                    <option value="59" data-price="18000" data-duration="36">Motor vehicle service and maintenance technician (light vehicle) - Level 3</option>
+                                    <option value="509-3-1" data-price="2000" data-duration="12">Nail Services: Nail Services - Level 2</option>
+                                    <option value="509-2-1" data-price="2500" data-duration="12">Nail Services: Nail Services - Level 3</option>
+                                    <option value="1" data-price="18000" data-duration="24">Network engineer - Level 4</option>
+                                    <option value="132" data-price="12000" data-duration="18">Non-destructive testing (NDT) operator - Level 2</option>
+                                    <option value="207" data-price="27000" data-duration="48">Non-Destructive Testing Engineer - Level 6</option>
+                                    <option value="67" data-price="18000" data-duration="36">Non-destructive testing engineering technician - Level 3</option>
+                                    <option value="46" data-price="9000" data-duration="24">Nuclear health physics monitor - Level 2</option>
+                                    <option value="47" data-price="27000" data-duration="36">Nuclear scientist and nuclear engineer - Level 6</option>
+                                    <option value="163" data-price="21000" data-duration="30">Nuclear Technician - Level 5</option>
+                                    <option value="35" data-price="27000" data-duration="48">Nuclear welding inspection technician - Level 4</option>
+                                    <option value="569-3-1" data-price="2000" data-duration="15">Nursing Assistants in a Veterinary Environment: Nursing Assistants in a Veterinary Environment - Level 2</option>
+                                    <option value="208" data-price="15000" data-duration="24">Nursing Associate - Level 5</option>
+                                    <option value="104" data-price="9000" data-duration="30">Operations / departmental manager - Level 5</option>
+                                    <option value="197" data-price="24000" data-duration="36">Organ Builder - Level 3</option>
+                                    <option value="464-2-1" data-price="2000" data-duration="18">Outdoor Programmes: Outdoor Programmes - Level 3</option>
+                                    <option value="75" data-price="9000" data-duration="12">Outside broadcasting engineer - Level 7</option>
+                                    <option value="106" data-price="6000" data-duration="36">Papermaker - Level 3</option>
+                                    <option value="42" data-price="9000" data-duration="24">Paralegal - Level 3</option>
+                                    <option value="48" data-price="9000" data-duration="24">Paraplanner - Level 4</option>
+                                    <option value="430-3-1" data-price="3500" data-duration="12">Passenger Carrying Vehicle Driving (Bus and Coach): Bus and Coach - Level 2</option>
+                                    <option value="189" data-price="6000" data-duration="12">Passenger Transport Driver - bus, coach and rail - Level 2</option>
+                                    <option value="206" data-price="6000" data-duration="12">Passenger transport onboard and station team member - Level 2</option>
+                                    <option value="214" data-price="12000" data-duration="18">Passenger Transport Operations Manager - Level 4</option>
+                                    <option value="448-2-1" data-price="3500" data-duration="12">Photo Imaging: Photo Imaging - Level 3</option>
+                                    <option value="456-3-1" data-price="1500" data-duration="12">Playwork: Playwork - Level 2</option>
+                                    <option value="456-2-1" data-price="2500" data-duration="18">Playwork: Playwork - Level 3</option>
+                                    <option value="225" data-price="21000" data-duration="48">Plumbing and Domestic Heating Technician - Level 3</option>
+                                    <option value="512-2-2" data-price="9000" data-duration="24">Plumbing and Heating: Domestic Plumbing and Heating Gas-Fired Warm Air Appliance - Level 3</option>
+                                    <option value="512-2-3" data-price="9000" data-duration="24">Plumbing and Heating: Domestic Plumbing and Heating Gas-Fired Water and Central Heating Appliances - Level 3</option>
+                                    <option value="512-2-1" data-price="9000" data-duration="24">Plumbing and Heating: Domestic Plumbing and Heating Oil-Fired, Solid Fuel or Environmental options - Level 3</option>
+                                    <option value="512-3-1" data-price="5000" data-duration="24">Plumbing and Heating: Plumbing - Level 2</option>
+                                    <option value="407-2-1" data-price="2500" data-duration="14">Policing: Defence Policing - Level 3</option>
+                                    <option value="166" data-price="27000" data-duration="30">Postgraduate Engineer - Level 7</option>
+                                    <option value="161" data-price="27000" data-duration="60">Power Engineer - Level 7</option>
+                                    <option value="6" data-price="27000" data-duration="30">Power network craftsperson - Level 3</option>
+                                    <option value="542-2-5" data-price="9000" data-duration="24">Print and Printed Packaging: Carton Manufacture - Level 3</option>
+                                    <option value="542-2-1" data-price="9000" data-duration="24">Print and Printed Packaging: Digital Pre-Press - Level 3</option>
+                                    <option value="542-3-2" data-price="3500" data-duration="12">Print and Printed Packaging: Machine Printing - Level 2</option>
+                                    <option value="542-2-2" data-price="9000" data-duration="24">Print and Printed Packaging: Machine Printing - Level 3</option>
+                                    <option value="542-3-1" data-price="4000" data-duration="12">Print and Printed Packaging: Pre-Press - Level 2</option>
+                                    <option value="542-3-4" data-price="3500" data-duration="12">Print and Printed Packaging: Print Administration - Level 2</option>
+                                    <option value="542-2-4" data-price="9000" data-duration="24">Print and Printed Packaging: Print Administration and Management - Level 3</option>
+                                    <option value="542-3-3" data-price="4000" data-duration="12">Print and Printed Packaging: Print Finishing - Level 2</option>
+                                    <option value="542-2-3" data-price="9000" data-duration="24">Print and Printed Packaging: Print Finishing - Level 3</option>
+                                    <option value="542-3-5" data-price="4000" data-duration="12">Print and Printed Packaging: Reprographics - Level 2</option>
+                                    <option value="211" data-price="5000" data-duration="18">Probate Technician - Level 4</option>
+                                    <option value="201" data-price="27000" data-duration="60">Process Automation Engineer - Level 7</option>
+                                    <option value="425-2-3" data-price="12000" data-duration="36">Process Manufacturing: Downstream Operations - Level 3</option>
+                                    <option value="425-3-2" data-price="6000" data-duration="15">Process Manufacturing: Process Engineering Maintenance - Level 2</option>
+                                    <option value="425-2-2" data-price="9000" data-duration="24">Process Manufacturing: Process Engineering Maintenance - Level 3</option>
+                                    <option value="425-3-1" data-price="5000" data-duration="24">Process Manufacturing: Process Operations - Level 2</option>
+                                    <option value="425-2-1" data-price="12000" data-duration="24">Process Manufacturing: Process Operator/Technician - Level 3</option>
+                                    <option value="12" data-price="27000" data-duration="60">Product design and development engineer - Level 6</option>
+                                    <option value="117" data-price="9000" data-duration="18">Professional accounting taxation technician - Level 4</option>
+                                    <option value="575-20-1" data-price="3000" data-duration="18">Professional Services: Audit - Level 4</option>
+                                    <option value="575-20-4" data-price="3000" data-duration="18">Professional Services: Management Accounting - Level 4</option>
+                                    <option value="575-20-3" data-price="3000" data-duration="18">Professional Services: Management Consulting - Level 4</option>
+                                    <option value="575-20-2" data-price="3000" data-duration="18">Professional Services: Tax - Level 4</option>
+                                    <option value="186" data-price="21000" data-duration="42">Project Controls Technician - Level 3</option>
+                                    <option value="573-20-1" data-price="3000" data-duration="12">Project Management: Project Management - Level 4</option>
+                                    <option value="23" data-price="9000" data-duration="12">Property maintenance operative - Level 2</option>
+                                    <option value="500-3-2" data-price="1500" data-duration="12">Property Services: Residential Letting and Management - Level 2</option>
+                                    <option value="500-2-2" data-price="2500" data-duration="12">Property Services: Residential Letting and Management - Level 3</option>
+                                    <option value="500-3-1" data-price="1500" data-duration="12">Property Services: Sale of Residential Property - Level 2</option>
+                                    <option value="500-2-1" data-price="2500" data-duration="12">Property Services: Sale of Residential Property - Level 3</option>
+                                    <option value="455-3-5" data-price="2000" data-duration="12">Providing Financial Services: Administration for Mortgage and/or Financial Planning Intermediaries - Level 2</option>
+                                    <option value="455-2-5" data-price="3000" data-duration="18">Providing Financial Services: Administration for Mortgage and/or Financial Planning Intermediaries - Level 3</option>
+                                    <option value="455-3-2" data-price="2000" data-duration="12">Providing Financial Services: Banking - Level 2</option>
+                                    <option value="455-2-2" data-price="3000" data-duration="18">Providing Financial Services: Banking - Level 3</option>
+                                    <option value="455-3-7" data-price="2000" data-duration="12">Providing Financial Services: Customer Payments for Financial Products and Services - Level 2</option>
+                                    <option value="455-2-9" data-price="3500" data-duration="18">Providing Financial Services: Customer Payments for Financial Products and Services - Level 3</option>
+                                    <option value="455-3-8" data-price="2000" data-duration="12">Providing Financial Services: Debt Collections - Level 2</option>
+                                    <option value="455-2-8" data-price="3000" data-duration="18">Providing Financial Services: Debt Collections - Level 3</option>
+                                    <option value="455-3-4" data-price="2000" data-duration="12">Providing Financial Services: Financing and Credit - Level 2</option>
+                                    <option value="455-2-4" data-price="3500" data-duration="18">Providing Financial Services: Financing and Credit - Level 3</option>
+                                    <option value="455-3-1" data-price="1500" data-duration="12">Providing Financial Services: General Insurance - Level 2</option>
+                                    <option value="455-2-1" data-price="3000" data-duration="18">Providing Financial Services: General Insurance - Level 3</option>
+                                    <option value="455-3-6" data-price="2000" data-duration="12">Providing Financial Services: Investment Operations - Level 2</option>
+                                    <option value="455-2-6" data-price="3500" data-duration="18">Providing Financial Services: Investment Operations - Level 3</option>
+                                    <option value="455-3-3" data-price="2000" data-duration="12">Providing Financial Services: Life, Pensions and Investments - Level 2</option>
+                                    <option value="455-2-3" data-price="3000" data-duration="18">Providing Financial Services: Life, Pensions and Investments - Level 3</option>
+                                    <option value="455-2-7" data-price="3500" data-duration="18">Providing Financial Services: Pensions Administration - Level 3</option>
+                                    <option value="440-3-1" data-price="1500" data-duration="12">Providing Security Services: Providing Security Services - Level 2</option>
+                                    <option value="572-20-1" data-price="3000" data-duration="12">Public Relations: Public Relations - Level 4</option>
+                                    <option value="73" data-price="9000" data-duration="24">Public sector commercial professional - Level 4</option>
+                                    <option value="36" data-price="3000" data-duration="12">Public service operational delivery officer - Level 3</option>
+                                    <option value="88" data-price="27000" data-duration="48">Rail engineering advanced technician - Level 4</option>
+                                    <option value="90" data-price="12000" data-duration="12">Rail engineering operative - Level 2</option>
+                                    <option value="89" data-price="27000" data-duration="36">Rail engineering technician - Level 3</option>
+                                    <option value="545-2-4" data-price="12000" data-duration="36">Rail Infrastructure Engineering: Electrification - Level 3</option>
+                                    <option value="545-3-2" data-price="4000" data-duration="18">Rail Infrastructure Engineering: Electrification Maintenance - Level 2</option>
+                                    <option value="545-2-1" data-price="12000" data-duration="36">Rail Infrastructure Engineering: Signalling - Level 3</option>
+                                    <option value="545-2-3" data-price="12000" data-duration="36">Rail Infrastructure Engineering: Telecoms - Level 3</option>
+                                    <option value="545-2-2" data-price="12000" data-duration="36">Rail Infrastructure Engineering: Track - Level 3</option>
+                                    <option value="545-3-1" data-price="5000" data-duration="18">Rail Infrastructure Engineering: Track Maintenance - Level 2</option>
+                                    <option value="188" data-price="12000" data-duration="12">Rail Infrastructure Operator - Level 2</option>
+                                    <option value="429-3-5" data-price="3500" data-duration="18">Rail Services: Control Room Operations - Level 2</option>
+                                    <option value="429-3-2" data-price="3000" data-duration="18">Rail Services: Driving - Level 2</option>
+                                    <option value="429-3-1" data-price="3500" data-duration="12">Rail Services: Passenger Services - Level 2</option>
+                                    <option value="429-2-1" data-price="1500" data-duration="18">Rail Services: Rail Supervision - Level 3</option>
+                                    <option value="429-3-4" data-price="3500" data-duration="18">Rail Services: Shunting - Level 2</option>
+                                    <option value="429-3-3" data-price="3500" data-duration="18">Rail Services: Signal Operations - Level 2</option>
+                                    <option value="24" data-price="18000" data-duration="36">Railway engineering design technician - Level 3</option>
+                                    <option value="217" data-price="5000" data-duration="12">Recruitment Consultant - Level 3</option>
+                                    <option value="218" data-price="5000" data-duration="12">Recruitment Resourcer - Level 2</option>
+                                    <option value="594-2-1" data-price="1500" data-duration="18">Recruitment: Recruitment - Level 3</option>
+                                    <option value="594-20-1" data-price="1500" data-duration="12">Recruitment: Recruitment - Level 4</option>
+                                    <option value="594-3-1" data-price="2000" data-duration="12">Recruitment: Recruitment Resourcing - Level 2</option>
+                                    <option value="49" data-price="18000" data-duration="36">Refrigeration air conditioning and heat pump engineering technician - Level 3</option>
+                                    <option value="514-3-2" data-price="4000" data-duration="24">Refrigeration and Air Conditioning: Air Conditioning - Level 2</option>
+                                    <option value="514-2-3" data-price="6000" data-duration="24">Refrigeration and Air Conditioning: Air Conditioning - Level 3</option>
+                                    <option value="514-2-4" data-price="6000" data-duration="24">Refrigeration and Air Conditioning: Air Conditioning Service and Maintenance - Level 3</option>
+                                    <option value="514-3-1" data-price="4000" data-duration="24">Refrigeration and Air Conditioning: Refrigeration - Level 2</option>
+                                    <option value="514-2-1" data-price="6000" data-duration="24">Refrigeration and Air Conditioning: Refrigeration - Level 3</option>
+                                    <option value="514-2-2" data-price="6000" data-duration="24">Refrigeration and Air Conditioning: Refrigeration Service and Maintenance - Level 3</option>
+                                    <option value="170" data-price="27000" data-duration="48">Registered Nurse - Level 6</option>
+                                    <option value="7" data-price="27000" data-duration="48">Relationship manager (banking) - Level 6</option>
+                                    <option value="147" data-price="6000" data-duration="18">Retail manager - Level 4</option>
+                                    <option value="140" data-price="5000" data-duration="12">Retail team leader - Level 3</option>
+                                    <option value="443-2-3" data-price="1500" data-duration="15">Retail: Management - Level 3</option>
+                                    <option value="443-2-4" data-price="1500" data-duration="15">Retail: Multi-channel retail - Level 3</option>
+                                    <option value="443-3-1" data-price="1500" data-duration="12">Retail: Retail - Level 2</option>
+                                    <option value="443-2-1" data-price="1500" data-duration="15">Retail: Sales Professional - Level 3</option>
+                                    <option value="443-3-2" data-price="1500" data-duration="12">Retail: Specialist - Level 2</option>
+                                    <option value="443-2-2" data-price="1500" data-duration="15">Retail: Visual Merchandising - Level 3</option>
+                                    <option value="101" data-price="5000" data-duration="12">Retailer - Level 2</option>
+                                    <option value="485-3-1" data-price="1500" data-duration="12">Sales and Telesales: Sales and Telesales - Level 2</option>
+                                    <option value="485-2-1" data-price="2500" data-duration="18">Sales and Telesales: Sales and Telesales - Level 3</option>
+                                    <option value="45" data-price="27000" data-duration="36">Science industry maintenance technician - Level 3</option>
+                                    <option value="15" data-price="27000" data-duration="18">Science manufacturing technician - Level 3</option>
+                                    <option value="421-3-1" data-price="2500" data-duration="24">Security Systems: Security Systems - Level 2</option>
+                                    <option value="421-2-1" data-price="6000" data-duration="24">Security Systems: Security Systems - Level 3</option>
+                                    <option value="139" data-price="5000" data-duration="12">Senior chef production cooking - Level 3</option>
+                                    <option value="144" data-price="27000" data-duration="36">Senior compliance / risk specialist - Level 6</option>
+                                    <option value="31" data-price="9000" data-duration="12">Senior financial services customer adviser - Level 3</option>
+                                    <option value="151" data-price="3000" data-duration="18">Senior healthcare support worker - Level 3</option>
+                                    <option value="66" data-price="9000" data-duration="18">Senior housing / property management - Level 4</option>
+                                    <option value="205" data-price="21000" data-duration="42">Senior Insurance Professional - Level 6</option>
+                                    <option value="416-3-1" data-price="2500" data-duration="12">Signmaking: Signmaker/Installer - Level 2</option>
+                                    <option value="416-2-1" data-price="12000" data-duration="24">Signmaking: Signmaker/Technician - Level 3</option>
+                                    <option value="579-2-2" data-price="4000" data-duration="18">Social Media and Digital Marketing: Digital Marketing - Level 3</option>
+                                    <option value="579-20-1" data-price="4000" data-duration="12">Social Media and Digital Marketing: Digital Marketing - Level 4</option>
+                                    <option value="579-2-1" data-price="3000" data-duration="18">Social Media and Digital Marketing: Social Media - Level 3</option>
+                                    <option value="2" data-price="18000" data-duration="24">Software developer - Level 4</option>
+                                    <option value="154" data-price="15000" data-duration="12">Software Development Technician - Level 3</option>
+                                    <option value="91" data-price="18000" data-duration="24">Software tester - Level 4</option>
+                                    <option value="43" data-price="27000" data-duration="60">Solicitor - Level 7</option>
+                                    <option value="158" data-price="4000" data-duration="24">Spectacle Maker - Level 3</option>
+                                    <option value="458-2-1" data-price="1500" data-duration="12">Spectator Safety: Advanced Spectator Safety - Level 3</option>
+                                    <option value="458-3-1" data-price="2000" data-duration="12">Spectator Safety: Spectator Safety - Level 2</option>
+                                    <option value="465-2-1" data-price="5000" data-duration="18">Sporting Excellence: Sporting Excellence Pathway One - Level 3</option>
+                                    <option value="465-2-2" data-price="2500" data-duration="12">Sporting Excellence: Sporting Excellence Pathway Two - Level 3</option>
+                                    <option value="467-2-1" data-price="2000" data-duration="18">Sports development: Sports Development - Level 3</option>
+                                    <option value="145" data-price="5000" data-duration="18">Sports turf operative - Level 2</option>
+                                    <option value="566-21-2" data-price="6000" data-duration="12">Supply Chain Management: International Supply Chain Manager - Level 5</option>
+                                    <option value="566-2-1" data-price="1500" data-duration="12">Supply Chain Management: Supply Chain Management - Level 3</option>
+                                    <option value="566-3-1" data-price="1500" data-duration="12">Supply Chain Management: Supply Chain Operations - Level 2</option>
+                                    <option value="566-21-1" data-price="2000" data-duration="12">Supply Chain Management: Supply Chain Specialist - Level 5</option>
+                                    <option value="109" data-price="3000" data-duration="12">Supply chain operator - Level 2</option>
+                                    <option value="209" data-price="15000" data-duration="30">Supply Chain Practitioner - Level 3</option>
+                                    <option value="111" data-price="3000" data-duration="12">Supply chain warehouse operative - Level 2</option>
+                                    <option value="613-2-1" data-price="3000" data-duration="12">Supporting Teaching and Learning in Physical Education and School Sport: Supporting Teaching and Learning in Physical Education and School Sport - Level 3</option>
+                                    <option value="420-3-1" data-price="2000" data-duration="12">Supporting Teaching and Learning in Schools: Supporting Teaching and Learning in Schools - Level 2</option>
+                                    <option value="420-2-1" data-price="2500" data-duration="12">Supporting Teaching and Learning in Schools: Supporting Teaching and Learning in Schools - Level 3</option>
+                                    <option value="51" data-price="9000" data-duration="24">Surveying technician - Level 3</option>
+                                    <option value="532-2-1" data-price="6000" data-duration="24">Surveying: Surveying - Level 3</option>
+                                    <option value="116" data-price="27000" data-duration="36">Survival equipment fitter - Level 3</option>
+                                    <option value="505-3-1" data-price="1500" data-duration="22">Sustainable Resource Management: Sustainable Resource Management - Level 2</option>
+                                    <option value="505-2-1" data-price="2000" data-duration="30">Sustainable Resource Management: Sustainable Resource Management - Level 3</option>
+                                    <option value="618-20-1" data-price="3500" data-duration="12">Sustainable Resource Operations and Management: Sustainable Resource Operations and Management - Level 4</option>
+                                    <option value="52" data-price="27000" data-duration="36">Systems engineering masters level - Level 7</option>
+                                    <option value="203" data-price="9000" data-duration="12">Teacher - Level 6</option>
+                                    <option value="105" data-price="5000" data-duration="12">Team leader / supervisor - Level 3</option>
+                                    <option value="494-3-1" data-price="2000" data-duration="15">Technical Theatre, Lighting, Sound and Stage: Lighting - Level 2</option>
+                                    <option value="494-2-1" data-price="2500" data-duration="18">Technical Theatre, Lighting, Sound and Stage: Lighting - Level 3</option>
+                                    <option value="494-3-2" data-price="2000" data-duration="15">Technical Theatre, Lighting, Sound and Stage: Sound - Level 2</option>
+                                    <option value="494-2-2" data-price="2500" data-duration="18">Technical Theatre, Lighting, Sound and Stage: Sound - Level 3</option>
+                                    <option value="494-3-3" data-price="2000" data-duration="15">Technical Theatre, Lighting, Sound and Stage: Stage - Level 2</option>
+                                    <option value="494-2-3" data-price="2500" data-duration="18">Technical Theatre, Lighting, Sound and Stage: Stage - Level 3</option>
+                                    <option value="446-2-1" data-price="9000" data-duration="24">The Gas Industry: Gas Fired Wet Central Heating - Level 3</option>
+                                    <option value="446-2-2" data-price="12000" data-duration="12">The Gas Industry: Gas Heating and Energy Efficiency - Level 3</option>
+                                    <option value="446-3-1" data-price="3500" data-duration="12">The Gas Industry: Network Construction Operations (Gas) - Level 2</option>
+                                    <option value="446-2-3" data-price="0" data-duration="0">The Gas Industry: Network Construction Operations (Gas) - Level 3</option>
+                                    <option value="427-3-1" data-price="6000" data-duration="30">The Power Sector: Power Transmission and Distribution - Level 2</option>
+                                    <option value="535-3-2" data-price="3000" data-duration="24">The Water Industry: Sewerage Operations and Maintenance - Level 2</option>
+                                    <option value="535-20-1" data-price="9000" data-duration="12">The Water Industry: Utilities Network Planning and Management - Level 4</option>
+                                    <option value="535-3-1" data-price="3500" data-duration="16">The Water Industry: Water Industry - Level 2</option>
+                                    <option value="535-2-1" data-price="12000" data-duration="20">The Water Industry: Water Industry - Level 3</option>
+                                    <option value="412-3-1" data-price="1500" data-duration="12">Traffic Office: Traffic Office Clerk - Level 2</option>
+                                    <option value="412-2-1" data-price="2500" data-duration="12">Traffic Office: Traffic Office Manager - Level 3</option>
+                                    <option value="100" data-price="12000" data-duration="36">Transport planning technician - Level 3</option>
+                                    <option value="120" data-price="9000" data-duration="12">Travel consultant - Level 3</option>
+                                    <option value="408-3-3" data-price="2000" data-duration="12">Travel Services: Tour Operators - Field Staff - Level 2</option>
+                                    <option value="408-2-3" data-price="3000" data-duration="12">Travel Services: Tour Operators - Field Staff - Level 3</option>
+                                    <option value="408-3-2" data-price="2000" data-duration="12">Travel Services: Tour Operators - Head Office - Level 2</option>
+                                    <option value="408-2-2" data-price="3000" data-duration="12">Travel Services: Tour Operators - Head Office - Level 3</option>
+                                    <option value="531-3-1" data-price="1500" data-duration="18">Trees and Timber: Trees and Timber - Level 2</option>
+                                    <option value="531-2-1" data-price="1500" data-duration="20">Trees and Timber: Trees and Timber - Level 3</option>
+                                    <option value="155" data-price="15000" data-duration="12">Unified Communications Technician - Level 3</option>
+                                    <option value="81" data-price="18000" data-duration="24">Unified communications trouble shooter - Level 4</option>
+                                    <option value="53" data-price="27000" data-duration="48">Utilities engineering technician - Level 3</option>
+                                    <option value="434-3-5" data-price="3000" data-duration="18">Vehicle Body and Paint: Automotive Glazing - Level 2</option>
+                                    <option value="434-3-2" data-price="4000" data-duration="24">Vehicle Body and Paint: Body Building - Level 2</option>
+                                    <option value="434-2-2" data-price="6000" data-duration="18">Vehicle Body and Paint: Body Building - Level 3</option>
+                                    <option value="434-3-4" data-price="5000" data-duration="24">Vehicle Body and Paint: Body Refinishing - Level 2</option>
+                                    <option value="434-2-4" data-price="6000" data-duration="18">Vehicle Body and Paint: Body Refinishing - Level 3</option>
+                                    <option value="434-3-3" data-price="6000" data-duration="24">Vehicle Body and Paint: Body Repair - Level 2</option>
+                                    <option value="434-2-3" data-price="6000" data-duration="18">Vehicle Body and Paint: Body Repair - Level 3</option>
+                                    <option value="434-3-1" data-price="5000" data-duration="24">Vehicle Body and Paint: Mechanical, Electrical and Trim - Level 2</option>
+                                    <option value="434-2-1" data-price="5000" data-duration="18">Vehicle Body and Paint: Mechanical, Electrical and Trim - Level 3</option>
+                                    <option value="434-2-5" data-price="2500" data-duration="12">Vehicle Body and Paint: Vehicle Damage Assessment - Level 3</option>
+                                    <option value="434-3-6" data-price="3000" data-duration="12">Vehicle Body and Paint: Windscreen Repair - Level 2</option>
+                                    <option value="437-3-1" data-price="5000" data-duration="24">Vehicle Fitting: Fast Fit - Level 2</option>
+                                    <option value="437-2-1" data-price="5000" data-duration="18">Vehicle Fitting: Fast Fit - Level 3</option>
+                                    <option value="437-3-2" data-price="5000" data-duration="24">Vehicle Fitting: Specialist Tyre Fitting - Level 2</option>
+                                    <option value="436-3-4" data-price="6000" data-duration="24">Vehicle Maintenance and Repair: Auto Electrics/Mobile Electrics - Level 2</option>
+                                    <option value="436-2-4" data-price="6000" data-duration="18">Vehicle Maintenance and Repair: Auto Electrics/Mobile Electrics - Level 3</option>
+                                    <option value="436-3-7" data-price="3000" data-duration="18">Vehicle Maintenance and Repair: Caravan and Motorhome - Level 2</option>
+                                    <option value="436-2-6" data-price="3500" data-duration="18">Vehicle Maintenance and Repair: Caravan and Motorhome - Level 3</option>
+                                    <option value="436-3-2" data-price="6000" data-duration="24">Vehicle Maintenance and Repair: Heavy Vehicle - Level 2</option>
+                                    <option value="436-2-2" data-price="6000" data-duration="18">Vehicle Maintenance and Repair: Heavy Vehicle - Level 3</option>
+                                    <option value="436-3-5" data-price="5000" data-duration="24">Vehicle Maintenance and Repair: Heavy Vehicle Trailer - Level 2</option>
+                                    <option value="436-3-6" data-price="6000" data-duration="24">Vehicle Maintenance and Repair: Lift Truck - Level 2</option>
+                                    <option value="436-2-5" data-price="6000" data-duration="18">Vehicle Maintenance and Repair: Lift Truck - Level 3</option>
+                                    <option value="436-3-1" data-price="6000" data-duration="24">Vehicle Maintenance and Repair: Light Vehicle - Level 2</option>
+                                    <option value="436-2-1" data-price="6000" data-duration="18">Vehicle Maintenance and Repair: Light Vehicle - Level 3</option>
+                                    <option value="436-3-3" data-price="6000" data-duration="24">Vehicle Maintenance and Repair: Motorcycle - Level 2</option>
+                                    <option value="436-2-3" data-price="6000" data-duration="18">Vehicle Maintenance and Repair: Motorcycle - Level 3</option>
+                                    <option value="433-3-1" data-price="5000" data-duration="24">Vehicle Parts: Vehicle Parts - Level 2</option>
+                                    <option value="433-2-1" data-price="6000" data-duration="18">Vehicle Parts: Vehicle Parts - Level 3</option>
+                                    <option value="634-3-1" data-price="5000" data-duration="24">Vehicle Restoration: Vehicle Restoration - Level 2</option>
+                                    <option value="634-2-1" data-price="6000" data-duration="18">Vehicle Restoration: Vehicle Restoration - Level 3</option>
+                                    <option value="435-3-1" data-price="3000" data-duration="24">Vehicle Sales: Vehicle Sales - Level 2</option>
+                                    <option value="435-2-1" data-price="4000" data-duration="18">Vehicle Sales: Vehicle Sales - Level 3</option>
+                                    <option value="529-2-2" data-price="5000" data-duration="36">Veterinary Nursing: Equine - Level 3</option>
+                                    <option value="529-2-1" data-price="6000" data-duration="36">Veterinary Nursing: Small Animal - Level 3</option>
+                                    <option value="414-2-1" data-price="2000" data-duration="12">Warehousing and Storage: Senior Warehouse Person/Team Leader - Level 3</option>
+                                    <option value="414-3-1" data-price="1500" data-duration="12">Warehousing and Storage: Warehouse Operative - Level 2</option>
+                                    <option value="27" data-price="12000" data-duration="48">Water process technician - Level 3</option>
+                                    <option value="94" data-price="9000" data-duration="18">Welding - level 2 - Level 2</option>
+                                    <option value="95" data-price="12000" data-duration="38">Welding - level 3 - Level 3</option>
+                                    <option value="32" data-price="9000" data-duration="18">Workplace pensions (administrator or consultant) - Level 3</option>
+                                    <option value="447-3-1" data-price="1500" data-duration="12">Youth Work: Youth Work - Level 2</option>
+                                    <option value="447-2-1" data-price="2500" data-duration="12">Youth Work: Youth Work - Level 3</option>
+                            </select> </div>
+
+                
+                
+                <div class="form-group hidden">
+                    <label class="form-label-bold" for="email">Cost per apprentice</label>
+                    <span class="form-hint">Choose an apprenticeship to see the cost</span>
+                </div>
+
+                
+                <div class="form-group">
+                    <label class="form-label-bold" for="email">Number of apprentices</label>
+                    <span class="error-message hidden">Make sure you have at least 1 or more apprentices</span>
+                    <input name="cohorts" id="cohortsNew" type="number" class="form-control cohort-size" aria-label="Number of apprentices" min="1" max="1000000" style="width: 50px;">
+                </div>
+                
+      
+                <div class="form-group">
+                    <label class="form-label-bold" for="levy-length">Number of months</label>
+                        <span class="form-hint">Apprenticeships must be a minimum of 12 months</span>                    
+                        <span class="error-message hidden">The number of months was not entered. You must enter 12 months or more</span>
+                        <span class="error-message hidden">Apprenticeships must have a least 12 months. Any number fewer than 12 will not work</span>
+                    <input class="form-control" id="levy-length" name="levy-length" type="text" style="width: 50px;" />
+                </div>
+                
+                 <div class="form-group" id="dateWrapper">
+                    <fieldset>
+                        <legend class="form-label-bold">Start date</legend>
+                        <span class="form-hint">Choose a date between May 2018 and September 2019</span>
+                        <span class="error-message hidden" id="declareDate">The start year for an apprenticeship must be either 2018 or 2019.</span>
+                        <span class="error-message hidden" id="2018montherror">Apprenticeships starting in 2018 must start after May (05).</span>
+                        <span class="error-message hidden" id="2019montherror">Apprenticeships starting in 2019 must start before the end of the academic year of September (09).</span>
+                        
+                        <div class="form-date">
+                            <div class="form-group form-group-month">
+                                <label for="startDateMonth">Month</label>
+                                <input name="startDateMonth" id="startDateMonth" type="number" pattern="[0-9]*" min="0" max="12" class="form-control" placeholder="MM">
+                            </div>
+                            <div class="form-group form-group-year">
+                                <label for="startDateYear">Year</label>
+                                <input name="startDateYear" id="startDateYear" type="number" pattern="[0-9]*" min="17" max="21" class="form-control" placeholder="YYYY">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </div>
+
+                     
+                <div class="form-group">
+                    <label class="form-label-bold">Government funding cap</label>
+                    <span class="form-hint">Choose an apprenticeship and number of apprentices to see this figure <br><a href="#">More information about government funding caps</a></span>
+                    <span id="levy-cap" class="form-hint bold-xsmall"></span>
+                    <span id="levy-total-cap" class="form-hint bold-xsmall"></span>
+                </div>
+                
+               
+                <div class="form-group">
+                    <label class="form-label-bold" for="levy-value">Agreed total cost</label>
+                        <span class="form-hint">This figure can't be above the total government funding cap</span>
+                        <span class="error-message hidden">You need to let us know a total cost of the apprenticeship added</span>
+                        <span class="error-message hidden">The total cost can't be higher than the government funding cap for this apprenticeship</span>
+                    <label for="levy-value-2" class="text-box-unit">£</label>
+                    <input class="form-control text-box-with-unit-before money-mask" id="levy-value" name="levy-value" type="text" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr />
+
+    <div class="grid-row">
+
+        <div class="column-full">
+            <a class="button save" id="save" href="outcomes.html">Check if I can fund these</a>
+            <a class="button text-link pull-right" href="#" style="float:right;">Cancel</a>
+
+        </div>
+    </div>
+
+    <div class="grid-row hidden" id="existingApps">
+        <div class="column-full">
+            <h3 class="heading-medium">Estimated transfer costs by apprenticeships
+</h3>
+            
+        <p class="text">This table shows the cost of apprenticeships that you've added to your estimate which is shown over the financial year.</p>
+            
+<table class="small" id="apprenticeshipsTransferProjection">
+    <thead>
+        <tr>
+            <th>Start date</th>
+            <th>Apprenticeship</th>
+            <th>Number of apprenitces</th>
+            <th>Total cost of training</th>
+            <th>2018/2019</th>
+            <th>2019/2020</th>
+            <th>2020/2021</th>
+            <th>2021/2022</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="financial">May 2019</td>
+            <td class="nowrap">Business Administration<span class="form-hint">level 3</span></td>
+            <td class="financial">2</td>
+            <td class="financial">£ 10,000 </td>
+            <td class="financial">£ 0 </td>
+            <td class="financial">£ 5,646 </td>
+            <td class="financial">£ 4,352 </td>
+            <td class="financial">£ 0 </td>
+            <td><a href="edit-apprenticeship" class="edit-apprenticeship">edit</a> <a href="remove-cohort-confirm" class="remove-apprenticeship">remove</a></td>
+        </tr>
+        <tr>
+            <td class="financial"></td>
+            <td class="nowrap">
+                &nbsp;
+            </td>
+            <td class="financial">
+                &nbsp;
+            </td>
+            <td class="financial">£ 10,000 </td>
+            <td class="financial">£ 0 </td>
+            <td class="financial">£ 5,646 </td>
+            <td class="financial">£ 4,352 </td>
+            <td class="financial">£ 0 </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+    </tbody>
+</table>
+        </div>
+    </div>
+    
+</main>
+{% endblock %}
