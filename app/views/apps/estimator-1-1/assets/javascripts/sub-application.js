@@ -92,14 +92,34 @@ var scenario =  getQueryVariable("scenario");
             
        for (i = 0; i < data.levy.elements.length; i++) {
            pos = i + 1;
-           content += '<tr><td>'+data.levy.elements[i].date+'</td><td>'+data.levy.elements[i].projected_funds+'</td><td>'+data.levy.elements[i].modelled_costs+'</td></tr>';
+           
+           var fundsCurrency = data.levy.elements[i].projected_funds;
+           var projectedFunds = Number(fundsCurrency.replace(/[^0-9\.-]+/g,""));
+           if ( projectedFunds < 0 ) {
+               var redClass = "error-message";
+           } else {
+               var redClass = "";
+           }
+           
+           
+           content += '<tr><td>'+data.levy.elements[i].date+'</td><td class="'+redClass+'">'+data.levy.elements[i].projected_funds+'</td><td>'+data.levy.elements[i].modelled_costs+'</td></tr>';
            renderTableA(content);
             }
             content = "";
             
         for (i = 0; i < data.transfer.elements.length; i++) {
            pos = i + 1;
-           content += '<tr><td>'+data.transfer.elements[i].date+'</td><td>'+data.transfer.elements[i].transfer_balance+'</td><td>'+data.transfer.elements[i].modelled_costs+'</td></tr>';
+            
+                       
+           var transferCurrency = data.transfer.elements[i].transfer_balance;
+           var transferFunds = Number(transferCurrency.replace(/[^0-9\.-]+/g,""));
+           if ( transferFunds < 0 ) {
+               var redClass = "error-message";
+           } else {
+               var redClass = "";
+           }
+            
+            content += '<tr><td>'+data.transfer.elements[i].date+'</td><td class="'+redClass+'">'+data.transfer.elements[i].transfer_balance+'</td><td>'+data.transfer.elements[i].modelled_costs+'</td></tr>';
            renderTableB(content);
             }
          
