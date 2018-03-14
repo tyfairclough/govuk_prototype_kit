@@ -4209,8 +4209,11 @@ table.results-table td.training-column {
 
 
 .errorTable {
-    tr:nth-child(9) {
-        border: 5px solid white;
-        outline: 5px solid $red
+    tr.error-row {
+        /* -webkit-box-shadow: -10px 0px 0px 0px rgba(255,0,0,1); */
+        /* -moz-box-shadow: -10px 0px 0px 0px rgba(255,0,0,1); */
+        box-shadow: -5px 0px 0px 0px mix($red, white, 10%), -10px 0px 0px 0px $red;
+        background: mix($red, white, 10%);
+        
     }
 }

@@ -115,11 +115,13 @@ var scenario =  getQueryVariable("scenario");
            var transferFunds = Number(transferCurrency.replace(/[^0-9\.-]+/g,""));
            if ( transferFunds < 0 ) {
                var redClass = "error-message";
+               var redRow = "error-row";
            } else {
                var redClass = "";
+               var redRow = "";
            }
             
-            content += '<tr><td>'+data.transfer.elements[i].date+'</td><td class="'+redClass+'">'+data.transfer.elements[i].transfer_balance+'</td><td>'+data.transfer.elements[i].modelled_costs+'</td></tr>';
+            content += '<tr class="'+redRow+'"><td>'+data.transfer.elements[i].date+'</td><td class="'+redClass+'">'+data.transfer.elements[i].transfer_balance+'</td><td>'+data.transfer.elements[i].modelled_costs+'</td></tr>';
            renderTableB(content);
             }
          
