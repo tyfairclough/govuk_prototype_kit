@@ -207,6 +207,9 @@ $(".error-summary").hide();
         $( "#cohortsNew" ).change(function() {
         var appCount = $(this).val();
             appTotalValue = appCount*estimatePrice;
+            appTotalValue = numberWithCommas(appTotalValue);
+            estimatePrice = numberWithCommas(estimatePrice);
+
             if ( appCount > 1 ) {
                 s = "s";
             } else {
@@ -365,6 +368,15 @@ $(".error-summary").hide();
     
     
 /*----- GLOBAL JS -----*/
+    
+    
+    function numberWithCommas(x) {
+    x = x.toString();
+    var pattern = /(-?\d+)(\d{3})/;
+    while (pattern.test(x))
+        x = x.replace(pattern, "$1,$2");
+    return x;
+}
     
     
     if ( scenario == 1 ) {
