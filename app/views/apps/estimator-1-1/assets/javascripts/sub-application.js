@@ -128,9 +128,15 @@ var scenario =  getQueryVariable("scenario");
         content = "";
 
         for (i = 0; i < data.apprenticeships.elements.length; i++) {
-           pos = i + 1;
-           content += '<tr><td>'+data.apprenticeships.elements[i].apprenticeship+'<span class="form-hint">'+data.apprenticeships.elements[i].apprenticeship_level+'</span></td><td>'+data.apprenticeships.elements[i].number_of_apprentices+'</td><td>'+data.apprenticeships.elements[i].start_date+'</td><td>'+data.apprenticeships.elements[i].monthly_payment+'</td><td>'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td>'+data.apprenticeships.elements[i].completion_payment+'</td><td style="display:none">'+data.apprenticeships.elements[i].transfer+'</td><td><a href="#">Remove</a></td><td><a href="add-apprenticeship.html">Edit</a></td></tr>';
+            
+            if ((i +1) == data.apprenticeships.elements.length ) {
+           content += '<tr><td><span class="bold-xsmall">Total</span></td><td><span class="bold-xsmall">'+data.apprenticeships.elements[i].number_of_apprentices+'</span></td><td>'+data.apprenticeships.elements[i].start_date+'</td><td><span class="bold-xsmall">'+data.apprenticeships.elements[i].monthly_payment+'</span></td><td>'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td><span class="bold-xsmall">'+data.apprenticeships.elements[i].completion_payment+'</span></td><td style="display:none">'+data.apprenticeships.elements[i].transfer+'</td><td>&nbsp;</td><td>&nbsp;</td></tr>';
            renderTableC(content);
+            } else {
+           pos = i + 1;
+           content += '<tr><td>'+data.apprenticeships.elements[i].apprenticeship+'<span class="form-hint">level '+data.apprenticeships.elements[i].apprenticeship_level+'</span></td><td>'+data.apprenticeships.elements[i].number_of_apprentices+'</td><td>'+data.apprenticeships.elements[i].start_date+'</td><td>'+data.apprenticeships.elements[i].monthly_payment+'</td><td>'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td>'+data.apprenticeships.elements[i].completion_payment+'</td><td style="display:none">'+data.apprenticeships.elements[i].transfer+'</td><td><a href="#">Remove</a></td><td><a href="add-apprenticeship.html">Edit</a></td></tr>';
+           renderTableC(content);
+                }
             }
    
         content = "";
