@@ -88,6 +88,7 @@ var scenario =  getQueryVariable("scenario");
     
         function loadArrayA(data){
         var content = "";
+        var footerContent = "";
         var pos = "";
             
        for (i = 0; i < data.levy.elements.length; i++) {
@@ -106,6 +107,7 @@ var scenario =  getQueryVariable("scenario");
            renderTableA(content);
             }
             content = "";
+            footerContent = "";
             
         for (i = 0; i < data.transfer.elements.length; i++) {
            pos = i + 1;
@@ -126,20 +128,22 @@ var scenario =  getQueryVariable("scenario");
             }
          
         content = "";
+        footerContent = "";
 
         for (i = 0; i < data.apprenticeships.elements.length; i++) {
             
             if ((i +1) == data.apprenticeships.elements.length ) {
-           content += '<tr><td><span class="bold-xsmall">Total</span></td><td><span class="bold-xsmall">'+data.apprenticeships.elements[i].number_of_apprentices+'</span></td><td>'+data.apprenticeships.elements[i].start_date+'</td><td><span class="bold-xsmall">'+data.apprenticeships.elements[i].monthly_payment+'</span></td><td>'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td><span class="bold-xsmall">'+data.apprenticeships.elements[i].completion_payment+'</span></td><td style="display:none">'+data.apprenticeships.elements[i].transfer+'</td><td>&nbsp;</td><td>&nbsp;</td></tr>';
-           renderTableC(content);
+           footerContent += '<tr class="total"><td data-label="Totals">&nbsp;</td><td class="total" data-label="Number of apprentices"><span class="bold-xsmall">'+data.apprenticeships.elements[i].number_of_apprentices+'</span></td><td class="total">'+data.apprenticeships.elements[i].start_date+'</td><td class="total" data-label="Monthly payment"><span class="bold-xsmall">'+data.apprenticeships.elements[i].monthly_payment+'</span></td><td class="total">'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td class="total" data-label="Completion payment"><span class="bold-xsmall">'+data.apprenticeships.elements[i].completion_payment+'</span></td><td></td><td></td></tr>';
+           renderTableC(content,footerContent);
             } else {
            pos = i + 1;
-           content += '<tr><td>'+data.apprenticeships.elements[i].apprenticeship+'<span class="form-hint">level '+data.apprenticeships.elements[i].apprenticeship_level+'</span></td><td>'+data.apprenticeships.elements[i].number_of_apprentices+'</td><td>'+data.apprenticeships.elements[i].start_date+'</td><td>'+data.apprenticeships.elements[i].monthly_payment+'</td><td>'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td>'+data.apprenticeships.elements[i].completion_payment+'</td><td style="display:none">'+data.apprenticeships.elements[i].transfer+'</td><td><a href="#">Remove</a></td><td><a href="add-apprenticeship.html">Edit</a></td></tr>';
+           content += '<tr><td>'+data.apprenticeships.elements[i].apprenticeship+'<span class="form-hint">level '+data.apprenticeships.elements[i].apprenticeship_level+'</span></td><td data-label="Number of apprentices">'+data.apprenticeships.elements[i].number_of_apprentices+'</td><td data-label="Start date">'+data.apprenticeships.elements[i].start_date+'</td><td data-label="Monthly payment">'+data.apprenticeships.elements[i].monthly_payment+'</td><td data-label="Number of monthly payments">'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td data-label="Completion payment">'+data.apprenticeships.elements[i].completion_payment+'</td><td style="display:none">'+data.apprenticeships.elements[i].transfer+'</td><td><a href="#">Remove</a></td><td></td></tr>';
            renderTableC(content);
                 }
             }
    
         content = "";
+        footerContent = "";
         }
     
         function renderTableA(content){
@@ -155,9 +159,10 @@ var scenario =  getQueryVariable("scenario");
                 //paginateBalancesheet();
             });
         }       
-                function renderTableC(content){
+                function renderTableC(content,footerContent){
             $(document).ready(function () {
                 $("#tab-3 tbody").html(content);
+                $("#tab-3 tfoot").html(footerContent);
                 //paginateBalancesheet();
             });
         }       

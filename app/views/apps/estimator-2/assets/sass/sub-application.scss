@@ -1368,9 +1368,10 @@ table.responsive {
        // border: 1px solid $border-colour;
         margin-bottom: 10px;
         display: block;
-        float: lefåt;
+        float: left;
         width: 100%;
         box-sizing: border-box;
+        border: 2px solid $border-colour;
         td {
             display: block;
             text-align: right;
@@ -1390,7 +1391,7 @@ table.responsive {
                 border-bottom: none;
             }
             &:empty {
-                //display: none;
+                display: none;
             }
         }
         &.total {
@@ -1398,7 +1399,6 @@ table.responsive {
         }
     }
 }
-
 
 @include media(tablet) {
     table.responsive {
@@ -1442,10 +1442,14 @@ table.responsive {
                 td {
                     border-bottom: none;
                     &.total {
-                        border-bottom: 2px solid #000;
+                    //    border-bottom: 2px solid #000;
                     }
                     &:last-child {
                         padding-left: 0;
+                    }
+                    &:empty {
+                        display: block;
+                    //    visibility: hidden
                     }
                 }
             }
@@ -1459,7 +1463,6 @@ table.responsive {
     }
 
 }
-
 
 
 .colspan {
