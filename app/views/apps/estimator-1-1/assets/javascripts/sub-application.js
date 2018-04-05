@@ -229,8 +229,7 @@ $(".error-summary").hide();
             
 });
 
-
-        
+    
    $(".save,.add-another").click(function(e){
        e.preventDefault();
        formHasErrors = false;       
@@ -272,6 +271,12 @@ $(".error-summary").hide();
        }
        
        
+
+       // fix year format
+       
+       if ( year < 99 ) {
+           year = Number(year) + 2000;
+       }
         
        
        // has to be between certain dates startDateMonth startDateYear
