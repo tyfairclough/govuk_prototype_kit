@@ -4,8 +4,8 @@
 <main class="team-dashboard" id="content" role="main" tabindex="-1">
     {% include "includes/link-back.html" %}
 
-    
-    
+
+
 <div class="grid-row">
         <div class="column-two-thirds">
             <div class="hgroup">
@@ -13,7 +13,7 @@
                 <p class="lede">Invite members, control what they can do, remove members and cancel or resend invitations.</p>
             </div>
         </div>
-</div> 
+</div>
 
 <section id="invitations">
                     <table>
@@ -43,6 +43,16 @@
                                 <td>Active</td>
                                 <td><a href="/apps/{{currentApp.appDirName}}/views/account/team/view-user">Details</a></td>
                             </tr>
+
+                            <tr>
+                                <td class="">A link to my junk page
+                                    <br><span class="text-secondary">gaz@googlemail.es</span>
+                                </td>
+                                <td>Junk, junk, junk</td>
+                                <td>Active</td>
+                                <td><a href="/apps/{{currentApp.appDirName}}/views/account/team/junk">Junk</a></td>
+                            </tr>
+
                             <tr>
                                 <td class="">Shkodran Mustafi (viewer)
                                     <br><span class="text-secondary">s.mustafi@gmail.co.uk</span>
@@ -70,7 +80,7 @@
                         </tbody>
                     </table>
     </section>
-    
+
 <div class="page-navigation">
                     <a class="page-navigation__btn previous hidden">
                         <i class="arrow-button fa fa-angle-left"></i>
@@ -87,8 +97,8 @@
                     </a>
 
                 </div>
-    
-<a class="button" id="" href="/apps/{{currentApp.appDirName}}/views/account/team/invite-a-team-member.html">Invite a new member</a>    
-    
+
+<a class="button" id="" href="/apps/{{currentApp.appDirName}}/views/account/team/invite-a-team-member.html">Invite a new member</a>
+
 </main><!-- / #content -->
 {% endblock %}
