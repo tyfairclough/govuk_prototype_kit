@@ -21,14 +21,14 @@
 <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
 
     
-    <div class="grid-row">
+    <div class="grid-row" id="feedbackMessages">
         <div class="column-two-thirds">
-                <div class="error-summary" id="errorOne">
+                <div class="error-summary hidden" id="errorOne">
                     <h3 class="heading-medium">You can’t fund these apprenticeships</h3>
                     <p>You don't have enough transfer allowance.</p>
                     <p class="hidden">You don't have enough transfer allowance from December 2018 to support this transfer.</p>
                 </div> 
-                <div class="error-summary">
+                <div class="error-summary hidden">
                     <h3 class="heading-medium">You can’t fund these apprenticeships</h3>
                     <p>You don't have enough available funds in December 2018, so the receiving employer will go into co-investment.</p>
                     <p class="hidden">You don't have enough available funds from December 2018, so the receiving employer will go into co-investment.</p>
@@ -38,7 +38,7 @@
                     <h3 class="heading-medium">Apprenticeship removed</h3>
                     <p>The apprenticeship details you’ve deleted are no longer included in the estimation.</p>
                 </div> 
-            <div class="success-summary">
+            <div class="success-summary hidden" id="successOne">
                     <h3 class="heading-medium">Yes, you can fund these apprenticeships</h3>
                     <p>For more detail look at the remaining transfer allowance table.</p>
                 </div> 
