@@ -46,9 +46,11 @@ var scenario =  getQueryVariable("scenario");
         
         scenario = localStorage.getItem("scenario");
         if ( scenario == "1" ) {
+            $("#successOne.success-summary").removeClass("hidden");            
             $("#successOne.success-summary").show();            
         } else {
-            $("#ErrorOne.error-summary").show();  
+            $("#errorOne.error-summary").removeClass("hidden");  
+            $("#errorOne.error-summary").show();  
         }
         
         
@@ -68,7 +70,7 @@ var scenario =  getQueryVariable("scenario");
     
     function estimatorDetails(){
         
-
+estimatorOutcomes();
         
         
  var googleDocA = 'https://docs.google.com/spreadsheets/d/1PwP2NxBj3WVuzwwU6Z4USUCurOxuu2kiHkg8nVWKssE/pubhtml';
