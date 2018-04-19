@@ -1,0 +1,158 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="estimator-details" id="content" role="main" tabindex="-1">
+    
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.18/c3.min.css" media="screen" rel="stylesheet" type="text/css" />    
+
+
+<!--
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.core.standalone.css" media="screen" rel="stylesheet" type="text/css" />    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.js" type="text/javascript"></script>
+-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" type="text/javascript"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.18/c3.min.js" type="text/javascript"></script>
+    
+<a href="#" class="link-back">Back to transfers</a>
+
+    
+    <div class="grid-row" id="feedbackMessages">
+        <div class="column-two-thirds">
+                <div class="error-summary hidden" id="errorOne">
+                    <h3 class="heading-medium">You can’t fund these apprenticeships</h3>
+                    <p>You don't have enough transfer allowance.</p>
+                    <p class="hidden">You don't have enough transfer allowance from December 2018 to support this transfer.</p>
+                </div> 
+                <div class="error-summary hidden">
+                    <h3 class="heading-medium">You can’t fund these apprenticeships</h3>
+                    <p>You don't have enough available funds in December 2018, so the receiving employer will go into co-investment.</p>
+                    <p class="hidden">You don't have enough available funds from December 2018, so the receiving employer will go into co-investment.</p>
+                </div> 
+            
+            <div class="success-summary hidden">
+                    <h3 class="heading-medium">Apprenticeship removed</h3>
+                    <p>The apprenticeship details you’ve deleted are no longer included in the estimation.</p>
+                </div> 
+            <div class="success-summary hidden" id="successOne">
+                    <h3 class="heading-medium">Yes, you can fund these apprenticeships</h3>
+                    <p>For more detail look at the remaining transfer allowance table.</p>
+                </div> 
+        </div>
+    </div>
+    
+    <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="hgroup form-group">
+           <h1 class="heading-xlarge">Estimated costs</h1>
+            <p class="lede">This page shows:</p>
+            <ul class="list list-bullet">
+                <li>your available transfer allowance</li>
+                <li>cost of apprenticeships you've estimated</li>
+            </ul>
+
+            
+
+<p><a class="button" href="add-apprenticeship?scenario=2">Add more apprenticeships to your current estimate</a></p>
+            
+
+        </div>
+        
+      </div>
+       
+    </div>
+    
+    <div class="grid-row hidden">
+        <div class="column-two-thirds">
+            <div class="panel panel-width-thin">
+                <p>You have not selected any apprenticeships for your estimation. You need to <a href="#">select at least one apprenticeship</a> to make an estimation.</p>
+            </div>        
+        </div>
+    </div>
+    
+    <div id="tabs-container" class="">
+    <ul class="tabs-menu">
+        <li><a href="#tab-2">Remaining transfer allowance</a></li>
+        <li class="current"><a href="#tab-3">Apprenticeships added</a></li>
+    </ul>
+   
+    <div id="tab-2" class="tab-content" style="">
+        <table class="small responsive">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Remaining transfer allowance</th>
+                <th>Estimated costs</th>
+            </tr>            
+            </thead>
+            <tbody>
+            <tr>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+            </tr>            
+            </tbody>
+
+        </table>
+    </div>
+        
+    <div id="tab-3" class="tab-content" style="">
+        <table class="small responsive">
+            <thead>
+            <tr>
+                <th>Apprenticeship <span class="form-hint">Level</span></th>
+                <th>Number of apprentices</th>
+                <th>Start date</th>
+                <th>Monthly payment</th>
+                <th>Number of monthly payments</th>
+                <th>Completion payment</th>
+                <th style="display:none">Transfer</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Loading <span class="form-hint">Loading</span></td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td><a href="remove.html">Remove</a></td>
+                <td><a href="add-apprenticeship.html">Details</a></td>
+            </tr>
+            </tbody>
+<tfoot class="total"></tfoot>
+
+        </table>
+    </div>
+</div>                
+         
+        <div class="grid-row">
+        <div class="column-two-thirds">
+                        <details>
+                <summary>What does this table show</summary>
+                <div class="panel panel-width-thin">
+<p>                   The ‘remaining transfer allowance’ table shows a monthly breakdown of your projected transfer allowance and the apprenticeship costs you’ve estimated for a transfer.  Your transfer allowance will reset every April.  </p>
+<p>                    The ‘apprenticeships added’ table shows the details of apprenticeships you’ve added to your estimate.</p>
+                </div>
+            </details>
+            
+<div class="info-highlighted">
+                        <h3 class="heading-medium">Disclaimer</h3>
+                        <p>This tool is designed to illustrate what your funds may look like based on the apprenticeships currently in your apprenticeship service account and the current funding cap for the estimated apprenticeships you have added, using this estimator. The actual amount of funds available is likely to vary if there are any changes made to your apprenticeship arrangements, including, for example, changes in the number of apprentices employed, or the cost and duration of their training. You should therefore not rely solely on the information provided by this tool when making decisions about the transfer of funds.</p>
+                    </div>        
+        </div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+
+
+</main><!-- / #content -->
+{% endblock %}
