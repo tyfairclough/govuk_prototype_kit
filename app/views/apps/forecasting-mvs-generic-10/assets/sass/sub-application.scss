@@ -1169,12 +1169,15 @@ dl.confirm-details {
         display: none;
     }
     padding-top: 10px;
+    position: relative;
     .description {
-        display: block
+        display: block;
+        padding-right: 40px;
     }
     .counter {
         display: block;
-        font-size: 14px
+        font-size: 14px;
+        padding-right: 10px;
     }
     a, .page-navigation__btn {
         display: none;
@@ -1219,7 +1222,8 @@ dl.confirm-details {
                 padding-left: 10px;
                 font-size: 64px;
                 top: 15px;
-                position: relative;
+                position: absolute;
+                right: 0;
             }
                 .arrow-button {
                     float: right;
