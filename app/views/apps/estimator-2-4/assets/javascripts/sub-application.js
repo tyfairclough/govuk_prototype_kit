@@ -71,8 +71,7 @@ var scenario =  getQueryVariable("scenario");
 
         
         
- var googleDocA = 'https://docs.google.com/spreadsheets/d/1_oxnjeKxMOOuLukwHV98AFpWxgz_2dbxzDITUc03wmY/pubhtml';
- var googleDocB = 'https://docs.google.com/spreadsheets/d/1ozztxXW-M37IhYKuLuN9bM2GslhxcJ9pvbvpcvLWjgg/pubhtml';
+
         var googleDoc = localStorage.getItem("googleDoc");
         console.log(googleDoc);
     
@@ -123,7 +122,7 @@ var scenario =  getQueryVariable("scenario");
                var redRow = "";
            }
             
-            content += '<tr class="'+redRow+'"><td>'+data.transfer.elements[i].date+'</td><td class="'+redClass+'">'+data.transfer.elements[i].transfer_balance+'</td><td>'+data.transfer.elements[i].modelled_costs+'</td></tr>';
+            content += '<tr class="'+redRow+'"><td>'+data.transfer.elements[i].date+'</td><td>'+data.transfer.elements[i].modelled_costs+'</td><td>'+data.transfer.elements[i].actual_costs+'</td><td class="'+redClass+'">'+data.transfer.elements[i].transfer_balance+'</td></tr>';
            renderTableB(content);
             }
          
@@ -137,7 +136,7 @@ var scenario =  getQueryVariable("scenario");
            renderTableC(content,footerContent);
             } else {
            pos = i + 1;
-           content += '<tr><td>'+data.apprenticeships.elements[i].apprenticeship+'<span class="form-hint">level '+data.apprenticeships.elements[i].apprenticeship_level+'</span></td><td data-label="Number of apprentices">'+data.apprenticeships.elements[i].number_of_apprentices+'</td><td data-label="Start date">'+data.apprenticeships.elements[i].start_date+'</td><td data-label="Total amount">'+data.apprenticeships.elements[i].total_cost+'</td><td data-label="Monthly payment">'+data.apprenticeships.elements[i].monthly_payment+'</td><td data-label="Number of monthly payments">'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td data-label="Completion payment">'+data.apprenticeships.elements[i].completion_payment+'</td><td style="display:none">'+data.apprenticeships.elements[i].transfer+'</td><td><a href="#">Remove</a></td><td></td></tr>';
+           content += '<tr><td>'+data.apprenticeships.elements[i].apprenticeship+'<span class="form-hint">level '+data.apprenticeships.elements[i].apprenticeship_level+'</span></td><td data-label="Number of apprentices">'+data.apprenticeships.elements[i].number_of_apprentices+'</td><td data-label="Start date">'+data.apprenticeships.elements[i].start_date+'</td><td data-label="Total amount">'+data.apprenticeships.elements[i].total_cost+'</td><td data-label="Monthly payment">'+data.apprenticeships.elements[i].monthly_payment+'</td><td data-label="Number of monthly payments">'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td data-label="Completion payment">'+data.apprenticeships.elements[i].completion_payment+'</td><td style="display:none">'+data.apprenticeships.elements[i].transfer+'</td><td><a href="add-apprenticeship?edit=1">Edit</a></td><td><a href="#">Remove</a></td><td></td></tr>';
            renderTableC(content);
                 }
             }
@@ -381,6 +380,9 @@ $(".error-summary").hide();
     
 /*----- GLOBAL JS -----*/
     
+     var googleDocA = 'https://docs.google.com/spreadsheets/d/1JBSEgSs1K0SgcjrJjTTu_nVnp0q0LLLVk41kDrLPUe8/pubhtml';
+ var googleDocB = 'https://docs.google.com/spreadsheets/d/1GyMe3tNrAAPsY1pEZA3oE8x4p91yhLhHsbCa5_dPrM8/pubhtml';
+    
     
     function numberWithCommas(x) {
     x = x.toString();
@@ -392,12 +394,12 @@ $(".error-summary").hide();
     if ( scenario == 1 ) {
         //load the first spreadsheet
                 console.log("v1");
-        localStorage.setItem("googleDoc","https://docs.google.com/spreadsheets/d/1_oxnjeKxMOOuLukwHV98AFpWxgz_2dbxzDITUc03wmY/pubhtml")
+        localStorage.setItem("googleDoc",googleDocA)
         localStorage.setItem("scenario","1")
     } else if ( scenario == 2 ) {
         //load the second spreadsheet
         console.log("v2");
-        localStorage.setItem("googleDoc","https://docs.google.com/spreadsheets/d/1ozztxXW-M37IhYKuLuN9bM2GslhxcJ9pvbvpcvLWjgg/pubhtml")
+        localStorage.setItem("googleDoc",googleDocB)
         localStorage.setItem("scenario","2")
     };
     
