@@ -399,7 +399,8 @@ $(".error-summary").hide();
     } else if ( scenario == 2 ) {
         //load the second spreadsheet
         console.log("v2");
-        localStorage.setItem("googleDoc",googleDocB)
+        //localStorage.setItem("googleDoc",googleDocB)
+        localStorage.setItem("googleDoc",googleDocA)
         localStorage.setItem("scenario","2")
     };
     
