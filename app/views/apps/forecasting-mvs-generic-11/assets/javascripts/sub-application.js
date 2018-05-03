@@ -4,414 +4,355 @@ $(document).ready(function() {
 var root = "/apps/{{currentApp.appDirName}}/views/";
 console.log(root);
 var className = $("main").attr('class');
-var type =  getQueryVariable("type");
-var scenario =  getQueryVariable("scenario");
-    //get url variables    
-    function getQueryVariable(variable) {
-        var query = window.location.search.substring(1);
-        var vars = query.split("&");
-        for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split("=");
-            if (pair[0] == variable) {
-                return pair[1];
-            }
-        }
-        return (false);
-    }
+
+
 
 
 
    switch (className) {
+       case 'forecastIndexWide':
+           forecastIndexWide();
+           break;
+       case 'forecast-index':
+           forecastIndex();
+           break;
+       case 'another-page':
+           anotherPage();
+       break;
+       case 'index':
+           index();
+       break;
+       case 'finance-transactions':
+           financeTransactions();
+       break;
+       case 'forecast-start':
+           forecastStart();
+       break;
+       case 'forecastYourPaybill':
+           forecastYourPaybill();
+       break;
+       case 'forecastProjectLevy':
+           forecastProjectLevy();
+       break;
+       case 'forecastViewLevy':
+           forecastViewLevy();
+       break;
+       case 'forecastViewCommitments':
+           forecastViewCommitments();
+       break;
        case 'forecastAlreadyHaveAccount':
            forecastAlreadyHaveAccount();
        break;
-       case 'estimate-add-apprenticeship':
-           estimateAddApprenticeship();
-       break;
-        case 'estimator-details':
-           estimatorDetails();
-       break;
-       case 'estimator-outcomes':
-           estimatorOutcomes();
-       break;
        default: break;
 }
-    
-/*----- PAGE FUNCTIONS -----*/
-    
-    
-    function estimatorOutcomes(){
-        $(".error-summary").hide();
-        $(".success-summary").hide();
-        
-        scenario = localStorage.getItem("scenario");
-        if ( scenario == "1" ) {
-            $("#successOne.success-summary").show();            
-        } else {
-            $("#ErrorOne.error-summary").show();  
-        }
-        
-        
-        
-        $("#submit").click(function(e){
-            e.preventDefault();
-        state = $("input[name=next]:checked").val()
-            if (state === "details") {
-                window.location.href = "details.html";
-            } else if (state === "nextscenario") {
-                window.location.href = "add-apprenticeship?scenario=2"
-            } else if (state === "homepage") {
-                window.location.href = "../transfers/index"
-            }            
-        });
-    }
-    
-    function estimatorDetails(){
-        
-
-        
-        
-
-        var googleDoc = localStorage.getItem("googleDoc");
-        console.log(googleDoc);
-    
-    function googleTables() {
-    Tabletop.init( { key: googleDoc,
-                     callback: showInfoA,
-                     simpleSheet: false } )
-  }
-    
-        function showInfoA(data, tabletop) {
-      loadArrayA(data);
-  }
-    
-        function loadArrayA(data){
-        var content = "";
-        var footerContent = "";
-        var pos = "";
-            
-       for (i = 0; i < data.levy.elements.length; i++) {
-           pos = i + 1;
-           
-           var fundsCurrency = data.levy.elements[i].projected_funds;
-           var projectedFunds = Number(fundsCurrency.replace(/[^0-9\.-]+/g,""));
-           if ( projectedFunds < 0 ) {
-               var redClass = "error-message";
-           } else {
-               var redClass = "";
-           }
-           
-           
-           content += '<tr><td>'+data.levy.elements[i].date+'</td><td class="'+redClass+'">'+data.levy.elements[i].projected_funds+'</td><td>'+data.levy.elements[i].modelled_costs+'</td></tr>';
-           renderTableA(content);
-            }
-            content = "";
-            footerContent = "";
-            
-        for (i = 0; i < data.transfer.elements.length; i++) {
-           pos = i + 1;
-            
-                       
-           var transferCurrency = data.transfer.elements[i].transfer_balance;
-           var transferFunds = Number(transferCurrency.replace(/[^0-9\.-]+/g,""));
-           if ( transferFunds < 0 ) {
-               var redClass = "error-message";
-               var redRow = "error-row";
-           } else {
-               var redClass = "";
-               var redRow = "";
-           }
-            
-            content += '<tr class="'+redRow+'"><td>'+data.transfer.elements[i].date+'</td><td>'+data.transfer.elements[i].modelled_costs+'</td><td class="'+redClass+'">'+data.transfer.elements[i].transfer_balance+'</td></tr>';
-           renderTableB(content);
-            }
-         
-        content = "";
-        footerContent = "";
-
-        for (i = 0; i < data.apprenticeships.elements.length; i++) {
-            
-            if ((i +1) == data.apprenticeships.elements.length ) {
-           footerContent += '<tr class="total"><td data-label="Totals">Total</td><td class="total" data-label="Number of apprentices"><span class="bold-xsmall">'+data.apprenticeships.elements[i].number_of_apprentices+'</span></td><td class="total">'+data.apprenticeships.elements[i].start_date+'</td><td data-label="Total amount">'+data.apprenticeships.elements[i].total_cost+'</td><td class="total" data-label="Monthly payment"><span class="bold-xsmall">'+data.apprenticeships.elements[i].monthly_payment+'</span></td><td class="total">'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td class="total" data-label="Completion payment"><span class="bold-xsmall">'+data.apprenticeships.elements[i].completion_payment+'</span></td><td></td><td></td></tr>';
-           renderTableC(content,footerContent);
+    function forecastViewCommitments(){
+        userAuth = localStorage.getItem("userAuth");
+                    if (userAuth != "false") {
+               //$("#forecasted").hide()
+                        
             } else {
-           pos = i + 1;
-           content += '<tr><td>'+data.apprenticeships.elements[i].apprenticeship+'<span class="form-hint">level '+data.apprenticeships.elements[i].apprenticeship_level+'</span></td><td data-label="Number of apprentices">'+data.apprenticeships.elements[i].number_of_apprentices+'</td><td data-label="Start date">'+data.apprenticeships.elements[i].start_date+'</td><td data-label="Total amount">'+data.apprenticeships.elements[i].total_cost+'</td><td data-label="Monthly payment">'+data.apprenticeships.elements[i].monthly_payment+'</td><td data-label="Number of monthly payments">'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td data-label="Completion payment">'+data.apprenticeships.elements[i].completion_payment+'</td><td style="display:none">'+data.apprenticeships.elements[i].transfer+'</td><td><a href="add-apprenticeship?edit=1">Edit</a></td><td><a href="#">Remove</a></td><td></td></tr>';
-           renderTableC(content);
-                }
+               $("#forecasted").hide()
             }
-   
-        content = "";
-        footerContent = "";
-        }
-    
-        function renderTableA(content){
-            $(document).ready(function () {
-                $("#tab-1 tbody").html(content);
-                //paginateBalancesheet();
-            });
-        }     
-    
-        function renderTableB(content){
-            $(document).ready(function () {
-                
-                //header = "<thead><tr><th>Month</th><th>Estimated costs</th><th>Remaining transfer allowance</th></tr></thead>";
-                $("#tab-2 tbody").html(content);
-                //paginateBalancesheet();
-            });
-        }       
-                function renderTableC(content,footerContent){
-            $(document).ready(function () {
-                $("#tab-3 tbody").html(content);
-                $("#tab-3 tfoot").html(footerContent);
-                //paginateBalancesheet();
-            });
-        }       
-        
-         
-        
-googleTables();        
-        
-$(".error-summary").hide();
-        
-        
-                scenario = localStorage.getItem("scenario");
-        if ( scenario == "2" ) {
-            $("#errorOne.error-summary").show();    
-            $("#tab-2 tbody").addClass("errorTable");
-// ADD ERROR STYLES HERE
-
-        };        
-        
     }
     
+    function forecastViewLevy(){
+          $(".button").click(function(e){
+            e.preventDefault(); 
+            if (localStorage.getItem("userAuth") == "false") {
+                window.location.href = "view-commitments";                                
+            } else {
+                window.location.href = "add-cohort-wizard";                
+            }
+        })         
+    }
+
+    function forecastProjectLevy(){
+          $(".button").click(function(e){
+            e.preventDefault(); 
+            state = $("input[name=radio-group]:checked").val()
+            if (state === "project") {
+                localStorage.setItem("forecastLevy","true")
+                window.location.href = "english-percentage";                
+            } else {
+                localStorage.setItem("forecastLevy","false")
+                window.location.href = "add-levy-wizard";                
+            }
+        })         
+    }
     
-    function estimateAddApprenticeship(){
-
-        
-        $("#standardNew").chosen();
-        
-        $(".money-mask").mask("999,999,999",{reverse: true});
-        
-        
- console.log(type);
-        
-        if ( type == "levy" ) {
-            $("input[name=radio-inline-group][value=" + 0 + "]").prop('checked', true);
-        } else if ( type == "transfer") {
-            $("input[name=radio-inline-group][value=" + 1 + "]").prop('checked', true);            
-        };
-
-       
-        $("select").on('change',function(){
-             estimatePrice = $(this).find(':selected').attr('data-price');
-             levyLength = $(this).find(':selected').attr('data-duration');
-        });
-        
-        
-        $(".button.cancel").click(function(e){
+    function forecastAlreadyHaveAccount(){
+          $(".button").click(function(e){
             e.preventDefault();
-            localStorage.setItem("transferForecastState","empty");
-            
-            window.location.href = 'forecast-transfer'            
+            state = $("input[name=radio-group]:checked").val()
+
+            if (state === "login") {
+                window.location.href = "../../../index";
+            } else {
+                // non levy payer
+                window.location.href = "project-levy";
+            }
+        })      
+    }
+
+    function forecastYourPaybill(){
+        
+        
+         $("#paybill").mask("999,999,999",{reverse: true});
+        
+        $(".button").click(function(e){
+            e.preventDefault();
+            paybill = $("#paybill").val();
+            paybill = Number(paybill.replace(/\D/g,''));
+
+            if ( paybill > 3000000 ) {
+               console.log("levy payer") // levy payer
+                localStorage.setItem("levyPayer","true");
+                window.location.href = "have-account";
+            } else {
+                // non levy payer
+                 console.log("non levy payer") ;
+                localStorage.setItem("levyPayer","false");
+                window.location.href = "add-cohort-wizard";
+            }
         })
         
-        $( "#cohortsNew" ).change(function() {
-        var appCount = $(this).val();
-            appTotalValue = appCount*estimatePrice;
-            appTotalValue = numberWithCommas(appTotalValue);
-            estimatePrice = numberWithCommas(estimatePrice);
-
-            if ( appCount > 1 ) {
-                s = "s";
+    }
+    function forecastStart(){
+        $(".button").click(function(e){
+            e.preventDefault();
+            userType = localStorage.getItem("userAuth");
+            if ( userType != "true") {
+                window.location.href = "yourpaybill";
             } else {
-                s = ""
+                window.location.href = "loading";                
             }
-            //$("#levy-value").val(appValue);
-            $("#levy-cap").text("Government funding cap for this apprenticeship is £" + estimatePrice);
-            $("#levy-cap").removeClass("hidden");
-            $("#levy-cap").prev().hide();
-//            $(".grand-total span").text("£" +appCount*estimatePrice);
-            $("#levy-length").val(levyLength)
-            $("#levy-total-cap").html("Total government funding cap for <span class='bold-small'>" + appCount + "</span> apprentice" +s+ " is <span class='bold-small'>£" + appTotalValue + "</span>");
-            $("#levy-total-cap").removeClass("hidden");
-            $("#levy-value").val(appTotalValue);
-            
-});
-
-
-        
-   $(".save,.add-another").click(function(e){
-       e.preventDefault();
-       formHasErrors = false;       
-       var selectedCourse = $("#standardNew").find(':selected').text();
-       localStorage.setItem("lastAdded",selectedCourse);
-       var totalCost = $("#levy-value").val();
-       var year = $("#startDateYear").val();
-       var month = $("#startDateMonth").val();
-       var numberOfApprentices = $("#cohortsNew").val();
-       
-       
-       
-       // reset the error messages
-       
-       $(".error-summary, .error-message, .error-summary ul li").addClass("hidden");
-       $(".form-group").removeClass("form-group-error");
-       
-       
-       // check they've chosen an apprenticeship
-     if ( selectedCourse  == "Select one" ) {
-            errorCheck(true);
-            $("#noStandardSelected").removeClass("hidden");
-            $("#standardNew").parent().addClass("form-group-error")
-            $("#standardNew").prev().removeClass("hidden")         
-     } else {
-            errorCheck(false);
-     }       
-       
-       
-       
-       // checks apprentice count is is not empty
-       if ( numberOfApprentices <= 0 || numberOfApprentices == "" ){
-           errorCheck(true);
-           $("#noNumberOfApprentices").removeClass("hidden");       
-           $("#cohortsNew").parent().addClass("form-group-error")
-           $("#cohortsNew").prev().removeClass("hidden")
-       }  else {
-            errorCheck(false);            
-       }
-       
-       
-        
-       
-       // has to be between certain dates startDateMonth startDateYear
-    if ( year < 2018 || year > 2019) {
-            errorCheck(true);
-            $("#wrongYears").removeClass("hidden");  
-            $("#dateWrapper").addClass("form-group-error")
-            $("#declareDate").removeClass("hidden");
-    } else if ( year == 2019 ) {
-        console.log("years is 2019")
-        if ( month <= 9 ) {
-            errorCheck(false);
-        } else {
-            errorCheck(true);
-            $("#wrong2019month").removeClass("hidden");     
-            $("#dateWrapper").addClass("form-group-error")
-            $("#2019montherror").removeClass("hidden");               
-        }
-    } else if ( year == 2018 ) {
-        if ( month >= 5 ) {
-            errorCheck(false);
-        } else {
-            errorCheck(true);
-            $("#wrong2018month").removeClass("hidden");     
-            $("#dateWrapper").addClass("form-group-error")
-            $("#2018montherror").removeClass("hidden");                  
-        }        
-    }
-            
-
-       
-       // cant be above gov cap
-       
-       if (totalCost == "" ) {
-            errorCheck(true);
-            $("#noCost").removeClass("hidden");  
-            $("#levy-value").parent().addClass("form-group-error")
-            $("#levy-value").prev().prev().removeClass("hidden")             
-       } else if ( totalCost > appTotalValue ) {
-            errorCheck(true);          
-            $("#overCap").removeClass("hidden");  
-            $("#levy-value").parent().addClass("form-group-error")
-            $("#levy-value").prev().removeClass("hidden")  
-       } else {
-            errorCheck(false);           
-       }
-       
-       
-
-       
-       
-       // checks levy length is not empty
-       if ( $("#levy-length").val() == "" ){
-//           console.log("length of apprenticeships is null")
-           errorCheck(true);
-           $("#noLength").removeClass("hidden");                                                      
-           $("#levy-length").parent().addClass("form-group-error")
-           $("#levy-length").prev().prev().removeClass("hidden")           
-       }  else {
-           // cant be less than 12 months duration
-           if ( $("#levy-length").val() < 12 ){
-//               console.log("value must be at least 12 months")
-           errorCheck(true);
-         console.log("true");               
-               $("#shortLength").removeClass("hidden");                                           
-               $("#levy-length").parent().addClass("form-group-error")
-               $("#levy-length").prev().removeClass("hidden")               
-           } else {
-               errorCheck(false);
-           } 
-       }      
-
-       
-      
-       
-
-
-       // reveal the errors and do the redirects
-       console.log("value for formHasErrors " + formHasErrors)
-    
-        
-       if ( formHasErrors == true ) {
-          // alert("we've got an error")
-           $(".error-summary").removeClass("hidden");
-           $("html, body").animate({ scrollTop: 0 }, "slow");
-       }    else {     
-               localStorage.setItem("transferForecastState","populated");      
-               window.location.href = 'details'
-       }
-       
-       
-   });     
-        
-        
+        })
     }
     
+
+function financeTransactions(){
     
-    
-/*----- GLOBAL JS -----*/
-    
-     var googleDocA = 'https://docs.google.com/spreadsheets/d/1JBSEgSs1K0SgcjrJjTTu_nVnp0q0LLLVk41kDrLPUe8/pubhtml';
- var googleDocB = 'https://docs.google.com/spreadsheets/d/1GyMe3tNrAAPsY1pEZA3oE8x4p91yhLhHsbCa5_dPrM8/pubhtml';
-    
-    
-    function numberWithCommas(x) {
-    x = x.toString();
-    var pattern = /(-?\d+)(\d{3})/;
-    while (pattern.test(x))
-        x = x.replace(pattern, "$1,$2");
-    return x;
+var from_$input = $('#input_from').pickadate(),
+    from_picker = from_$input.pickadate('picker')
+
+var to_$input = $('#input_to').pickadate(),
+    to_picker = to_$input.pickadate('picker')
+
+
+// Check if there’s a “from” or “to” date to start with.
+if ( from_picker.get('value') ) {
+  to_picker.set('min', from_picker.get('select'))
 }
-    if ( scenario == 1 ) {
-        //load the first spreadsheet
-                console.log("v1");
-        localStorage.setItem("googleDoc",googleDocA)
-        localStorage.setItem("scenario","1")
-    } else if ( scenario == 2 ) {
-        //load the second spreadsheet
-        console.log("v2");
-        localStorage.setItem("googleDoc",googleDocB)
-        //localStorage.setItem("googleDoc",googleDocA)
-        localStorage.setItem("scenario","2")
-    };
+if ( to_picker.get('value') ) {
+  from_picker.set('max', to_picker.get('select'))
+}
+
+// When something is selected, update the “from” and “to” limits.
+from_picker.on('set', function(event) {
+  if ( event.select ) {
+    to_picker.set('min', from_picker.get('select'))    
+  }
+  else if ( 'clear' in event ) {
+    to_picker.set('min', false)
+  }
+})
+to_picker.on('set', function(event) {
+  if ( event.select ) {
+    from_picker.set('max', to_picker.get('select'))
+  }
+  else if ( 'clear' in event ) {
+    from_picker.set('max', false)
+  }
+})
+
+ 
+$('tr').click(function () {
+    $(this).next('tr').toggle();
+});
     
-        function errorCheck(fieldHasError){
-        console.log("does field has error " + fieldHasError)
-        if ( fieldHasError == true ) {
-            formHasErrors = true
+}
+
+    
+
+
+    
+function forecastIndex(){
+var d3locale = d3.locale({
+    "decimal": ",",
+    "thousands": "\u00A0",
+    "grouping": [3],
+    "currency": ["", " руб."],
+    "dateTime": "%A, %e %B %Y г. %X",
+    "date": "%d.%m.%Y",
+    "time": "%H:%M:%S",
+    "periods": ["AM", "PM"],
+    "days": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+    "shortDays": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+    "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "shortMonths": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+});
+    
+    
+        var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+       
+    
+ 
+$(".showMore").click(function() {
+  var tr = $(this).parent().parent().nextAll(':lt(2)');
+     $(this).toggleClass('fa-angle-double-right fa-angle-double-down')
+  if (tr.is(".hidden")) {
+    tr.removeClass('hidden');
+      console.log($(this));
+  } else {
+    tr.addClass('hidden');
+  }
+})   
+}    
+    
+
+    
+  var publicSpreadsheetUrl1 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/17RuG5qIxg8K1wLlOdiM2OnUMkFvJTuxYdtg296Wr178/pubhtml';
+  var publicSpreadsheetUrl2 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/11SNfKERHoGtqeql9IChpabPG3cqOPi__dIztHuNPi7Q/pubhtml';
+var publicSpreadsheetUrl3 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/1i11yg9he8rPSuUnJLpNuE2Z6O-UdokwhPSuGpFYzqLE/pubhtml';
+
+  function init() {
+    Tabletop.init( { key: publicSpreadsheetUrl1,
+                     callback: showInfo,
+                     simpleSheet: true } )
+  }
+    
+  function appz() {
+    Tabletop.init( { key: publicSpreadsheetUrl2,
+                     callback: showInfo2,
+                     simpleSheet: true } )
+  }
+    
+    function byApprenticeship() {
+    Tabletop.init( { key: publicSpreadsheetUrl3,
+                     callback: showInfo3,
+                     simpleSheet: true } )
+  }
+
+
+    function showInfo(data, tabletop) {
+      loadArray(data);
+  }
+
+  function showInfo2(data2, tabletop2) {
+      loadArray2(data2);
+  }  
+  function showInfo3(data3, tabletop3) {
+      loadArray3(data3);
+  }    
+ 
+    
+                $(document).ready(function () {
+                    init();
+                    appz();
+                    byApprenticeship();
+                });
+    
+    function loadArray(data){
+        var content = "";
+        var pos = "";
+        //+data[i].Points+
+       for (i = 0; i < data.length; i++) {
+             //console.log(i)
+           pos = i + 1;
+content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+data[i].Monthly+'</td><td class="financial">'+data[i].Completion+'</td><td class="financial">'+data[i].Levy+'</td><td class="financial">'+data[i].Balance+'</td></tr>';
+           renderTable(content);
+            }
+        }     
+
+     
+    
+    
+    function loadArray2(data2){
+        var content2 = "";
+        var pos = "";
+        //+data[i].Points+
+       for (i = 0; i < data2.length; i++) {
+             //console.log(i)
+           
+           var min = 10000000;
+           var max = 99999999;
+           var num = Math.floor(Math.random() * (max - min + 1)) + min;
+           pos = i + 1;      
+           content2 += '<tr><td>'+data2[i].Apprenitce+'</td><td>'+num+'</td><td>'+data2[i].Start+'</td><td>£'+data2[i].Monthly+'</td><td>'+data2[i].Total+'</td><td>£'+data2[i].Completion+'</td></tr>'      
+            }
+           renderTable2(content2);        
         }
+    
+    
+    function loadArray3(data3){
+        var content3 = "";
+        var pos = "";
+        //+data[i].Points+
+       for (i = 0; i < data3.length; i++) {
+             //console.log(i)
+           pos = i + 1;      
+           content3 += '<tr><td class="no-wrap">'+data3[i].apprenticeship+' <span class="form-hint">level '+data3[i].level+'</span></td><td>'+data3[i].trainingProvider+'</td></td><td>'+data3[i].numberOfApprentices+'</td></td><td>'+data3[i].startDate+'</td><td>£'+data3[i].costPerApprenticeship+'</td><td>'+data3[i].numberOfMonthlyPayments+'</td><td>£'+data3[i].monthlyPayment+'</td><td>£'+data3[i].completionPayment+'</td></tr>'      
+           renderTable3(content3);
+            }
+        }     
+    
+    
+        
+        function renderTable(content){
+            $(document).ready(function () {
+                $("#balancesheet tbody").html(content);
+                //paginateBalancesheet();
+            });
+        }       
+    
+        function renderTable2(content2){
+            $(document).ready(function () {
+                $("#byApprentice table tbody").html(content2);
+                //paginateByApprentice();
+                
+            });
+        }
+          function renderTable3(content3){
+            $(document).ready(function () {
+                $("#byApprenticeship table tbody").html(content3);
+                paginateByApprenticeship();
+            });
+        }
+    
+    function paginateByApprentice(){
+                        $('#byApprentice table').paginate({
+                          limit: 10, 
+                          previousText: 'Previous',
+                            nextText: 'Next',
+                            first: false,
+                            last: false,
+                            optional: true,
+                        });
+    }    
+    
+    function paginateByApprenticeship(){
+                        $('#byApprenticeship table').paginate({
+                          limit: 10, 
+                          previousText: 'Previous',
+                            nextText: 'Next',
+                            first: false,
+                            last: false,
+                            optional: true,
+                        });
     }
+    function paginateBalancesheet(){
+                        $('#balancesheet').paginate({
+                          limit: 12, 
+                          previousText: 'Previous',
+                            nextText: 'Next',
+                            first: false,
+                            last: false,
+                            optional: true,
+                        });
+    }
+
+// global js
     
     
     
@@ -421,7 +362,7 @@ $(".error-summary").hide();
     });
    
 /*----- TABS -----*/
-    $(".tab-content").not("#tab-2").css("display", "none");
+    $(".tab-content").not("#tab-1").css("display", "none");
 
     //tabs pattern
     $(".tabs-menu a").click(function(event) {

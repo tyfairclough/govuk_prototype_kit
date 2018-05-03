@@ -154,8 +154,6 @@ var scenario =  getQueryVariable("scenario");
     
         function renderTableB(content){
             $(document).ready(function () {
-                
-                //header = "<thead><tr><th>Month</th><th>Estimated costs</th><th>Remaining transfer allowance</th></tr></thead>";
                 $("#tab-2 tbody").html(content);
                 //paginateBalancesheet();
             });
@@ -382,8 +380,9 @@ $(".error-summary").hide();
     
 /*----- GLOBAL JS -----*/
     
-     var googleDocA = 'https://docs.google.com/spreadsheets/d/1JBSEgSs1K0SgcjrJjTTu_nVnp0q0LLLVk41kDrLPUe8/pubhtml';
- var googleDocB = 'https://docs.google.com/spreadsheets/d/1GyMe3tNrAAPsY1pEZA3oE8x4p91yhLhHsbCa5_dPrM8/pubhtml';
+     var googleDocA = 'https://docs.google.com/spreadsheets/d/1OKIxVfGvp1cgaEImudzN3GkM4JO3yQ6T4scL_-3z8So/pubhtml';
+     var googleDocB = 'https://docs.google.com/spreadsheets/d/1OKIxVfGvp1cgaEImudzN3GkM4JO3yQ6T4scL_-3z8So/pubhtml';
+ 
     
     
     function numberWithCommas(x) {
