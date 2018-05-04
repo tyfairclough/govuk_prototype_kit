@@ -106,7 +106,7 @@ var className = $("main").attr('class');
                var redRow = "";
            }
             
-            content += '<tr class="'+redRow+'"><td>'+data.transfer.elements[i].date+'</td><td>'+data.transfer.elements[i].modelled_costs+'</td><td class="'+redClass+'">'+data.transfer.elements[i].transfer_balance+'</td><td>'+data.transfer.elements[i].levy_balance+'</td></tr>';
+            content += '<tr class="'+redRow+'"><td>'+data.transfer.elements[i].date+'</td><td>'+data.transfer.elements[i].actual_costs+'</td><td>'+data.transfer.elements[i].modelled_costs+'</td><td class="'+redClass+'">'+data.transfer.elements[i].transfer_balance+'</td><td>'+data.transfer.elements[i].levy_balance+'</td></tr>';
            renderTableB(content);
             }
          

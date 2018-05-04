@@ -70,20 +70,7 @@ Are you transferring funds to another employer for this apprenticeship?       </
 
     </fieldset>
   </div>
-                <fieldset class="inline">
-                            <div class="form-group">
-                    <label class="form-label-bold" for="email">IS THIS A TRANSFER OR NOT</label>
-                    <span class="form-hint">HELP EXPLAIN WHAT THIS IS</span>
-<div class="multiple-choice">
-      <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
-      <label for="radio-inline-1">Yes</label>
-    </div>
-    <div class="multiple-choice">
-      <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No" checked>
-      <label for="radio-inline-2">No</label>
-    </div>
-                </div>
-            </fieldset>    
+   
                 
                 <div class="form-group">
                     <label class="form-label-bold" for="email">Choose apprenticeship <span class="hidden">standard</span></label>
@@ -933,6 +920,20 @@ Are you transferring funds to another employer for this apprenticeship?       </
                     <label for="levy-value-2" class="text-box-unit">£</label>
                     <input class="form-control text-box-with-unit-before money-mask" id="levy-value" name="levy-value" type="text" />
                 </div>
+                
+                <fieldset class="inline">
+                            <div class="form-group">
+                    <label class="form-label-bold" for="email">Is this a transfer to another employer?</label>
+<div class="multiple-choice">
+      <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
+      <label for="radio-inline-1">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No" checked>
+      <label for="radio-inline-2">No</label>
+    </div>
+                </div>
+            </fieldset>                 
             </form>
         </div>
     </div>
@@ -942,7 +943,7 @@ Are you transferring funds to another employer for this apprenticeship?       </
 
         <div class="column-full">
             <a class="button save" id="save" href="outcomes.html">Check if I can fund these</a>
-            <a class="button text-link pull-right" href="#" style="float:right;">Cancel</a>
+            <a class="button text-link pull-right hidden" href="#" style="float:right;">Cancel</a>
 
         </div>
     </div>
