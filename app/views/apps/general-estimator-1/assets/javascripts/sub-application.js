@@ -154,7 +154,7 @@ var className = $("main").attr('class');
         
 googleTables();        
         
-$(".error-summary").hide();
+//$(".error-summary").hide();
         
         
                 scenario = localStorage.getItem("scenario");

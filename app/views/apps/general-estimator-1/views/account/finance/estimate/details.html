@@ -4,20 +4,8 @@
 
 <main class="estimator-details" id="content" role="main" tabindex="-1">
     
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.18/c3.min.css" media="screen" rel="stylesheet" type="text/css" />    
-
-
-<!--
-<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.core.standalone.css" media="screen" rel="stylesheet" type="text/css" />    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.js" type="text/javascript"></script>
--->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" type="text/javascript"></script>
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.18/c3.min.js" type="text/javascript"></script>
-    
-<a href="../transfers/index.html" class="link-back">Back to transfers</a>
+<a href="../index.html" class="link-back">Back</a>
     <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
 
     
@@ -25,22 +13,28 @@
         <div class="column-two-thirds">
                 <div class="error-summary" id="errorOne">
                     <h3 class="heading-medium">You can’t fund these apprenticeships</h3>
-                    <p>You don't have enough transfer allowance.</p>
-                    <p class="hidden">You don't have enough transfer allowance from December 2018 to support this transfer.</p>
+                    <p>You don't have enough transfer allowance to fund these apprenticeships.</p>
                 </div> 
                 <div class="error-summary">
                     <h3 class="heading-medium">You can’t fund these apprenticeships</h3>
-                    <p>You don't have enough available funds in December 2018, so the receiving employer will go into co-investment.</p>
-                    <p class="hidden">You don't have enough available funds from December 2018, so the receiving employer will go into co-investment.</p>
+                    <p>You have enough funds but not enough transfer allowance to fund these apprenticeships.</p>
                 </div> 
             
-            <div class="success-summary hidden">
+                <div class="error-summary">
+                    <h3 class="heading-medium">You can’t fund these apprenticeships</h3>
+                    <p>You have have not exceeded your transfer allowance but you do not enough funds for these apprenticeships.</p>
+                </div> 
+            
+            <div class="success-summary">
                     <h3 class="heading-medium">Apprenticeship removed</h3>
                     <p>The apprenticeship details you’ve deleted are no longer included in the estimation.</p>
+                </div>
+            <div class="success-summary">
+                    <h3 class="heading-medium">Apprenticeship updated</h3>
                 </div> 
             <div class="success-summary">
                     <h3 class="heading-medium">Yes, you can fund these apprenticeships</h3>
-                    <p>For more detail look at the remaining transfer allowance table.</p>
+                    <p>For more detail look at the monthly account estimation.</p>
                 </div> 
         </div>
     </div>
@@ -153,12 +147,30 @@
             <span class="bold-large">£150,000.00</span>
             <span class="small">Opening balance</span>
         </div>
+        <br>
+                <details>
+            <summary>What does this figure mean?</summary>
+<p>THIS IS THE CURRENT POSITION OF YOUR ACCOUNT FROM WHICH THE ESTIMATION IS BASED UPON.</p>        </details>
     </div>
     <div class="column-third">
         <div class="data pink">
             <span class="bold-large">£14,900.00</span>
             <span class="small">Annual transfer allowance</span>
         </div>
+        <br>
+                <details>
+            <summary>What does this figure mean?</summary>
+<p>THIS IS THE 10% OF LAST YEARS FUNDS THAT BECOMES THIS YEARS LIMIT TO SEND TO ANOTHER EMPLOYER.</p>        </details>
+    </div>
+    <div class="column-third">
+        <div class="data red">
+            <span class="bold-large">£100.00</span>
+            <span class="small">Overdue completion payments</span>
+        </div>
+        <br>
+        <details>
+            <summary>What does this figure mean?</summary>
+<p>This is the value of your overdue completion payments where the apprenticeships have overrun the planned completion date.</p>        </details>
     </div>
 </div>
 
