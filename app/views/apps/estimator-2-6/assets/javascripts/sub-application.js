@@ -156,6 +156,7 @@ var scenario =  getQueryVariable("scenario");
             $(document).ready(function () {
                 $("#tab-2 tbody").html(content);
                 //paginateBalancesheet();
+                showHide();
             });
         }       
                 function renderTableC(content,footerContent){
@@ -166,6 +167,12 @@ var scenario =  getQueryVariable("scenario");
             });
         }       
         
+        
+        function showHide(){
+           // $("#tab-2 tbody tr").slice(0,4).hide();
+        //    $("#tab-2 tbody tr").slice(0,5).closest("tr").css( "background-color", "red" );
+            
+        }
          
         
 googleTables();        
@@ -418,22 +425,6 @@ $(".error-summary").hide();
             window.history.back();
     });
    
-/*----- TABS -----*/
-    $(".tab-content").not("#tab-2").css("display", "none");
-
-    //tabs pattern
-    $(".tabs-menu a").click(function(event) {
-    event.preventDefault();
-    $(this).parent().addClass("current");
-    $(this).parent().siblings().removeClass("current");
-    var tab = $(this).attr("href");
-    $(".tab-content").not(tab).css("display", "none");
-    $(tab).fadeIn();
-    });
-
-
-
-
 
 
 /*----- ACCORDION -----*/

@@ -1,0 +1,35 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="estimate-apprentices-start" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+<div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+            <h1 class="heading-xlarge">
+        Estimate apprenticeships
+      </h1>
+                <p class="lede">Use this tool to see how many apprenticeships you can fund using your projected funds.</p>
+
+</div>
+
+                
+    </div>
+        
+        </div>  
+                                    <a class="button button-start" href="add-apprenticeship.html">Start</a>
+
+    <div class="grid-row hidden">
+        <div class="column-two-thirds">
+            <p>You will need:</p>
+            <ul class="list list-bullet">
+                <li>Some apprentices</li>
+                <li>Estimated start dates</li>
+                <li>An agreed cost or idea of cost</li>
+            </ul>
+        </div>
+    </div>
+
+</main><!-- / #content -->
+{% endblock %}
