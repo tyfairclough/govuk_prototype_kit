@@ -296,8 +296,17 @@ var scenario =  getQueryVariable("scenario");
                     content += '<tr><td colspan="8">'+ data.transfer.elements[i].date +'</td></tr>';
 
                 }   else {
-                    content += '<tr class="' + redRow + '"><td>' + data.transfer.elements[i].date + '</td><td>' + data.transfer.elements[i].actual_costs + '</td><td>' + data.transfer.elements[i].modelled_costs + '</td><td class="' + redClass + '">' + data.transfer.elements[i].expired_funds + '</td><td class="' + redClass + '">' + data.transfer.elements[i].funds_in + '</td><td class="' + redClass + '">' + data.transfer.elements[i].transfer_balance + '</td><td>' + data.transfer.elements[i].levy_balance + '</td><td class="highlight ' + redClass + '">' + data.transfer.elements[i].coinvestment_due + '</td></tr>';
+                    content += '<tr class="' + redRow + '"><td>';
+                    //console.log(data.transfer.elements[i].date);
+                    if ( data.transfer.elements[i].date == '<span class="bold-xsmall">Date</span>' ) {
+                    content += data.transfer.elements[i].date;                        
+                        } else {
+                    content += '<a href="details?month='+ data.transfer.elements[i].date +'">' + data.transfer.elements[i].date + '</a>';                        
+                        }
+                    content += '</td><td>' + data.transfer.elements[i].actual_costs + '</td><td>' + data.transfer.elements[i].modelled_costs + '</td><td class="' + redClass + '">' + data.transfer.elements[i].expired_funds + '</td><td class="' + redClass + '">' + data.transfer.elements[i].funds_in + '</td><td class="' + redClass + '">' + data.transfer.elements[i].transfer_balance + '</td><td>' + data.transfer.elements[i].levy_balance + '</td><td class="highlight ' + redClass + '">' + data.transfer.elements[i].coinvestment_due + '</td></tr>';
                 }
+                
+                
                 //pos = i + 1;                
             }
             renderTableB(content);                    
@@ -313,7 +322,7 @@ var scenario =  getQueryVariable("scenario");
                     renderTableC(content, footerContent);
                 } else {
                     pos = i + 1;
-                    content += '<tr><td>' + data.apprenticeships.elements[i].apprenticeship + '<span class="form-hint">level ' + data.apprenticeships.elements[i].apprenticeship_level + '</span></td><td data-label="Number of apprentices">' + data.apprenticeships.elements[i].number_of_apprentices + '</td><td data-label="Start date">' + data.apprenticeships.elements[i].start_date + '</td><td data-label="Total amount">' + data.apprenticeships.elements[i].total_cost + '</td><td data-label="Monthly payment">' + data.apprenticeships.elements[i].monthly_payment + '</td><td data-label="Number of monthly payments">' + data.apprenticeships.elements[i].number_of_monthly_payments + '</td><td data-label="Completion payment">' + data.apprenticeships.elements[i].completion_payment + '</td><td>' + data.apprenticeships.elements[i].transfer + '</td><td><a href="add-apprenticeship?edit=1">Edit</a></td><td><a href="#">Remove</a></td><td></td></tr>';
+                    content += '<tr><td>' + data.apprenticeships.elements[i].apprenticeship + '<span class="form-hint">level ' + data.apprenticeships.elements[i].apprenticeship_level + '</span></td><td data-label="Number of apprentices">' + data.apprenticeships.elements[i].number_of_apprentices + '</td><td data-label="Start date">' + data.apprenticeships.elements[i].start_date + '</td><td data-label="Total amount">' + data.apprenticeships.elements[i].total_cost + '</td><td data-label="Monthly payment">' + data.apprenticeships.elements[i].monthly_payment + '</td><td data-label="Number of monthly payments">' + data.apprenticeships.elements[i].number_of_monthly_payments + '</td><td data-label="Completion payment">' + data.apprenticeships.elements[i].completion_payment + '</td><td>' + data.apprenticeships.elements[i].transfer + '</td><td><a href="add-apprenticeship?edit=1&apprenticeship='+data.apprenticeships.elements[i].apprenticeship+'&number='+data.apprenticeships.elements[i].number_of_apprentices+'&start='+data.apprenticeships.elements[i].start_date+'&duration='+data.apprenticeships.elements[i].number_of_monthly_payments+'&cost='+data.apprenticeships.elements[i].monthly_payment+'&status='+data.apprenticeships.elements[i].transfer+'">Edit</a></td><td><a href="#">Remove</a></td><td></td></tr>';
                     renderTableC(content);
                 }
             }
