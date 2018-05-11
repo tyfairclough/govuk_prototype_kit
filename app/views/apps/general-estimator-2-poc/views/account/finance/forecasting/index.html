@@ -112,9 +112,8 @@
             </div>        
         </div>
     </div>
-    
-    <div id="" class="">
-  <div id="tab-2" class="">
+    <hr>
+
 <div class="grid-row">
     <div class="column-third">
         <div class="data fuscia">
@@ -147,11 +146,21 @@
 <p style="text-transform: uppercase;">This is the value of your overdue completion payments where the apprenticeships have overrun the planned completion date.</p>        </details>
     </div>
 </div>
+<hr>
 <br>
-<br>
-                <h3 class="heading-large">Monthly account estimation</h3>
-
-        <table class="small responsive">
+      <div class="grid-row">
+      <div class="column-full">
+        <ul class="list pill">
+            <li class="active"><a href="#" id="#calendar">Monthly account estimation</a></li>
+            <li><a href="#" id="#estimated">Estimated apprentices</a></li>
+            <li><a href="#" id="#committed">Committed apprentices</a></li>
+          </ul>    
+      </div>
+      </div>
+      
+      <div id="calendar">
+        <h3 class="heading-large">Monthly account estimation</h3>
+        <table class="small responsive" id="monthly">
             <tbody>
             <tr>
                 <td>Loading</td>
@@ -161,9 +170,9 @@
             </tbody>
 
         </table>
-    </div>
+      </div>
          
-    <div id="tab-3" class="form-group" style="">
+    <div id="estimated" class="form-group" style="">
         <h3 class="heading-large">Estimated apprenticehips</h3>
         <table class="small responsive">
             <thead>
@@ -200,8 +209,44 @@
         
 
     </div>
+    <div id="committed" class="form-group" style="">
+        <h3 class="heading-large">Committed apprenticehips</h3>
+        <table class="small responsive">
+            <thead>
+            <tr>
+                <th>Apprenticeship <span class="form-hint">Level</span></th>
+                <th>Number of apprentices</th>
+                <th>Start date</th>
+                <th>Total cost</th>
+                <th>Monthly payment</th>
+                <th>Number of monthly payments</th>
+                <th>Completion payment</th>
+                <th>Status</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Loading <span class="form-hint">Loading</span></td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td><a href="remove.html">Remove</a></td>
+                <td><a href="add-apprenticeship.html">Details</a></td>
+            </tr>
+            </tbody>
+<tfoot class="total"></tfoot>
+
+        </table>
+        
+
+    </div>
     
-</div>                
          
             
             <div class="grid-row">

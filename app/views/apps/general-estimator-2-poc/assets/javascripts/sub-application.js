@@ -333,29 +333,41 @@ var scenario =  getQueryVariable("scenario");
 
         function renderTableA(content) {
             $(document).ready(function () {
-                $("#tab-1 tbody").html(content);
+                $("#committed tbody").html(content);
+                $("#committed tbody").html(content);
                 //paginateBalancesheet();
             });
         }
 
         function renderTableB(content) {
             $(document).ready(function () {
-                $("#tab-2 tbody").html(content);
+                $("#monthly tbody").html(content);
                 //paginateBalancesheet();
             });
         }
 
         function renderTableC(content, footerContent) {
             $(document).ready(function () {
-                $("#tab-3 tbody").html(content);
-                $("#tab-3 tfoot").html(footerContent);
+                $("#estimated tbody").html(content);
+                $("#estimated tfoot").html(footerContent);
                 //paginateBalancesheet();
             });
         }
 
 
-
-        googleTables();
+        $("#estimated,#committed").hide();
+        $("ul.list.pill a").click(function(e){
+            e.preventDefault();
+            $("#calendar,#estimated,#committed").hide();
+            $("ul.list.pill li").removeClass("active");
+            $(this).parent().addClass("active");
+            active = $(this).attr("id");
+            $(active).fadeIn()
+        })
+        
+        
+        
+    googleTables();
 
         //$(".error-summary").hide();
 
