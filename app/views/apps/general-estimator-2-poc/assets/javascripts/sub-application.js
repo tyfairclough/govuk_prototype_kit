@@ -276,7 +276,7 @@ var scenario =  getQueryVariable("scenario");
 
     function forecastDetails() {
         
-        
+        $(".error-summary, .success-summary").hide();
     
         var googleDoc = 'https://docs.google.com/spreadsheets/d/1afu8dhRTEX3_MWNWaHoUPlAGPxmXGduqmpfrx__0RpI/pubhtml';
         function googleTables() {
