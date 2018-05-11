@@ -56,10 +56,28 @@ var scenario =  getQueryVariable("scenario");
        case 'estimate-add-apprenticeship':
            estimateAddApprenticeship();
        break;
+       case 'estimator-details':
+           estimatorDetails();
+       break;
        default: break;
 }
     
 
+    function estimatorDetails() {
+
+        $("#apprenticeship,#provider").hide();
+        $("ul.list.pill a").click(function (e) {
+            e.preventDefault();
+            $("#apprentice,#apprenticeship,#provider").hide();
+            $("ul.list.pill li").removeClass("active");
+            $(this).parent().addClass("active");
+            active = $(this).attr("id");
+            $(active).fadeIn()
+        })
+        
+        // load the payments by apprentice
+        
+    }
         function estimateAddApprenticeship(){
 
         
@@ -309,52 +327,69 @@ var scenario =  getQueryVariable("scenario");
                 
                 //pos = i + 1;                
             }
-            renderTableB(content);                    
-
-
+            renderTableA(content);                    
             content = "";
             footerContent = "";
 
-            for (i = 0; i < data.apprenticeships.elements.length; i++) {
+            for (i = 0; i < data.estimated.elements.length; i++) {
 
-                if ((i + 1) == data.apprenticeships.elements.length) {
-                    footerContent += '<tr class="total"><td data-label="Totals" class="total">Total</td><td class="total" data-label="Number of apprentices"><span class="bold-xsmall">' + data.apprenticeships.elements[i].number_of_apprentices + '</span></td><td class="total">&nbsp;</td><td class="total">&nbsp;</td><td data-label="Total amount" class="total">' + data.apprenticeships.elements[i].total_cost + '</td><td class="total" data-label="Monthly payment"><span class="bold-xsmall">' + data.apprenticeships.elements[i].monthly_payment + '</span></td><td class="total">' + data.apprenticeships.elements[i].number_of_monthly_payments + '</td><td class="total" data-label="Completion payment"><span class="bold-xsmall">' + data.apprenticeships.elements[i].completion_payment + '</span></td><td class="total">&nbsp;</td><td class="total">&nbsp;</td><td class="total">&nbsp;</td></tr>';
-                    renderTableC(content, footerContent);
+                if ((i + 1) == data.estimated.elements.length) {
+                    footerContent += '<tr class="total"><td data-label="Totals" class="total">Total</td><td class="total" data-label="Number of apprentices"><span class="bold-xsmall">' + data.estimated.elements[i].number_of_apprentices + '</span></td><td class="total">&nbsp;</td><td data-label="Total amount" class="total">' + data.estimated.elements[i].total_cost + '</td><td class="total" data-label="Monthly payment"><span class="bold-xsmall">' + data.estimated.elements[i].monthly_payment + '</span></td><td class="total">' + data.estimated.elements[i].number_of_monthly_payments + '</td><td class="total" data-label="Completion payment"><span class="bold-xsmall">' + data.estimated.elements[i].completion_payment + '</span></td><td class="total">&nbsp;</td><td class="total">&nbsp;</td></tr>';
                 } else {
                     pos = i + 1;
-                    content += '<tr><td>' + data.apprenticeships.elements[i].apprenticeship + '<span class="form-hint">level ' + data.apprenticeships.elements[i].apprenticeship_level + '</span></td><td data-label="Number of apprentices">' + data.apprenticeships.elements[i].number_of_apprentices + '</td><td data-label="Start date">' + data.apprenticeships.elements[i].start_date + '</td><td data-label="Total amount">' + data.apprenticeships.elements[i].total_cost + '</td><td data-label="Monthly payment">' + data.apprenticeships.elements[i].monthly_payment + '</td><td data-label="Number of monthly payments">' + data.apprenticeships.elements[i].number_of_monthly_payments + '</td><td data-label="Completion payment">' + data.apprenticeships.elements[i].completion_payment + '</td><td>' + data.apprenticeships.elements[i].transfer + '</td><td><a href="add-apprenticeship?edit=1&apprenticeship='+data.apprenticeships.elements[i].apprenticeship+'&number='+data.apprenticeships.elements[i].number_of_apprentices+'&start='+data.apprenticeships.elements[i].start_date+'&duration='+data.apprenticeships.elements[i].number_of_monthly_payments+'&cost='+data.apprenticeships.elements[i].monthly_payment+'&status='+data.apprenticeships.elements[i].transfer+'">Edit</a></td><td><a href="#">Remove</a></td><td></td></tr>';
-                    renderTableC(content);
+                    content += '<tr><td>' + data.estimated.elements[i].apprenticeship + '<span class="form-hint">level ' + data.estimated.elements[i].apprenticeship_level + '</span></td><td data-label="Number of apprentices">' + data.estimated.elements[i].number_of_apprentices + '</td><td data-label="Start date">' + data.estimated.elements[i].start_date + '</td><td data-label="Total amount">' + data.estimated.elements[i].total_cost + '</td><td data-label="Monthly payment">' + data.estimated.elements[i].monthly_payment + '</td><td data-label="Number of monthly payments">' + data.estimated.elements[i].number_of_monthly_payments + '</td><td data-label="Completion payment">' + data.estimated.elements[i].completion_payment + '</td><td>' + data.estimated.elements[i].transfer + '</td><td><a href="add-apprenticeship?edit=1&apprenticeship='+data.estimated.elements[i].apprenticeship+'&number='+data.estimated.elements[i].number_of_apprentices+'&start='+data.estimated.elements[i].start_date+'&duration='+data.estimated.elements[i].number_of_monthly_payments+'&cost='+data.estimated.elements[i].monthly_payment+'&status='+data.estimated.elements[i].transfer+'">Edit</a></td><td><a href="#">Remove</a></td><td></td></tr>';
                 }
             }
 
+            renderTableB(content, footerContent);
+            content = "";
+            footerContent = "";
+            
+            
+            for (i = 0; i < data.committed.elements.length; i++) {
+
+                if ((i + 1) == data.committed.elements.length) {
+                    footerContent += '<tr class="total"><td data-label="Totals" class="total">Total</td><td class="total" data-label="Number of apprentices"><span class="bold-xsmall">' + data.committed.elements[i].number_of_apprentices + '</span></td><td class="total">&nbsp;</td><td data-label="Total amount" class="total">' + data.committed.elements[i].total_cost + '</td><td class="total" data-label="Monthly payment"><span class="bold-xsmall">' + data.committed.elements[i].monthly_payment + '</span></td><td class="total">' + data.committed.elements[i].number_of_monthly_payments + '</td><td class="total" data-label="Completion payment"><span class="bold-xsmall">' + data.committed.elements[i].completion_payment + '</span></td><td class="total">&nbsp;</td><td class="total">&nbsp;</td></tr>';
+                } else {
+                    pos = i + 1;
+                    content += '<tr><td>' + data.committed.elements[i].apprenticeship + '<span class="form-hint">level ' + data.committed.elements[i].apprenticeship_level + '</span></td><td data-label="Number of apprentices">' + data.committed.elements[i].number_of_apprentices + '</td><td data-label="Start date">' + data.committed.elements[i].start_date + '</td><td data-label="Total amount">' + data.committed.elements[i].total_cost + '</td><td data-label="Monthly payment">' + data.committed.elements[i].monthly_payment + '</td><td data-label="Number of monthly payments">' + data.committed.elements[i].number_of_monthly_payments + '</td><td data-label="Completion payment">' + data.committed.elements[i].completion_payment + '</td><td>' + data.committed.elements[i].transfer + '</td><td><a href="add-apprenticeship?edit=1&apprenticeship='+data.committed.elements[i].apprenticeship+'&number='+data.committed.elements[i].number_of_apprentices+'&start='+data.committed.elements[i].start_date+'&duration='+data.committed.elements[i].number_of_monthly_payments+'&cost='+data.committed.elements[i].monthly_payment+'&status='+data.committed.elements[i].transfer+'">Edit</a></td><td><a href="#">Remove</a></td><td></td></tr>';
+                }
+            }
+
+            renderTableC(content, footerContent);
             content = "";
             footerContent = "";
         }
 
-        function renderTableA(content) {
-            $(document).ready(function () {
-                $("#committed tbody").html(content);
-                $("#committed tbody").html(content);
-                //paginateBalancesheet();
-            });
-        }
 
-        function renderTableB(content) {
+
+        function renderTableA(content) {
             $(document).ready(function () {
                 $("#monthly tbody").html(content);
                 //paginateBalancesheet();
             });
         }
+        
 
-        function renderTableC(content, footerContent) {
+        function renderTableB(content, footerContent) {
             $(document).ready(function () {
                 $("#estimated tbody").html(content);
                 $("#estimated tfoot").html(footerContent);
                 //paginateBalancesheet();
             });
         }
+        
+        function renderTableC(content,footerContent) {
+            $(document).ready(function () {
+                $("#committed tbody").html(content);
+                $("#committed tfoot").html(footerContent);
+                //paginateBalancesheet();
+            });
+        }        
 
 
+
+        // pill navigation
         $("#estimated,#committed").hide();
         $("ul.list.pill a").click(function(e){
             e.preventDefault();
