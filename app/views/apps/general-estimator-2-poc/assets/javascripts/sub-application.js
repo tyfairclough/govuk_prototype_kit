@@ -10,9 +10,6 @@ var className = $("main").attr('class');
 
 
    switch (className) {
-       case 'forecastIndexWide':
-           forecastIndexWide();
-           break;
        case 'forecast-index':
            forecastIndex();
            break;
@@ -43,169 +40,151 @@ var className = $("main").attr('class');
        case 'forecastAlreadyHaveAccount':
            forecastAlreadyHaveAccount();
        break;
-       case'estimator-details':
-           estimatorDetails();
+       case'forecast-details':
+           forecastDetails();
        break;
        default: break;
 }
 
-    
-        function estimatorDetails(){
-        
-
-        
-        
-
+    function forecastDetails() {
         var googleDoc = 'https://docs.google.com/spreadsheets/d/1afu8dhRTEX3_MWNWaHoUPlAGPxmXGduqmpfrx__0RpI/pubhtml';
+        function googleTables() {
+            Tabletop.init({
+                key: googleDoc,
+                callback: showInfoA,
+                simpleSheet: false
+            })
+        }
 
-    
-    function googleTables() {
-    Tabletop.init( { key: googleDoc,
-                     callback: showInfoA,
-                     simpleSheet: false } )
-  }
-    
         function showInfoA(data, tabletop) {
-      loadArrayA(data);
-  }
-    
-        function loadArrayA(data){
-        var content = "";
-        var footerContent = "";
-        var pos = "";
-            
-       for (i = 0; i < data.levy.elements.length; i++) {
-           pos = i + 1;
-           
-           var fundsCurrency = data.levy.elements[i].projected_funds;
-           var projectedFunds = Number(fundsCurrency.replace(/[^0-9\.-]+/g,""));
-           if ( projectedFunds < 0 ) {
-               var redClass = "error-message";
-           } else {
-               var redClass = "";
-           }
-           
-           
-           content += '<tr><td>'+data.levy.elements[i].date+'</td><td class="'+redClass+'">'+data.levy.elements[i].projected_funds+'</td><td>'+data.levy.elements[i].modelled_costs+'</td></tr>';
-           renderTableA(content);
+            loadArrayA(data);
+        }
+
+        function loadArrayA(data) {
+            var content = "";
+            var footerContent = "";
+            //var pos = "";
+
+            for (i = 0; i < data.transfer.elements.length; i++) {
+
+
+                var transferCurrency = data.transfer.elements[i].transfer_balance;
+                var transferFunds = Number(transferCurrency.replace(/[^0-9\.-]+/g, ""));
+                if (transferFunds < 0) {
+                    var redClass = "error-message";
+                    var redRow = "error-row";
+                } else {
+                    var redClass = "";
+                    var redRow = "";
+                }
+                
+                
+                if ($.inArray(i,[0,14,28,42]) > -1 ) {
+                    content += '<tr><td colspan="8">'+ data.transfer.elements[i].date +'</td></tr>';
+
+                }   else {
+                    content += '<tr class="' + redRow + '"><td>' + data.transfer.elements[i].date + '</td><td>' + data.transfer.elements[i].actual_costs + '</td><td>' + data.transfer.elements[i].modelled_costs + '</td><td class="' + redClass + '">' + data.transfer.elements[i].expired_funds + '</td><td class="' + redClass + '">' + data.transfer.elements[i].funds_in + '</td><td class="' + redClass + '">' + data.transfer.elements[i].transfer_balance + '</td><td>' + data.transfer.elements[i].levy_balance + '</td><td class="highlight ' + redClass + '">' + data.transfer.elements[i].coinvestment_due + '</td></tr>';
+                }
+                //pos = i + 1;                
             }
+            renderTableB(content);                    
+
+
             content = "";
             footerContent = "";
-            
-        for (i = 0; i < data.transfer.elements.length; i++) {
-           pos = i + 1;
-            
-                       
-           var transferCurrency = data.transfer.elements[i].transfer_balance;
-           var transferFunds = Number(transferCurrency.replace(/[^0-9\.-]+/g,""));
-           if ( transferFunds < 0 ) {
-               var redClass = "error-message";
-               var redRow = "error-row";
-           } else {
-               var redClass = "";
-               var redRow = "";
-           }
-            
-            content += '<tr class="'+redRow+'"><td>'+data.transfer.elements[i].date+'</td><td>'+data.transfer.elements[i].actual_costs+'</td><td>'+data.transfer.elements[i].modelled_costs+'</td><td class="'+redClass+'">'+data.transfer.elements[i].transfer_balance+'</td><td>'+data.transfer.elements[i].levy_balance+'</td></tr>';
-           renderTableB(content);
-            }
-         
-        content = "";
-        footerContent = "";
 
-        for (i = 0; i < data.apprenticeships.elements.length; i++) {
-            
-            if ((i +1) == data.apprenticeships.elements.length ) {
-           footerContent += '<tr class="total"><td data-label="Totals" class="total">Total</td><td class="total" data-label="Number of apprentices"><span class="bold-xsmall">'+data.apprenticeships.elements[i].number_of_apprentices+'</span></td><td class="total">&nbsp;</td><td class="total">&nbsp;</td><td data-label="Total amount" class="total">'+data.apprenticeships.elements[i].total_cost+'</td><td class="total" data-label="Monthly payment"><span class="bold-xsmall">'+data.apprenticeships.elements[i].monthly_payment+'</span></td><td class="total">'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td class="total" data-label="Completion payment"><span class="bold-xsmall">'+data.apprenticeships.elements[i].completion_payment+'</span></td><td class="total">&nbsp;</td><td class="total">&nbsp;</td><td class="total">&nbsp;</td></tr>';
-           renderTableC(content,footerContent);
-            } else {
-           pos = i + 1;
-           content += '<tr><td>'+data.apprenticeships.elements[i].apprenticeship+'<span class="form-hint">level '+data.apprenticeships.elements[i].apprenticeship_level+'</span></td><td data-label="Number of apprentices">'+data.apprenticeships.elements[i].number_of_apprentices+'</td><td data-label="Start date">'+data.apprenticeships.elements[i].start_date+'</td><td data-label="Total amount">'+data.apprenticeships.elements[i].total_cost+'</td><td data-label="Monthly payment">'+data.apprenticeships.elements[i].monthly_payment+'</td><td data-label="Number of monthly payments">'+data.apprenticeships.elements[i].number_of_monthly_payments+'</td><td data-label="Completion payment">'+data.apprenticeships.elements[i].completion_payment+'</td><td>'+data.apprenticeships.elements[i].transfer+'</td><td><a href="add-apprenticeship?edit=1">Edit</a></td><td><a href="#">Remove</a></td><td></td></tr>';
-           renderTableC(content);
+            for (i = 0; i < data.apprenticeships.elements.length; i++) {
+
+                if ((i + 1) == data.apprenticeships.elements.length) {
+                    footerContent += '<tr class="total"><td data-label="Totals" class="total">Total</td><td class="total" data-label="Number of apprentices"><span class="bold-xsmall">' + data.apprenticeships.elements[i].number_of_apprentices + '</span></td><td class="total">&nbsp;</td><td class="total">&nbsp;</td><td data-label="Total amount" class="total">' + data.apprenticeships.elements[i].total_cost + '</td><td class="total" data-label="Monthly payment"><span class="bold-xsmall">' + data.apprenticeships.elements[i].monthly_payment + '</span></td><td class="total">' + data.apprenticeships.elements[i].number_of_monthly_payments + '</td><td class="total" data-label="Completion payment"><span class="bold-xsmall">' + data.apprenticeships.elements[i].completion_payment + '</span></td><td class="total">&nbsp;</td><td class="total">&nbsp;</td><td class="total">&nbsp;</td></tr>';
+                    renderTableC(content, footerContent);
+                } else {
+                    pos = i + 1;
+                    content += '<tr><td>' + data.apprenticeships.elements[i].apprenticeship + '<span class="form-hint">level ' + data.apprenticeships.elements[i].apprenticeship_level + '</span></td><td data-label="Number of apprentices">' + data.apprenticeships.elements[i].number_of_apprentices + '</td><td data-label="Start date">' + data.apprenticeships.elements[i].start_date + '</td><td data-label="Total amount">' + data.apprenticeships.elements[i].total_cost + '</td><td data-label="Monthly payment">' + data.apprenticeships.elements[i].monthly_payment + '</td><td data-label="Number of monthly payments">' + data.apprenticeships.elements[i].number_of_monthly_payments + '</td><td data-label="Completion payment">' + data.apprenticeships.elements[i].completion_payment + '</td><td>' + data.apprenticeships.elements[i].transfer + '</td><td><a href="add-apprenticeship?edit=1">Edit</a></td><td><a href="#">Remove</a></td><td></td></tr>';
+                    renderTableC(content);
                 }
             }
-   
-        content = "";
-        footerContent = "";
+
+            content = "";
+            footerContent = "";
         }
-    
-        function renderTableA(content){
+
+        function renderTableA(content) {
             $(document).ready(function () {
                 $("#tab-1 tbody").html(content);
                 //paginateBalancesheet();
             });
-        }     
-    
-        function renderTableB(content){
+        }
+
+        function renderTableB(content) {
             $(document).ready(function () {
                 $("#tab-2 tbody").html(content);
                 //paginateBalancesheet();
             });
-        }       
-                function renderTableC(content,footerContent){
+        }
+
+        function renderTableC(content, footerContent) {
             $(document).ready(function () {
                 $("#tab-3 tbody").html(content);
                 $("#tab-3 tfoot").html(footerContent);
                 //paginateBalancesheet();
             });
-        }       
-        
-         
-        
-googleTables();        
-        
-//$(".error-summary").hide();
-        
-        
-                scenario = localStorage.getItem("scenario");
-        if ( scenario == "2" ) {
-            $("#errorOne.error-summary").show();    
+        }
+
+
+
+        googleTables();
+
+        //$(".error-summary").hide();
+
+
+        scenario = localStorage.getItem("scenario");
+        if (scenario == "2") {
+            $("#errorOne.error-summary").show();
             $("#tab-2 tbody").addClass("errorTable");
-// ADD ERROR STYLES HERE
+            // ADD ERROR STYLES HERE
 
-        };        
-        
+        };
+
     }
-    
-    
-    
-    function forecastViewCommitments(){
+
+    function forecastViewCommitments() {
         userAuth = localStorage.getItem("userAuth");
-                    if (userAuth != "false") {
-               //$("#forecasted").hide()
-                        
-            } else {
-               $("#forecasted").hide()
-            }
-    }
-    
-    function forecastViewLevy(){
-          $(".button").click(function(e){
-            e.preventDefault(); 
-            if (localStorage.getItem("userAuth") == "false") {
-                window.location.href = "view-commitments";                                
-            } else {
-                window.location.href = "add-cohort-wizard";                
-            }
-        })         
+        if (userAuth != "false") {
+            //$("#forecasted").hide()
+
+        } else {
+            $("#forecasted").hide()
+        }
     }
 
-    function forecastProjectLevy(){
-          $(".button").click(function(e){
-            e.preventDefault(); 
+    function forecastViewLevy() {
+        $(".button").click(function (e) {
+            e.preventDefault();
+            if (localStorage.getItem("userAuth") == "false") {
+                window.location.href = "view-commitments";
+            } else {
+                window.location.href = "add-cohort-wizard";
+            }
+        })
+    }
+
+    function forecastProjectLevy() {
+        $(".button").click(function (e) {
+            e.preventDefault();
             state = $("input[name=radio-group]:checked").val()
             if (state === "project") {
-                localStorage.setItem("forecastLevy","true")
-                window.location.href = "english-percentage";                
+                localStorage.setItem("forecastLevy", "true")
+                window.location.href = "english-percentage";
             } else {
-                localStorage.setItem("forecastLevy","false")
-                window.location.href = "add-levy-wizard";                
+                localStorage.setItem("forecastLevy", "false")
+                window.location.href = "add-levy-wizard";
             }
-        })         
+        })
     }
-    
-    function forecastAlreadyHaveAccount(){
-          $(".button").click(function(e){
+
+    function forecastAlreadyHaveAccount() {
+        $(".button").click(function (e) {
             e.preventDefault();
             state = $("input[name=radio-group]:checked").val()
 
@@ -215,40 +194,43 @@ googleTables();
                 // non levy payer
                 window.location.href = "project-levy";
             }
-        })      
+        })
     }
 
-    function forecastYourPaybill(){
-        
-        
-         $("#paybill").mask("999,999,999",{reverse: true});
-        
-        $(".button").click(function(e){
+    function forecastYourPaybill() {
+
+
+        $("#paybill").mask("999,999,999", {
+            reverse: true
+        });
+
+        $(".button").click(function (e) {
             e.preventDefault();
             paybill = $("#paybill").val();
-            paybill = Number(paybill.replace(/\D/g,''));
+            paybill = Number(paybill.replace(/\D/g, ''));
 
-            if ( paybill > 3000000 ) {
-               console.log("levy payer") // levy payer
-                localStorage.setItem("levyPayer","true");
+            if (paybill > 3000000) {
+                console.log("levy payer") // levy payer
+                localStorage.setItem("levyPayer", "true");
                 window.location.href = "have-account";
             } else {
                 // non levy payer
-                 console.log("non levy payer") ;
-                localStorage.setItem("levyPayer","false");
+                console.log("non levy payer");
+                localStorage.setItem("levyPayer", "false");
                 window.location.href = "add-cohort-wizard";
             }
         })
-        
+
     }
-    function forecastStart(){
-        $(".button").click(function(e){
+
+    function forecastStart() {
+        $(".button").click(function (e) {
             e.preventDefault();
             userType = localStorage.getItem("userAuth");
-            if ( userType != "true") {
+            if (userType != "true") {
                 window.location.href = "yourpaybill";
             } else {
-                window.location.href = "loading";                
+                window.location.href = "loading";
             }
         })
     }

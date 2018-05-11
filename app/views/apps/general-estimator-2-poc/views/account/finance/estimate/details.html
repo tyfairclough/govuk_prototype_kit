@@ -2,7 +2,7 @@
 {% extends currentApp.filePaths.layoutsDir + "default.html" %}
 {% block main_content %}
 
-<main class="estimator-details" id="content" role="main" tabindex="-1">
+<main class="forecast-details" id="content" role="main" tabindex="-1">
     
     
 <a href="../index.html" class="link-back">Back</a>
@@ -46,23 +46,63 @@
     
     <div class="grid-row">
     <div class="column-two-thirds">
-        <div class="hgroup form-group">
-           <h1 class="heading-xlarge">Estimated costs</h1>
-            <p class="lede">This page shows:</p>
-            <ul class="list list-bullet">
-                <li>your available funds</li>
-                <li>your available transfer allowance</li>
-                <li>cost of apprenticeships you've estimated</li>
-            </ul>
+<div class="hgroup form-group">
+           <h1 class="heading-xlarge">
+               Funding forecast
+            </h1>
+          <p>The figures below show the estimated funds that may be available to you for the duration of your apprenticeships.</p> 
 
+<p>These figures are based on the current information in your account and the data provided by your training provider which is used to calculate funding. The table shows the monthly projection figures until April 2019.</p>
+            <p>Once you have your projection of funds, you can <a href="../estimate/start-estimate.html">estimate how many apprenticeships you could fund</a> in the future - either by transferring any remaining funds to another employer, or by taking on more apprentices yourself.</p>
+
+ 
+<p><a class="button" href="add-apprenticeship?scenario=2">Estimate apprenticeships you could fund</a></p>
             
 
-<p><a class="button" href="add-apprenticeship?scenario=2">Add more apprenticeships to your current estimate</a></p>
 
         </div>
         
       </div>
-       
+       <div class="column-one-third">
+            <div class="related">
+                <div class="hidden">
+            <h4 class="heading-small">Skip to</h4>
+        <ul class="list list-bullets">
+        <li><a href="#viz">Your account projection</a></li>
+        <li><a href="#apprentice">Costs by apprentice</a></li>
+        <li><a href="#apprenticeship">Costs by apprenticeship</a></li>
+        </ul>
+            </div>
+           
+            <h3 class="heading-small">Download this data</h3>
+          <div class="form-group">
+                <ul class="list list-links">
+                    
+                    <li><a href="#" class="" data-clipboard-action="copy" data-clipboard-target="#balancesheet">
+    Download as a CSV file
+</a>  </li>
+                    <li class="hidden">    <a href="#" class="" data-clipboard-action="copy" data-clipboard-target="#balancesheet">
+    Copy to a spreadsheet
+</a></li>
+                </ul>
+                
+            </div>   
+                    <details>
+                    <summary>What does the download include?</summary>
+ <p>THE DOWNLOAD RETURNS EACH TRANSACTION FOR EVERY MONTH DISPLAYED IN THE FORECAST INCLUDING THE FOLLOWING DATA:</p>
+            <ul class="list list-bullet">
+                <li>LEVY IN</li>
+                <li>TRANSFERS IN</li>
+                <li>COST OF TRAINING</li>
+                <li>ESTIMATED COST OF TRAINING</li>
+                <li>COMMITTED BUT NOT PAID APPRENTICES</li>
+                <li>EXPIRED FUNDS</li>
+                <li>CO-INVESTMENT BALANCES DUE</li>
+            </ul>                    
+                </details>
+  
+</div>
+        </div>
     </div>
     
     <div class="grid-row hidden">
@@ -89,12 +129,12 @@
     <div class="column-third">
         <div class="data pink">
             <span class="bold-large">£14,900.00</span>
-            <span class="small">Annual transfer allowance</span>
+            <span class="small">Opening transfer allowance</span>
         </div>
         <br>
                 <details>
             <summary>What does this figure mean?</summary>
-<p>THIS IS THE 10% OF LAST YEARS FUNDS THAT BECOMES THIS YEARS LIMIT TO SEND TO ANOTHER EMPLOYER.</p>        </details>
+<p>THIS IS THE REMAINING ALLOWANCE OF FUNDS YOU CAN TRANSFER TO ANOTHER EMPLOYER THAT HAS NOT ALREADY BEEN TRANSFERRED <A HREF="#">VIEW MORE INFORMATION ABOUT TRANSFER ALLOWANCE</A>.</p>        </details>
     </div>
     <div class="column-third">
         <div class="data red">
@@ -104,7 +144,7 @@
         <br>
         <details>
             <summary>What does this figure mean?</summary>
-<p>This is the value of your overdue completion payments where the apprenticeships have overrun the planned completion date.</p>        </details>
+<p style="text-transform: uppercase;">This is the value of your overdue completion payments where the apprenticeships have overrun the planned completion date.</p>        </details>
     </div>
 </div>
 <br>
@@ -135,7 +175,7 @@
                 <th>Monthly payment</th>
                 <th>Number of monthly payments</th>
                 <th>Completion payment</th>
-                <th>Transfer</th>
+                <th>Status</th>
                 <th></th>
                 <th></th>
             </tr>
