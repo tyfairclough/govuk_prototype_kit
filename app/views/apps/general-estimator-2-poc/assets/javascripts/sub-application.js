@@ -4,10 +4,20 @@ $(document).ready(function() {
 var root = "/apps/{{currentApp.appDirName}}/views/";
 console.log(root);
 var className = $("main").attr('class');
-
-
-
-
+var type =  getQueryVariable("type");
+var scenario =  getQueryVariable("scenario");
+    //get url variables    
+    function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) {
+                return pair[1];
+            }
+        }
+        return (false);
+    }
 
    switch (className) {
        case 'forecast-index':
@@ -43,10 +53,213 @@ var className = $("main").attr('class');
        case'forecast-details':
            forecastDetails();
        break;
+       case 'estimate-add-apprenticeship':
+           estimateAddApprenticeship();
+       break;
        default: break;
 }
+    
+
+        function estimateAddApprenticeship(){
+
+        
+        
+        $(".money-mask").mask("999,999,999",{reverse: true});
+        
+        
+ console.log(type);
+        
+        if ( type == "levy" ) {
+            $("input[name=radio-inline-group][value=" + 0 + "]").prop('checked', true);
+        } else if ( type == "transfer") {
+            $("input[name=radio-inline-group][value=" + 1 + "]").prop('checked', true);            
+        };
+
+       
+        $("select").on('change',function(){
+             estimatePrice = $(this).find(':selected').attr('data-price');
+             levyLength = $(this).find(':selected').attr('data-duration');
+        });
+        
+        
+        $(".button.cancel").click(function(e){
+            e.preventDefault();
+            localStorage.setItem("transferForecastState","empty");
+            
+            window.location.href = 'forecast-transfer'            
+        })
+        
+        $( "#cohortsNew" ).change(function() {
+        var appCount = $(this).val();
+            console.log(appCount);
+            console.log(estimatePrice);
+            appTotalValue = appCount*estimatePrice;
+            appTotalValue = numberWithCommas(appTotalValue);
+            estimatePrice = numberWithCommas(estimatePrice);
+
+            if ( appCount > 1 ) {
+                s = "s";
+            } else {
+                s = ""
+            }
+            //$("#levy-value").val(appValue);
+            $("#levy-cap").text("Government funding cap for this apprenticeship is £" + estimatePrice);
+            $("#levy-cap").removeClass("hidden");
+            $("#levy-cap").prev().hide();
+//            $(".grand-total span").text("£" +appCount*estimatePrice);
+            $("#levy-length").val(levyLength)
+            $("#levy-total-cap").html("Total government funding cap for <span class='bold-small'>" + appCount + "</span> apprentice" +s+ " is <span class='bold-small'>£" + appTotalValue + "</span>");
+            $("#levy-total-cap").removeClass("hidden");
+            $("#levy-value").val(appTotalValue);
+            
+});
+
+
+        
+   $(".save,.add-another").click(function(e){
+       e.preventDefault();
+       formHasErrors = false;       
+       var selectedCourse = $("#standardNew").find(':selected').text();
+       localStorage.setItem("lastAdded",selectedCourse);
+       var totalCost = $("#levy-value").val();
+       var year = $("#startDateYear").val();
+       var month = $("#startDateMonth").val();
+       var numberOfApprentices = $("#cohortsNew").val();
+       
+       
+       
+       // reset the error messages
+       
+       $(".error-summary, .error-message, .error-summary ul li").addClass("hidden");
+       $(".form-group").removeClass("form-group-error");
+       
+       
+       // check they've chosen an apprenticeship
+     if ( selectedCourse  == "Select one" ) {
+            errorCheck(true);
+            $("#noStandardSelected").removeClass("hidden");
+            $("#standardNew").parent().addClass("form-group-error")
+            $("#standardNew").prev().removeClass("hidden")         
+     } else {
+            errorCheck(false);
+     }       
+       
+       
+       
+       // checks apprentice count is is not empty
+       if ( numberOfApprentices <= 0 || numberOfApprentices == "" ){
+           errorCheck(true);
+           $("#noNumberOfApprentices").removeClass("hidden");       
+           $("#cohortsNew").parent().addClass("form-group-error")
+           $("#cohortsNew").prev().removeClass("hidden")
+       }  else {
+            errorCheck(false);            
+       }
+       
+       
+        
+       
+       // has to be between certain dates startDateMonth startDateYear
+    if ( year < 2018 || year > 2019) {
+            errorCheck(true);
+            $("#wrongYears").removeClass("hidden");  
+            $("#dateWrapper").addClass("form-group-error")
+            $("#declareDate").removeClass("hidden");
+    } else if ( year == 2019 ) {
+        console.log("years is 2019")
+        if ( month <= 9 ) {
+            errorCheck(false);
+        } else {
+            errorCheck(true);
+            $("#wrong2019month").removeClass("hidden");     
+            $("#dateWrapper").addClass("form-group-error")
+            $("#2019montherror").removeClass("hidden");               
+        }
+    } else if ( year == 2018 ) {
+        if ( month >= 5 ) {
+            errorCheck(false);
+        } else {
+            errorCheck(true);
+            $("#wrong2018month").removeClass("hidden");     
+            $("#dateWrapper").addClass("form-group-error")
+            $("#2018montherror").removeClass("hidden");                  
+        }        
+    }
+            
+
+       
+       // cant be above gov cap
+       
+       if (totalCost == "" ) {
+            errorCheck(true);
+            $("#noCost").removeClass("hidden");  
+            $("#levy-value").parent().addClass("form-group-error")
+            $("#levy-value").prev().prev().removeClass("hidden")             
+       } else if ( totalCost > appTotalValue ) {
+            errorCheck(true);          
+            $("#overCap").removeClass("hidden");  
+            $("#levy-value").parent().addClass("form-group-error")
+            $("#levy-value").prev().removeClass("hidden")  
+       } else {
+            errorCheck(false);           
+       }
+       
+       
+
+       
+       
+       // checks levy length is not empty
+       if ( $("#levy-length").val() == "" ){
+//           console.log("length of apprenticeships is null")
+           errorCheck(true);
+           $("#noLength").removeClass("hidden");                                                      
+           $("#levy-length").parent().addClass("form-group-error")
+           $("#levy-length").prev().prev().removeClass("hidden")           
+       }  else {
+           // cant be less than 12 months duration
+           if ( $("#levy-length").val() < 12 ){
+//               console.log("value must be at least 12 months")
+           errorCheck(true);
+         console.log("true");               
+               $("#shortLength").removeClass("hidden");                                           
+               $("#levy-length").parent().addClass("form-group-error")
+               $("#levy-length").prev().removeClass("hidden")               
+           } else {
+               errorCheck(false);
+           } 
+       }      
+
+       
+      
+       
+
+
+       // reveal the errors and do the redirects
+       console.log("value for formHasErrors " + formHasErrors)
+    
+        
+       if ( formHasErrors == true ) {
+          // alert("we've got an error")
+           $(".error-summary").removeClass("hidden");
+           $("html, body").animate({ scrollTop: 0 }, "slow");
+       }    else {     
+               localStorage.setItem("transferForecastState","populated");      
+               window.location.href = 'index'
+       }
+       
+       
+   });     
+        
+
+    }
+    
+    
+    
 
     function forecastDetails() {
+        
+        
+    
         var googleDoc = 'https://docs.google.com/spreadsheets/d/1afu8dhRTEX3_MWNWaHoUPlAGPxmXGduqmpfrx__0RpI/pubhtml';
         function googleTables() {
             Tabletop.init({
@@ -145,6 +358,13 @@ var className = $("main").attr('class');
             // ADD ERROR STYLES HERE
 
         };
+        
+        
+                $(document).ready(function () {
+                    init();
+                    appz();
+                    byApprenticeship();
+                });        
 
     }
 
@@ -353,11 +573,7 @@ var publicSpreadsheetUrl3 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheet
   }    
  
     
-                $(document).ready(function () {
-                    init();
-                    appz();
-                    byApprenticeship();
-                });
+
     
     function loadArray(data){
         var content = "";
@@ -459,6 +675,36 @@ content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+
     }
 
 // global js
+       var googleDocA = 'https://docs.google.com/spreadsheets/d/1OKIxVfGvp1cgaEImudzN3GkM4JO3yQ6T4scL_-3z8So/pubhtml';
+     var googleDocB = 'https://docs.google.com/spreadsheets/d/1OKIxVfGvp1cgaEImudzN3GkM4JO3yQ6T4scL_-3z8So/pubhtml';
+      
+  
+    function numberWithCommas(x) {
+    x = x.toString();
+    var pattern = /(-?\d+)(\d{3})/;
+    while (pattern.test(x))
+        x = x.replace(pattern, "$1,$2");
+    return x;
+}
+    if ( scenario == 1 ) {
+        //load the first spreadsheet
+                console.log("v1");
+        localStorage.setItem("googleDoc",googleDocA)
+        localStorage.setItem("scenario","1")
+    } else if ( scenario == 2 ) {
+        //load the second spreadsheet
+        console.log("v2");
+        localStorage.setItem("googleDoc",googleDocB)
+        //localStorage.setItem("googleDoc",googleDocA)
+        localStorage.setItem("scenario","2")
+    };
+    
+        function errorCheck(fieldHasError){
+        console.log("does field has error " + fieldHasError)
+        if ( fieldHasError == true ) {
+            formHasErrors = true
+        }
+    }
     
     
     
@@ -466,6 +712,7 @@ content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+
        e.preventDefault();
             window.history.back();
     });
+   
    
 /*----- TABS -----*/
     $(".tab-content").not("#tab-1").css("display", "none");
