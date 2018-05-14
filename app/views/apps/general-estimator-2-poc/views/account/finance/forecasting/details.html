@@ -126,22 +126,73 @@
             <div class="grid-row">
                 <div class="column-third">
                 <!-- FILTERS -->
-                        <h3 class="heading-small">Search for an apprentice</h3>
-                    <form id="search-form" method="get" action="/commitments/accounts/8MGY6M/apprentices/manage/all">
-                    <fieldset class="inline">
-                        <legend><h2 class="heading-medium">Search for an apprentice</h2></legend>
-                        <input type="text" id="search-input" name="SearchInput" class="search-text form-control placeholder-text" data-default-value="Enter a name">
-                        <input type="submit" class="submit-search form-control">
-                        <input name="ResetFilter" type="hidden" value="True">
-                    </fieldset>
-                </form>
+<div class="search-header" style="width:100%;">
+							<fieldset class="search-input">
+				    		<label for="search-main">
+				        	<h1 class="heading-medium">Search for an apprentice <span class="visuallyhidden">for “”</span></h1>
+									</label>
+							    <input type="search" name="q" id="search-main" value="ENTER NAME HERE" data-intro="Include the original search term from the preceeding page, allow them to edit it here and re-submit" data-position="top">
+				  		</fieldset>
+							<fieldset class="search-submit">
+								<button type="submit" class="button">Search</button>
+				  		</fieldset>
+						</div>
                     
                     
-                    <h2 class="heading-medium filter-app-head">Filter apprentices</h2>
+                    <h2 class="heading-medium filter-app-head">FILTER PAYMENTS</h2>
                     <form>
-                    <fieldset>
-                        
-                        </fieldset>    
+                        <fieldset class="filters filters-accordion">
+				                    <h2 class="toggler heading-small">PAYMENT TYPE</h2>
+				                    <div class="toggled-content">
+				                        <div class="form-group org-search-filter">
+				                            <legend class="form-label sr-only">PAYMENT TYPE</legend>
+				                            
+				                            <div class="multiple-choice">
+															        <input id="ltd" type="checkbox" name="org-type-filter" value="Private limited company" checked="checked"> 
+															        <label for="ltd">ESTIMATED PROVIDER PAYMENT</label>
+															      </div>
+															      <div class="multiple-choice">
+															        <input id="plc" type="checkbox" name="org-type-filter" value="Public limited company" checked="checked"> 
+															        <label for="plc">ACTUAL PROVIDER PAYMENT</label>
+															      </div>
+															      <div class="multiple-choice">
+															        <input id="pb" type="checkbox" name="org-type-filter" value="Public body" checked="checked"> 
+															        <label for="pb">ESTIMATED EMPLOYER TRANSFER</label>
+															      </div>
+															      <div class="multiple-choice">
+															        <input id="all" type="checkbox" name="org-type-filter" value="all" checked="checked" > 
+															        <label for="all">ACTUAL EMPLOYER TRANSFER</label>
+															      </div>
+
+				                        </div>
+				                    </div>
+				                </fieldset>  
+                        <fieldset class="filters filters-accordion">
+				                    <h2 class="toggler heading-small">Training provider</h2>
+				                    <div class="toggled-content">
+				                        <div class="form-group org-search-filter">
+				                            <legend class="form-label sr-only">Select an organisation type</legend>
+				                            
+				                            <div class="multiple-choice">
+															        <input id="ltd" type="checkbox" name="org-type-filter" value="Private limited company" checked="checked"> 
+															        <label for="ltd">ACME LIMITED</label>
+															      </div>
+															      <div class="multiple-choice">
+															        <input id="plc" type="checkbox" name="org-type-filter" value="Public limited company" checked="checked"> 
+															        <label for="plc">ANVIL PTY</label>
+															      </div>
+															      <div class="multiple-choice">
+															        <input id="pb" type="checkbox" name="org-type-filter" value="Public body" checked="checked"> 
+															        <label for="pb">GOOD SUPPLIER CO</label>
+															      </div>
+															      <div class="multiple-choice">
+															        <input id="all" type="checkbox" name="org-type-filter" value="all" checked="checked"> 
+															        <label for="all">HEAVY INDUSTRIES LLC</label>
+															      </div>
+
+				                        </div>
+				                    </div>
+				                </fieldset>
                     </form>
                 </div>
                 <div class="column-two-thirds">
@@ -150,6 +201,7 @@
             <tr>
                 <th>Apprentice<span class="form-hint">ULN/Employer</span></th>
                 <th>Apprenticeship<span class="form-hint">Level</span></th>
+                <th>Training provider</th>
                 <th>Amount</th>
                 <th>Type</th>
                 <th></th>
@@ -161,12 +213,14 @@
                 <td>Loading</td>
                 <td>Loading</td>
                 <td>Loading</td>
+                <td>Loading</td>
                 <td><a href="apprentice.html">Details</a></td>
             </tr>
             </tbody>
 <tfoot class="total">
             <tr>
     <th>Total</th>
+    <th></th>
     <th></th>
     <th>£28,800.00</th>
                 <th></th>

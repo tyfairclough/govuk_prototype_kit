@@ -83,7 +83,7 @@ $('.tooltip').tooltipster({
             var content = "";
             //var pos = "";
             for (i = 0; i < data.month_apprentice.elements.length; i++) {   
-                    content += '<tr><td>' + data.month_apprentice.elements[i].apprentice + '<span class="form-hint">'+ data.month_apprentice.elements[i].ULN_provider +'</span></td><td>' + data.month_apprentice.elements[i].apprenticeship + '<span class="form-hint">'+ data.month_apprentice.elements[i].apprenticeship_level +'</span></td><td>' + data.month_apprentice.elements[i].amount + '</td><td>' + data.month_apprentice.elements[i].type + '</td><td><a href="apprentice.html">Details</a></tr>';
+                    content += '<tr><td>' + data.month_apprentice.elements[i].apprentice + '<span class="form-hint">'+ data.month_apprentice.elements[i].ULN_provider +'</span></td><td>' + data.month_apprentice.elements[i].apprenticeship + '<span class="form-hint">'+ data.month_apprentice.elements[i].apprenticeship_level +'</span></td><td>' + data.month_apprentice.elements[i].training_provider + '</td><td>' + data.month_apprentice.elements[i].amount + '</td><td>' + data.month_apprentice.elements[i].type + '</td><td><a href="apprentice.html">Details</a></tr>';
               
             }
             renderTableApprentice(content);  
