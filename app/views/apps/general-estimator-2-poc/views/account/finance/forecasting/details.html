@@ -43,7 +43,7 @@
                     </td>
                 </tr>-->
                 <tr>
-                    <th scope="row" class="tooltip" title="This is my image's tooltip message!" >
+                    <th scope="row" class="tooltip" title="THE OPENINING BALANCE IS" >
                         Opening balance
                     </th>
                     <td>
@@ -122,13 +122,35 @@
       </div>
       </div>
         <div id="apprentice">
+            
+            <div class="grid-row">
+                <div class="column-third">
+                <!-- FILTERS -->
+                        <h3 class="heading-small">Search for an apprentice</h3>
+                    <form id="search-form" method="get" action="/commitments/accounts/8MGY6M/apprentices/manage/all">
+                    <fieldset class="inline">
+                        <legend><h2 class="heading-medium">Search for an apprentice</h2></legend>
+                        <input type="text" id="search-input" name="SearchInput" class="search-text form-control placeholder-text" data-default-value="Enter a name">
+                        <input type="submit" class="submit-search form-control">
+                        <input name="ResetFilter" type="hidden" value="True">
+                    </fieldset>
+                </form>
+                    
+                    
+                    <h2 class="heading-medium filter-app-head">Filter apprentices</h2>
+                    <form>
+                    <fieldset>
+                        
+                        </fieldset>    
+                    </form>
+                </div>
+                <div class="column-two-thirds">
         <table class="small responsive">
             <thead>
             <tr>
                 <th>Apprentice<span class="form-hint">ULN/Employer</span></th>
                 <th>Apprenticeship<span class="form-hint">Level</span></th>
                 <th>Amount</th>
-                <th class="highlight">Co-investment due</th>
                 <th>Type</th>
                 <th></th>
             </tr>
@@ -138,7 +160,6 @@
                 <td>Loading <span class="form-hint">Loading</span></td>
                 <td>Loading</td>
                 <td>Loading</td>
-                <td class="highlight">Loading</td>
                 <td>Loading</td>
                 <td><a href="apprentice.html">Details</a></td>
             </tr>
@@ -147,14 +168,17 @@
             <tr>
     <th>Total</th>
     <th></th>
-    <th>£00.00</th>
-    <th class="highlight">£00.00</th>
+    <th>£28,800.00</th>
                 <th></th>
                 <th></th>
     </tr>
             </tfoot>
 
-        </table>   
+        </table>                   
+                </div>
+            </div>
+            
+
             
             <!-- pagination here -->
             <div class="page-navigation">
@@ -200,7 +224,6 @@
             <tr>
                 <th>Apprenticeship<span class="form-hint">Level</span></th>
                 <th>Amount</th>
-                <th class="highlight">Co-investment due</th>
                 <th>Type</th>
             </tr>
             </thead>
@@ -208,7 +231,6 @@
             <tr>
                 <td>Loading</td>
                 <td>Loading</td>
-                <td class="highlight">Loading</td>
                 <td>Loading</td>
             </tr>
             </tbody>
@@ -216,7 +238,6 @@
             <tr>
     <th>Total</th>
     <th>£0.00</th>
-    <th class="highlight">£0.00</th>
                 <th></th>
     </tr>
             </tfoot>

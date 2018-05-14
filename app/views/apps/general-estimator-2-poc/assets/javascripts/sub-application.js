@@ -83,7 +83,7 @@ $('.tooltip').tooltipster({
             var content = "";
             //var pos = "";
             for (i = 0; i < data.month_apprentice.elements.length; i++) {   
-                    content += '<tr><td>' + data.month_apprentice.elements[i].apprentice + '<span class="form-hint">'+ data.month_apprentice.elements[i].ULN_provider +'</span></td><td>' + data.month_apprentice.elements[i].apprenticeship + '<span class="form-hint">'+ data.month_apprentice.elements[i].apprenticeship_level +'</span></td><td>' + data.month_apprentice.elements[i].amount + '</td><td class="highlight">' + data.month_apprentice.elements[i].coinvestment + '</td><td>' + data.month_apprentice.elements[i].type + '</td></tr>';
+                    content += '<tr><td>' + data.month_apprentice.elements[i].apprentice + '<span class="form-hint">'+ data.month_apprentice.elements[i].ULN_provider +'</span></td><td>' + data.month_apprentice.elements[i].apprenticeship + '<span class="form-hint">'+ data.month_apprentice.elements[i].apprenticeship_level +'</span></td><td>' + data.month_apprentice.elements[i].amount + '</td><td>' + data.month_apprentice.elements[i].type + '</td><td><a href="apprentice.html">Details</a></tr>';
               
             }
             renderTableApprentice(content);  
@@ -100,7 +100,7 @@ $('.tooltip').tooltipster({
             var content = "";
             //var pos = "";
             for (i = 0; i < data.month_apprenticeship.elements.length; i++) {   
-                    content += '<tr><td>' + data.month_apprenticeship.elements[i].apprenticeship + '<span class="form-hint">'+ data.month_apprenticeship.elements[i].apprenticeship_level +'</span></td><td>' + data.month_apprenticeship.elements[i].amount + '</td><td class="highlight">' + data.month_apprenticeship.elements[i].coinvestment + '</td><td>' + data.month_apprenticeship.elements[i].type + '</td></tr>';
+                    content += '<tr><td>' + data.month_apprenticeship.elements[i].apprenticeship + '<span class="form-hint">'+ data.month_apprenticeship.elements[i].apprenticeship_level +'</span></td><td>' + data.month_apprenticeship.elements[i].amount + '</td><td>' + data.month_apprenticeship.elements[i].type + '</td></tr>';
               
             }
             renderTableApprenticeship(content);  
