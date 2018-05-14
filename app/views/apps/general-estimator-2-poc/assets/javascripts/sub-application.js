@@ -20,35 +20,12 @@ var scenario =  getQueryVariable("scenario");
     }
 
    switch (className) {
-       case 'forecast-index':
-           forecastIndex();
-           break;
+
        case 'another-page':
            anotherPage();
        break;
        case 'index':
            index();
-       break;
-       case 'finance-transactions':
-           financeTransactions();
-       break;
-       case 'forecast-start':
-           forecastStart();
-       break;
-       case 'forecastYourPaybill':
-           forecastYourPaybill();
-       break;
-       case 'forecastProjectLevy':
-           forecastProjectLevy();
-       break;
-       case 'forecastViewLevy':
-           forecastViewLevy();
-       break;
-       case 'forecastViewCommitments':
-           forecastViewCommitments();
-       break;
-       case 'forecastAlreadyHaveAccount':
-           forecastAlreadyHaveAccount();
        break;
        case'forecast-details':
            forecastDetails();
@@ -63,8 +40,16 @@ var scenario =  getQueryVariable("scenario");
 }
     
 
+    // Monthly details page
     function estimatorDetails() {
 
+        $(document).ready(function() {
+$('.tooltip').tooltipster({
+    theme: 'tooltipster-noir'
+});
+        });
+        
+        // SETUP TABS/PILLS
         $("#apprenticeship,#provider").hide();
         $("ul.list.pill a").click(function (e) {
             e.preventDefault();
@@ -74,11 +59,86 @@ var scenario =  getQueryVariable("scenario");
             active = $(this).attr("id");
             $(active).fadeIn()
         })
+            
         
-        // load the payments by apprentice
+        // LOADS APPRENTICE TAB
+        var googleDoc = 'https://docs.google.com/spreadsheets/d/1afu8dhRTEX3_MWNWaHoUPlAGPxmXGduqmpfrx__0RpI/pubhtml';
+        function googleTables() {
+            Tabletop.init({
+                key: googleDoc,
+                callback: showInfoA,
+                simpleSheet: false
+            })
+        }
+
+
+        function showInfoA(data, tabletop) {
+            loadArrayApprentice(data);
+            loadArrayApprenticeship(data);
+            loadArrayProvider(data);
+        }
+        
+        
+        function loadArrayApprentice(data) {
+            var content = "";
+            //var pos = "";
+            for (i = 0; i < data.month_apprentice.elements.length; i++) {   
+                    content += '<tr><td>' + data.month_apprentice.elements[i].apprentice + '<span class="form-hint">'+ data.month_apprentice.elements[i].ULN_provider +'</span></td><td>' + data.month_apprentice.elements[i].apprenticeship + '<span class="form-hint">'+ data.month_apprentice.elements[i].apprenticeship_level +'</span></td><td>' + data.month_apprentice.elements[i].amount + '</td><td class="highlight">' + data.month_apprentice.elements[i].coinvestment + '</td><td>' + data.month_apprentice.elements[i].type + '</td></tr>';
+              
+            }
+            renderTableApprentice(content);  
+        }
+        
+        function renderTableApprentice(content) {
+            $(document).ready(function () {
+                $("#apprentice tbody").html(content);
+            });
+        }
+        
+        
+        function loadArrayApprenticeship(data) {
+            var content = "";
+            //var pos = "";
+            for (i = 0; i < data.month_apprenticeship.elements.length; i++) {   
+                    content += '<tr><td>' + data.month_apprenticeship.elements[i].apprenticeship + '<span class="form-hint">'+ data.month_apprenticeship.elements[i].apprenticeship_level +'</span></td><td>' + data.month_apprenticeship.elements[i].amount + '</td><td class="highlight">' + data.month_apprenticeship.elements[i].coinvestment + '</td><td>' + data.month_apprenticeship.elements[i].type + '</td></tr>';
+              
+            }
+            renderTableApprenticeship(content);  
+        }
+        
+        function renderTableApprenticeship(content) {
+            $(document).ready(function () {
+                $("#apprenticeship tbody").html(content);
+            });
+        }
+        
+        
+        
+        
+        function loadArrayProvider(data) {
+            var content = "";
+            //var pos = "";
+            for (i = 0; i < data.month_provider.elements.length; i++) {   
+                    content += '<tr><td>' + data.month_provider.elements[i].provider + '</td><td>' + data.month_provider.elements[i].amount + '</td><td class="highlight">' + data.month_provider.elements[i].coinvestment + '</td><td>' + data.month_provider.elements[i].type + '</td></tr>';
+              
+            }
+            renderTableProvider(content);  
+        }
+        
+        function renderTableProvider(content) {
+            $(document).ready(function () {
+                $("#provider tbody").html(content);
+            });
+        }
+        
+        
+        
+            googleTables();
+
         
     }
-        function estimateAddApprenticeship(){
+    // Add apprenticeship page
+    function estimateAddApprenticeship(){
 
         
         
@@ -270,11 +330,45 @@ var scenario =  getQueryVariable("scenario");
         
 
     }
-    
-    
-    
-
+    // Main forecastin page
     function forecastDetails() {
+
+  var publicSpreadsheetUrl1 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/17RuG5qIxg8K1wLlOdiM2OnUMkFvJTuxYdtg296Wr178/pubhtml';
+  var publicSpreadsheetUrl2 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/11SNfKERHoGtqeql9IChpabPG3cqOPi__dIztHuNPi7Q/pubhtml';
+var publicSpreadsheetUrl3 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/1i11yg9he8rPSuUnJLpNuE2Z6O-UdokwhPSuGpFYzqLE/pubhtml';
+
+  function init() {
+    Tabletop.init( { key: publicSpreadsheetUrl1,
+                     callback: showInfo,
+                     simpleSheet: true } )
+  }
+    
+  function appz() {
+    Tabletop.init( { key: publicSpreadsheetUrl2,
+                     callback: showInfo2,
+                     simpleSheet: true } )
+  }
+    
+    function byApprenticeship() {
+    Tabletop.init( { key: publicSpreadsheetUrl3,
+                     callback: showInfo3,
+                     simpleSheet: true } )
+  }
+
+
+    function showInfo(data, tabletop) {
+      loadArray(data);
+  }
+
+  function showInfo2(data2, tabletop2) {
+      loadArray2(data2);
+  }  
+  function showInfo3(data3, tabletop3) {
+      loadArray3(data3);
+  }    
+ 
+        
+        
         
         $(".error-summary, .success-summary").hide();
     
@@ -403,19 +497,8 @@ var scenario =  getQueryVariable("scenario");
         
         
     googleTables();
-
-        //$(".error-summary").hide();
-
-
-        scenario = localStorage.getItem("scenario");
-        if (scenario == "2") {
-            $("#errorOne.error-summary").show();
-            $("#tab-2 tbody").addClass("errorTable");
-            // ADD ERROR STYLES HERE
-
-        };
-        
-        
+  
+  
                 $(document).ready(function () {
                     init();
                     appz();
@@ -424,311 +507,10 @@ var scenario =  getQueryVariable("scenario");
 
     }
 
-    function forecastViewCommitments() {
-        userAuth = localStorage.getItem("userAuth");
-        if (userAuth != "false") {
-            //$("#forecasted").hide()
 
-        } else {
-            $("#forecasted").hide()
-        }
-    }
-
-    function forecastViewLevy() {
-        $(".button").click(function (e) {
-            e.preventDefault();
-            if (localStorage.getItem("userAuth") == "false") {
-                window.location.href = "view-commitments";
-            } else {
-                window.location.href = "add-cohort-wizard";
-            }
-        })
-    }
-
-    function forecastProjectLevy() {
-        $(".button").click(function (e) {
-            e.preventDefault();
-            state = $("input[name=radio-group]:checked").val()
-            if (state === "project") {
-                localStorage.setItem("forecastLevy", "true")
-                window.location.href = "english-percentage";
-            } else {
-                localStorage.setItem("forecastLevy", "false")
-                window.location.href = "add-levy-wizard";
-            }
-        })
-    }
-
-    function forecastAlreadyHaveAccount() {
-        $(".button").click(function (e) {
-            e.preventDefault();
-            state = $("input[name=radio-group]:checked").val()
-
-            if (state === "login") {
-                window.location.href = "../../../index";
-            } else {
-                // non levy payer
-                window.location.href = "project-levy";
-            }
-        })
-    }
-
-    function forecastYourPaybill() {
-
-
-        $("#paybill").mask("999,999,999", {
-            reverse: true
-        });
-
-        $(".button").click(function (e) {
-            e.preventDefault();
-            paybill = $("#paybill").val();
-            paybill = Number(paybill.replace(/\D/g, ''));
-
-            if (paybill > 3000000) {
-                console.log("levy payer") // levy payer
-                localStorage.setItem("levyPayer", "true");
-                window.location.href = "have-account";
-            } else {
-                // non levy payer
-                console.log("non levy payer");
-                localStorage.setItem("levyPayer", "false");
-                window.location.href = "add-cohort-wizard";
-            }
-        })
-
-    }
-
-    function forecastStart() {
-        $(".button").click(function (e) {
-            e.preventDefault();
-            userType = localStorage.getItem("userAuth");
-            if (userType != "true") {
-                window.location.href = "yourpaybill";
-            } else {
-                window.location.href = "loading";
-            }
-        })
-    }
-    
-
-function financeTransactions(){
-    
-var from_$input = $('#input_from').pickadate(),
-    from_picker = from_$input.pickadate('picker')
-
-var to_$input = $('#input_to').pickadate(),
-    to_picker = to_$input.pickadate('picker')
-
-
-// Check if there’s a “from” or “to” date to start with.
-if ( from_picker.get('value') ) {
-  to_picker.set('min', from_picker.get('select'))
-}
-if ( to_picker.get('value') ) {
-  from_picker.set('max', to_picker.get('select'))
-}
-
-// When something is selected, update the “from” and “to” limits.
-from_picker.on('set', function(event) {
-  if ( event.select ) {
-    to_picker.set('min', from_picker.get('select'))    
-  }
-  else if ( 'clear' in event ) {
-    to_picker.set('min', false)
-  }
-})
-to_picker.on('set', function(event) {
-  if ( event.select ) {
-    from_picker.set('max', to_picker.get('select'))
-  }
-  else if ( 'clear' in event ) {
-    from_picker.set('max', false)
-  }
-})
-
- 
-$('tr').click(function () {
-    $(this).next('tr').toggle();
-});
-    
-}
-
-    
 
 
     
-function forecastIndex(){
-var d3locale = d3.locale({
-    "decimal": ",",
-    "thousands": "\u00A0",
-    "grouping": [3],
-    "currency": ["", " руб."],
-    "dateTime": "%A, %e %B %Y г. %X",
-    "date": "%d.%m.%Y",
-    "time": "%H:%M:%S",
-    "periods": ["AM", "PM"],
-    "days": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
-    "shortDays": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
-    "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-    "shortMonths": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-});
-    
-    
-        var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
-       
-    
- 
-$(".showMore").click(function() {
-  var tr = $(this).parent().parent().nextAll(':lt(2)');
-     $(this).toggleClass('fa-angle-double-right fa-angle-double-down')
-  if (tr.is(".hidden")) {
-    tr.removeClass('hidden');
-      console.log($(this));
-  } else {
-    tr.addClass('hidden');
-  }
-})   
-}    
-    
-
-    
-  var publicSpreadsheetUrl1 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/17RuG5qIxg8K1wLlOdiM2OnUMkFvJTuxYdtg296Wr178/pubhtml';
-  var publicSpreadsheetUrl2 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/11SNfKERHoGtqeql9IChpabPG3cqOPi__dIztHuNPi7Q/pubhtml';
-var publicSpreadsheetUrl3 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/1i11yg9he8rPSuUnJLpNuE2Z6O-UdokwhPSuGpFYzqLE/pubhtml';
-
-  function init() {
-    Tabletop.init( { key: publicSpreadsheetUrl1,
-                     callback: showInfo,
-                     simpleSheet: true } )
-  }
-    
-  function appz() {
-    Tabletop.init( { key: publicSpreadsheetUrl2,
-                     callback: showInfo2,
-                     simpleSheet: true } )
-  }
-    
-    function byApprenticeship() {
-    Tabletop.init( { key: publicSpreadsheetUrl3,
-                     callback: showInfo3,
-                     simpleSheet: true } )
-  }
-
-
-    function showInfo(data, tabletop) {
-      loadArray(data);
-  }
-
-  function showInfo2(data2, tabletop2) {
-      loadArray2(data2);
-  }  
-  function showInfo3(data3, tabletop3) {
-      loadArray3(data3);
-  }    
- 
-    
-
-    
-    function loadArray(data){
-        var content = "";
-        var pos = "";
-        //+data[i].Points+
-       for (i = 0; i < data.length; i++) {
-             //console.log(i)
-           pos = i + 1;
-content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+data[i].Monthly+'</td><td class="financial">'+data[i].Completion+'</td><td class="financial">'+data[i].Levy+'</td><td class="financial">'+data[i].Balance+'</td></tr>';
-           renderTable(content);
-            }
-        }     
-
-     
-    
-    
-    function loadArray2(data2){
-        var content2 = "";
-        var pos = "";
-        //+data[i].Points+
-       for (i = 0; i < data2.length; i++) {
-             //console.log(i)
-           
-           var min = 10000000;
-           var max = 99999999;
-           var num = Math.floor(Math.random() * (max - min + 1)) + min;
-           pos = i + 1;      
-           content2 += '<tr><td>'+data2[i].Apprenitce+'</td><td>'+num+'</td><td>'+data2[i].Start+'</td><td>£'+data2[i].Monthly+'</td><td>'+data2[i].Total+'</td><td>£'+data2[i].Completion+'</td></tr>'      
-            }
-           renderTable2(content2);        
-        }
-    
-    
-    function loadArray3(data3){
-        var content3 = "";
-        var pos = "";
-        //+data[i].Points+
-       for (i = 0; i < data3.length; i++) {
-             //console.log(i)
-           pos = i + 1;      
-           content3 += '<tr><td class="no-wrap">'+data3[i].apprenticeship+' <span class="form-hint">level '+data3[i].level+'</span></td><td>'+data3[i].trainingProvider+'</td></td><td>'+data3[i].numberOfApprentices+'</td></td><td>'+data3[i].startDate+'</td><td>£'+data3[i].costPerApprenticeship+'</td><td>'+data3[i].numberOfMonthlyPayments+'</td><td>£'+data3[i].monthlyPayment+'</td><td>£'+data3[i].completionPayment+'</td></tr>'      
-           renderTable3(content3);
-            }
-        }     
-    
-    
-        
-        function renderTable(content){
-            $(document).ready(function () {
-                $("#balancesheet tbody").html(content);
-                //paginateBalancesheet();
-            });
-        }       
-    
-        function renderTable2(content2){
-            $(document).ready(function () {
-                $("#byApprentice table tbody").html(content2);
-                //paginateByApprentice();
-                
-            });
-        }
-          function renderTable3(content3){
-            $(document).ready(function () {
-                $("#byApprenticeship table tbody").html(content3);
-                paginateByApprenticeship();
-            });
-        }
-    
-    function paginateByApprentice(){
-                        $('#byApprentice table').paginate({
-                          limit: 10, 
-                          previousText: 'Previous',
-                            nextText: 'Next',
-                            first: false,
-                            last: false,
-                            optional: true,
-                        });
-    }    
-    
-    function paginateByApprenticeship(){
-                        $('#byApprenticeship table').paginate({
-                          limit: 10, 
-                          previousText: 'Previous',
-                            nextText: 'Next',
-                            first: false,
-                            last: false,
-                            optional: true,
-                        });
-    }
-    function paginateBalancesheet(){
-                        $('#balancesheet').paginate({
-                          limit: 12, 
-                          previousText: 'Previous',
-                            nextText: 'Next',
-                            first: false,
-                            last: false,
-                            optional: true,
-                        });
-    }
 
 // global js
        var googleDocA = 'https://docs.google.com/spreadsheets/d/1OKIxVfGvp1cgaEImudzN3GkM4JO3yQ6T4scL_-3z8So/pubhtml';
@@ -742,18 +524,6 @@ content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+
         x = x.replace(pattern, "$1,$2");
     return x;
 }
-    if ( scenario == 1 ) {
-        //load the first spreadsheet
-                console.log("v1");
-        localStorage.setItem("googleDoc",googleDocA)
-        localStorage.setItem("scenario","1")
-    } else if ( scenario == 2 ) {
-        //load the second spreadsheet
-        console.log("v2");
-        localStorage.setItem("googleDoc",googleDocB)
-        //localStorage.setItem("googleDoc",googleDocA)
-        localStorage.setItem("scenario","2")
-    };
     
         function errorCheck(fieldHasError){
         console.log("does field has error " + fieldHasError)
