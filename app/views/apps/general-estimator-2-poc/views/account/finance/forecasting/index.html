@@ -122,7 +122,7 @@
 <div class="grid-row">
     <div class="column-third">
         <div class="data fuscia">
-            <span class="bold-large">£000,000.00</span>
+            <span class="bold-large">£142,000.00</span>
             <span class="small">May opening balance</span>
         </div>
         <br>
@@ -130,7 +130,7 @@
     </div>
     <div class="column-third">
         <div class="data pink">
-            <span class="bold-large">£000,000.00</span>
+            <span class="bold-large">£45,000.00</span>
             <span class="small">Opening transfer allowance</span>
         </div>
         <br>
@@ -138,7 +138,7 @@
     </div>
     <div class="column-third">
         <div class="data red">
-            <span class="bold-large">£000,000.00</span>
+            <span class="bold-large">£0.00</span>
             <span class="small">Overdue completion payments</span>
         </div>
         <br>
@@ -152,7 +152,7 @@
       <div class="column-full">
         <ul class="list pill">
             <li class="active"><a href="#" id="#calendar">Monthly account estimation</a></li>
-            <li><a href="#" id="#estimated" >Estimated apprentices</a></li>
+            <li class="hidden" style="display: none;"><a href="#" id="#estimated" >Estimated apprentices</a></li>
             <li><a href="#" id="#committed">Graph of account balance</a></li>
           </ul>    
       </div>
@@ -172,7 +172,7 @@
         </table>
       </div>
          
-    <div id="estimated" class="form-group" style="">
+    <div id="estimated" class="form-group" style="display:none;">
         <table class="small responsive">
             <thead>
             <tr>
@@ -180,9 +180,8 @@
                 <th>Number of apprentices</th>
                 <th>Start date</th>
                 <th>Total cost</th>
-                <th>Monthly payment</th>
+                <th>Monthly payment<span class="form-hint">Completion payment</span></th>
                 <th>Number of monthly payments</th>
-                <th>Completion payment</th>
                 <th>Type of apprenticeship</th>
                 <th></th>
                 <th></th>
@@ -197,7 +196,6 @@
                 <td>Loading</td>
                 <td>Loading</td>
                 <td>Loading</td>
-                <td>Loading</td>
                 <td><a href="remove.html">Remove</a></td>
                 <td><a href="add-apprenticeship.html">Details</a></td>
             </tr>
@@ -205,7 +203,22 @@
 <tfoot class="total"></tfoot>
 
         </table>
-        
+        <div class="page-navigation">
+                    <a class="page-navigation__btn previous hidden">
+                        <i class="arrow-button fa fa-angle-left"></i>
+                        <span class="description">Previous <span class="hide-mob">page</span></span>
+                        <span class="counter">Page <span class="nextPage">1</span> of <span class="totalPage">2</span></span>
+                    </a>
+
+
+
+                    <a style="" class="page-navigation__btn next">
+                        <i class="arrow-button fa fa-angle-right"></i>
+                        <span class="description">Next <span class="hide-mob">page</span></span>
+                        <span class="counter">Page <span class="nextPage">2</span> of <span class="totalPage">2</span></span>
+                    </a>
+
+                </div>
 
     </div>
     <div id="committed" class="form-group">
