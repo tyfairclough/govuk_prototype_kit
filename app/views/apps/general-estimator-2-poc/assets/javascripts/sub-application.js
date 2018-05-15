@@ -39,9 +39,89 @@ var scenario =  getQueryVariable("scenario");
        default: break;
 }
     
+    
+    function estimatorDetails(){
+        
+        
+ // LOADS APPRENTICE TAB
+        var googleDoc = 'https://docs.google.com/spreadsheets/d/1afu8dhRTEX3_MWNWaHoUPlAGPxmXGduqmpfrx__0RpI/pubhtml';
+        function googleTables() {
+            Tabletop.init({
+                key: googleDoc,
+                callback: showInfoA,
+                simpleSheet: false
+            })
+        }
+
+
+        function showInfoA(data, tabletop) {
+            loadArrayApprentice(data);
+            loadArrayApprenticeship(data);
+        }
+        
+        
+        function loadArrayApprentice(data) {
+            var content = "";
+            //var pos = "";
+            for (i = 0; i < data.committed_apprenticeships.elements.length; i++) {   
+content += '<tr><td>' + data.committed_apprenticeships.elements[i].apprenticeship + '<span class="form-hint">Level '+ data.committed_apprenticeships.elements[i].level +'</span></td><td>' + data.committed_apprenticeships.elements[i].total_cost +'</td><td>' + data.committed_apprenticeships.elements[i].training_provider + '</td><td>' + data.committed_apprenticeships.elements[i].status + '</td><td></tr>';
+              
+            }
+            renderTableApprentice(content);  
+        }
+        
+        function renderTableApprentice(content) {
+            $(document).ready(function () {
+                $("#tab-1 tbody").html(content);
+            });
+        }
+        
+        
+        function loadArrayApprenticeship(data) {
+            var content = "";
+            //var pos = "";
+            for (i = 0; i < data.month_apprenticeship.elements.length; i++) {   
+                    content += '<tr><td>' + data.committed_transfers.elements[i].apprenticeship + '<span class="form-hint">Level '+ data.committed_transfers.elements[i].level +'</span></td><td>' + data.committed_transfers.elements[i].total_cost + '</td><td>' + data.committed_transfers.elements[i].employer_name + '</td><td>'+ data.committed_transfers.elements[i].status +'</td></tr>';
+              
+            }
+            renderTableApprenticeship(content);  
+        }
+        
+        function renderTableApprenticeship(content) {
+            $(document).ready(function () {
+                $("#tab-2 tbody").html(content);
+            });
+        }
+        
+        
+        
+        
+        function loadArrayProvider(data) {
+            var content = "";
+            //var pos = "";
+            for (i = 0; i < data.month_provider.elements.length; i++) {   
+                    content += '<tr><td>' + data.month_provider.elements[i].provider + '</td><td>' + data.month_provider.elements[i].amount + '</td><td class="highlight">' + data.month_provider.elements[i].coinvestment + '</td><td>' + data.month_provider.elements[i].type + '</td></tr>';
+              
+            }
+            renderTableProvider(content);  
+        }
+        
+        function renderTableProvider(content) {
+            $(document).ready(function () {
+                $("#provider tbody").html(content);
+            });
+        }
+        
+        
+        
+            googleTables();
+
+        
+        
+    }
 
     // Monthly details page
-    function estimatorDetails() {
+    function estimatorDetails2() {
 
         $(document).ready(function() {
 $('.tooltip').tooltipster({
@@ -83,7 +163,7 @@ $('.tooltip').tooltipster({
             var content = "";
             //var pos = "";
             for (i = 0; i < data.month_apprentice.elements.length; i++) {   
-                    content += '<tr><td>' + data.month_apprentice.elements[i].apprentice + '<span class="form-hint">'+ data.month_apprentice.elements[i].ULN_provider +'</span></td><td>' + data.month_apprentice.elements[i].apprenticeship + '<span class="form-hint">'+ data.month_apprentice.elements[i].apprenticeship_level +'</span></td><td>' + data.month_apprentice.elements[i].training_provider + '</td><td>' + data.month_apprentice.elements[i].amount + '</td><td>' + data.month_apprentice.elements[i].type + '</td><td><a href="apprentice.html">Details</a></tr>';
+                    content += '<tr><td>' + data.month_apprentice.elements[i].apprentice + '<span class="form-hint">'+ data.month_apprentice.elements[i].ULN_provider +'</span></td><td>' + data.month_apprentice.elements[i].apprenticeship + '<span class="form-hint">'+ data.month_apprentice.elements[i]    .apprenticeship_level +'</span></td><td>' + data.month_apprentice.elements[i].training_provider + '</td><td>' + data.month_apprentice.elements[i].amount + '</td><td>' + data.month_apprentice.elements[i].type + '</td><td><a href="apprentice.html">Details</a></tr>';
               
             }
             renderTableApprentice(content);  
@@ -331,44 +411,7 @@ $('.tooltip').tooltipster({
 
     }
     // Main forecastin page
-    function forecastDetails() {
-
-  var publicSpreadsheetUrl1 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/17RuG5qIxg8K1wLlOdiM2OnUMkFvJTuxYdtg296Wr178/pubhtml';
-  var publicSpreadsheetUrl2 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/11SNfKERHoGtqeql9IChpabPG3cqOPi__dIztHuNPi7Q/pubhtml';
-var publicSpreadsheetUrl3 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/1i11yg9he8rPSuUnJLpNuE2Z6O-UdokwhPSuGpFYzqLE/pubhtml';
-
-  function init() {
-    Tabletop.init( { key: publicSpreadsheetUrl1,
-                     callback: showInfo,
-                     simpleSheet: true } )
-  }
-    
-  function appz() {
-    Tabletop.init( { key: publicSpreadsheetUrl2,
-                     callback: showInfo2,
-                     simpleSheet: true } )
-  }
-    
-    function byApprenticeship() {
-    Tabletop.init( { key: publicSpreadsheetUrl3,
-                     callback: showInfo3,
-                     simpleSheet: true } )
-  }
-
-
-    function showInfo(data, tabletop) {
-      loadArray(data);
-  }
-
-  function showInfo2(data2, tabletop2) {
-      loadArray2(data2);
-  }  
-  function showInfo3(data3, tabletop3) {
-      loadArray3(data3);
-  }    
- 
-        
-        
+    function forecastDetails() {        
         
         $(".error-summary, .success-summary").hide();
     
@@ -415,7 +458,7 @@ var publicSpreadsheetUrl3 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheet
                         } else {
                     content += '<a href="details?month='+ data.transfer.elements[i].date +'">' + data.transfer.elements[i].date + '</a>';                        
                         }
-                    content += '</td><td>' + data.transfer.elements[i].actual_costs + '</td><td>' + data.transfer.elements[i].modelled_costs + '</td><td class="' + redClass + '">' + data.transfer.elements[i].expired_funds + '</td><td class="' + redClass + '">' + data.transfer.elements[i].funds_in + '</td><td class="' + redClass + '">' + data.transfer.elements[i].transfer_balance + '</td><td>' + data.transfer.elements[i].levy_balance + '</td><td class="highlight ' + redClass + '">' + data.transfer.elements[i].coinvestment_due + '</td></tr>';
+                    content += '</td><td class="numeric">' + data.transfer.elements[i].actual_costs + '</td><td class="numeric">' + data.transfer.elements[i].modelled_costs + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].expired_funds + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].funds_in + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].transfer_balance + '</td><td class="numeric">' + data.transfer.elements[i].levy_balance + '</td><td class="highlight numeric' + redClass + '">' + data.transfer.elements[i].coinvestment_due + '</td></tr>';
                 }
                 
                 
@@ -500,9 +543,9 @@ var publicSpreadsheetUrl3 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheet
   
   
                 $(document).ready(function () {
-                    init();
-                    appz();
-                    byApprenticeship();
+                //    init();
+                //    appz();
+                //    byApprenticeship();
                 });        
 
     }

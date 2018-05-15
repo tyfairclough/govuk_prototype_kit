@@ -16,7 +16,7 @@
 
     
     
-<a href="../transfers/index.html" class="link-back">Back to forecast</a>
+<a href="../transfers/index.html" class="link-back">Back funding forecast</a>
     
 
     
@@ -24,8 +24,8 @@
     <div class="column-two-thirds">
         <div class="hgroup form-group">
            <h1 class="heading-xlarge">July 2018</h1>
-           <p class="lede" style="text-transform:uppercase;">This page shows the movement of funds for the selected month.</p>
-            
+           <p class="lede">The figures below show the activity in your account for the month chosen.</p>
+
 <table class="top-border">
                 <tbody>
                     
@@ -47,7 +47,7 @@
                         Opening balance
                     </th>
                     <td>
-                        £14,000.00
+                        £000,000.00
                     </td>
                 </tr>
                     <tr>
@@ -55,7 +55,31 @@
                         Total payments made
                     </th>
                     <td>
-                        £14,000.00
+                        £000,000.00
+                    </td>
+                </tr>
+                    <tr>
+                    <td scope="row">
+                        Apprenticeships that are live and have been paid for
+                        </td>
+                    <td>
+                        £000,000.00
+                    </td>
+                </tr>
+                    <tr>
+                    <td scope="row">
+                       Apprenticeships that are live and are yet to be paid for
+                    </td>
+                    <td>
+                        £000,000.00
+                    </td>
+                </tr>
+                    <tr>
+                    <td scope="row">
+                       Apprenticeships waiting to start
+                    </td>
+                    <td>
+                        £000,000.00
                     </td>
                 </tr>
                                         <tr>
@@ -63,7 +87,7 @@
                         Expired funds
                     </th>
                     <td>
-                        £1,400.00
+                        £000,000.00
                     </td>
                 </tr>
                                         <tr>
@@ -71,7 +95,23 @@
                         Funds in
                     </th>
                     <td>
-                        £1,400.00
+                        £000,000.00
+                    </td>
+                </tr>
+                                        <tr>
+                    <td scope="row">
+                        Levy funds
+                    </td>
+                    <td>
+                        £000,000.00
+                    </td>
+                </tr>
+                                        <tr>
+                    <td scope="row">
+                        Transfer of funds from another employer
+                    </td>
+                    <td>
+                        £000,000.00
                     </td>
                 </tr>
                     <tr>
@@ -79,7 +119,7 @@
                         Closing balance
                     </th>
                     <td>
-                        £14,000.00
+                        £000,000.00
                     </td>
                 </tr>
                     <tr>
@@ -87,7 +127,7 @@
                         Remaining transfer allowance
                     </th>
                     <td>
-                        £1,400.00
+                        £000,000.00
                     </td>
                 </tr>
                               <tr>
@@ -95,7 +135,7 @@
                         Total co-investment due
                     </th>
                     <td>
-                        £1,400.00
+                        £000,000.00
                     </td>
                 </tr>
                         
@@ -104,107 +144,34 @@
 
         </div>
         
+ 
+
       </div>
-       
+       <div class="column-third">
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+        </div>
     </div>
     
-
+    
            
-    <div>
+      <div id="tabs-container">
+    <ul class="tabs-menu">
+        <li class="current"><a href="#tab-1">My apprenticeships</a></li>
+        <li class=""><a href="#tab-2">My transfer of funds</a></li>
+    </ul>
+    <div id="tab-1" class="tab-content" style="">
         
-              <div class="grid-row">
-      <div class="column-full">
-        <ul class="list pill">
-            <li class="active"><a href="#" id="#apprentice">Payments by apprentice</a></li>
-            <li><a href="#" id="#apprenticeship">Payments by apprenticeship</a></li>
-            <li><a href="#" id="#provider">Payments by provider</a></li>
-          </ul>    
-      </div>
-      </div>
-        <div id="apprentice">
-            
-            <div class="grid-row">
-                <div class="column-third">
-                <!-- FILTERS -->
-<div class="search-header" style="width:100%;">
-							<fieldset class="search-input">
-				    		<label for="search-main">
-				        	<h1 class="heading-medium">Search for an apprentice <span class="visuallyhidden">for “”</span></h1>
-									</label>
-							    <input type="search" name="q" id="search-main" value="ENTER NAME HERE" data-intro="Include the original search term from the preceeding page, allow them to edit it here and re-submit" data-position="top">
-				  		</fieldset>
-							<fieldset class="search-submit">
-								<button type="submit" class="button">Search</button>
-				  		</fieldset>
-						</div>
-                    
-                    
-                    <h2 class="heading-medium filter-app-head">FILTER PAYMENTS</h2>
-                    <form>
-                        <fieldset class="filters filters-accordion">
-				                    <h2 class="toggler heading-small">PAYMENT TYPE</h2>
-				                    <div class="toggled-content">
-				                        <div class="form-group org-search-filter">
-				                            <legend class="form-label sr-only">PAYMENT TYPE</legend>
-				                            
-				                            <div class="multiple-choice">
-															        <input id="ltd" type="checkbox" name="org-type-filter" value="Private limited company" checked="checked"> 
-															        <label for="ltd">ESTIMATED PROVIDER PAYMENT</label>
-															      </div>
-															      <div class="multiple-choice">
-															        <input id="plc" type="checkbox" name="org-type-filter" value="Public limited company" checked="checked"> 
-															        <label for="plc">ACTUAL PROVIDER PAYMENT</label>
-															      </div>
-															      <div class="multiple-choice">
-															        <input id="pb" type="checkbox" name="org-type-filter" value="Public body" checked="checked"> 
-															        <label for="pb">ESTIMATED EMPLOYER TRANSFER</label>
-															      </div>
-															      <div class="multiple-choice">
-															        <input id="all" type="checkbox" name="org-type-filter" value="all" checked="checked" > 
-															        <label for="all">ACTUAL EMPLOYER TRANSFER</label>
-															      </div>
-
-				                        </div>
-				                    </div>
-				                </fieldset>  
-                        <fieldset class="filters filters-accordion">
-				                    <h2 class="toggler heading-small">Training provider</h2>
-				                    <div class="toggled-content">
-				                        <div class="form-group org-search-filter">
-				                            <legend class="form-label sr-only">Select an organisation type</legend>
-				                            
-				                            <div class="multiple-choice">
-															        <input id="ltd" type="checkbox" name="org-type-filter" value="Private limited company" checked="checked"> 
-															        <label for="ltd">ACME LIMITED</label>
-															      </div>
-															      <div class="multiple-choice">
-															        <input id="plc" type="checkbox" name="org-type-filter" value="Public limited company" checked="checked"> 
-															        <label for="plc">ANVIL PTY</label>
-															      </div>
-															      <div class="multiple-choice">
-															        <input id="pb" type="checkbox" name="org-type-filter" value="Public body" checked="checked"> 
-															        <label for="pb">GOOD SUPPLIER CO</label>
-															      </div>
-															      <div class="multiple-choice">
-															        <input id="all" type="checkbox" name="org-type-filter" value="all" checked="checked"> 
-															        <label for="all">HEAVY INDUSTRIES LLC</label>
-															      </div>
-
-				                        </div>
-				                    </div>
-				                </fieldset>
-                    </form>
-                </div>
-                <div class="column-two-thirds">
         <table class="small responsive">
             <thead>
             <tr>
-                <th>Apprentice<span class="form-hint">ULN/Employer</span></th>
-                <th>Apprenticeship<span class="form-hint">Level</span></th>
+                <th>Apprenticeship <span class="form-hint">Level</span></th>
+                <th>Total cost</th>
                 <th>Training provider</th>
-                <th>Amount</th>
-                <th>Type</th>
-                <th></th>
+                <th>Apprenticeship status</th>
             </tr>
             </thead>
             <tbody>
@@ -213,114 +180,23 @@
                 <td>Loading</td>
                 <td>Loading</td>
                 <td>Loading</td>
-                <td>Loading</td>
-                <td><a href="apprentice.html">Details</a></td>
             </tr>
             </tbody>
-<tfoot class="total">
-            <tr>
-    <th>Total</th>
-    <th></th>
-    <th></th>
-    <th>£28,800.00</th>
-                <th></th>
-                <th></th>
-    </tr>
-            </tfoot>
-
-        </table>                   
-                </div>
-            </div>
-            
-
-            
-            <!-- pagination here -->
-            <div class="page-navigation">
-                    <a class="page-navigation__btn previous hidden">
-                        <i class="arrow-button fa fa-angle-left"></i>
-                        <span class="description">Previous <span class="hide-mob">page</span></span>
-                        <span class="counter">Page <span class="nextPage">1</span> of <span class="totalPage">2</span></span>
-                    </a>
-
-
-
-                    <a style="" class="page-navigation__btn next">
-                        <i class="arrow-button fa fa-angle-right"></i>
-                        <span class="description">Next <span class="hide-mob">page</span></span>
-                        <span class="counter">Page <span class="nextPage">2</span> of <span class="totalPage">2</span></span>
-                    </a>
-
-                </div>            
-            
-                        <div class="grid-row">
-        <div class="column-two-thirds">
-                        <details role="group">
-                <summary role="button" aria-controls="details-content-0" aria-expanded="false">What does this table show</summary>
-                <div class="panel panel-width-thin" id="details-content-0" aria-hidden="true">
-<p>THIS SHOWS LINE BY LINE THE PAYMENTS THAT ARE IMPACTING YOUR FORECAST.</p>
-                </div>
-            </details>
-            
-
-    
-    
-        </div>
-    </div>
-            
-
-            
-            
-        </div>
-        
-        <div id="apprenticeship">
-        <table class="small responsive">
-            <thead>
-            <tr>
-                <th>Apprenticeship<span class="form-hint">Level</span></th>
-                <th>Amount</th>
-                <th>Type</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>Loading</td>
-                <td>Loading</td>
-                <td>Loading</td>
-            </tr>
-            </tbody>
-<tfoot class="total">
-            <tr>
-    <th>Total</th>
-    <th>£0.00</th>
-                <th></th>
-    </tr>
-            </tfoot>
+<tfoot class="total"></tfoot>
 
         </table>
-                        <div class="grid-row">
-        <div class="column-two-thirds">
-                        <details role="group">
-                <summary role="button" aria-controls="details-content-0" aria-expanded="false">What does this table show</summary>
-                <div class="panel panel-width-thin" id="details-content-0" aria-hidden="true">
-<p>THIS SHOWS LINE BY LINE THE PAYMENTS THAT ARE IMPACTING YOUR FORECAST.</p>
-                </div>
-            </details>
-            
-
-   
-    
-        </div>
-    </div>
-        </div>
         
-        <div id="provider">
+    </div>
+
+
+    <div id="tab-2" class="tab-content" style="display: none;">
         <table class="small responsive">
             <thead>
             <tr>
-                <th>Provider</th>
-                <th>Amount</th>
-                <th class="highlight">Co-investment due</th>
-                <th>Type</th>
+                <th>Apprenticeship <span class="form-hint">Level</span></th>
+                <th>Total cost</th>
+                <th>Employer</th>
+                <th>Apprenticeship status</th>
             </tr>
             </thead>
             <tbody>
@@ -328,40 +204,25 @@
                 <td>Loading <span class="form-hint">Loading</span></td>
                 <td>Loading</td>
                 <td>Loading</td>
-                <td class="highlight">Loading</td>
+                <td>Loading</td>
             </tr>
             </tbody>
-<tfoot class="total">
-            <tr>
-    <th>Total</th>
-    <th>£0.00</th>
-    <th class="highlight">£0.00</th>
-    <th></th>
-    </tr>
-            </tfoot>
+<tfoot class="total"></tfoot>
+
         </table>
-            <div class="grid-row">
-        <div class="column-two-thirds">
-                        <details role="group">
-                <summary role="button" aria-controls="details-content-0" aria-expanded="false">What does this table show</summary>
-                <div class="panel panel-width-thin" id="details-content-0" aria-hidden="true">
-<p>THIS SHOWS LINE BY LINE THE PAYMENTS THAT ARE IMPACTING YOUR FORECAST.</p>
-                </div>
-            </details>
-            
-
-     
-    
-        </div>
-    </div>            
-        </div>
-
     </div>
+</div> 
+    <br>
+    <br>
+                                <a class="button">Download information as a CSV</a>
+    
 
+<br>
+<br>
  
          <div class="info-highlighted">
                         <h3 class="heading-medium">Disclaimer</h3>
-                        <p>This tool is designed to illustrate what your funds may look like based on the apprenticeships currently in your apprenticeship service account and the funding band maximum for the estimated apprenticeships you have added, using this estimator.</p>
+                        <p>This tool is designed to illustrate what your funds may look like based on the apprenticeships currently in your apprenticeship service account and the funding band maximum for the estimated apprenticeships you have added, using this forecasting tool.</p>
                         <p> The actual amount of funds available is likely to vary if there are any changes made to your apprenticeship arrangements, including, for example, changes in the number of apprentices employed, or the cost and duration of their training. </p>
                         <p>You should therefore not rely solely on the information provided by this tool when making decisions about the transfer of funds.</p>
     

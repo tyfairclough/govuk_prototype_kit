@@ -1344,6 +1344,19 @@ dl.course-details {
     dd { float: left; display: inline-block;}
 }
 
+table {
+    &.responsive {
+        tr {
+            th, td {
+                &.highlight {
+                    &:last-child {
+                        padding-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
 
 
 td, th {
