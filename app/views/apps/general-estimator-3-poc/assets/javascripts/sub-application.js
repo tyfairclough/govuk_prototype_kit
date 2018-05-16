@@ -163,7 +163,7 @@ $('.tooltip').tooltipster({
             var content = "";
             //var pos = "";
             for (i = 0; i < data.month_apprentice.elements.length; i++) {   
-                    content += '<tr><td>' + data.month_apprentice.elements[i].apprentice + '<span class="form-hint">'+ data.month_apprentice.elements[i].ULN_provider +'</span></td><td>' + data.month_apprentice.elements[i].apprenticeship + '<span class="form-hint">'+ data.month_apprentice.elements[i].apprenticeship_level +'</span></td><td>' + data.month_apprentice.elements[i].training_provider + '</td><td>' + data.month_apprentice.elements[i].amount + '</td><td>' + data.month_apprentice.elements[i].type + '</td><td><a href="apprentice.html">Details</a></tr>';
+                    content += '<tr><td>' + data.month_apprentice.elements[i].apprentice + '<span class="form-hint">'+ data.month_apprentice.elements[i].ULN_provider +'</span></td><td>' + data.month_apprentice.elements[i].apprenticeship + '<span class="form-hint">'+ data.month_apprentice.elements[i]    .apprenticeship_level +'</span></td><td>' + data.month_apprentice.elements[i].training_provider + '</td><td>' + data.month_apprentice.elements[i].amount + '</td><td>' + data.month_apprentice.elements[i].type + '</td><td><a href="apprentice.html">Details</a></tr>';
               
             }
             renderTableApprentice(content);  
@@ -458,7 +458,7 @@ $('.tooltip').tooltipster({
                         } else {
                     content += '<a href="details?month='+ data.transfer.elements[i].date +'">' + data.transfer.elements[i].date + '</a>';                        
                         }
-                    content += '</td><td class="numeric">' + data.transfer.elements[i].actual_costs + '</td><td class="numeric">' + data.transfer.elements[i].completion_payments + '</td><td class="numeric">' + data.transfer.elements[i].modelled_costs + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].expired_funds + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].funds_in + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].transfer_balance + '</td><td class="numeric">' + data.transfer.elements[i].levy_balance + '</td><td class="highlight numeric' + redClass + '">' + data.transfer.elements[i].coinvestment_due + '</td></tr>';
+                    content += '</td><td class="numeric">' + data.transfer.elements[i].actual_costs + '</td><td class="numeric">' + data.transfer.elements[i].modelled_costs + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].expired_funds + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].funds_in + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].transfer_balance + '</td><td class="numeric">' + data.transfer.elements[i].levy_balance + '</td><td class="highlight numeric' + redClass + '">' + data.transfer.elements[i].coinvestment_due + '</td></tr>';
                 }
                 
                 
