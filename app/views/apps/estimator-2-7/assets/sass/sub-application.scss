@@ -1165,79 +1165,85 @@ dl.confirm-details {
 
 
 .page-navigation {
-  padding-top: 10px;
+    + .page-navigation {
+        display: none;
+    }
+    padding-top: 10px;
+    .description {
+        display: block
+    }
+    .counter {
+        display: block;
+        font-size: 14px
+    }
+    a, .page-navigation__btn {
+        display: none;
+        font-size: 1em;
+        margin-right: -4px;
+        overflow: hidden;
+        padding: 1.2em 0.6em;
+        text-decoration: none;
+        vertical-align: top;
+        width: 50%;
+        box-sizing: border-box;
+        &:hover, &:focus, &:active {
+                text-decoration: underline;
+                background-color: #F8F8F8;
+                .arrow-button {
+                    color: #2e8aca
+                }
+            }
+        .arrow-button {
+            color: #2e358b;
+            float: left;
+            font-size: 3.5em;
+            margin-right: 10px;
+            margin-top: -0.2em
+        }        
+        &.previous, &:first-child {
+            text-align: left;     
+                &:before {
+                font-family: FontAwesome;
+                content: "\f104";
+                padding-right: 10px;
+                font-size: 64px;
+                top: 15px;
+                position: relative;                    
+                    }
+            }
+        &.next, &:last-child {
+            text-align: right;
+            &:after {
+                font-family: FontAwesome;
+                content: "\f105";
+                padding-left: 10px;
+                font-size: 64px;
+                top: 15px;
+                position: relative;
+            }
+                .arrow-button {
+                    float: right;
+                    margin-left: 10px;
+                    margin-right: 0
+                }            
+            }
+        &:first-child, &:last-child {
+                    display: inline-block;
+        }
+        
+    }        
 }
 
-table + .page-navigation {
-    padding-top: 0;
-    margin-top: -20px;
-    margin-bottom: 10px;
-}
-
-.page-navigation .page-navigation__btn {
-  display: inline-block;
-  font-size: 1em;
-  margin-right: -4px;
-  overflow: hidden;
-  padding: 1.2em 0.6em;
-  text-decoration: none;
-  vertical-align: top;
-  width: 50%;
-  box-sizing: border-box;
-}
-
-.page-navigation .page-navigation__btn:hover, .page-navigation .page-navigation__btn:focus {
-  background-color: #F8F8F8;
-}
-
-.page-navigation .page-navigation__btn:active, .page-navigation .page-navigation__btn:focus {
-  background-color: #f8f8f8;
-}
-
-.page-navigation .page-navigation__btn:hover .arrow-button {
-  color: #2e8aca;
-}
-
-.page-navigation .page-navigation__btn.previous {
-  text-align: left;
-}
-
-.page-navigation .page-navigation__btn.next {
-  text-align: right;
-}
-
-.page-navigation .page-navigation__btn.next .arrow-button {
-  float: right;
-  margin-left: 10px;
-  margin-right: 0;
-}
-
-.page-navigation .page-navigation__btn.jp-disabled {
-  visibility: hidden;
-}
-
-.page-navigation .page-navigation__btn .description {
-  display: block;
-}
-
-.page-navigation .page-navigation__btn .counter {
-  display: block;
-  font-size: 14px;
-}
-
-.page-navigation .page-navigation__btn .arrow-button {
-  color: #2e358b;
-  float: left;
-  font-size: 3.5em;
-  margin-right: 10px;
-  margin-top: -0.2em;
-}
 
 @media (max-width: 640px) {
-  .page-navigation .hide-mob {
-    display: none;
-  }
+    .page-navigation {
+        .hide-mob {
+            display: none
+        }        
+    }
 }
+
+
 // word count patten
 
 .sfa-form-control-after {
@@ -1344,19 +1350,6 @@ dl.course-details {
     dd { float: left; display: inline-block;}
 }
 
-table {
-    &.responsive {
-        tr {
-            th, td {
-                &.highlight {
-                    &:last-child {
-                        padding-right: 10px;
-                    }
-                }
-            }
-        }
-    }
-}
 
 
 td, th {
@@ -1789,14 +1782,6 @@ li.added + li {
                 background: mix(#0b0c0c,#fff,50);
             }
         }
-    &.green {
-            background: $green;
-            color: $white;
-            &:hover {
-                background: mix(green,#fff,50);
-                background: mix($green,white,50);
-            }
-        }
         span {
             margin: 5px -10px -20px;
             padding: 10px;
@@ -2037,6 +2022,7 @@ li.added + li {
     height: 34px;
     position: absolute;
     top: 0;
+    left: -38px;
 }
 
 @media (min-width: 641px) {
@@ -2271,9 +2257,9 @@ table.footable>tfoot>tr.footable-paging>td>span.label {
     }
     .tab-content {
         overflow: auto;
-        border-top: 1px solid $grey-2;
+        border: 1px solid $grey-2;
         border-top: 0;
-        padding: 15px 1px;
+        padding: 15px;
     }
 }
 
@@ -4233,52 +4219,4 @@ table.results-table td.training-column {
         background: mix($red, white, 10%);
         
     }
-}
-
-table th {
-    font-weight: 700;
-}
-
-ul.list.pill {
-    li {
-        display: inline-block;
-        margin-right: 5px;
-        a {
-            padding: 10px 15px;
-            font-size: 16px;
-            border-radius: 3px;
-            &:hover {
-                background: $grey-3;
-                border-bottom-width: 5px;
-                border-bottom-style: solid;
-                border-bottom-color:  mix($grey-3,black,80%);                    
-            }
-            &:focus {
-                background: $focus-colour;
-                border-bottom-width: 5px;
-                border-bottom-style: solid;
-                border-bottom-color:  $focus-colour;
-            }
-        }
-        &.active {
-        a {
-                background: $govuk-blue;
-                border-bottom-width: 5px;
-                border-bottom-style: solid;
-                border-bottom-color: mix($govuk-blue, black, 60%);            
-                color: $white;
-                text-decoration: none;
-            &:hover {
-                background: mix($govuk-blue, black, 60%);
-                border-bottom-color: mix($govuk-blue, black, 20%);            
-                
-            }
-        }
-        }
-
-    }
-}
-
-.indent {
-    padding-left: 25px;
 }
