@@ -1789,6 +1789,14 @@ li.added + li {
                 background: mix(#0b0c0c,#fff,50);
             }
         }
+    &.green {
+            background: $green;
+            color: $white;
+            &:hover {
+                background: mix(green,#fff,50);
+                background: mix($green,white,50);
+            }
+        }
         span {
             margin: 5px -10px -20px;
             padding: 10px;
@@ -4269,4 +4277,8 @@ ul.list.pill {
         }
 
     }
+}
+
+.indent {
+    padding-left: 25px;
 }
