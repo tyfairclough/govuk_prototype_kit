@@ -383,7 +383,7 @@ var scenario =  getQueryVariable("scenario");
    
    
 /*----- TABS -----*/
-    $(".tab-content").not("#tab-1").css("display", "block");
+    $(".tab-content").not("#tab-1").css("display", "none");
 
     //tabs pattern
     $(".tabs-menu a").click(function(event) {
