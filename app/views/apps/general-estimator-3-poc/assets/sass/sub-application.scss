@@ -1717,6 +1717,12 @@ li.added + li {
         }
     }
     
+    i {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    
         &.fuschia {
             background: $fuschia;
             color: $white;
@@ -1807,6 +1813,7 @@ li.added + li {
             }
         }
         &:hover {
+            cursor: pointer;
             span i {
                 visibility: visible;
             }

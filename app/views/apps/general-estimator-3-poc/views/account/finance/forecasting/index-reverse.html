@@ -6,8 +6,8 @@
     
     
 <a href="../index.html" class="link-back">Back</a>
-    <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
-
+<script src="https://unpkg.com/tippy.js@2.5.2/dist/tippy.all.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     
     <div class="grid-row">
         <div class="column-two-thirds">
@@ -47,7 +47,7 @@
     <div class="grid-row">
     <div class="column-two-thirds">
 <div class="hgroup form-group">
-           <h1 class="heading-xlarge">
+    <h1 class="heading-xlarge">
                Funding forecast
             </h1>
           <p>The figures below show the forecast funds that will be available to you for the duration of your apprenticeships.</p> 
@@ -137,7 +137,8 @@
     <h3 class="heading-medium">April 2018 to March 2019</h3>
 <div class="grid-row">
     <div class="column-third">
-        <div class="data blue">
+        <div class="data blue tippy" data-tippy-trigger="click" title="<p class='bold-small'>This shows the total years funds you have not spent.</p>">
+            <i class="fa fa-question-circle"></i>
             <span class="bold-medium">Funds available</span>
             <span class="small">£142,000.00 funds remaining</span>
         </div>
@@ -145,7 +146,8 @@
                
     </div>
     <div class="column-third">
-        <div class="data blue">
+        <div class="data blue tippy" data-tippy-trigger="click" title="<p class='bold-small'>This figure shows how much of your 10% transfer allowance you have left in this year.</p>">
+            <i class="fa fa-question-circle"></i>
             <span class="bold-medium">You can transfer funds</span>
             <span class="small">£15,000.00 available</span>
         </div>
@@ -153,7 +155,8 @@
                 
     </div>
     <div class="column-third">
-        <div class="data blue">
+        <div class="data blue tippy" data-tippy-trigger="click" title="<p class='bold-small'>This shows the total years funds you have not spent.</p>">
+            <i class="fa fa-question-circle"></i>
             <span class="bold-medium">No funds expire</span>
             <span class="small">£0.00</span>
         </div>
@@ -303,6 +306,14 @@
     </div>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+    <script>
+tippy('.tippy',{
+    arrow: true,
+    allowTitleHTML: true,
+    size: 'large',
+    duration: 0
+})
+</script>
 
 
 </main><!-- / #content -->
