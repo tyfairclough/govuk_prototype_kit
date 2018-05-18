@@ -48,18 +48,33 @@ var scenario =  getQueryVariable("scenario");
 
         function showInfoA(data, tabletop) {
             loadArrayTransfers(data);
-            //loadArrayFunds(data);
+            loadArrayFunds(data);
             loadArrayApprenticeships(data);
         }
+        
+        
+        ///
+        /// Transfer allowance remaining
+        ///
         
         
         function loadArrayTransfers(data) {
             var content = "";
             //var pos = "";
-            for (i = 0; i < data.transfers.elements.length; i++) {   
-content += '<tr><td>' + data.transfers.elements[i].apprenticeship + '<span class="form-hint">Level '+ data.transfers.elements[i].level +'</span></td><td>' + data.transfers.elements[i].number +'</td><td>' + data.transfers.elements[i].total_cost +'</td><td>' + data.transfers.elements[i].training_provider + '</td><td>' + data.transfers.elements[i].status + '</td><td></tr>';
-              
-            }
+            for (i = 0; i < data.transfers.elements.length; i++) {                   
+                if ($.inArray(i,[0,14,27,41]) > -1 ) {
+                    content += '<tr><td colspan="8">'+ data.transfers.elements[i].date +'</td></tr>';
+
+                }   else {
+                            content += '<tr>';
+                            content += '<td>' + data.transfers.elements[i].date + '</td>';
+                            content += '<td>' + data.transfers.elements[i].actual +'</td>';
+                            content += '<td>' + data.transfers.elements[i].estimated + '</td>';
+                            content += '<td>' + data.transfers.elements[i].balance + '</td>';
+                            content += '</tr>';
+                            }                
+                
+                    }
             renderTableTransfers(content);  
         }
         
@@ -68,6 +83,11 @@ content += '<tr><td>' + data.transfers.elements[i].apprenticeship + '<span class
                 $("#tab-2 tbody").html(content);
             });
         }
+        
+        
+        ///
+        /// Apprenticeships Added
+        ///
         
         
         function loadArrayApprenticeships(data) {
@@ -82,7 +102,7 @@ content += '<tr><td>' + data.transfers.elements[i].apprenticeship + '<span class
                 content += '<td>' + data.apprenticeships.elements[i].monthly + '</td>';
                 content += '<td>' + data.apprenticeships.elements[i].x_payments + '</td>';
                 content += '<td>' + data.apprenticeships.elements[i].completion + '</td>';
-                content += '<td>' + data.apprenticeships.elements[i].type + '</td>';
+                //content += '<td>' + data.apprenticeships.elements[i].type + '</td>';
                 content += '<td><a href="add-apprenticeships.html">Edit</a></td>';
                 content += '<td><a href="add-apprenticeships.html">Remove</a></td>';
                 content += '</tr>';
@@ -94,6 +114,38 @@ content += '<tr><td>' + data.transfers.elements[i].apprenticeship + '<span class
         function renderTableApprenticeships(content) {
             $(document).ready(function () {
                 $("#tab-1 tbody").html(content);
+            });
+        }
+        
+        ///
+        /// ACCOUNT FUNDS
+        ///
+        
+        
+        function loadArrayFunds(data) {
+            var content = "";
+            //var pos = "";
+            for (i = 0; i < data.funds.elements.length; i++) {   
+                
+                if ($.inArray(i,[0,14,27,41]) > -1 ) {
+                    content += '<tr><td colspan="8">'+ data.funds.elements[i].date +'</td></tr>';
+
+                }   else {
+                            content += '<tr>';
+                            content += '<td>' + data.funds.elements[i].date + '</td>';
+                            content += '<td>' + data.funds.elements[i].actual +'</td>';
+                            content += '<td>' + data.funds.elements[i].estimated + '</td>';
+                            content += '<td>' + data.funds.elements[i].balance + '</td>';
+                            content += '</tr>';
+                            }                
+                
+                    }                
+            renderTableFunds(content);  
+        }
+        
+        function renderTableFunds(content) {
+            $(document).ready(function () {
+                $("#tab-3 tbody").html(content);
             });
         }
         
@@ -331,7 +383,7 @@ content += '<tr><td>' + data.transfers.elements[i].apprenticeship + '<span class
    
    
 /*----- TABS -----*/
-    $(".tab-content").not("#tab-1").css("display", "none");
+    $(".tab-content").not("#tab-1").css("display", "block");
 
     //tabs pattern
     $(".tabs-menu a").click(function(event) {
