@@ -1,0 +1,309 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="forecast-details" id="content" role="main" tabindex="-1">
+    
+    
+<a href="../index.html" class="link-back">Back</a>
+    <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
+
+    
+    <div class="grid-row">
+        <div class="column-two-thirds">
+                <div class="error-summary" id="errorOne">
+                    <h3 class="heading-medium">You can’t fund these apprenticeships</h3>
+                    <p>You don't have enough transfer allowance to fund these apprenticeships.</p>
+                </div> 
+                <div class="error-summary">
+                    <h3 class="heading-medium">You can’t fund these apprenticeships</h3>
+                    <p>You have enough funds but not enough transfer allowance to fund these apprenticeships.</p>
+                </div> 
+            
+                <div class="error-summary">
+                    <h3 class="heading-medium">You can’t fund these apprenticeships</h3>
+                    <p>You have have not exceeded your transfer allowance but you do not enough funds for these apprenticeships.</p>
+                </div> 
+            
+                <div class="error-summary">
+                    <h3 class="heading-medium">You can’t fund these apprenticeships</h3>
+                    <p>You don't have sufficient levy funds.</p>
+                </div> 
+            
+            <div class="success-summary">
+                    <h3 class="heading-medium">Apprenticeship removed</h3>
+                    <p>The apprenticeship details you’ve deleted are no longer included in the estimation.</p>
+                </div>
+            <div class="success-summary">
+                    <h3 class="heading-medium">Apprenticeship updated</h3>
+                </div> 
+            <div class="success-summary">
+                    <h3 class="heading-medium">Yes, you can fund these apprenticeships</h3>
+                    <p>For more detail look at the monthly account estimation.</p>
+                </div> 
+        </div>
+    </div>
+    
+    <div class="grid-row">
+    <div class="column-two-thirds">
+<div class="hgroup form-group">
+           <h1 class="heading-xlarge">
+               Funding forecast
+            </h1>
+          <p>The figures below show the forecast funds that will be available to you for the duration of your apprenticeships.</p> 
+    <p class="text">This forecast is based on <span class="bold-small">782 apprentices</span> and <span class="bold-small">50 estimated apprentices</span>. You can view the <a href="full-view.html">full forecast details</a> for further information.</p>
+
+<p><a class="button" href="add-apprenticeship?scenario=2">Estimate apprenticeships you could fund</a></p>
+            
+
+
+        </div>
+        
+      </div>
+       <div class="column-one-third">
+            <div class="related">
+                <div class="">
+            <h4 class="heading-small">Save and share forecast</h4>
+        <ul class="list list-bullets">
+        <li><a href="#viz">Share this forecast</a></li>
+        <li><a href="#apprentice">Open a shared forecast</a></li>
+        <li><a href="#apprentice">Create a new forecast</a></li>
+        </ul>
+            </div>
+    
+                
+                <h3 class="heading-small">Download this forecast</h3>
+          <div class="form-group">
+                <ul class="list list-links">
+                    
+                    <li><a href="https://docs.google.com/spreadsheets/d/1_yjbscs03rDlFW3D7viy_Fk6cPmFkrfvPykbILGxWjI/edit?usp=sharing" class="" data-clipboard-action="copy" data-clipboard-target="#balancesheet">
+    Monthly totals as a CSV file
+</a> 
+                        <br>
+                        <br>
+                                        <details>
+                    <summary>What does the download include?</summary>
+ <p>The download shows each transaction for every month displayed in the forecast including the following data:</p>
+            <ul class="list list-bullet">
+                <li>Funds in</li>
+                <li>Transferred funds in</li>
+                <li>Cost of training</li>
+                <li>Estimated cost of training</li>
+                <li>Apprentices you’re funding but have not yet been paid</li>
+                <li>Expired funds</li>
+                <li>Co-investment payments due</li>
+            </ul>                    
+                </details>
+                    </li>     
+                    <li class="hidden"><a href="https://docs.google.com/spreadsheets/d/11wPisEGQu6R8xib1Yi4nz-5NC7WXrL3kkkuxVzZt-Lw/edit?usp=sharing" class="" data-clipboard-action="copy" data-clipboard-target="#balancesheet">
+    All apprenticeships as a CSV file
+</a>
+                                        <details>
+                    <summary>What does the download include?</summary>
+ <p>The download shows each transaction for every month displayed in the forecast including the following data:</p>
+            <ul class="list list-bullet">
+                <li>Funds in</li>
+                <li>Transferred funds in</li>
+                <li>Cost of training</li>
+                <li>Estimated cost of training</li>
+                <li>Apprentices you’re funding but have not yet been paid</li>
+                <li>Expired funds</li>
+                <li>Co-investment payments due</li>
+            </ul>                    
+                </details>
+                    </li>
+                    <li class="hidden">    <a href="#" class="" data-clipboard-action="copy" data-clipboard-target="#balancesheet">
+    Copy to a spreadsheet
+</a></li>
+                </ul>
+                
+            </div>   
+
+  
+</div>
+        </div>
+    </div>
+    
+    <div class="grid-row hidden">
+        <div class="column-two-thirds">
+            <div class="panel panel-width-thin">
+                <p>You have not selected any apprenticeships for your estimation. You need to <a href="#">select at least one apprenticeship</a> to make an estimation.</p>
+            </div>        
+        </div>
+    </div>
+
+    
+
+    <h3 class="heading-medium">April 2018 to March 2019</h3>
+<div class="grid-row">
+    <div class="column-third">
+        <div class="data blue">
+            <span class="bold-large">£142,000.00</span>
+            <span class="small">Funds remaining</span>
+        </div>
+        <br>
+               
+    </div>
+    <div class="column-third">
+        <div class="data blue">
+            <span class="bold-large">£15,000.00</span>
+            <span class="small">Transfer allowance available</span>
+        </div>
+        <br>
+                
+    </div>
+    <div class="column-third">
+        <div class="data blue">
+            <span class="bold-large">£0.00</span>
+            <span class="small">Funds due to expire</span>
+        </div>
+        <br>
+   
+    </div>
+</div>
+    
+    
+    <h3 class="heading-medium">April 2019 to March 2020</h3>
+<div class="grid-row">
+    <div class="column-third">
+        <div class="data blue">
+            <span class="bold-large">£72,000.00</span>
+            <span class="small">Funds remaining</span>
+        </div>
+        <br>
+               
+    </div>
+    <div class="column-third">
+        <div class="data blue">
+            <span class="bold-large">£15,000.00</span>
+            <span class="small">Transfer allowance available</span>
+        </div>
+        <br>
+                
+    </div>
+    <div class="column-third">
+        <div class="data blue">
+            <span class="bold-large">£0.00</span>
+            <span class="small">Funds due to expire</span>
+        </div>
+        <br>
+   
+    </div>
+</div>
+    
+    <h3 class="heading-medium">April 2020 to March 2021</h3>
+<div class="grid-row">
+    <div class="column-third">
+        <div class="data blue">
+            <span class="bold-large">£2,000.00</span>
+            <span class="small">Funds remaining</span>
+        </div>
+        <br>
+               
+    </div>
+    <div class="column-third">
+        <div class="data red">
+            <span class="bold-large">-£15,000.00</span>
+            <span class="small">Transfer allowance available</span>
+        </div>
+        <br>
+                
+    </div>
+    <div class="column-third">
+        <div class="data red">
+            <span class="bold-large">£550.00</span>
+            <span class="small">Funds due to expire</span>
+        </div>
+        <br>
+   
+    </div>
+</div>
+    
+    <h3 class="heading-medium">April 2021 to March 2022</h3>
+<div class="grid-row">
+    <div class="column-third">
+        <div class="data green">
+            <span class="bold-large">£9,500.00</span>
+            <span class="small">Co-investment</span>
+        </div>
+        <br>
+               
+    </div>
+    <div class="column-third">
+        <div class="data blue">
+            <span class="bold-large">£50.00</span>
+            <span class="small">Transfer allowance available</span>
+        </div>
+        <br>
+                
+    </div>
+    <div class="column-third">
+        <div class="data red">
+            <span class="bold-large">£550.00</span>
+            <span class="small">Funds due to expire</span>
+        </div>
+        <br>
+   
+    </div>
+</div>
+
+
+         
+            
+            <div class="grid-row">
+        <div class="column-two-thirds">
+                <details>
+                    <summary>What these figures are based on</summary>
+
+<p>These figures are based on the current information in your account and the data provided by your training provider which is used to calculate funding.</p>
+            <h3 class="heading-small">Included in this forecast</h3>
+            <ul class="list list-bullet">
+                <li>opening balance from current month</li>
+                <li>monthly levy funds based on your last 12 months average levy paid</li>
+                <li>cost of training for apprentices who have started</li>
+                <li>cost of training for apprentices who are approved and due to start</li>
+                <li>cost of training for apprentices that you have estimated</li>
+                <li>cost of training for apprentices that you have paid on behalf of another employer</li>
+                <li>cost of any co-investment due to your training providers</li>
+                <li>expired funds</li>
+                <li>Your annaul transfer allowance</li>
+            </ul>
+            <h3 class="heading-small">Not included in this forecast</h3>
+            <ul class="list list-bullet">
+                <li>apprentices who are not approved in your account</li>
+                <li>paused apprentices</li>
+                <li>stopped apprentices</li>
+            </ul>
+            
+            <h3 class="heading-small">Quirks</h3>
+            <ul class="list list-bullet" style="text-transform:uppercase;">
+                <li>If an apprentice has started but not been paid we assume that the following month they will be, this would include all outstanding payments.</li>
+                <li>Your transfer allowance is calculated on the last financial year and reset in the following month of May.</li>
+                <li>We only show the co-investment due from you and not the 90% paid by the government. Neither figure affects your funding balance.</li>
+                <li>The current months estimate may change depending on if the current month's payments in and out have happened. <a href="#">More information</a></li>
+            </ul>
+
+        
+    </details>
+            
+<div class="info-highlighted">
+                        <h3 class="heading-medium">Guarantee</h3>
+                        <p>This tool is designed to illustrate what your funds may look like based on the apprenticeships currently in your apprenticeship service account and the funding band maximum for the estimated apprenticeships you have added, using this estimator.</p>
+                        <p> The actual amount of funds available is likely to vary if there are any changes made to your apprenticeship arrangements, including, for example, changes in the number of apprentices employed, or the cost and duration of their training. </p>
+                        <p>You should therefore not rely solely on the information provided by this tool when making decisions about the transfer of funds.</p>
+    
+    
+  
+
+
+    
+                    </div>        
+    
+        </div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+
+
+</main><!-- / #content -->
+{% endblock %}
