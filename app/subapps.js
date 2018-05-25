@@ -40,7 +40,8 @@ let getSubAppData = function(currentPath) {
 	let appRouteString = appAbsolutePath + 'views/'
 	// the title based on the app's directory/folder name. Set to be sentance-case
 	//let title = sentenceCase(appDirName)
-	let title = appDirName
+//	let title = decodeURI(appDirName)
+    let title = appDirName.replace(/_/g," ")
 	
 	// returns and object of data derrived from the subapp path that was passed in
   return {
