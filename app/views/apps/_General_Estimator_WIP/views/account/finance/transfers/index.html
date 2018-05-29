@@ -1,0 +1,51 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="transfers-dashboard" id="content" role="main" tabindex="-1">
+    {% include "includes/link-back.html" %}
+
+<div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="hgroup">
+            <h1 class="heading-xlarge">
+        Transfers
+      </h1>
+                
+                    <div class="grid-row">
+    <div class="column-two-thirds">
+<div class="data fuscia">
+                    <h2 class="data-item bold-xlarge committed-funds">£15,000</h2>
+                    <h2 class="data-item bold-small">Remaining transfer allowance</h2>
+            </div>
+        <br>
+    </div>
+</div> 
+</div>
+
+                
+                <p>Before getting started, both the sending and receiving employers need to read and understand the <a href="#">rules for sending and receiving transfers</a> and sign the updated organisation agreement.</p>
+            
+            <p>The sending employer needs the receiving employer's account ID to make a connection. We currently limit the sending employer to 1 active connection request.</p>
+                
+            <a href="#" class="button">Sign agreement</a>            <a href="start-transfer.html" class="button text-link">Estimate your transfer funds</a>
+            
+        </div>
+    </div> 
+            
+<div id="transactions" class="container" style="">
+                    <h2 class="heading-medium">Connection requests</h2>
+     
+    <p>You have no prending or approved requests</p>
+    
+
+<!-- RECEIVER END -->         
+            
+        <h2 class="heading-medium">Transfer requests</h2>
+       
+           <p>You have no prending or approved requests</p>
+
+        
+        </div>    
+
+</main><!-- / #content -->
+{% endblock %}

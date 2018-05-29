@@ -1,0 +1,290 @@
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% extends currentApp.filePaths.layoutsDir + "default.html" %}
+{% block main_content %}
+
+<main class="forecast-details" id="content" role="main" tabindex="-1">
+    
+    
+<a href="../index.html" class="link-back">Back</a>
+    <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
+
+    
+    <div class="grid-row">
+        <div class="column-two-thirds">
+                <div class="error-summary" id="errorOne">
+                    <h3 class="heading-medium">You can’t fund these apprenticeships</h3>
+                    <p>You don't have enough transfer allowance to fund these apprenticeships.</p>
+                </div> 
+                <div class="error-summary">
+                    <h3 class="heading-medium">You can’t fund these apprenticeships</h3>
+                    <p>You have enough funds but not enough transfer allowance to fund these apprenticeships.</p>
+                </div> 
+            
+                <div class="error-summary">
+                    <h3 class="heading-medium">You can’t fund these apprenticeships</h3>
+                    <p>You have have not exceeded your transfer allowance but you do not enough funds for these apprenticeships.</p>
+                </div> 
+            
+                <div class="error-summary">
+                    <h3 class="heading-medium">You can’t fund these apprenticeships</h3>
+                    <p>You don't have sufficient levy funds.</p>
+                </div> 
+            
+            <div class="success-summary">
+                    <h3 class="heading-medium">Apprenticeship removed</h3>
+                    <p>The apprenticeship details you’ve deleted are no longer included in the estimation.</p>
+                </div>
+            <div class="success-summary">
+                    <h3 class="heading-medium">Apprenticeship updated</h3>
+                </div> 
+            <div class="success-summary">
+                    <h3 class="heading-medium">Yes, you can fund these apprenticeships</h3>
+                    <p>For more detail look at the monthly account estimation.</p>
+                </div> 
+        </div>
+    </div>
+    
+    <div class="grid-row">
+    <div class="column-two-thirds">
+<div class="hgroup form-group">
+           <h1 class="heading-xlarge">
+               Funding forecast
+            </h1>
+          <p>The figures below show the estimated funds that may be available to you for the duration of your apprenticeships.</p> 
+    <details>
+        <summary>More information</summary>
+        <p>These figures are based on the current information in your account and the data provided by your training provider which is used to calculate funding. The table shows the monthly projection figures until April 2022.</p>
+            <p>Once you have your projection of funds, you can <a href="../estimate/start-estimate.html">estimate how many apprenticeships you could fund</a> in the future - either by transferring any remaining funds to another employer, or by taking on more apprentices yourself.</p>
+    </details>
+
+ <br>
+
+<p><a class="button" href="add-apprenticeship?scenario=2">Estimate apprenticeships you could fund</a></p>
+            
+
+
+        </div>
+        
+      </div>
+       <div class="column-one-third">
+            <div class="related">
+                <div class="">
+            <h4 class="heading-small" style="text-transform:uppercase;">Share forecast</h4>
+                    <p style="text-transform:uppercase;">You can share different saved versions of your forecast with colleagues.</p>
+        <ul class="list list-bullets">
+        <li><a href="#viz">Share this forecast</a></li>
+        <li><a href="#apprentice">Open a shared forecast</a></li>
+        </ul>
+            </div>
+           
+            <h3 class="heading-small">Download this data</h3>
+          <div class="form-group">
+                <ul class="list list-links">
+                    
+                    <li><a href="#" class="" data-clipboard-action="copy" data-clipboard-target="#balancesheet">
+    Download as a CSV file
+</a>  </li>
+                    <li class="hidden">    <a href="#" class="" data-clipboard-action="copy" data-clipboard-target="#balancesheet">
+    Copy to a spreadsheet
+</a></li>
+                </ul>
+                
+            </div>   
+                    <details>
+                    <summary>What does the download include?</summary>
+ <p>THE DOWNLOAD RETURNS EACH TRANSACTION FOR EVERY MONTH DISPLAYED IN THE FORECAST INCLUDING THE FOLLOWING DATA:</p>
+            <ul class="list list-bullet">
+                <li>LEVY IN</li>
+                <li>TRANSFERS IN</li>
+                <li>COST OF TRAINING</li>
+                <li>ESTIMATED COST OF TRAINING</li>
+                <li>COMMITTED BUT NOT PAID APPRENTICES</li>
+                <li>EXPIRED FUNDS</li>
+                <li>CO-INVESTMENT BALANCES DUE</li>
+            </ul>                    
+                </details>
+  
+</div>
+        </div>
+    </div>
+    
+    <div class="grid-row hidden">
+        <div class="column-two-thirds">
+            <div class="panel panel-width-thin">
+                <p>You have not selected any apprenticeships for your estimation. You need to <a href="#">select at least one apprenticeship</a> to make an estimation.</p>
+            </div>        
+        </div>
+    </div>
+    <hr>
+
+<div class="grid-row">
+    <div class="column-third">
+        <div class="data fuscia">
+            <span class="bold-large">£150,000.00</span>
+            <span class="small">May opening balance</span>
+        </div>
+        <br>
+                <details>
+            <summary>What does this figure mean?</summary>
+<p>THIS IS THE CURRENT POSITION OF YOUR ACCOUNT FROM WHICH THE ESTIMATION IS BASED UPON.</p>        </details>
+    </div>
+    <div class="column-third">
+        <div class="data pink">
+            <span class="bold-large">£14,900.00</span>
+            <span class="small">Opening transfer allowance</span>
+        </div>
+        <br>
+                <details>
+            <summary>What does this figure mean?</summary>
+<p>THIS IS THE REMAINING ALLOWANCE OF FUNDS YOU CAN TRANSFER TO ANOTHER EMPLOYER THAT HAS NOT ALREADY BEEN TRANSFERRED <A HREF="#">VIEW MORE INFORMATION ABOUT TRANSFER ALLOWANCE</A>.</p>        </details>
+    </div>
+    <div class="column-third">
+        <div class="data red">
+            <span class="bold-large">£100.00</span>
+            <span class="small">Overdue completion payments</span>
+        </div>
+        <br>
+        <details>
+            <summary>What does this figure mean?</summary>
+<p style="text-transform: uppercase;">This is the value of your overdue completion payments where the apprenticeships have overrun the planned completion date.</p>        </details>
+    </div>
+</div>
+<hr>
+<br>
+      <div class="grid-row">
+      <div class="column-full">
+        <ul class="list pill">
+            <li class="active"><a href="#" id="#calendar"  style="text-transform:uppercase;">Monthly account estimation</a></li>
+            <li><a href="#" id="#estimated"  style="text-transform:uppercase;">Estimated apprentices</a></li>
+            <li><a href="#" id="#committed" style="text-transform:uppercase;">Balance chart</a></li>
+          </ul>    
+      </div>
+      </div>
+      
+      <div id="calendar">
+        <h3 class="heading-large"  style="text-transform:uppercase;">Monthly account estimation</h3>
+          
+          
+
+          
+        <table class="small responsive" id="monthly">
+            <tbody>
+            <tr>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+            </tr>            
+            </tbody>
+
+        </table>
+      </div>
+         
+    <div id="estimated" class="form-group" style="">
+        <h3 class="heading-large">Estimated apprenticehips</h3>
+        <table class="small responsive">
+            <thead>
+            <tr>
+                <th>Apprenticeship <span class="form-hint">Level</span></th>
+                <th>Number of apprentices</th>
+                <th>Start date</th>
+                <th>Total cost</th>
+                <th>Monthly payment</th>
+                <th>Number of monthly payments</th>
+                <th>Completion payment</th>
+                <th>Status</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Loading <span class="form-hint">Loading</span></td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td><a href="remove.html">Remove</a></td>
+                <td><a href="add-apprenticeship.html">Details</a></td>
+            </tr>
+            </tbody>
+<tfoot class="total"></tfoot>
+
+        </table>
+        
+
+    </div>
+    <div id="committed" class="form-group" style="">
+        <h3 class="heading-large">Committed apprenticehips</h3>
+        <table class="small responsive">
+            <thead>
+            <tr>
+                <th>Apprenticeship <span class="form-hint">Level</span></th>
+                <th>Number of apprentices</th>
+                <th>Start date</th>
+                <th>Total cost</th>
+                <th>Monthly payment</th>
+                <th>Number of monthly payments</th>
+                <th>Completion payment</th>
+                <th>Status</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Loading <span class="form-hint">Loading</span></td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+                <td><a href="remove.html">Remove</a></td>
+                <td><a href="add-apprenticeship.html">Details</a></td>
+            </tr>
+            </tbody>
+<tfoot class="total"></tfoot>
+
+        </table>
+        
+
+    </div>
+    
+         
+            
+            <div class="grid-row">
+        <div class="column-two-thirds">
+                        <details role="group">
+                <summary role="button" aria-controls="details-content-0" aria-expanded="false">What does this table show</summary>
+                <div class="panel panel-width-thin" id="details-content-0" aria-hidden="true">
+<p>The ‘remaining transfer allowance’ table shows a projection of your remaining transfer allowance and includes any actual training costs already committed for transfers. Your transfer allowance is re-calculated every tax year and will be available to use from May of each year.</p>
+<p> The ‘apprenticeships added’ table shows the details of apprenticeships you’ve added to your estimate.</p>
+                </div>
+            </details>
+            
+
+<div class="info-highlighted">
+                        <h3 class="heading-medium">Disclaimer</h3>
+                        <p>This tool is designed to illustrate what your funds may look like based on the apprenticeships currently in your apprenticeship service account and the funding band maximum for the estimated apprenticeships you have added, using this estimator.</p>
+                        <p> The actual amount of funds available is likely to vary if there are any changes made to your apprenticeship arrangements, including, for example, changes in the number of apprentices employed, or the cost and duration of their training. </p>
+                        <p>You should therefore not rely solely on the information provided by this tool when making decisions about the transfer of funds.</p>
+    
+    
+  
+
+
+    
+                    </div>        
+    
+        </div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+
+
+</main><!-- / #content -->
+{% endblock %}
