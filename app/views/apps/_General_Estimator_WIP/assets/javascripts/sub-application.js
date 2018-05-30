@@ -216,6 +216,7 @@ content += '<tr><td>' + data.committed_apprenticeships.elements[i].apprenticeshi
     function estimateAddApprenticeship(){
 
         
+        $("#standardNew").chosen();
         
         $(".money-mask").mask("999,999,999",{reverse: true});
         
@@ -244,8 +245,6 @@ content += '<tr><td>' + data.committed_apprenticeships.elements[i].apprenticeshi
         
         $( "#cohortsNew" ).change(function() {
         var appCount = $(this).val();
-            console.log(appCount);
-            console.log(estimatePrice);
             appTotalValue = appCount*estimatePrice;
             appTotalValue = numberWithCommas(appTotalValue);
             estimatePrice = numberWithCommas(estimatePrice);
@@ -397,14 +396,16 @@ content += '<tr><td>' + data.committed_apprenticeships.elements[i].apprenticeshi
            $("html, body").animate({ scrollTop: 0 }, "slow");
        }    else {     
                localStorage.setItem("transferForecastState","populated");      
-               window.location.href = 'index'
+               window.location.href = 'details'
        }
        
        
    });     
         
-
+        
     }
+    
+ 
     // Main forecastin page
     function forecastDetails() {   
         
