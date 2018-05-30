@@ -64,7 +64,7 @@ var scenario =  getQueryVariable("scenario");
             var content = "";
             //var pos = "";
             for (i = 0; i < data.committed_apprenticeships.elements.length; i++) {   
-content += '<tr><td>' + data.committed_apprenticeships.elements[i].apprenticeship + '<span class="form-hint">Level '+ data.committed_apprenticeships.elements[i].level +'</span></td><td>' + data.committed_apprenticeships.elements[i].number +'</td><td>' + data.committed_apprenticeships.elements[i].total_cost +'</td><td>' + data.committed_apprenticeships.elements[i].training_provider + '</td><td>' + data.committed_apprenticeships.elements[i].status + '</td><td></tr>';
+content += '<tr><td>' + data.committed_apprenticeships.elements[i].apprenticeship + '<span class="form-hint">Level '+ data.committed_apprenticeships.elements[i].level +'</span></td><td>' + data.committed_apprenticeships.elements[i].number +'</td><td>' + data.committed_apprenticeships.elements[i].total_cost +'</td><td>' + data.committed_apprenticeships.elements[i].training_provider + '</td></tr>';
               
             }
             renderTableApprentice(content);  
@@ -81,7 +81,7 @@ content += '<tr><td>' + data.committed_apprenticeships.elements[i].apprenticeshi
             var content = "";
             //var pos = "";
             for (i = 0; i < data.month_apprenticeship.elements.length; i++) {   
-                    content += '<tr><td>' + data.committed_transfers.elements[i].apprenticeship + '<span class="form-hint">Level '+ data.committed_transfers.elements[i].level +'</span></td><td>' + data.committed_apprenticeships.elements[i].number +'</td><td>' + data.committed_transfers.elements[i].total_cost + '</td><td>' + data.committed_transfers.elements[i].employer_name + '</td><td>'+ data.committed_transfers.elements[i].status +'</td></tr>';
+                    content += '<tr><td>' + data.committed_transfers.elements[i].apprenticeship + '<span class="form-hint">Level '+ data.committed_transfers.elements[i].level +'</span></td><td>' + data.committed_apprenticeships.elements[i].number +'</td><td>' + data.committed_transfers.elements[i].total_cost + '</td><td>' + data.committed_transfers.elements[i].employer_name + '</td></tr>';
               
             }
             renderTableApprenticeship(content);  
