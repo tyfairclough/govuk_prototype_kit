@@ -40,11 +40,14 @@ var scenario =  getQueryVariable("scenario");
 }
     
     
+    
     function estimatorDetails(){
+        
+        $(".error-summary,.success-summary").hide();
         
         
  // LOADS APPRENTICE TAB
-        var googleDoc = 'https://docs.google.com/spreadsheets/d/1afu8dhRTEX3_MWNWaHoUPlAGPxmXGduqmpfrx__0RpI/pubhtml';
+        var googleDoc = 'https://docs.google.com/spreadsheets/d/1NB4HFm_fEWUM8UIHPYG-JZ7YngIt8LjF7eoFWmGSuj4/pubhtml';
         function googleTables() {
             Tabletop.init({
                 key: googleDoc,
@@ -55,62 +58,108 @@ var scenario =  getQueryVariable("scenario");
 
 
         function showInfoA(data, tabletop) {
-            loadArrayApprentice(data);
-            loadArrayApprenticeship(data);
+            loadArrayTransfers(data);
+            loadArrayFunds(data);
+            loadArrayApprenticeships(data);
         }
         
         
-        function loadArrayApprentice(data) {
+        ///
+        /// Transfer allowance remaining
+        ///
+        
+        
+        function loadArrayTransfers(data) {
             var content = "";
             //var pos = "";
-            for (i = 0; i < data.committed_apprenticeships.elements.length; i++) {   
-content += '<tr><td>' + data.committed_apprenticeships.elements[i].apprenticeship + '<span class="form-hint">Level '+ data.committed_apprenticeships.elements[i].level +'</span></td><td>' + data.committed_apprenticeships.elements[i].number +'</td><td>' + data.committed_apprenticeships.elements[i].total_cost +'</td><td>' + data.committed_apprenticeships.elements[i].training_provider + '</td></tr>';
-              
-            }
-            renderTableApprentice(content);  
+            for (i = 0; i < data.transfers.elements.length; i++) {                   
+                if ($.inArray(i,[0,14,27,41]) > -1 ) {
+                    content += '<tr><td colspan="8">'+ data.transfers.elements[i].date +'</td></tr>';
+
+                }   else {
+                            content += '<tr>';
+                            content += '<td>' + data.transfers.elements[i].date + '</td>';
+                            content += '<td>' + data.transfers.elements[i].actual +'</td>';
+                            content += '<td>' + data.transfers.elements[i].estimated + '</td>';
+                            content += '<td>' + data.transfers.elements[i].balance + '</td>';
+                            content += '</tr>';
+                            }                
+                
+                    }
+            renderTableTransfers(content);  
         }
         
-        function renderTableApprentice(content) {
-            $(document).ready(function () {
-                $("#tab-1 tbody").html(content);
-            });
-        }
-        
-        
-        function loadArrayApprenticeship(data) {
-            var content = "";
-            //var pos = "";
-            for (i = 0; i < data.month_apprenticeship.elements.length; i++) {   
-                    content += '<tr><td>' + data.committed_transfers.elements[i].apprenticeship + '<span class="form-hint">Level '+ data.committed_transfers.elements[i].level +'</span></td><td>' + data.committed_apprenticeships.elements[i].number +'</td><td>' + data.committed_transfers.elements[i].total_cost + '</td><td>' + data.committed_transfers.elements[i].employer_name + '</td></tr>';
-              
-            }
-            renderTableApprenticeship(content);  
-        }
-        
-        function renderTableApprenticeship(content) {
+        function renderTableTransfers(content) {
             $(document).ready(function () {
                 $("#tab-2 tbody").html(content);
             });
         }
         
         
+        ///
+        /// Apprenticeships Added
+        ///
         
         
-        function loadArrayProvider(data) {
+        function loadArrayApprenticeships(data) {
             var content = "";
             //var pos = "";
-            for (i = 0; i < data.month_provider.elements.length; i++) {   
-                    content += '<tr><td>' + data.month_provider.elements[i].provider + '</td><td>' + data.month_provider.elements[i].amount + '</td><td class="highlight">' + data.month_provider.elements[i].coinvestment + '</td><td>' + data.month_provider.elements[i].type + '</td></tr>';
+            for (i = 0; i < data.apprenticeships.elements.length; i++) {   
+                content += '<tr>';
+                content += '<td>' + data.apprenticeships.elements[i].apprenticeship + '<span class="form-hint">'+ data.apprenticeships.elements[i].level +'</span></td>';
+                content += '<td>' + data.apprenticeships.elements[i].number +'</td>';
+                content += '<td>' + data.apprenticeships.elements[i].start_date + '</td>';
+                content += '<td>' + data.apprenticeships.elements[i].total_cost + '</td>';
+                content += '<td>' + data.apprenticeships.elements[i].monthly + '</td>';
+                content += '<td>' + data.apprenticeships.elements[i].x_payments + '</td>';
+                content += '<td>' + data.apprenticeships.elements[i].completion + '</td>';
+                //content += '<td>' + data.apprenticeships.elements[i].type + '</td>';
+                content += '<td><a href="add-apprenticeships.html">Edit</a></td>';
+                content += '<td><a href="add-apprenticeships.html">Remove</a></td>';
+                content += '</tr>';
               
             }
-            renderTableProvider(content);  
+            renderTableApprenticeships(content);  
         }
         
-        function renderTableProvider(content) {
+        function renderTableApprenticeships(content) {
             $(document).ready(function () {
-                $("#provider tbody").html(content);
+                $("#tab-1 tbody").html(content);
             });
         }
+        
+        ///
+        /// ACCOUNT FUNDS
+        ///
+        
+        
+        function loadArrayFunds(data) {
+            var content = "";
+            //var pos = "";
+            for (i = 0; i < data.funds.elements.length; i++) {   
+                
+                if ($.inArray(i,[0,14,27,41]) > -1 ) {
+                    content += '<tr><td colspan="8">'+ data.funds.elements[i].date +'</td></tr>';
+
+                }   else {
+                            content += '<tr>';
+                            content += '<td>' + data.funds.elements[i].date + '</td>';
+                            content += '<td>' + data.funds.elements[i].actual +'</td>';
+                            content += '<td>' + data.funds.elements[i].estimated + '</td>';
+                            content += '<td>' + data.funds.elements[i].balance + '</td>';
+                            content += '</tr>';
+                            }                
+                
+                    }                
+            renderTableFunds(content);  
+        }
+        
+        function renderTableFunds(content) {
+            $(document).ready(function () {
+                $("#tab-3 tbody").html(content);
+            });
+        }
+        
         
         
         
@@ -216,6 +265,7 @@ content += '<tr><td>' + data.committed_apprenticeships.elements[i].apprenticeshi
     function estimateAddApprenticeship(){
 
         
+        $("#standardNew").chosen();
         
         $(".money-mask").mask("999,999,999",{reverse: true});
         
@@ -244,8 +294,6 @@ content += '<tr><td>' + data.committed_apprenticeships.elements[i].apprenticeshi
         
         $( "#cohortsNew" ).change(function() {
         var appCount = $(this).val();
-            console.log(appCount);
-            console.log(estimatePrice);
             appTotalValue = appCount*estimatePrice;
             appTotalValue = numberWithCommas(appTotalValue);
             estimatePrice = numberWithCommas(estimatePrice);
@@ -397,14 +445,16 @@ content += '<tr><td>' + data.committed_apprenticeships.elements[i].apprenticeshi
            $("html, body").animate({ scrollTop: 0 }, "slow");
        }    else {     
                localStorage.setItem("transferForecastState","populated");      
-               window.location.href = 'index'
+               window.location.href = '../transfers/details'
        }
        
        
    });     
         
-
+        
     }
+    
+ 
     // Main forecastin page
     function forecastDetails() {   
         
@@ -455,7 +505,7 @@ content += '<tr><td>' + data.committed_apprenticeships.elements[i].apprenticeshi
                         } else {
                     content += '<a href="details?month='+ data.transfer.elements[i].date +'">' + data.transfer.elements[i].date + '</a>';                        
                         }
-                    content += '</td><td class="numeric">' + data.transfer.elements[i].actual_costs + '</td><td class="numeric">' + data.transfer.elements[i].completion_payments + '</td><td class="numeric">' + data.transfer.elements[i].modelled_costs + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].expired_funds + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].funds_in + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].transfer_balance + '</td><td class="numeric">' + data.transfer.elements[i].levy_balance + '</td><td class="highlight numeric' + redClass + '">' + data.transfer.elements[i].coinvestment_due + '</td></tr>';
+                    content += '</td><td class="numeric">' + data.transfer.elements[i].actual_costs + '</td><td class="numeric">' + data.transfer.elements[i].completion_payments + '</td><td class="numeric" style="display:none;">' + data.transfer.elements[i].modelled_costs + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].expired_funds + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].funds_in + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].transfer_balance + '</td><td class="numeric">' + data.transfer.elements[i].levy_balance + '</td><td class="highlight numeric' + redClass + '">' + data.transfer.elements[i].coinvestment_due + '</td></tr>';
                 }
                 
                 

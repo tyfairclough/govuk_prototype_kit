@@ -1802,15 +1802,9 @@ li.added + li {
             padding: 10px;
             display: block;
             font-weight: 900;
-            i {
-            visibility: visible;                
-            }
         }
         &:hover {
             cursor: pointer;
-            span i {
-                visibility: visible;
-            }
         }
     }
 
