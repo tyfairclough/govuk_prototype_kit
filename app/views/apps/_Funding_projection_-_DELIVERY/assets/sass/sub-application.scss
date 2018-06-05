@@ -3802,3 +3802,74 @@ table.small {
         }
     }
 }
+
+.indent {
+    padding-left: 25px;
+}
+
+
+.data .help {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    i {
+        color: $white;
+    }
+}
+
+
+
+.tippy-tooltip.honeybee-theme, .tippy-tooltip {
+    /* Your styling here. Example: */
+    background-color: $govuk-blue;
+    color: $white;
+    padding: 30px;
+    outline: 5px solid $focus-colour;
+    border-radius: 0;
+    box-shadow: 0px 0px 50px -10px $black;
+    p {
+        color: $white;
+        text-align: left;
+        font-weight: 400;
+        font-size: 19px !important;
+    }
+    
+}
+
+.tippy-tooltip.honeybee-theme .tippy-backdrop {
+  /* Your styling here. Example: */
+  background-color: yellow;
+}
+
+.tippy-popper[x-placement^=top] .tippy-tooltip.honeybee-theme .tippy-arrow {
+  /* Your styling here. */
+  color: $govuk-blue;
+    border-top-color: $govuk-blue;
+}
+.tippy-popper[x-placement^=bottom] .tippy-tooltip.honeybee-theme .tippy-arrow {
+  /* Your styling here. */
+  color: $govuk-blue;
+    border-bottom-color: $govuk-blue;
+}
+
+.tippy-tooltip.honeybee-theme .tippy-content {
+  /* Your styling here. Example: */
+}
+
+.tippy-tooltip[data-size=large] {
+    font-size: 19px;
+}
+
+#monthly {
+    tr:nth-child(2),tr:nth-child(16),tr:nth-child(31),tr:nth-child(46) {
+        td {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+    tr:nth-child(3),tr:nth-child(17),tr:nth-child(32),tr:nth-child(47) {
+        td {
+            padding-top: 0;
+        }
+    }
+}

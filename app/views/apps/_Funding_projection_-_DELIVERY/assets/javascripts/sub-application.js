@@ -10,9 +10,6 @@ var className = $("main").attr('class');
 
 
    switch (className) {
-       case 'forecastIndexWide':
-           forecastIndexWide();
-           break;
        case 'forecast-index':
            forecastIndex();
            break;
@@ -130,228 +127,162 @@ var className = $("main").attr('class');
     }
     
 
-function financeTransactions(){
-    
-var from_$input = $('#input_from').pickadate(),
-    from_picker = from_$input.pickadate('picker')
-
-var to_$input = $('#input_to').pickadate(),
-    to_picker = to_$input.pickadate('picker')
-
-
-// Check if there’s a “from” or “to” date to start with.
-if ( from_picker.get('value') ) {
-  to_picker.set('min', from_picker.get('select'))
-}
-if ( to_picker.get('value') ) {
-  from_picker.set('max', to_picker.get('select'))
-}
-
-// When something is selected, update the “from” and “to” limits.
-from_picker.on('set', function(event) {
-  if ( event.select ) {
-    to_picker.set('min', from_picker.get('select'))    
-  }
-  else if ( 'clear' in event ) {
-    to_picker.set('min', false)
-  }
-})
-to_picker.on('set', function(event) {
-  if ( event.select ) {
-    from_picker.set('max', to_picker.get('select'))
-  }
-  else if ( 'clear' in event ) {
-    from_picker.set('max', false)
-  }
-})
-
- 
-$('tr').click(function () {
-    $(this).next('tr').toggle();
-});
-    
-}
-
-    
-
-
-    
-function forecastIndex(){
-var d3locale = d3.locale({
-    "decimal": ",",
-    "thousands": "\u00A0",
-    "grouping": [3],
-    "currency": ["", " руб."],
-    "dateTime": "%A, %e %B %Y г. %X",
-    "date": "%d.%m.%Y",
-    "time": "%H:%M:%S",
-    "periods": ["AM", "PM"],
-    "days": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
-    "shortDays": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
-    "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-    "shortMonths": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-});
-    
-    
-        var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
-       
-    
- 
-$(".showMore").click(function() {
-  var tr = $(this).parent().parent().nextAll(':lt(2)');
-     $(this).toggleClass('fa-angle-double-right fa-angle-double-down')
-  if (tr.is(".hidden")) {
-    tr.removeClass('hidden');
-      console.log($(this));
-  } else {
-    tr.addClass('hidden');
-  }
-})   
-}    
-    
-
-    
-  var publicSpreadsheetUrl1 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/17RuG5qIxg8K1wLlOdiM2OnUMkFvJTuxYdtg296Wr178/pubhtml';
-  var publicSpreadsheetUrl2 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/11SNfKERHoGtqeql9IChpabPG3cqOPi__dIztHuNPi7Q/pubhtml';
-var publicSpreadsheetUrl3 = 'https://docs.google.com/a/digi2al.co.uk/spreadsheets/d/1i11yg9he8rPSuUnJLpNuE2Z6O-UdokwhPSuGpFYzqLE/pubhtml';
-
-  function init() {
-    Tabletop.init( { key: publicSpreadsheetUrl1,
-                     callback: showInfo,
-                     simpleSheet: true } )
-  }
-    
-  function appz() {
-    Tabletop.init( { key: publicSpreadsheetUrl2,
-                     callback: showInfo2,
-                     simpleSheet: true } )
-  }
-    
-    function byApprenticeship() {
-    Tabletop.init( { key: publicSpreadsheetUrl3,
-                     callback: showInfo3,
-                     simpleSheet: true } )
-  }
-
-
-    function showInfo(data, tabletop) {
-      loadArray(data);
-  }
-
-  function showInfo2(data2, tabletop2) {
-      loadArray2(data2);
-  }  
-  function showInfo3(data3, tabletop3) {
-      loadArray3(data3);
-  }    
- 
-    
-                $(document).ready(function () {
-                    init();
-                    appz();
-                    byApprenticeship();
-                });
-    
-    function loadArray(data){
-        var content = "";
-        var pos = "";
-        //+data[i].Points+
-       for (i = 0; i < data.length; i++) {
-             //console.log(i)
-           pos = i + 1;
-content += '<tr><td class="nowrap">'+data[i].Date+'</td><td class="financial">'+data[i].Monthly+'</td><td class="financial">'+data[i].Completion+'</td><td class="financial">'+data[i].Levy+'</td><td class="financial">'+data[i].Balance+'</td></tr>';
-           renderTable(content);
-            }
-        }     
-
-     
-    
-    
-    function loadArray2(data2){
-        var content2 = "";
-        var pos = "";
-        //+data[i].Points+
-       for (i = 0; i < data2.length; i++) {
-             //console.log(i)
-           
-           var min = 10000000;
-           var max = 99999999;
-           var num = Math.floor(Math.random() * (max - min + 1)) + min;
-           pos = i + 1;      
-           content2 += '<tr><td>'+data2[i].Apprenitce+'</td><td>'+num+'</td><td>'+data2[i].Start+'</td><td>£'+data2[i].Monthly+'</td><td>'+data2[i].Total+'</td><td>£'+data2[i].Completion+'</td></tr>'      
-            }
-           renderTable2(content2);        
-        }
-    
-    
-    function loadArray3(data3){
-        var content3 = "";
-        var pos = "";
-        //+data[i].Points+
-       for (i = 0; i < data3.length; i++) {
-             //console.log(i)
-           pos = i + 1;      
-           content3 += '<tr><td class="no-wrap">'+data3[i].apprenticeship+' <span class="form-hint">level '+data3[i].level+'</span></td><td>'+data3[i].trainingProvider+'</td></td><td>'+data3[i].numberOfApprentices+'</td></td><td>'+data3[i].startDate+'</td><td>£'+data3[i].costPerApprenticeship+'</td><td>'+data3[i].numberOfMonthlyPayments+'</td><td>£'+data3[i].monthlyPayment+'</td><td>£'+data3[i].completionPayment+'</td></tr>'      
-           renderTable3(content3);
-            }
-        }     
-    
-    
+    // Main forecastin page
+    function forecastIndex() {   
         
-        function renderTable(content){
+
+        
+        $(".error-summary, .success-summary").hide();
+    
+        //var googleDoc = 'https://docs.google.com/spreadsheets/d/1afu8dhRTEX3_MWNWaHoUPlAGPxmXGduqmpfrx__0RpI/pubhtml';
+        var googleDoc = 'https://docs.google.com/spreadsheets/d/1CXohBTQMprVkS9IabopQyWDdgKrmTnlzARZLmH2kcJ0/pubhtml';
+
+        
+        function googleTables() {
+            Tabletop.init({
+                key: googleDoc,
+                callback: showInfoA,
+                simpleSheet: false
+            })
+        }
+
+        function showInfoA(data, tabletop) {
+            loadArrayA(data);
+        }
+
+        function loadArrayA(data) {
+            var content = "";
+            var footerContent = "";
+            //var pos = "";
+
+            for (i = 0; i < data.transfer.elements.length; i++) {
+
+
+                var transferCurrency = data.transfer.elements[i].transfer_balance;
+                var transferFunds = Number(transferCurrency.replace(/[^0-9\.-]+/g, ""));
+                if (transferFunds < 0) {
+                    var redClass = "error-message";
+                    var redRow = "error-row";
+                } else {
+                    var redClass = "";
+                    var redRow = "";
+                }
+                
+                
+                if ($.inArray(i,[0,14,29,44]) > -1 ) {
+                    content += '<tr><td colspan="8">'+ data.transfer.elements[i].date +'</td></tr>';
+
+                }   else {
+                    content += '<tr class="' + redRow + '"><td>';
+                    //console.log(data.transfer.elements[i].date);
+                    if ( data.transfer.elements[i].date == '<span class="bold-xsmall">Date</span>' ) {
+                    content += data.transfer.elements[i].date;                        
+                        } else {
+                    content += '<a href="details?month='+ data.transfer.elements[i].date +'">' + data.transfer.elements[i].date + '</a>';                        
+                        }
+                    content += '</td><td class="numeric">' + data.transfer.elements[i].actual_costs + '</td><td class="numeric">' + data.transfer.elements[i].completion_payments + '</td><td class="numeric" style="display:none;">' + data.transfer.elements[i].modelled_costs + '</td><td class="' + redClass + ' numeric hidden">' + data.transfer.elements[i].expired_funds + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].funds_in + '</td><td class="' + redClass + ' numeric hidden">' + data.transfer.elements[i].transfer_balance + '</td><td class="numeric">' + data.transfer.elements[i].levy_balance + '</td><td class="hidden highlight numeric' + redClass + '">' + data.transfer.elements[i].coinvestment_due + '</td></tr>';
+                }
+                
+                
+                //pos = i + 1;                
+            }
+            renderTableA(content);                    
+            content = "";
+            footerContent = "";
+
+            for (i = 0; i < data.estimated.elements.length; i++) {
+
+                if ((i + 1) == data.estimated.elements.length) {
+                    footerContent += '<tr class="total"><td data-label="Totals" class="total">Total</td><td class="total numeric" data-label="Number of apprentices"><span class="bold-xsmall">' + data.estimated.elements[i].number_of_apprentices + '</span></td><td class="total">&nbsp;</td><td data-label="Total amount" class="total numeric">' + data.estimated.elements[i].total_cost + '</td><td class="total numeric" data-label="Monthly payment"><span class="bold-xsmall">' + data.estimated.elements[i].monthly_payment + '</span><span class="form-hint">' + data.estimated.elements[i].completion_payment + '</span></td><td class="total numeric">' + data.estimated.elements[i].number_of_monthly_payments + '</td></td><td class="total">&nbsp;</td><td class="total">&nbsp;</td></tr>';
+                } else {
+                    pos = i + 1;
+                    content += '<tr><td>' + data.estimated.elements[i].apprenticeship + '<span class="form-hint">level ' + data.estimated.elements[i].apprenticeship_level + '</span></td><td data-label="Number of apprentices" class="numeric">' + data.estimated.elements[i].number_of_apprentices + '</td><td data-label="Start date">' + data.estimated.elements[i].start_date + '</td><td class="numeric" data-label="Total amount">' + data.estimated.elements[i].total_cost + '</td><td class="numeric" data-label="Monthly payment">' + data.estimated.elements[i].monthly_payment + '<span class="form-hint">'+ data.estimated.elements[i].completion_payment +'</span></td><td  class="numeric" data-label="Number of monthly payments">' + data.estimated.elements[i].number_of_monthly_payments + '</td><td>' + data.estimated.elements[i].transfer + '</td><td><a href="add-apprenticeship?edit=1&apprenticeship='+data.estimated.elements[i].apprenticeship+'&number='+data.estimated.elements[i].number_of_apprentices+'&start='+data.estimated.elements[i].start_date+'&duration='+data.estimated.elements[i].number_of_monthly_payments+'&cost='+data.estimated.elements[i].monthly_payment+'&status='+data.estimated.elements[i].transfer+'">Edit</a></td><td><a href="#">Remove</a></td><td></td></tr>';
+                }
+            }
+
+            renderTableB(content, footerContent);
+            content = "";
+            footerContent = "";
+            
+            
+            for (i = 0; i < data.committed.elements.length; i++) {
+
+                if ((i + 1) == data.committed.elements.length) {
+                    footerContent += '<tr class="total"><td data-label="Totals" class="total">Total</td><td class="total" data-label="Number of apprentices"><span class="bold-xsmall">' + data.committed.elements[i].number_of_apprentices + '</span></td><td class="total">&nbsp;</td><td data-label="Total amount" class="total">' + data.committed.elements[i].total_cost + '</td><td class="total" data-label="Monthly payment"><span class="bold-xsmall">' + data.committed.elements[i].monthly_payment + '</span></td><td class="total">' + data.committed.elements[i].number_of_monthly_payments + '</td><td class="total" data-label="Completion payment"><span class="bold-xsmall">' + data.committed.elements[i].completion_payment + '</span></td><td class="total">&nbsp;</td><td class="total">&nbsp;</td></tr>';
+                } else {
+                    pos = i + 1;
+                    content += '<tr><td>' + data.committed.elements[i].apprenticeship + '<span class="form-hint">level ' + data.committed.elements[i].apprenticeship_level + '</span></td><td data-label="Number of apprentices">' + data.committed.elements[i].number_of_apprentices + '</td><td data-label="Start date">' + data.committed.elements[i].start_date + '</td><td data-label="Total amount">' + data.committed.elements[i].total_cost + '</td><td data-label="Monthly payment">' + data.committed.elements[i].monthly_payment + '</td><td data-label="Number of monthly payments">' + data.committed.elements[i].number_of_monthly_payments + '</td><td data-label="Completion payment">' + data.committed.elements[i].completion_payment + '</td><td>' + data.committed.elements[i].transfer + '</td><td><a href="add-apprenticeship?edit=1&apprenticeship='+data.committed.elements[i].apprenticeship+'&number='+data.committed.elements[i].number_of_apprentices+'&start='+data.committed.elements[i].start_date+'&duration='+data.committed.elements[i].number_of_monthly_payments+'&cost='+data.committed.elements[i].monthly_payment+'&status='+data.committed.elements[i].transfer+'">Edit</a></td><td><a href="#">Remove</a></td><td></td></tr>';
+                }
+            }
+
+            renderTableC(content, footerContent);
+            content = "";
+            footerContent = "";
+        }
+
+
+
+        function renderTableA(content) {
             $(document).ready(function () {
-                $("#balancesheet tbody").html(content);
+                $("#monthly tbody").html(content);
+                //paginateBalancesheet();
+                
+tippy('.tippy',{
+    arrow: true,
+    allowTitleHTML: true,
+    size: 'large',
+    duration: 0,
+    offset: '0,10',
+    theme: 'honeybee'
+})
+             FixTippy();   
+            });
+        }
+        
+        
+        
+
+        function renderTableB(content, footerContent) {
+            $(document).ready(function () {
+                $("#estimated tbody").html(content);
+                $("#estimated tfoot").html(footerContent);
                 //paginateBalancesheet();
             });
-        }       
-    
-        function renderTable2(content2){
-            $(document).ready(function () {
-                $("#byApprentice table tbody").html(content2);
-                //paginateByApprentice();
-                
-            });
         }
-          function renderTable3(content3){
+        
+        function renderTableC(content,footerContent) {
             $(document).ready(function () {
-                $("#byApprenticeship table tbody").html(content3);
-                paginateByApprenticeship();
+                $("#committed tbody").html(content);
+                $("#committed tfoot").html(footerContent);
+                //paginateBalancesheet();
             });
+        }        
+
+
+        
+        
+    googleTables();
+  
+        
+        function FixTippy(){
+                    $("table a.tippy").click(function(e){
+           e.preventDefault(); 
+        });
         }
-    
-    function paginateByApprentice(){
-                        $('#byApprentice table').paginate({
-                          limit: 10, 
-                          previousText: 'Previous',
-                            nextText: 'Next',
-                            first: false,
-                            last: false,
-                            optional: true,
-                        });
-    }    
-    
-    function paginateByApprenticeship(){
-                        $('#byApprenticeship table').paginate({
-                          limit: 10, 
-                          previousText: 'Previous',
-                            nextText: 'Next',
-                            first: false,
-                            last: false,
-                            optional: true,
-                        });
-    }
-    function paginateBalancesheet(){
-                        $('#balancesheet').paginate({
-                          limit: 12, 
-                          previousText: 'Previous',
-                            nextText: 'Next',
-                            first: false,
-                            last: false,
-                            optional: true,
-                        });
+  
+                $(document).ready(function () {
+                //    init();
+                //    appz();
+                //    byApprenticeship();
+                });        
+
     }
 
+
+
+    
+
+    
 // global js
     
     
