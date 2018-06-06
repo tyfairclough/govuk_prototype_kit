@@ -169,7 +169,7 @@ var className = $("main").attr('class');
                 }
                 
                 
-                if ($.inArray(i,[0,14,29,44]) > -1 ) {
+                if ($.inArray(i,[0,13,28,43]) > -1 ) {
                     content += '<tr><td colspan="8">'+ data.transfer.elements[i].date +'</td></tr>';
 
                 }   else {
@@ -180,7 +180,7 @@ var className = $("main").attr('class');
                         } else {
                     content += '<a href="details?month='+ data.transfer.elements[i].date +'">' + data.transfer.elements[i].date + '</a>';                        
                         }
-                    content += '</td><td class="numeric">' + data.transfer.elements[i].actual_costs + '</td><td class="numeric">' + data.transfer.elements[i].completion_payments + '</td><td class="numeric" style="display:none;">' + data.transfer.elements[i].modelled_costs + '</td><td class="' + redClass + ' numeric hidden">' + data.transfer.elements[i].expired_funds + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].funds_in + '</td><td class="' + redClass + ' numeric hidden">' + data.transfer.elements[i].transfer_balance + '</td><td class="numeric">' + data.transfer.elements[i].levy_balance + '</td><td class="hidden highlight numeric' + redClass + '">' + data.transfer.elements[i].coinvestment_due + '</td></tr>';
+                    content += '</td><td class="numeric">' + data.transfer.elements[i].actual_costs + '</td><td class="numeric">' + data.transfer.elements[i].completion_payments + '</td><td class="numeric" style="display:none;">' + data.transfer.elements[i].modelled_costs + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].expired_funds + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].funds_in + '</td><td class="' + redClass + ' numeric hidden">' + data.transfer.elements[i].transfer_balance + '</td><td class="numeric">' + data.transfer.elements[i].levy_balance + '</td><td class="hidden highlight numeric' + redClass + '">' + data.transfer.elements[i].coinvestment_due + '</td></tr>';
                 }
                 
                 
