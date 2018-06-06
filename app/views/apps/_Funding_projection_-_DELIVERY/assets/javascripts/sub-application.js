@@ -178,7 +178,8 @@ var className = $("main").attr('class');
                     if ( data.transfer.elements[i].date == '<span class="bold-xsmall">Date</span>' ) {
                     content += data.transfer.elements[i].date;                        
                         } else {
-                    content += '<a href="details?month='+ data.transfer.elements[i].date +'">' + data.transfer.elements[i].date + '</a>';                        
+                    //content += '<a href="details?month='+ data.transfer.elements[i].date +'">' + data.transfer.elements[i].date + '</a>';                        
+                    content += data.transfer.elements[i].date;                        
                         }
                     content += '</td><td class="numeric">' + data.transfer.elements[i].actual_costs + '</td><td class="numeric">' + data.transfer.elements[i].completion_payments + '</td><td class="numeric" style="display:none;">' + data.transfer.elements[i].modelled_costs + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].expired_funds + '</td><td class="' + redClass + ' numeric">' + data.transfer.elements[i].funds_in + '</td><td class="' + redClass + ' numeric hidden">' + data.transfer.elements[i].transfer_balance + '</td><td class="numeric">' + data.transfer.elements[i].levy_balance + '</td><td class="hidden highlight numeric' + redClass + '">' + data.transfer.elements[i].coinvestment_due + '</td></tr>';
                 }
