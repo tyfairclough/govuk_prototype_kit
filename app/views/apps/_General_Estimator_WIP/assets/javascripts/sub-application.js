@@ -494,7 +494,7 @@ var scenario =  getQueryVariable("scenario");
                 }
                 
                 
-                if ($.inArray(i,[0,14,29,44]) > -1 ) {
+                if ($.inArray(i,[0,13,28,43]) > -1 ) {
                     content += '<tr><td colspan="8">'+ data.transfer.elements[i].date +'</td></tr>';
 
                 }   else {

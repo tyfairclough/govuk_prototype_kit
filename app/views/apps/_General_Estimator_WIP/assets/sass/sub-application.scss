@@ -4332,9 +4332,15 @@ ul.list.pill {
 
 
 #monthly {
-    tr:nth-child(2),tr:nth-child(16),tr:nth-child(31),tr:nth-child(46) {
+    tr:nth-child(2),tr:nth-child(15),tr:nth-child(30),tr:nth-child(45) {
         td {
             border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+    tr:nth-child(3),tr:nth-child(16),tr:nth-child(31),tr:nth-child(46) {
+        td {
+            padding-top: 0;
         }
     }
 }
