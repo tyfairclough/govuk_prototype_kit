@@ -47,7 +47,8 @@ var scenario =  getQueryVariable("scenario");
         
         
  // LOADS APPRENTICE TAB
-        var googleDoc = 'https://docs.google.com/spreadsheets/d/1NB4HFm_fEWUM8UIHPYG-JZ7YngIt8LjF7eoFWmGSuj4/pubhtml';
+        //var googleDoc = 'https://docs.google.com/spreadsheets/d/1NB4HFm_fEWUM8UIHPYG-JZ7YngIt8LjF7eoFWmGSuj4/pubhtml';
+        var googleDoc = 'https://docs.google.com/spreadsheets/d/1YlBPWGkRVZox5j3X18tYJb7-RgDi4NlOQ67celdIgFQ/pubhtml';
         function googleTables() {
             Tabletop.init({
                 key: googleDoc,
@@ -72,16 +73,16 @@ var scenario =  getQueryVariable("scenario");
         function loadArrayTransfers(data) {
             var content = "";
             //var pos = "";
-            for (i = 0; i < data.transfers.elements.length; i++) {                   
+            for (i = 0; i < data.estimate_transfer.elements.length; i++) {                   
                 if ($.inArray(i,[0,14,27,41]) > -1 ) {
-                    content += '<tr><td colspan="8">'+ data.transfers.elements[i].date +'</td></tr>';
+                    content += '<tr><td colspan="8">'+ data.estimate_transfer.elements[i].date +'</td></tr>';
 
                 }   else {
                             content += '<tr>';
-                            content += '<td>' + data.transfers.elements[i].date + '</td>';
-                            content += '<td>' + data.transfers.elements[i].actual +'</td>';
-                            content += '<td>' + data.transfers.elements[i].estimated + '</td>';
-                            content += '<td>' + data.transfers.elements[i].balance + '</td>';
+                            content += '<td>' + data.estimate_transfer.elements[i].date + '</td>';
+                            content += '<td>' + data.estimate_transfer.elements[i].actual +'</td>';
+                            content += '<td>' + data.estimate_transfer.elements[i].estimated + '</td>';
+                            content += '<td>' + data.estimate_transfer.elements[i].balance + '</td>';
                             content += '</tr>';
                             }                
                 
@@ -104,15 +105,16 @@ var scenario =  getQueryVariable("scenario");
         function loadArrayApprenticeships(data) {
             var content = "";
             //var pos = "";
-            for (i = 0; i < data.apprenticeships.elements.length; i++) {   
+            for (i = 0; i < data.apprentices.elements.length; i++) {   
                 content += '<tr>';
-                content += '<td>' + data.apprenticeships.elements[i].apprenticeship + '<span class="form-hint">'+ data.apprenticeships.elements[i].level +'</span></td>';
-                content += '<td>' + data.apprenticeships.elements[i].number +'</td>';
-                content += '<td>' + data.apprenticeships.elements[i].start_date + '</td>';
-                content += '<td>' + data.apprenticeships.elements[i].total_cost + '</td>';
-                content += '<td>' + data.apprenticeships.elements[i].monthly + '</td>';
-                content += '<td>' + data.apprenticeships.elements[i].x_payments + '</td>';
-                content += '<td>' + data.apprenticeships.elements[i].completion + '</td>';
+                content += '<td>' + data.apprentices.elements[i].apprenticeship + '<span class="form-hint">'+ data.apprentices.elements[i].level +'</span></td>';
+                content += '<td>' + data.apprentices.elements[i].number +'</td>';
+                content += '<td>' + data.apprentices.elements[i].start_date + '</td>';
+                content += '<td>' + data.apprentices.elements[i].total_cost + '</td>';
+                content += '<td>' + data.apprentices.elements[i].monthly + '</td>';
+                content += '<td>' + data.apprentices.elements[i].x_payments + '</td>';
+                content += '<td>' + data.apprentices.elements[i].completion + '</td>';
+                content += '<td>' + data.apprentices.elements[i].type + '</td>';
                 //content += '<td>' + data.apprenticeships.elements[i].type + '</td>';
                 content += '<td><a href="add-apprenticeships.html">Edit</a></td>';
                 content += '<td><a href="add-apprenticeships.html">Remove</a></td>';
@@ -136,17 +138,17 @@ var scenario =  getQueryVariable("scenario");
         function loadArrayFunds(data) {
             var content = "";
             //var pos = "";
-            for (i = 0; i < data.funds.elements.length; i++) {   
+            for (i = 0; i < data.estimate_funds.elements.length; i++) {   
                 
                 if ($.inArray(i,[0,14,27,41]) > -1 ) {
-                    content += '<tr><td colspan="8">'+ data.funds.elements[i].date +'</td></tr>';
+                    content += '<tr><td colspan="8">'+ data.estimate_funds.elements[i].date +'</td></tr>';
 
                 }   else {
                             content += '<tr>';
-                            content += '<td>' + data.funds.elements[i].date + '</td>';
-                            content += '<td>' + data.funds.elements[i].actual +'</td>';
-                            content += '<td>' + data.funds.elements[i].estimated + '</td>';
-                            content += '<td>' + data.funds.elements[i].balance + '</td>';
+                            content += '<td>' + data.estimate_funds.elements[i].date + '</td>';
+                            content += '<td>' + data.estimate_funds.elements[i].actual +'</td>';
+                            content += '<td>' + data.estimate_funds.elements[i].estimated + '</td>';
+                            content += '<td>' + data.estimate_funds.elements[i].balance + '</td>';
                             content += '</tr>';
                             }                
                 
@@ -462,7 +464,7 @@ var scenario =  getQueryVariable("scenario");
         
         $(".error-summary, .success-summary").hide();
     
-        var googleDoc = 'https://docs.google.com/spreadsheets/d/1afu8dhRTEX3_MWNWaHoUPlAGPxmXGduqmpfrx__0RpI/pubhtml';
+        var googleDoc = 'https://docs.google.com/spreadsheets/d/1YlBPWGkRVZox5j3X18tYJb7-RgDi4NlOQ67celdIgFQ/pubhtml';
         function googleTables() {
             Tabletop.init({
                 key: googleDoc,
