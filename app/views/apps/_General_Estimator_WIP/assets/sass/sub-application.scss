@@ -4306,10 +4306,6 @@ ul.list.pill {
     
 }
 
-.tippy-tooltip.honeybee-theme .tippy-backdrop {
-  /* Your styling here. Example: */
-  background-color: yellow;
-}
 
 .tippy-popper[x-placement^=top] .tippy-tooltip.honeybee-theme .tippy-arrow {
   /* Your styling here. */
@@ -4322,9 +4318,6 @@ ul.list.pill {
     border-bottom-color: $govuk-blue;
 }
 
-.tippy-tooltip.honeybee-theme .tippy-content {
-  /* Your styling here. Example: */
-}
 
 .tippy-tooltip[data-size=large] {
     font-size: 19px;
