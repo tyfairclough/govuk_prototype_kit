@@ -24,7 +24,24 @@
     
     <div class="grid-row">
     <div class="column-two-thirds">
-        <div class="hgroup form-group">
+        
+<div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+
+      <h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+        Message to alert the user to a problem goes here
+      </h2>
+
+      <p>
+        Optional description of the errors and how to correct them
+      </p>
+
+      <ul class="error-summary-list">
+        <li><a href="#example-personal-details">Descriptive link to the question with an error</a></li>
+      </ul>
+
+    </div>        
+        
+        <div class="hgroup">
            <h1 class="heading-xlarge">Tell us if this estimation is for a transfer</h1>
             <p class="lede">If you’re using the tool to estimate how much you can transfer to another employer to pay for their apprenticeships you need to know that transfers can only be used for apprenticeship standards.</p>
             <p>The calculations in this tool are based on your current funds in your account and the <a href="https://www.gov.uk/guidance/transferring-apprenticeship-service-funds">transfer allowance</a> that you can use to transfer to another employer.</p>
@@ -38,6 +55,9 @@
                 <fieldset class="">
                             <div class="form-group">
                     <label class="form-label-bold" for="email">Are you using this estimation to see how many apprenticeships you could fund using a transfer?</label>
+                                <span class="error-message">
+              Error message about personal details goes here
+            </span>
 <div class="multiple-choice">
       <input id="radio-1" type="radio" name="radio-group" value="Yes">
       <label for="radio-1">Yes, it’s to estimate a transfer of funds</label>

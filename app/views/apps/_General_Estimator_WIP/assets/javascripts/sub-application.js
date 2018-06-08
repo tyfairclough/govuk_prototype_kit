@@ -45,9 +45,36 @@ var scenario =  getQueryVariable("scenario");
        case 'transfers-dashboard':
            transfersDashboard();
        break;
+       case 'estimator-question':
+           estimatorQuestion();
+       break;
        default: break;
 }
     
+    function estimatorQuestion(){
+
+        
+        $(".form-group").removeClass("form-group-error");
+        $("span.error-message, .error-summary").hide();
+        
+        $(".button").click(function(e){
+            e.preventDefault();
+                   
+            
+if(document.getElementById('radio-1').checked) {
+                window.location.href = '../forecasting/add-apprenticeship'            
+}else if(document.getElementById('radio-2').checked) {
+                window.location.href = '../forecasting/add-apprenticeship'            
+} else {
+    $(".form-group").addClass("form-group-error");
+        $("span.error-message, .error-summary").show();  
+    
+}            
+
+         
+            
+        })
+    }
     
     function transfersDashboard(){
                 localStorage.setItem("estimateRoute","no");
