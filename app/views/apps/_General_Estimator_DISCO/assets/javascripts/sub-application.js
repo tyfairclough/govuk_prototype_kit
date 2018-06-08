@@ -36,12 +36,15 @@ var scenario =  getQueryVariable("scenario");
        case 'estimator-details':
            estimatorDetails();
        break;
+       case 'estimatorDetailsEstimatorDetails':
+           estimatorDetailsEstimatorDetails();
+       break;
        default: break;
 }
     
     
     
-   /* function estimatorDetails(){
+    function estimatorDetailsEstimatorDetails(){
         
         $(".error-summary,.success-summary").hide();
         
@@ -171,7 +174,7 @@ var scenario =  getQueryVariable("scenario");
         
     }
 
-    */
+    
         
     function estimatorDetails(){
         
