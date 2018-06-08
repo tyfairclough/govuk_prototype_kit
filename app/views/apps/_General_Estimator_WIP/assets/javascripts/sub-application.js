@@ -36,15 +36,48 @@ var scenario =  getQueryVariable("scenario");
        case 'estimator-details':
            estimatorDetails();
        break;
+       case 'projection-details':
+           projectionDetails();
+       break;
+       case 'estimate-start-transfer':
+           estimateStartTransfer();
+       break;
+       case 'transfers-dashboard':
+           transfersDashboard();
+       break;
        default: break;
 }
     
     
+    function transfersDashboard(){
+                localStorage.setItem("estimateRoute","no");
+    }
     
-   /* function estimatorDetails(){
+    
+    function estimateStartTransfer(){
+        
+        state = localStorage.getItem("estimateRoute");
+
+        
+        $(".button").click(function(e){
+            e.preventDefault();
+            
+            if ( state == "ask" ) {
+                window.location.href = '../transfers/question'            
+            } else {
+                //window. skip question
+                window.location.href = '../forecasting/add-apprenticeship'            
+            }
+             
+        })
+    }
+    
+    
+    function estimatorDetails(){
         
         $(".error-summary,.success-summary").hide();
-        
+                        localStorage.setItem("estimateRoute","no");
+
         
  // LOADS APPRENTICE TAB
         //var googleDoc = 'https://docs.google.com/spreadsheets/d/1NB4HFm_fEWUM8UIHPYG-JZ7YngIt8LjF7eoFWmGSuj4/pubhtml';
@@ -171,9 +204,9 @@ var scenario =  getQueryVariable("scenario");
         
     }
 
-    */
+   
         
-    function estimatorDetails(){
+    function projectionDetails(){
         
         
  // LOADS APPRENTICE TAB
@@ -540,7 +573,10 @@ content += '<tr><td>' + data.committed_apprenticeships.elements[i].apprenticeshi
     
  
     // Main forecastin page
-    function forecastDetails() {   
+    function forecastDetails() {  
+        
+        
+        localStorage.setItem("estimateRoute","ask");
         
 
         
