@@ -62,9 +62,11 @@ var scenario =  getQueryVariable("scenario");
                    
             
 if(document.getElementById('radio-1').checked) {
-                window.location.href = '../forecasting/add-apprenticeship'            
+                    localStorage.setItem("estimateRoute","yes");
+                window.location.href = '../forecasting/add-apprenticeship'        
 }else if(document.getElementById('radio-2').checked) {
-                window.location.href = '../forecasting/add-apprenticeship'            
+                    localStorage.setItem("estimateRoute","no");
+                window.location.href = '../forecasting/add-apprenticeship'          
 } else {
     $(".form-group").addClass("form-group-error");
         $("span.error-message, .error-summary").show();  
@@ -77,7 +79,7 @@ if(document.getElementById('radio-1').checked) {
     }
     
     function transfersDashboard(){
-                localStorage.setItem("estimateRoute","no");
+                localStorage.setItem("estimateRoute","yes");
     }
     
     
@@ -101,9 +103,24 @@ if(document.getElementById('radio-1').checked) {
     
     
     function estimatorDetails(){
+
+        
+        function theQuestion(){
+                    
+        state = localStorage.getItem("estimateRoute");
+        
+        if ( state == "no" ) {
+            $(".tabs-menu li:nth-child(3)").hide()
+            $(".list li:nth-child(3)").hide()
+            $(".typeofapp").text("Account funds")
+            } else {
+            }
+        
+        }
+        
         
         $(".error-summary,.success-summary").hide();
-                        localStorage.setItem("estimateRoute","no");
+                        //localStorage.setItem("estimateRoute","no");
 
         
  // LOADS APPRENTICE TAB
@@ -174,7 +191,7 @@ if(document.getElementById('radio-1').checked) {
                 content += '<td>' + data.apprentices.elements[i].monthly + '</td>';
                 content += '<td>' + data.apprentices.elements[i].x_payments + '</td>';
                 content += '<td>' + data.apprentices.elements[i].completion + '</td>';
-                content += '<td>' + data.apprentices.elements[i].type + '</td>';
+                content += '<td class="typeofapp">' + data.apprentices.elements[i].type + '</td>';
                 //content += '<td>' + data.apprenticeships.elements[i].type + '</td>';
                 content += '<td><a href="add-apprenticeships.html">Edit</a></td>';
                 content += '<td><a href="add-apprenticeships.html">Remove</a></td>';
@@ -182,6 +199,7 @@ if(document.getElementById('radio-1').checked) {
               
             }
             renderTableApprenticeships(content);  
+            theQuestion();
         }
         
         function renderTableApprenticeships(content) {
