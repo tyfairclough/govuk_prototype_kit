@@ -119,7 +119,7 @@ if(document.getElementById('radio-1').checked) {
         }
         
         
-        $(".error-summary,.success-summary").hide();
+//        $(".error-summary,.success-summary").hide();
                         //localStorage.setItem("estimateRoute","no");
 
         
