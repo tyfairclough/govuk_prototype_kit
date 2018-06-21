@@ -4337,3 +4337,17 @@ ul.list.pill {
         }
     }
 }
+
+
+    .feedback-panel-1  { 
+        background: $govuk-blue;
+        color: $white;
+        padding: 20px;
+        margin-top:30px;        
+        
+        summary {
+            color: $white;
+            margin-bottom: 0;
+            width: 100%;
+        }
+    }
